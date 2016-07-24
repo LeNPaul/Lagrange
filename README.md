@@ -1,2 +1,2 @@
-# lagrange
-a minimalist Jekyll theme for running a personal blog on
+# Lagrange
+A minimalist Jekyll theme for running a personal blog.
