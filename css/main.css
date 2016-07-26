@@ -63,7 +63,11 @@ img {
 */
 
 .post {
+  margin-bottom: 4rem;
+}
 
+.posts {
+  margin-bottom: 4rem;
 }
 
 /*
@@ -84,3 +88,7 @@ img {
 /*
   Menu
 */
+
+.menu {
+
+}

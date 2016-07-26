@@ -2,13 +2,15 @@
 
 <body>
 
-  {% include menu.html %}
-
   <div class="container">
     {% include header.html %}
 
+    <!--{% include menu.html %}-->
+
     <div class="post">
-      {{ content }}
+      <div class="posts">
+        {{ content }}
+      </div>
     </div>
 
     {% include footer.html %}

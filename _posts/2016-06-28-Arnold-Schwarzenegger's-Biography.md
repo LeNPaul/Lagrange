@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Arnold Schwarzenegger Biography"
+title: "Arnold Schwarzenegger's Biography"
 categories: journal
 tags: [motivation]
 image:
