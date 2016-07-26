@@ -8,6 +8,10 @@ body {
   color: #666;
 }
 
+h1{
+  font-size: 2rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Quattrocento Sans", sans-serif;
   color: #333;
@@ -31,7 +35,7 @@ img {
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 50vw;
+  width: 45vw;
 }
 
 /*
@@ -43,7 +47,6 @@ img {
   padding-bottom: 0.5rem;
   margin-bottom: 3rem;
   font-family: "Quattrocento Sans", sans-serif;
-  font-size: 1rem;
 }
 
 .masthead-title a {
