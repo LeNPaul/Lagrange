@@ -73,9 +73,14 @@ img {
 .footer {
   color: #999;
   text-align: center;
+  margin: 2rem;
 }
 
 .footer a {
   color: #999;
   padding: 10px;
 }
+
+/*
+  Menu
+*/

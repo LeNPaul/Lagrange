@@ -6,7 +6,7 @@ title: Home
 {% for post in site.posts %}
 
   <h1>
-    {{ post.title }}
+    <a href="{{ post.url }}">{{ post.title }}</a>
   </h1>
 
   <img src="{{ site.url }}/images/{{ post.image.teaser }}">

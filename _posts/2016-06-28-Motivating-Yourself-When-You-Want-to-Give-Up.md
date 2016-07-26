@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Motivating Yourself When You Want to Give Up"
+title: "Arnold Schwarzenegger Biography"
 categories: journal
 tags: [motivation]
 image:
@@ -10,50 +10,24 @@ image:
   creditlink: "http://www.schwarzenegger.com/fitness"
 ---
 
-Not many people think of <a href="https://en.wikipedia.org/wiki/Arnold_Schwarzenegger">Arnold Schwarzenegger</a> when they think of inspiring people.
+This world-famous athlete and actor was born in Thal, Austria in 1947, and by the age of 20 was dominating the sport of competitive bodybuilding, becoming the youngest person ever to win the Mr. Universe title.
 
-Usually, his name brings up associations with big name movies like Conan the Barbarian, The Terminator, or Predator. Before that, he was one of the greatest bodybuilders in his time (he’s still considered the greatest of all time by many today). More recently, he was the Governor of California.
+By generating a new international audience for bodybuilding, Schwarzenegger turned himself into a sports icon. With his sights set on Hollywood, he emigrated to America in 1968 and went on to win five Mr. Universe titles and seven Mr. Olympia titles before retiring to dedicate himself to acting. Later, he would go on to earn a college degree from the University of Wisconsin and proudly became a U.S. citizen.
 
-Although Arnold Schwarzenegger has had a seemingly eclectic life, what all of these ventures had in common was that they all required hard work, discipline, determination, and grit in order to achieve.
+Schwarzenegger, who worked under the pseudonym Arnold Strong in his first feature, Hercules in New York, quickly made a name for himself in Hollywood. In 1977, the Hollywood Foreign Press Association recognized him with a Golden Globe for New Male Star of the Year for his role in Stay Hungry opposite Sally Field. His big break came in 1982 when the sword and sorcery epic, Conan the Barbarian, hit box office gold.
 
-They also all had a huge margin for failure.
+In 1984, Schwarzenegger blew up the screen and catapulted himself into cinema history as the title character in Jim Cameron’s sci-fi thriller, Terminator.
 
-Think about how many people want to hold a high position in government. How many people want to become famous actors. How many people want to achieve even just a good looking physique. In all of these ventures, the majority of people who want it end up failing, and never make it. Arnold has done it all.
+He is the only actor to be in both categories of the American Film Institute’s “Hundred Years of Heroes and Villains” for roles he played in the Terminator series. Other memorable characters include roles in Commando, Predator, Twins, Total Recall, True Lies, Eraser, Collateral Damage, Terminator 3: Rise Of The Machines and a cameo in Sylvester Stallone’s homage to action films, The Expendables and an expanded role in The Expendables 2, among others. To date, his films have grossed over $3 billion worldwide.
 
-That’s not to say that he has never failed before, or come across roadblocks. <a href="https://www.youtube.com/watch?v=wJPRj19OU-w">He pretty much started at the bottom</a>, with all of us. In fact, he probably had it a lot worse, growing up in a small village in Austria.
+He gratefully served the people of California as the state’s 38th governor from 2003 to 2010. First elected in California’s historic recall election, Governor Schwarzenegger ushered in an era of innovative leadership and extraordinary public service.
 
-As a young adult, he was inspired one day to become a bodybuilder. Unfortunately, his father had other plans for him, and arranged to have him put in the Austrian military.
+But it is Schwarzenegger’s commitment to giving something back to his state and to his country through public service that gives him the most satisfaction; donating his time, energy, and personal finances to serving others all over the world.
 
-Despite his situation, he still found ways to train.
+Schwarzenegger acts as Chairman of the After School All-Stars, a nationwide after-school program, and serves as coach and international torch-bearer for Special Olympics. He also served as Chairman of the President’s Council on Physical Fitness and Sports under George H. W. Bush and as Chair of the California Governor's Council on Physical Fitness and Sports under Governor Pete Wilson.
 
-When an opportunity came by for him to compete in a major bodybuilding contest, he intended on taking it. But when he asked his superiors if he could take a day off to compete in the bodybuilding contest, they refused, saying that it was a waste of time.
+Most notably, Schwarzenegger made California a world leader on renewable energy and combating climate change with the Global Warming Solutions Act of 2006, set a revolutionary political reform agenda, and became the first governor in decades to invest in rebuilding California’s critical infrastructure with his Strategic Growth Plan. He also dedicated himself to promoting physical education and after-school programs, and continues to commit his time, energy and personal finances to charitable organizations around the world.
 
-Risking the consequences of being put in solitary confinement, he decided to sneak out, and after hopping trains cross-country to get there, competed in the bodybuilding contest.
+Schwarzenegger is currently back in Hollywood making films and working on his autobiography, Total Recall: My Unbelievably True Life Story, due out this fall.
 
-Even though he was a complete outsider at the time, he ended up winning the contest.
-
-That marked a turning point in his life, where he knew that if he truly had the determination, grit, and discipline to do something, then he can achieve any goal he set his mind to. It was a mindset that he carried with him throughout his entire life.
-
-In a <a href="http://www.graduationwisdom.com/speeches/0067-schwarzenegger.htm">commencement speech</a> that he gave a in 2009, he gave us six rules of success that he has followed in his own life, that I turn to whenever I feel like giving up:
-
-1. **Trust yourself:** What do you truly want to do? Not what your parents or teachers think you should do, but you you yourself want. Trust that you are the only one in the world that can decide for yourself, and go with your decision.
-
-2. **Break some rules:** Don’t break any laws, but realize that those who follow all the rules are never truly original, or never end up making any significant impact on the world.
-
-3. **Don’t be afraid of failure:** You can’t always win, but that should not stop you from taking risks and making important decisions. Accept the fact that failure may happen, and work to succeed.
-
-4. **Ignore the naysayers:** There will always be people telling you that it can’t be done. It’s up to you decide whether or not they are worth listening to (they’re not).
-
-5. **Work like hell:** Nothing is free, and you should not expect things to be given to you without working hard for it. Even that is not enough; you have to work harder than everyone else is.
-
-6. **Give something back:** This one is one of the most important rules. You have to find time to give back, and realize that the world is not only about you, but also the millions of people around you who have not only helped support you, but require help themselves.
-
-So when I feel like I am about to give up, I think about how this is all normal. It’s normal for it to be hard. Of course you’re going to have people that say you can’t do it. Of course you have to work hard for what you want. Of course you’re going to fail at something eventually, but you did it anyways. You left your comfort zone when everyone else stayed behind.
-
-Here is one quote from his speech that really resonates with me every time I read it:
-
->I always say don’t be afraid of failure, because how far can you really fall? You found out - to the ground. It’s right there. Now you know it isn’t anything that should scare you. You should be proud that you weren’t afraid - not embarrassed that you failed. You could have made excuses not to do it, but you didn’t. You knew it would be hard, and it would be uncomfortable, and it might be awkward - and you did it anyway. That’s courage.
-
-You just have to trust yourself to get back up again, and try again, over and over again until you succeed.
-
-If we all stopped trying every time we fell over when we were first learning to walk, no one would be walking.
+<a href="http://www.schwarzenegger.com/bio">Source</a>
