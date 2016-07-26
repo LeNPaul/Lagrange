@@ -1,6 +1,26 @@
+/*
+  Base
+*/
+
 body {
-  font-family: "Quattrocento Sans", sans-serif;
+  font-family: "PT Serif", Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  color: #666;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Quattrocento Sans", sans-serif;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/*
+  Site container
+*/
 
 .container {
   margin-left: auto;
@@ -8,18 +28,44 @@ body {
   width: 50vw;
 }
 
+/*
+  Masthead
+*/
+
 .masthead {
-  padding-top:    1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   margin-bottom: 3rem;
+  font-family: "Quattrocento Sans", sans-serif;
 }
 
 .masthead-title a {
   font-size: 25px;
   color: #333;
-  text-decoration: none;
 }
 
 .masthead-subtitle {
   color: #999;
+}
+
+/*
+  Post
+*/
+
+.post {
+
+}
+
+/*
+  Footer
+*/
+
+.footer {
+  color: #999;
+  text-align: center;
+}
+
+.footer a {
+  color: #999;
+  padding: 10px;
 }
