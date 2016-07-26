@@ -1,0 +1,25 @@
+body {
+  font-family: "Quattrocento Sans", sans-serif;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50vw;
+}
+
+.masthead {
+  padding-top:    1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+
+.masthead-title a {
+  font-size: 25px;
+  color: #333;
+  text-decoration: none;
+}
+
+.masthead-subtitle {
+  color: #999;
+}
