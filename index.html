@@ -8,7 +8,9 @@ title: Home
   <h1>
     {{ post.title }}
   </h1>
-  <img src="{{ site.url }}/images/{{ page.image.feature }}">
+
+  <img src="{{ site.url }}/images/{{ post.image.teaser }}">
+
   <p>{{ post.content | strip_html | truncate: 350 }} <a href="{{ post.url }}">Read more</a>
 
 {% endfor %}

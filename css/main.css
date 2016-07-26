@@ -18,6 +18,12 @@ a {
   color: #333;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
 /*
   Site container
 */

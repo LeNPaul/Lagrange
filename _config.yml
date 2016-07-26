@@ -2,8 +2,8 @@ title:               Lagrange
 tagline:             a minimalist Jekyll theme
 email:               your-email@domain.com
 description:
-baseurl:             "" # the subpath of your site, e.g. /blog
-url:                 "" # the base hostname & protocol for your site
+baseurl:              # the subpath of your site, e.g. /blog
+url:                  # the base hostname & protocol for your site
 twitter_username:    jekyllrb
 github_username:     jekyll
 
