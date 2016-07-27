@@ -6,9 +6,9 @@ title: Home
 {% for post in site.posts %}
 <div class="posts">
   <h1>
-    <a href="{{ post.url }}">{{ post.title }}</a>
+    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
   </h1>
   <img src="{{ site.url }}{{ site.baseurl }}/images/{{ post.image.teaser }}">
-  <p>{{ post.content | strip_html | truncate: 350 }} <a href="{{ post.url }}">Read more</a>
+  <p>{{ post.content | strip_html | truncate: 350 }} <a href="{{ site.baseurl }}{{ post.url }}">Read more</a>
 </div>
 {% endfor %}
