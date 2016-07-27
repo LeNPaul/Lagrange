@@ -62,12 +62,12 @@ img {
   Post
 */
 
-.post {
+.post-container {
   margin-bottom: 4rem;
 }
 
 .posts {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 /*
@@ -89,6 +89,20 @@ img {
   Menu
 */
 
-.menu {
+.menu-content {
+  position: absolute;
+  top: -70px;
+  transition: top 0.5s;
+}
 
+.menu-content a {
+  color: #999;
+  font-size: 1rem;
+  padding-right: 10px;
+}
+
+.menu-button:hover .menu-content{
+  display: block;
+  top: 70px;
+  transition-timing-function: ease-in-out;
 }
