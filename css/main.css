@@ -23,6 +23,10 @@ a {
   color: #333;
 }
 
+a:hover {
+  color:black;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -51,8 +55,8 @@ img {
 }
 
 .masthead-title a {
-  font-size: 25px;
-  color: #333;
+  font-size: 2rem;/*25px;*/
+  color: #505050;
 }
 
 .masthead-subtitle {
@@ -96,31 +100,26 @@ img {
   Menu
 */
 
-.menu-content {
-  position: absolute;
-  top: -70px;
-  transition: top 0.5s;
+.menu {
+  display: block;
 }
 
-.menu-content a {
+.menu-content {
+  float: left;
+}
+
+.menu-icons {
+  float: right;
+}
+
+.menu a {
   color: #999;
   font-size: 1rem;
   padding-right: 10px;
 }
 
-.menu-button:hover .menu-content{
-  display: block;
-  top: 70px;
-  transition-timing-function: ease-in-out;
-}
-
 @media (max-width: 48em) {
-  .menu-content {
-    top: -90px;
-  }
-  .menu-button:hover .menu-content{
-    display: block;
-    top: 90px;
-    transition-timing-function: ease-in-out;
+  .menu {
+
   }
 }
