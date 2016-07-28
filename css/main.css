@@ -59,6 +59,12 @@ img {
   color: #999;
 }
 
+@media (max-width: 48em) {
+  .masthead-title small {
+    display: block;
+  }
+}
+
 /*
   Post
 */
@@ -106,4 +112,15 @@ img {
   display: block;
   top: 70px;
   transition-timing-function: ease-in-out;
+}
+
+@media (max-width: 48em) {
+  .menu-content {
+    top: -90px;
+  }
+  .menu-button:hover .menu-content{
+    display: block;
+    top: 90px;
+    transition-timing-function: ease-in-out;
+  }
 }
