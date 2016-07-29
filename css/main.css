@@ -55,7 +55,7 @@ img {
 .masthead {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   font-family: "Quattrocento Sans", sans-serif;
 }
 
@@ -74,6 +74,7 @@ img {
 
 @media (max-width: 48em) {
   .masthead-title small {
+    padding-top: 0.5rem;
     display: block;
   }
 }
@@ -118,6 +119,7 @@ img {
 */
 
 .menu {
+  padding-top: 0.5rem;
   display: block;
 }
 
