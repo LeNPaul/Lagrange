@@ -21,6 +21,11 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: #333;
+  -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
 }
 
 a:hover {
@@ -85,6 +90,14 @@ img {
   margin-bottom: 5rem;
 }
 
+.post-date {
+  display: block;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size:0.8rem;
+}
+
 /*
   Footer
 */
@@ -116,15 +129,20 @@ img {
   float: right;
 }
 
-.menu a {
+.menu-content a {
   color: #999;
   font-size: 1rem;
   padding-right: 10px;
 }
 
-@media (max-width: 48em) {
-  .menu {
+.menu-icons a {
+  color: #999;
+  font-size: 1rem;
+}
 
+@media (max-width: 48em) {
+  .menu-icons {
+    float: left;
   }
 }
 
@@ -132,7 +150,12 @@ img {
   Social media icons
 */
 
+.sharing-icons a {
+  padding-right: 10px;
+}
+
 .fa-envelope {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;
@@ -145,6 +168,7 @@ img {
 }
 
 .fa-twitter {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;
@@ -157,6 +181,7 @@ img {
 }
 
 .fa-instagram {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;
@@ -169,6 +194,7 @@ img {
 }
 
 .fa-github {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;
@@ -181,6 +207,7 @@ img {
 }
 
 .fa-linkedin {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;
@@ -193,6 +220,7 @@ img {
 }
 
 .fa-facebook {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;
@@ -205,6 +233,7 @@ img {
 }
 
 .fa-google-plus {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;
@@ -217,6 +246,7 @@ img {
 }
 
 .fa-pinterest {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;
@@ -229,6 +259,7 @@ img {
 }
 
 .fa-medium {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;
@@ -241,6 +272,7 @@ img {
 }
 
 .fa-codepen {
+  padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
   	-moz-transition:.5s;

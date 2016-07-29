@@ -9,6 +9,9 @@ title: Home
     <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
   </h1>
   <img src="{{ site.url }}{{ site.baseurl }}/images/{{ post.image.teaser }}">
-  <p>{{ post.content | strip_html | truncate: 350 }} <a href="{{ site.baseurl }}{{ post.url }}">Read more</a>
+  <p>
+    {{ post.content | strip_html | truncate: 350 }} <a href="{{ site.baseurl }}{{ post.url }}">Read more</a>
+    <span class="post-date" style="margin-top:3px"><i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date | date_to_string }} - <i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</span>
+  </p>
 </div>
 {% endfor %}

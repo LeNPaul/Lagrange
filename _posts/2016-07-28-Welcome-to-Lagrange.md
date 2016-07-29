@@ -10,6 +10,4 @@ image:
   creditlink: ""
 ---
 
-# Welcome to Lagrange!
-
 Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform.

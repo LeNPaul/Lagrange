@@ -4,8 +4,13 @@ email:               your-email@domain.com
 description:
 baseurl:             "/Lagrange"
 url:                 "https://lenpaul.github.io"
-twitter_username:
-github_username:
+author:
+  name:              "Paul Le"
+  email:             "l.nguyen.paul@gmail.com"
+  twitter:           "paululele"
+  instagram:         "paululele"
+  github:            "lenpaul"
+  facebook:          "Le.Paul.94"
 
 # Build settings
 markdown:            kramdown
