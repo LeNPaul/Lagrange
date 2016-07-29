@@ -54,6 +54,10 @@ img {
   font-family: "Quattrocento Sans", sans-serif;
 }
 
+.masthead a:hover {
+  color:black;
+}
+
 .masthead-title a {
   font-size: 2rem;/*25px;*/
   color: #505050;
@@ -122,4 +126,128 @@ img {
   .menu {
 
   }
+}
+
+/*
+  Social media icons
+*/
+
+.fa-envelope {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-envelope:hover {
+	color: #f39c12;
+}
+
+.fa-twitter {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-twitter:hover {
+	color: #00aced;
+}
+
+.fa-instagram {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-instagram:hover {
+	color: #375989;
+}
+
+.fa-github {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-github:hover {
+	color: #343434;
+}
+
+.fa-linkedin {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-linkedin:hover {
+	color: #0073a4;
+}
+
+.fa-facebook {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-facebook:hover {
+	color: #3d5b99;
+}
+
+.fa-google-plus {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-google-plus:hover {
+	color: #e64a41;
+}
+
+.fa-pinterest {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-pinterest:hover {
+	color: #bd081c;
+}
+
+.fa-medium {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-medium:hover {
+	color: #00AB6C;
+}
+
+.fa-codepen {
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-codepen:hover {
+	color: black;
 }

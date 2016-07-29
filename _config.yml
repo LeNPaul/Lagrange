@@ -2,8 +2,8 @@ title:               Lagrange
 tagline:             a minimalist Jekyll theme
 email:               your-email@domain.com
 description:
-baseurl:             #"/Lagrange"
-url:                 #"https://lenpaul.github.io"
+baseurl:             "/Lagrange"
+url:                 "https://lenpaul.github.io"
 twitter_username:
 github_username:
 
