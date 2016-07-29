@@ -2,7 +2,7 @@
 layout: post
 title: "Arnold Schwarzenegger's Biography"
 categories: journal
-tags: [motivation]
+tags: [motivation,sample]
 image:
   feature: arnold.jpg
   teaser: arnold-teaser.jpg

@@ -2,7 +2,7 @@
 layout: post
 title: "Welcome to Lagrange"
 categories: journal
-tags: [documentation]
+tags: [documentation,sample]
 image:
   feature: habits.jpg
   teaser: habits-teaser.jpg

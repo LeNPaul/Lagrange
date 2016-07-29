@@ -2,7 +2,7 @@
 layout: post
 title: "The Life of Richard Feynman"
 categories: journal
-tags: [motivation]
+tags: [motivation,sample]
 image:
   feature: feynman.jpg
   teaser: feynman-teaser.jpg

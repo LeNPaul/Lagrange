@@ -99,6 +99,11 @@ img {
   font-size:0.8rem;
 }
 
+.related-posts {
+  padding-left: 0px;
+  list-style: none;
+}
+
 /*
   Footer
 */
