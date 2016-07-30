@@ -115,21 +115,17 @@ img {
 
 .pagination {
   overflow: hidden;
-  margin-left: -1rem;
-  margin-right: -1rem;
   font-family: 'Quattrocento Sans', sans-serif;
   text-align: center;
 }
 
 .pagination-button {
-  border: none;
   color: #999;
   border: 1px solid #e0e0e0;
   padding: 15px 8vw;
-  text-align: center;
-  text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .pagination-active {
@@ -153,6 +149,10 @@ img {
 .footer a {
   color: #999;
   padding: 10px;
+}
+
+.footer a:hover {
+  color: #333;
 }
 
 /*
