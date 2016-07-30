@@ -6,7 +6,9 @@ layout: default
   {{ page.title }}
 </h1>
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/{{ page.image.feature }}">
+{% if page.image.feature %}
+  <img src="{{ site.url }}{{ site.baseurl }}/images/{{ page.image.feature }}">
+{% endif %}
 
 {{ content }}
 

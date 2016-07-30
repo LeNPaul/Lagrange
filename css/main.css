@@ -89,6 +89,8 @@ img {
 
 .posts {
   margin-bottom: 5rem;
+  padding: 0px;
+  list-style: none;
 }
 
 .post-date {
@@ -188,6 +190,12 @@ img {
     float: left;
   }
 }
+
+/*
+  Code
+*/
+
+
 
 /*
   Social media icons
