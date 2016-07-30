@@ -1,5 +1,5 @@
 <div class="related">
-  <h2>Related Posts</h2>
+  <h1 >You may also enjoy:</h1>
   {% assign listed_posts_urls = page.url | split: ' ' %}
   <ul class="related-posts">
     {% for tag in page.tags %}
@@ -8,8 +8,9 @@
         {% else %}
           <li>
             <h3>
-              <a href="{{ mypost.url }}">
+              <a href="{{ site.url }}{{ site.baseurl }}{{ mypost.url }}">
                 {{ mypost.title }}
+                <!--<img src="{{ site.url }}{{ site.baseurl }}/images/{{ mypost.image.feature }}">-->
                 <!--<small>{{ mypost.date | date: "%B %-d, %Y" }}</small>-->
               </a>
             </h3>

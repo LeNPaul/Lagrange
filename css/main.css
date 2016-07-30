@@ -99,9 +99,45 @@ img {
   font-size:0.8rem;
 }
 
+.related {
+
+  padding-bottom: 2rem;
+}
+
 .related-posts {
   padding-left: 0px;
   list-style: none;
+}
+
+/*
+  Pagination
+*/
+
+.pagination {
+  overflow: hidden;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  font-family: 'Quattrocento Sans', sans-serif;
+  text-align: center;
+}
+
+.pagination-button {
+  border: none;
+  color: #999;
+  border: 1px solid #e0e0e0;
+  padding: 15px 8vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.pagination-active {
+  color: black;
+}
+
+.pagination-active:hover {
+  background-color: #e0e0e0;
 }
 
 /*
