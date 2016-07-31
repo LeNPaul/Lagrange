@@ -11,3 +11,11 @@ image:
 ---
 
 Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform.
+
+### How to set up
+
+#### Locally
+
+#### Using Github Pages
+
+---
