@@ -39,6 +39,46 @@ img {
 }
 
 /*
+  Blockquote
+*/
+
+/*blockquote {
+  padding: 0rem 1rem;
+  margin: .8rem 0;
+  color: #999;
+  border-left: 0.25rem solid #ccc;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 30em) {
+  blockquote {
+    padding-right: 5rem;
+    padding-left: 1.25rem;
+  }
+}*/
+
+blockquote {
+  border-left: 0.25rem solid #ccc;
+  margin: 1.5em 10px;
+  color: #999;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+/*
   Site container
 */
 
