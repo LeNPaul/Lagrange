@@ -13,6 +13,10 @@ h1{
   font-size: 2rem;
 }
 
+h1 a {
+  text-decoration: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Quattrocento Sans", sans-serif;
   color: #333;
@@ -88,6 +92,12 @@ blockquote p {
   width: 45vw;
 }
 
+@media (max-width: 48em) {
+  .container {
+    width: 75vw;
+  }
+}
+
 /*
   Masthead
 */
@@ -113,10 +123,9 @@ blockquote p {
   color: #999;
 }
 
-@media (max-width: 48em) {
+@media (max-width: 30rem) {
   .masthead-title small {
-    padding-top: 0.5rem;
-    display: block;
+    display: none;
   }
 }
 
@@ -143,13 +152,16 @@ blockquote p {
 }
 
 .related {
-
   padding-bottom: 2rem;
 }
 
 .related-posts {
   padding-left: 0px;
   list-style: none;
+}
+
+.related-posts a {
+  text-decoration: none;
 }
 
 /*
@@ -160,6 +172,10 @@ blockquote p {
   overflow: hidden;
   font-family: 'Quattrocento Sans', sans-serif;
   text-align: center;
+}
+
+.pagination a {
+  text-decoration: none;
 }
 
 .pagination-button {
@@ -192,6 +208,7 @@ blockquote p {
 .footer a {
   color: #999;
   padding: 10px;
+  text-decoration: none;
 }
 
 .footer a:hover {
@@ -228,7 +245,7 @@ blockquote p {
 
 @media (max-width: 48em) {
   .menu-icons {
-    float: left;
+    display: none;
   }
 }
 
@@ -238,7 +255,7 @@ blockquote p {
 
 pre,
 code {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     border-radius: 3px;
     background-color: #f5f5f5;
     font-family: "Source Code Pro";
@@ -265,6 +282,7 @@ pre {
   padding: 0 5px;
   border-right:1px solid #ccc;
 }
+
 .highlight pre code {
   display: block;
   white-space: pre;
