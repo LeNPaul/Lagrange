@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: #333;
   -o-transition:.5s;
     -ms-transition:.5s;
@@ -105,6 +105,7 @@ blockquote p {
 
 .masthead-title a {
   font-size: 2rem;/*25px;*/
+  text-decoration: none;
   color: #505050;
 }
 
