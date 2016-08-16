@@ -10,14 +10,23 @@ image:
   creditlink: ""
 ---
 
-Lagrange is a Jekyll theme that was built to be 100% compatible with GitHub Pages.
+Lagrange is a Jekyll theme that was built to be 100% compatible with [GitHub Pages](https://pages.github.com/).
+
+### What is Jekyll?
+
+Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Basically, Jekyll takes your page content along with template files and produces a complete website. For more information, visit the
 
 ### Don't know what Jekyll is, or how to use it?
 
-One of the beautiful  
+The beauty of hosting your website on GitHub is that you don't have to actually have Jekyll installed on your computer. Everything can be done through the GitHub code editor, with minimal knowledge of how to use Jekyll.
 
-*Explain what Jekyll is, how it works
+### 
 
-*How to use it without actually knowing Jekyll, or installing it on your computer
+You can download your own copy of Lagrange [here](https://github.com/LeNPaul/Lagrange/archive/gh-pages.zip).
 
-*Using it just on Github, how to build your site, host it, and add posts using GitHub as the CMS
+You can fork the repository [here](https://github.com/LeNPaul/Lagrange/fork).
+
+*How to use it without actually knowing Jekyll, or installing it on your computer*
+
+*Using it just on Github, how to build your site, host it, and add posts using GitHub as the CMS*
+ 
