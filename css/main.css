@@ -228,23 +228,23 @@ blockquote p {
   float: left;
 }
 
-.menu-icons {
-  float: right;
-}
-
 .menu-content a {
   color: #999;
   font-size: 1rem;
   padding-right: 10px;
 }
 
-.menu-icons a {
+.social-icons {
+  float: right;
+}
+
+.social-icons a {
   color: #999;
   font-size: 1rem;
 }
 
-@media (max-width: 48em) {
-  .menu-icons {
+@media (max-width: 30em) {
+  .social-icons {
     display: none;
   }
 }
