@@ -1,8 +1,8 @@
 title:               Lagrange
 tagline:             a minimalist Jekyll theme
 description:
-baseurl:             #"/Lagrange"
-url:                 #"https://lenpaul.github.io"
+baseurl:             "/Lagrange"
+url:                 "https://lenpaul.github.io"
 author:
   name:              "Paul Le"
   email:             "l.nguyen.paul@gmail.com"
@@ -13,7 +13,7 @@ author:
   linkedin:          "lenpaul"
 
 gems:                [jekyll-paginate]
-paginate:            8
+paginate:            5
 
 
 # Build settings

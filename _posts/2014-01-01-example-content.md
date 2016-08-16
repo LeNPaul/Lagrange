@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Example content
+title: Example Content
 categories: journal
 tag: [personal,programming]
 ---

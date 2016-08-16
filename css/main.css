@@ -9,6 +9,12 @@ body {
   line-height: 1.75rem;
 }
 
+@media (max-width: 30em) {
+  body {
+    font-size: 14px;
+  }
+}
+
 h1{
   font-size: 2rem;
 }
@@ -89,8 +95,15 @@ blockquote p {
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 45vw;
+  width: 615px;
 }
+
+@media (max-width: 1366px) {
+  .container {
+    width: 45vw;
+  }
+}
+
 
 @media (max-width: 48em) {
   .container {
@@ -289,6 +302,7 @@ pre {
   overflow-x: auto;
   word-wrap: normal;
 }
+
 
 /*
   Social media icons
