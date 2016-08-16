@@ -1,10 +1,16 @@
 ---
 layout: post
-title: Example Content
+title: "Text Formatting"
 categories: journal
-tag: [personal,programming]
+tags: [documentation,sample]
+image:
+  feature: desk.jpg
+  teaser: desk-teaser.jpg
+  credit:
+  creditlink:
 ---
 
+As always, Jekyll offers support for GitHub Flavored Markdown, which allows you to format your posts using the [Markdown syntax](https://guides.github.com/features/mastering-markdown/). Examples of these text formatting features can be seen below. You can find this post in the `_posts` directory.
 
 <div class="message">
   Howdy! This is an example blog post that shows several types of HTML content supported in this theme.

@@ -10,11 +10,11 @@ image:
   creditlink: ""
 ---
 
-Lagrange was built to be 100% compatible with GitHub Pages.
+Lagrange is a Jekyll theme that was built to be 100% compatible with GitHub Pages.
 
+### Don't know what Jekyll is, or how to use it?
 
-
-Don't know what Jekyll is, or how to use it?
+One of the beautiful  
 
 *Explain what Jekyll is, how it works
 
