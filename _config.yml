@@ -1,8 +1,9 @@
+# Site Settings
 title:               Lagrange
 tagline:             a minimalist Jekyll theme
 description:
-baseurl:             #"/Lagrange"
-url:                 #"https://lenpaul.github.io"
+baseurl:             "/Lagrange"
+url:                 "https://lenpaul.github.io"
 author:
   name:              "Paul Le"
   email:             "l.nguyen.paul@gmail.com"
@@ -11,8 +12,6 @@ author:
   github:            "lenpaul"
   facebook:          "Le.Paul.94"
   linkedin:          "lenpaul"
-
-gems:                [jekyll-paginate]
 paginate:            5
 
 
@@ -20,3 +19,4 @@ paginate:            5
 markdown:            kramdown
 highlighter:         rouge
 permalink:           none
+gems:                [jekyll-paginate]
