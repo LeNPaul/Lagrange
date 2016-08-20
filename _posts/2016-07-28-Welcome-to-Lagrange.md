@@ -17,5 +17,3 @@ Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a
 #### Locally
 
 #### Using Github Pages
-
----
