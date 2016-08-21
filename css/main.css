@@ -30,6 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: underline;
+  /*border-bottom: 1px solid black;*/
   color: #333;
   -o-transition:.5s;
     -ms-transition:.5s;
@@ -39,7 +40,9 @@ a {
 }
 
 a:hover {
-  color:black;
+  color: #999;
+  border-bottom: none;
+  text-decoration: none;
 }
 
 img {
