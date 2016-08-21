@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Design Features"
+title: "Working With Lagrange"
 categories: journal
 tags: [documentation,sample]
 image:
@@ -28,6 +28,27 @@ Examples of what posts looks like can be found in the `_posts` directory, which 
 Pages are essentially the post layout without and of the extra features of the posts layout. An example of what pages look like can be found at the [About]({{ site.baseurl }}/about.html) and [Contacts]({{ site.baseurl }}/contacts.html).
 
 In addition to the two main layout options above, there are also custom layouts that have been created for the [home page]({{ site.baseurl }}) and the [archives page]({{ site.baseurl }}/writing.html). These are simply just page layouts with some [Liquid template code](https://shopify.github.io/liquid/). Check out the `index.html` and `writing.md` files in the root directory for what the code looks like.
+
+### YAML Front Block Matter
+
+The recommended YAML front block is:
+
+```
+---
+layout:
+title:
+categories:
+tags: []
+image:
+  feature:
+  teaser:
+  credit:
+  creditlink:
+
+---
+```
+
+`layout` specifies which layout to use, `title` is the page or post title, `categories` can be used to better organize your posts, `tags` are used to show related posts, as well as indicate what topics are related in a given post, and `image` specifies which images to use. There are two main types of images that can be used in a given post, the `feature` and the `teaser`, which are typically the same image, except the teaser image is cropped for the home page. You can give credit to images under `credit`, and provide a link if possible underst `creditlink`.
 
 ### Links
 

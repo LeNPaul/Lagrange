@@ -40,7 +40,7 @@ a {
 }
 
 a:hover {
-  color: #999;
+  color: black;/*#999;*/
   border-bottom: none;
 }
 

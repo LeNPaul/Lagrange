@@ -87,13 +87,6 @@ Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at
 - HyperText Markup Language (HTML)
 - The language used to describe and define the content of a Web page
 
-  <dt>Cascading Style Sheets (CSS)</dt>
-  <dd>Used to describe the appearance of Web content</dd>
-
-  <dt>JavaScript (JS)</dt>
-  <dd>The programming language used to build advanced Web sites and applications</dd>
-</dl>
-
 Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
 
 ### Tables
@@ -139,18 +132,6 @@ Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur e
 
 A variety of common markup showing how the theme styles them.
 
-# Header one
-
-## Header two
-
-### Header three
-
-#### Header four
-
-##### Header five
-
-###### Header six
-
 ## Blockquotes
 
 Single line blockquote:
@@ -165,13 +146,6 @@ Multi line blockquote with a cite reference:
 {: .small}
 
 ## Tables
-
-| Employee         | Salary |                                                              |
-| --------         | ------ | ------------------------------------------------------------ |
-| [John Doe](#)    | $1     | Because that's all Steve Jobs needed for a salary.           |
-| [Jane Doe](#)    | $100K  | For all the blogging she does.                               |
-| [Fred Bloggs](#) | $100M  | Pictures are worth a thousand words, right? So Jane × 1,000. |
-| [Jane Bloggs](#) | $100B  | With hair like that?! Enough said.                           |
 
 | Header1 | Header2 | Header3 |
 |:--------|:-------:|--------:|
@@ -226,49 +200,6 @@ Do It Live
   2. List item two
   3. List item three
   4. List item four
-
-## Buttons
-
-Make any link standout more when applying the `.btn` class.
-
-```html
-<a href="#" class="btn--success">Success Button</a>
-```
-
-[Primary Button](#){: .btn}
-[Success Button](#){: .btn .btn--success}
-[Warning Button](#){: .btn .btn--warning}
-[Danger Button](#){: .btn .btn--danger}
-[Info Button](#){: .btn .btn--info}
-[Inverse Button](#){: .btn .btn--inverse}
-[Light Outline Button](#){: .btn .btn--light-outline}
-
-```markdown
-[Primary Button Text](#link){: .btn}
-[Success Button Text](#link){: .btn .btn--success}
-[Warning Button Text](#link){: .btn .btn--warning}
-[Danger Button Text](#link){: .btn .btn--danger}
-[Info Button Text](#link){: .btn .btn--info}
-[Inverse Button](#link){: .btn .btn--inverse}
-[Light Outline Button](#link){: .btn .btn--light-outline}
-```
-
-[X-Large Button](#){: .btn .btn--x-large}
-[Large Button](#){: .btn .btn--large}
-[Default Button](#){: .btn}
-[Small Button](#){: .btn .btn--small}
-
-```markdown
-[X-Large Button](#link){: .btn .btn--x-large}
-[Large Button](#link){: .btn .btn--large}
-[Default Button](#link){: .btn}
-[Small Button](#link){: .btn .btn--small}
-```
-
-## Notices
-
-**Watch out!** You can also add notices by appending `{: .notice}` to a paragraph.
-{: .notice}
 
 ## HTML Tags
 
