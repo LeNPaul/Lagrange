@@ -4,8 +4,8 @@ title: "Working With Jekyll"
 categories: journal
 tags: [documentation,sample]
 image:
-  feature: feynman.jpg
-  teaser: feynman-teaser.jpg
+  feature: bag.jpg
+  teaser: bag-teaser.jpg
   credit:
   creditlink:
 ---

@@ -4,8 +4,8 @@ title: "Text Formatting"
 categories: journal
 tags: [documentation,sample]
 image:
-  feature: desk.jpg
-  teaser: desk-teaser.jpg
+  feature: spools.jpg
+  teaser: spools-teaser.jpg
   credit:
   creditlink:
 ---

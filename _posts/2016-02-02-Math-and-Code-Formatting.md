@@ -4,8 +4,8 @@ title: "Math and Code Formatting"
 categories: journal
 tags: [documentation,sample]
 image:
-  feature: lagrange.jpg
-  teaser: lagrange-teaser.jpg
+  feature: sewing.jpg
+  teaser: sewing-teaser.jpg
   credit:
   creditlink:
 ---
