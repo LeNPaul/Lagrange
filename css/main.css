@@ -5,7 +5,7 @@
 body {
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
   font-size: 18px;
-  color: #666;
+  color: rgba(0,0,0,.8);/*#666;*/
   line-height: 1.75rem;
 }
 
