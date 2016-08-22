@@ -12,21 +12,34 @@ image:
 
 As always, Jekyll offers support for GitHub Flavored Markdown, which allows you to format your posts using the [Markdown syntax](https://guides.github.com/features/mastering-markdown/). Examples of these text formatting features can be seen below. You can find this post in the `_posts` directory.
 
-## Example Content
+### Table of Contents
+{:.no_toc}
+
+1. TOC
+{:toc}
+
+### Example Content
+{:.no_toc}
 
 Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
 
 # Heading One
+{:.no_toc}
 
 ## Heading Two
+{:.no_toc}
 
 ### Heading Three
+{:.no_toc}
 
 #### Heading Four
+{:.no_toc}
 
 ##### Heading Five
+{:.no_toc}
 
 ###### Heading Six
+{:.no_toc}
 
 Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
 
@@ -34,7 +47,7 @@ Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, na
 
 Etiam porta **sem malesuada magna** mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
 
-## Inline HTML elements
+### Inline HTML elements
 
 HTML defines a long list of available inline tags, a complete list of which can be found on the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
 
@@ -47,7 +60,7 @@ HTML defines a long list of available inline tags, a complete list of which can 
 
 Most of these elements are styled by browsers with few modifications on our part.
 
-## Heading
+### Heading
 
 Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 
@@ -132,7 +145,7 @@ Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur e
 
 A variety of common markup showing how the theme styles them.
 
-## Blockquotes
+### Blockquotes
 
 Single line blockquote:
 
@@ -145,7 +158,7 @@ Multi line blockquote with a cite reference:
 <cite>Steve Jobs</cite> --- Apple Worldwide Developers' Conference, 1997
 {: .small}
 
-## Tables
+### Tables
 
 | Header1 | Header2 | Header3 |
 |:--------|:-------:|--------:|
@@ -157,7 +170,7 @@ Multi line blockquote with a cite reference:
 |=============================|
 | Foot1   | Foot2   | Foot3   |
 
-## Definition Lists
+### Definition Lists
 
 Definition List Title
 :   Definition list division.
@@ -171,7 +184,7 @@ Startup
 Do It Live
 :   I'll let Bill O'Reilly [explain](https://www.youtube.com/watch?v=O_HyZ5aW76c "We'll Do It Live") this one.
 
-## Unordered Lists (Nested)
+### Unordered Lists (Nested)
 
   * List item one
       * List item one
@@ -186,7 +199,7 @@ Do It Live
   * List item three
   * List item four
 
-## Ordered List (Nested)
+### Ordered List (Nested)
 
   1. List item one
       1. List item one
@@ -201,7 +214,7 @@ Do It Live
   3. List item three
   4. List item four
 
-## HTML Tags
+### HTML Tags
 
 ### Address Tag
 
