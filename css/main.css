@@ -5,7 +5,7 @@
 body {
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
   font-size: 18px;
-  color: rgba(0,0,0,.8);/*#666;*/
+  color: #3A3A3A;/*rgba(0,0,0,.8);/*#666;*/
   line-height: 1.5rem;
 }
 
@@ -29,9 +29,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  text-decoration: none;
-  border-bottom: 1px solid black;
-  color: #3A3A3A;/*#333;/*#FF333E;*/
+  text-decoration: underline;
+  /*border-bottom: 1px solid black;*/
+  color: #333;/*#FF333E;*/
   -o-transition:.5s;
     -ms-transition:.5s;
     -moz-transition:.5s;
