@@ -197,7 +197,7 @@ blockquote p {
   color: #999;
   border: 1px solid #e0e0e0;
   padding: 15px 8vw;
-  display: inline-block;
+  display: inline;
   font-size: 16px;
   font-weight: bold;
 }
