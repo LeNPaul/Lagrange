@@ -1,8 +1,8 @@
 # Site Settings
 title:               n0where
-tagline:             Ruoxi's personal blog
+tagline:             Ruoxis personal blog
 description:
-baseurl:            #"/Lagrange"
+baseurl:            #"/n0whereRuoxi.github.io"
 url:                #"https://n0whereRuoxi.github.io"
 github:
   url:               "https://n0whereRuoxi.github.io/"
