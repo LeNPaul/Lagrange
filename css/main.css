@@ -12,6 +12,10 @@ body {
 @media (max-width: 30em) {
   body {
     font-size: 14px;
+    line-height: 1.5rem;
+  }
+  body h1 {
+    font-size: 1.5rem;
   }
 }
 
@@ -129,19 +133,13 @@ blockquote p {
 }
 
 .masthead-title a {
-  font-size: 2rem;/*25px;*/
+  font-size: 2rem;
   text-decoration: none;
   color: #505050;
 }
 
 .masthead-subtitle {
   color: #999;
-}
-
-@media (max-width: 30rem) {
-  .masthead-title small {
-    /*display: none;*/
-  }
 }
 
 /*
@@ -164,6 +162,12 @@ blockquote p {
   color: #9a9a9a;
   font-family: 'Quattrocento Sans', sans-serif;
   font-size:0.8rem;
+}
+
+@media (max-width: 30rem) {
+  .posts h1 {
+    font-size: 1.5rem;
+  }
 }
 
 .related {
@@ -260,7 +264,6 @@ blockquote p {
 
 @media (max-width: 30em) {
   .social-icons {
-    /*display: none;*/
     float: left;
     padding-top: 0.5rem;
   }
