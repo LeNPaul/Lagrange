@@ -140,7 +140,7 @@ blockquote p {
 
 @media (max-width: 30rem) {
   .masthead-title small {
-    display: none;
+    /*display: none;*/
   }
 }
 
@@ -260,7 +260,9 @@ blockquote p {
 
 @media (max-width: 30em) {
   .social-icons {
-    display: none;
+    /*display: none;*/
+    float: left;
+    padding-top: 0.5rem;
   }
 }
 
