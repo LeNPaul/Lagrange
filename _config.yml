@@ -15,7 +15,7 @@ author:
   facebook:          "Le.Paul.94"
   linkedin:          "lenpaul"
 paginate:            5
-disqus:              "your-disqus"
+disqus:              #"your-disqus"
 
 # Build settings
 markdown:            kramdown
