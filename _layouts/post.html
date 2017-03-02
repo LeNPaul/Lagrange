@@ -26,3 +26,7 @@ layout: default
 </span>
 {% include social-sharing.html %}
 {% include related-posts.html %}
+
+{% if site.disqus %}
+  {% include disqus.html %}
+{% endif %}
