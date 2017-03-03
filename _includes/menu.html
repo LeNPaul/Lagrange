@@ -1,8 +1,8 @@
 <div class="menu">
   <div class="menu-content">
-    <a href="{{ site.github.url }}/about.html">About</a>
-    <a href="{{ site.github.url }}/writing.html">Writing</a>
-    <a href="{{ site.github.url }}/contacts.html">Contact</a>
+    {% for link in site.navigation %}{% assign current = nil %}{% if page.url contains link.url %}{% assign current = 'current' %}{% endif %}
+    <a class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}" href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a>
+    {% endfor %}
   </div>
   <div class="social-icons">
     <a href="https://github.com/{{ site.author.github }}"><i class="fa fa-github" aria-hidden="true" target="_blank"></i></a>
