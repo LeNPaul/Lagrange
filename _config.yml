@@ -14,6 +14,14 @@ author:
   github:            "lenpaul"
   facebook:          "Le.Paul.94"
   linkedin:          "lenpaul"
+navigation:
+- title: About
+  url: /about
+- title: Writing
+  url: /writing
+- title: Contact
+  url: /contact
+
 paginate:            5
 disqus:              #"your-disqus"
 
