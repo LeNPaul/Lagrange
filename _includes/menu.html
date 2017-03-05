@@ -1,7 +1,7 @@
 <div class="menu">
   <div class="menu-content">
     {% for link in site.navigation %}{% assign current = nil %}{% if page.url contains link.url %}{% assign current = 'current' %}{% endif %}
-    <a class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}" href="{{ site.url }}/menu/{{ link.url }}">{{ link.title }}</a>
+    <a class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}" href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a>
     {% endfor %}
   </div>
   <div class="social-icons">
