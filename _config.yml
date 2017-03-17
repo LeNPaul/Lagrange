@@ -2,8 +2,8 @@
 title:               The Blog of Toyaji
 tagline:             Various topics on data science
 description:
-baseurl:            #"/Lagrange"
-url:                 "https://toyaji.github.io"
+baseurl:             #"/Lagrange"
+url:                 #"https://toyaji.github.io"
 github:
   url:               "https://github.com/toyaji"
 author:
