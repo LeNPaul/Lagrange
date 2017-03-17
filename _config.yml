@@ -1,32 +1,93 @@
-# Site Settings
-title:               The Blog of Toyaji
-tagline:             Various topics on data science
-description:
-baseurl:             #"/Lagrange"
-url:                 #"https://toyaji.github.io"
-github:
-  url:               "https://github.com/toyaji"
+# # # # # # # # # # # # #
+#   K i k o - p l u s   #
+# # # # # # # # # # # # #
+
+# Basic
+name:               "Kiko Plus"
+
 author:
-  name:              "Paul Shin"
-  email:             "toyaji83@gmail.com"
-  twitter:           "toyaji83"
-  instagram:         "happytoday83"
-  github:            "toyaji"
-  facebook:          "paul.shin.351"
-  linkedin:          "paul-shin-152642133"
-navigation:
-- title: About
-  url: /about
-- title: Writing
-  url: /writing
-- title: Contact
-  url: /contact
+  facebook:         your-id
+  youtubeUser:      your-id
+  youtubeChannel:   your-id
+  twitter:          your-id
+  github:           your-id
+  stackoverflow:    your-id
+  quora:            your-id
+  linkedin:         your-id
+  pinterest:        your-id
+  googlePlus:       your-id
+  instagram:        your-id
+  reddit:           your-id
+  medium:           your-id
+  tumblr:           your-id
+  email:            your-id@your-email.com
 
-paginate:            5
-disqus:              "disqus_QYpfGOudS3"
+copyright:
+  year:             2017
+  name:             Kiko
 
-# Build settings
-markdown:            kramdown
-highlighter:         rouge
-permalink:           none
-gems:                [jekyll-paginate]
+# Google-analytics
+google-analytics:
+  id:               ""
+
+# Disqus
+disqus:
+  id:               "kiko-plus"
+
+# URL
+url:                "https://AWEEKJ.github.io" # the base hostname & protocol for your site
+# url:                "http://localhost:4000" # use this url when you develop
+baseurl:            "/Kiko-plus" # the subpath of your site, e.g. /blog
+
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:           Asia/Seoul
+permalink:          /:year-:month-:day/:title/
+
+# Pagination
+paginate:           5
+paginate_path:      /page:num/
+
+# Markdown
+markdown:           kramdown
+kramdown:
+  input:            GFM
+
+# Navigation
+nav:
+  - name:           "About"
+    url:            "/about"
+  - name:           "Archive"
+    url:            "/archive"
+  - name:           "Tags"
+    url:            "/tags"
+  - name:           "Github"
+    url:            "https://github.com/AWEEKJ/Kiko-plus"
+
+# Sass
+sass:
+  sass_dir:         _sass
+  style:            :compressed
+
+# Scopes
+defaults:
+  -
+    scope:
+      path:         ""
+      type:         "pages"
+    values:
+      layout:       "page"
+  -
+    scope:
+      path:         ""
+      type:         "posts"
+    values:
+      layout:       "post"
+
+# jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
+gems:
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-admin
+
+exclude:            [vendor]
