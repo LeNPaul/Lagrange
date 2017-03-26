@@ -1,8 +1,18 @@
 <footer class="footer">
-  <a href="https://github.com/{{site.author.github}}"><i class="fa fa-github" aria-hidden="true" target="_blank"></i></a>
-  <a href="https://twitter.com/{{site.author.twitter}}"><i class="fa fa-twitter" aria-hidden="true" target="_blank"></i></a>
-  <a href="https://instagram.com/{{site.author.instagram}}"><i class="fa fa-instagram" aria-hidden="true" target="_blank"></i></a>
-  <a href="https://linkedin.com/in/{{site.author.linkedin}}"><i class="fa fa-linkedin" aria-hidden="true" target="_blank"></i></a>
-  <a href="mailto:{{site.author.email}}"><i class="fa fa-envelope" aria-hidden="true" target="_blank"></i></a>
+  {% if site.author.github %}
+    <a href="https://github.com/{{site.author.github}}"><i class="fa fa-github" aria-hidden="true" target="_blank"></i></a>
+  {% endif %}
+  {% if site.author.twitter %}
+    <a href="https://twitter.com/{{site.author.twitter}}"><i class="fa fa-twitter" aria-hidden="true" target="_blank"></i></a>
+  {% endif %}
+  {% if site.author.instagram %}
+    <a href="https://instagram.com/{{site.author.instagram}}"><i class="fa fa-instagram" aria-hidden="true" target="_blank"></i></a>
+  {% endif %}
+  {% if site.author.linkedin %}
+    <a href="https://linkedin.com/in/{{site.author.linkedin}}"><i class="fa fa-linkedin" aria-hidden="true" target="_blank"></i></a>
+  {% endif %}
+  {% if site.author.email %}
+    <a href="mailto:{{site.author.email}}"><i class="fa fa-envelope" aria-hidden="true" target="_blank"></i></a>
+  {% endif %}
   <div class="post-date"><a href="{{ site.github.url }}/menu/about.html">{{ site.title }} | {{ site.tagline }} by {{ site.author.name }}</a></div>
 </footer>
