@@ -1,11 +1,11 @@
 # Site Settings
-title:               mrchypark
-tagline:             a minimalist Jekyll theme
+title:               Mrchypark
+tagline:             Log for me.
 description:
 baseurl:            #"/Lagrange"
 url:                #"https://lenpaul.github.io"
 github:
-  url:               #"https://lenpaul.github.io/Lagrange"
+  url:               "https://www.github.com/mrchypark"
 author:
   name:              "박찬엽"
   email:             "mrchypark@gmail.com"
