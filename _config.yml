@@ -5,7 +5,7 @@ description:
 baseurl:            "/"
 url:                'https://j0ma.github.io'
 github:
-   url:             'https://www.github.com/j0ma'
+   url:             'http://www.github.com/j0ma/j0ma.github.io'
 author:
   name:              "Jonne Sälevä"
   email:             ""
