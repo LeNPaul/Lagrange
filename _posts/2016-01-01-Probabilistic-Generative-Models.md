@@ -16,7 +16,7 @@ Bayesian inference is the coolest thing known to man. Together with generative m
 
 A generative model consists of two parts: 
 
-1. The data-generating process, also known as the *likelihood*. Parametrized by $\theta$.
+1. The data-generating process, also known as the *likelihood*. Parametrized by $$\theta$$.
 2. Since we can never be sure what the parameter values are, we assign them distributions as well.
 
 We can represent all this using **plate notation**:
