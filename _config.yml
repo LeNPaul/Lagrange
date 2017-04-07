@@ -2,10 +2,10 @@
 title:               Jonne Sälevä
 tagline:             machine learning, programming, and language
 description:
-baseurl:            ""
-url:                'https://www.github.com/j0ma/j0ma.github.io'
+baseurl:            #""
+url:                #'https://www.github.com/j0ma/j0ma.github.io'
 github:
-   url:             'https://www.github.com/j0ma/j0ma.github.io'
+   url:             #'https://www.github.com/j0ma/j0ma.github.io'
 author:
   name:              "Jonne Sälevä"
   email:             ""
