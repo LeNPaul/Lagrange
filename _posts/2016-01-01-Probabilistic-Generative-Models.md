@@ -5,7 +5,7 @@ categories: bayesian
 tags: [bayes]
 image:
   feature: bayes.png
-  teaser: mountains-teaser.jpg
+  teaser: pgm.png
   credit: Death to Stock Photo
   creditlink: ""
 ---
