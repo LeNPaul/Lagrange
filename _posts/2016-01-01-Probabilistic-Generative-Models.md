@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Some thoughts on Bayesian Inference"
+title: "Probabilistic Generative Models"
 categories: bayesian
 tags: [bayes]
 image:
