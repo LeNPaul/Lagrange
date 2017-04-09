@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Probabilistic Generative Models"
+title: "Dimensionality Reduction"
 categories: bayesian
-tags: [bayes]
+tags: [dimensionality-reduction]
 image:
   teaser: pgm.png
   credit: Death to Stock Photo
