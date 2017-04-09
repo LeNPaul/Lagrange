@@ -4,7 +4,7 @@ title: "Probabilistic Generative Models"
 categories: bayesian
 tags: [bayes]
 image:
-  feature: bayes.png
+  feature: 
   teaser: pgm.png
   credit: Death to Stock Photo
   creditlink: ""
@@ -21,7 +21,7 @@ A generative model consists of two parts:
 
 We can represent all this using **plate notation**:
 
-![Plate notation](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Latent_Dirichlet_allocation.svg/593px-Latent_Dirichlet_allocation.svg.png)
+![Plate notation [source: Wikipedia]](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Latent_Dirichlet_allocation.svg/593px-Latent_Dirichlet_allocation.svg.png)
 
 
 
