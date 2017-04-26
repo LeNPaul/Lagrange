@@ -17,10 +17,10 @@ author:
 navigation:
 - title: About
   url: /about
-- title: Posts
-  url: /posts
-- title: Contact
-  url: /contact
+- title: Archive
+  url: /Archive
+#- title: Contact
+#  url: /contact
 
 paginate:            5
 disqus:              #"your-disqus"
