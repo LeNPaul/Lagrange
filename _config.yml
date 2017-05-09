@@ -1,19 +1,19 @@
 # Site Settings
-title:               Lagrange
-tagline:             a minimalist Jekyll theme
+title:               Mrchypark
+tagline:             Log for me
 description:
 baseurl:            #"/Lagrange"
 url:                #"https://lenpaul.github.io"
 github:
-  url:               #"https://lenpaul.github.io/Lagrange"
+  url:               "https://www.github.com/mrchypark"
 author:
-  name:              "Paul Le"
-  email:             "l.nguyen.paul@gmail.com"
-  twitter:           "paululele"
-  instagram:         "paululele"
-  github:            "lenpaul"
-  facebook:          "Le.Paul.94"
-  linkedin:          "lenpaul"
+  name:              "박찬엽"
+  email:             "mrchypark@gmail.com"
+  twitter:           "mrchypark_"
+  instagram:         "mrchypark"
+  github:            "mrchypark"
+  facebook:          "mrchypark"
+  linkedin:          "chanyubpark"
 navigation:
 - title: About
   url: /about
@@ -23,7 +23,9 @@ navigation:
   url: /contact
 
 paginate:            5
-disqus:              #"your-disqus"
+disqus:              "mrchypark"
+ga:
+addThis:             "ra-58e1422c6a3c89f2"
 
 # Build settings
 markdown:            kramdown
