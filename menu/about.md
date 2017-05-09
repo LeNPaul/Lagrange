@@ -2,4 +2,4 @@
 layout: page
 title: About
 ---
-Lagrange is a minimalist Jekyll. It is intended to have a clean, content focused interface for blog writing.
+My name is Jonne Sälevä. I'm a senior studying Statistics and Computer Science at Harvard College in Cambridge, MA. Check out my blog for more.
