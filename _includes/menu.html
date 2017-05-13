@@ -1,24 +1,12 @@
 <div class="menu">
-  <div class="menu-content">
-    {% for link in site.navigation %}{% assign current = nil %}{% if page.url contains link.url %}{% assign current = 'current' %}{% endif %}
-    <a class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}" href="{{ site.github.url }}/menu{{ link.url }}">{{ link.title }}</a>
+  <nav class="menu-content">
+    {% for item in site.data.settings.menu %}
+      <a href="{{ site.github.url }}/menu/{{ item.url }}">{{ item.name }}</a>
     {% endfor %}
-  </div>
-  <div class="social-icons">
-    {% if site.author.github %}
-      <a href="https://github.com/{{ site.author.github }}"><i class="fa fa-github" aria-hidden="true" target="_blank"></i></a>
-    {% endif %}
-    {% if site.author.twitter %}
-      <a href="https://twitter.com/{{ site.author.twitter }}"><i class="fa fa-twitter" aria-hidden="true" target="_blank"></i></a>
-    {% endif %}
-    {% if site.author.instagram %}
-      <a href="https://instagram.com/{{ site.author.instagram }}"><i class="fa fa-instagram" aria-hidden="true" target="_blank"></i></a>
-    {% endif %}
-    {% if site.author.linkedin %}
-      <a href="https://linkedin.com/in/{{ site.author.linkedin }}"><i class="fa fa-linkedin" aria-hidden="true" target="_blank"></i></a>
-    {% endif %}
-    {% if site.author.email %}
-      <a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope" aria-hidden="true" target="_blank"></i></a>
-    {% endif %}
-  </div>
+  </nav>
+  <nav class="social-icons">
+    {% for item in site.data.settings.social %}
+      <a href="{{ item.link }}"><i class="fa fa-{{ item.icon }}" aria-hidden="true" target="_blank"></i></a>
+    {% endfor %}
+  </nav>
 </div>
