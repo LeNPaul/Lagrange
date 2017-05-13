@@ -1,26 +1,4 @@
 # Site Settings
-title:               Lagrange
-tagline:             a minimalist Jekyll theme
-description:
-baseurl:            #"/Lagrange"
-url:                #"https://lenpaul.github.io"
-github:
-  url:               #"https://lenpaul.github.io/Lagrange"
-author:
-  name:              "Paul Le"
-  email:             "l.nguyen.paul@gmail.com"
-  twitter:           "paululele"
-  instagram:         "paululele"
-  github:            "lenpaul"
-  facebook:          "Le.Paul.94"
-  linkedin:          "lenpaul"
-navigation:
-- title: About
-  url: /about
-- title: Writing
-  url: /writing
-- title: Contact
-  url: /contact
 
 paginate:            5
 disqus:              #"your-disqus"

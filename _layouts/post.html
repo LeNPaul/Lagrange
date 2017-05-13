@@ -22,7 +22,7 @@ layout: default
     {% when '3' or '23' %}{{ d }}rd
     {% else %}{{ d }}th{% endcase %},
   {{ page.date | date: "%Y" }}
-  by {{ site.author.name }}
+  by {{ page.author }}
 </span>
 {% include social-sharing.html %}
 {% include related-posts.html %}

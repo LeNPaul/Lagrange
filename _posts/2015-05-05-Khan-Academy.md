@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Khan Academy"
+author: "Paul Le"
 categories: journal
 tags: [documentation,sample]
 image:

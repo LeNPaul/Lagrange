@@ -2,9 +2,9 @@
 
   <title>
     {% if page.title == "Home" %}
-      {{ site.title }} | {{ site.tagline }}
+      {{ site.data.settings.title }} | {{ site.data.settings.tagline }}
     {% else %}
-      {{ page.title }} | {{ site.title }}
+      {{ page.title }} | {{ site.data.settings.title }}
     {% endif %}
   </title>
 

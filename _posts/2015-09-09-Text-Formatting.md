@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Text Formatting"
+author: "Paul Le"
 categories: journal
 tags: [documentation,sample]
 image:

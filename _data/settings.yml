@@ -1,3 +1,9 @@
+title:               Lagrange
+tagline:             a minimalist Jekyll theme
+author:
+  name:              "Paul Le"
+  twitter:           paululele
+
 menu:
 - {name: 'About', url: 'about.html'}
 - {name: 'Writing', url: 'writing.html'}
@@ -9,3 +15,5 @@ social:
 - {icon: 'instagram', link: 'https://instagram.com/paululele'}
 - {icon: 'linkedin', link: 'http://www.linkedin.com/in/lenpaul/'}
 - {icon: 'envelope', link: 'mailto:l.nguyen.paul@gmail.com'}
+
+# Available social icons are powered by Font Awesome, so you can use any icon that they offer
