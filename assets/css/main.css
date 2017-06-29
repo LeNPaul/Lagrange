@@ -34,13 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: underline;
-  /*border-bottom: 1px solid black;*/
   color: #333;/*#FF333E;*/
-  -o-transition:.5s;
-    -ms-transition:.5s;
-    -moz-transition:.5s;
-    -webkit-transition:.5s;
-    transition: .5s;
 }
 
 a:hover {
@@ -53,27 +47,6 @@ img {
   height: auto;
   border-radius: 5px;
 }
-
-/*
-  Blockquote
-*/
-
-/*blockquote {
-  padding: 0rem 1rem;
-  margin: .8rem 0;
-  color: #999;
-  border-left: 0.25rem solid #ccc;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-@media (min-width: 30em) {
-  blockquote {
-    padding-right: 5rem;
-    padding-left: 1.25rem;
-  }
-}*/
 
 blockquote {
   border-left: 0.25rem solid #ccc;
