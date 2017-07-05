@@ -5,7 +5,7 @@
 body {
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
   font-size: 18px;
-  color: #515151;/*#3A3A3A;/*rgba(0,0,0,.8);/*#666;*/
+  color: #515151;
   line-height: 1.75rem;
 }
 
@@ -34,11 +34,11 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: underline;
-  color: #333;/*#FF333E;*/
+  color: #333;
 }
 
 a:hover {
-  color: black;/*#999;*/
+  color: black;
   border-bottom: none;
 }
 
