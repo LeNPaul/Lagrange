@@ -83,10 +83,11 @@ blockquote p {
   }
 }
 
+/*48em*/
 
-@media (max-width: 48em) {
+@media (max-width: 768px) {
   .container {
-    width: 75vw;
+    width: 90vw;
   }
 }
 
@@ -239,7 +240,10 @@ blockquote p {
 @media (max-width: 30em) {
   .social-icons {
     float: left;
-    padding-top: 0.5rem;
+    padding-top: 0px;
+  }
+  .menu-content {
+    margin-bottom: 5px;
   }
 }
 
