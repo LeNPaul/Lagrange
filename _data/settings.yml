@@ -9,6 +9,8 @@ disqus:
   comments: false
   disqus_shortname: 'https-lenpaul-github-io-lagrange'
 
+google-ID: 'UA-80213386-1'
+
 menu:
 - {name: 'About', url: 'about.html'}
 - {name: 'Writing', url: 'writing.html'}
