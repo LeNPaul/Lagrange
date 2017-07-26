@@ -32,6 +32,6 @@ layout: default
 {% include social-sharing.html %}
 {% include related-posts.html %}
 
-{% if site.disqus %}
+{% if site.data.settings.disqus.comments %}
   {% include disqus.html %}
 {% endif %}

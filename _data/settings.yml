@@ -1,8 +1,13 @@
 title:  Lagrange
 tagline:  a minimalist Jekyll theme
 author:
-  name: "Paul Le"
+  name: 'Paul Le'
   twitter:  paululele
+
+disqus:
+  comments: true
+  disqus_shortname: 'https-lenpaul-github-io-lagrange'
+
 
 menu:
 - {name: 'About', url: 'about.html'}
