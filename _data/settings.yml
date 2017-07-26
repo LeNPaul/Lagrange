@@ -4,10 +4,10 @@ author:
   name: 'Paul Le'
   twitter:  paululele
 
+# Change to true for Disqus comments
 disqus:
-  comments: true
+  comments: false
   disqus_shortname: 'https-lenpaul-github-io-lagrange'
-
 
 menu:
 - {name: 'About', url: 'about.html'}
