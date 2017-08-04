@@ -15,13 +15,13 @@ Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a
 
 ### Getting Started
 
-[Installation Guide]({{ site.github.url }}{% post_url 2015-12-12-Installation-Guide %}): this post will help you get started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
+[Installation Guide]({{ site.github.url }}{% post_url 2015-12-12-Installation-Guide %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
 
 ### Using Lagrange
 
-[Working With Jekyll]({{ site.github.url }}{% post_url 2015-11-11-Working-With-Jekyll %}): this post will acquaint you with how to use Jekyll to create your own site.
+[Working With Jekyll]({{ site.github.url }}{% post_url 2015-11-11-Working-With-Jekyll %}): how to use Jekyll to create your own site.
 
-[Working With Lagrange]({{ site.github.url }}{% post_url 2015-10-10-Working-With-Lagrange %}): this post will acquaint you with how to use Jekyll to create your own site.
+[Working With Lagrange]({{ site.github.url }}{% post_url 2015-10-10-Working-With-Lagrange %}): information on features specific to this Jekyll theme.
 
 ### Example Content
 

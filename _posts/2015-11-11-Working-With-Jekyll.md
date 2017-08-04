@@ -19,11 +19,11 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 ### Configuration
 
-To change site settings, edit the `_config.yml` file found in the root of your repository. Anything under 'Site Settings' can be tweaked to your liking.
+To change site settings, edit the `settings.yml` file found in the `_data` folder in the root directory. Anything in the `settings.yml` file can be tweaked to your liking.
 
 If you are hosting your site on GitHub Pages, then committing a change to the `_config.yml` file will force a rebuild of your site with Jekyll. Any changes made should be viewable soon after. If you are hosting your site locally, then you must run `jekyll serve` again for the changes to take place.
 
-In the `_config.yml` file, you'll be able to change the title of your site along with any tagline you want, which shows up in the site header, as well as the description of your site for SEO purposes. You can also change the social media information, and add your own social media icons.
+In the `settings.yml` file, you'll be able to change the title of your site along with any tagline you want, which shows up in the site header, as well as the description of your site for SEO purposes. You can also change the social media information, and add your own social media icons.
 
 ### Everything Else
 
