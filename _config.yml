@@ -7,4 +7,4 @@ disqus:              #"your-disqus"
 markdown:            kramdown
 highlighter:         rouge
 permalink:           none
-gems:                [jekyll-paginate]
+plugins:             [jekyll-paginate]
