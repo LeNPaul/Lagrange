@@ -3,8 +3,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
-		<title>{{ site.name | xml_escape }}</title>
-		<description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
+		<title>{{ site.data.settings.title | xml_escape }}</title>
+		<description>{% if site.data.settings.tagline %}{{ site.data.settings.tagline | xml_escape }}{% endif %}</description>
 		<link>{{ site.url }}</link>
 		<atom:link href="{{ site.url }}/{{ page.path }}" rel="self" type="application/rss+xml" />
 		{% for post in site.posts limit:10 %}
