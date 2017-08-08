@@ -66,3 +66,7 @@ Lagrange supports comments at the end of posts through [Disqus](https://disqus.c
 ### Google Analytics
 
 It is possible to track your site statistics through [Google Analytics](https://www.google.com/analytics/). Similar to Disqus, you will have to create an account for Google Analytics, and enter the correct Google ID for your site under `google-ID` in the `settings.yml` file. More information on [how to set up Google Analytics](https://michaelsoolee.com/google-analytics-jekyll/).
+
+### RSS Feeds
+
+RSS 2.0 is supported through [RSS autodiscovery](http://www.rssboard.org/rss-autodiscovery).

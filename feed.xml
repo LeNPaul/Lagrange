@@ -5,8 +5,8 @@
 	<channel>
 		<title>{{ site.data.settings.title | xml_escape }}</title>
 		<description>{% if site.data.settings.tagline %}{{ site.data.settings.tagline | xml_escape }}{% endif %}</description>
-		<link>{{ site.url }}</link>
-		<atom:link href="{{ site.url }}/{{ page.path }}" rel="self" type="application/rss+xml" />
+		<link>{{ site.github.url }}</link>
+		<atom:link href="{{ site.github.url }}/{{ page.path }}" rel="self" type="application/rss+xml" />
 		{% for post in site.posts limit:10 %}
 			<item>
 				<title>{{ post.title | xml_escape }}</title>
