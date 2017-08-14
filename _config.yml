@@ -6,4 +6,4 @@ paginate:            5
 markdown:            kramdown
 highlighter:         rouge
 permalink:           none
-plugins:             [jekyll-paginate]
+plugins:             [jekyll-paginate, jekyll-sitemap]
