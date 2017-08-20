@@ -69,4 +69,4 @@ It is possible to track your site statistics through [Google Analytics](https://
 
 ### RSS Feeds
 
-RSS 2.0 is supported through [RSS autodiscovery](http://www.rssboard.org/rss-autodiscovery).
+Atom is supported through [Jekyll-Feed](https://github.com/jekyll/jekyll-feed) and RSS 2.0 is supported through [RSS autodiscovery](http://www.rssboard.org/rss-autodiscovery).
