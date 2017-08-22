@@ -1,8 +1,7 @@
 title:  Lagrange
 tagline:  a minimalist Jekyll theme
-author:
-  name: 'Paul Le'
-  twitter:  paululele
+
+# Authors documented under _data
 
 # Change to true for Disqus comments
 disqus:
