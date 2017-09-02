@@ -9,9 +9,12 @@ permalink:           none
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed]
 
 # feed settings
-title:		     "Lagrange"
-description:	     "a minimalist Jekyll theme"
+title:		     "Lagrange-text"
+description:	     "a minimalist Jekyll theme-text"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
 #   path:	     rss-feed.xml
+
+
+data_dir: _data
