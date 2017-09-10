@@ -9,9 +9,24 @@ permalink:           none
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed]
 
 # Customise feed settings (uncommenting following two fields to customise feed title and description)
-#title:		     "Lagrange-Custom"
-#description:	     "a minimalist Jekyll theme-Custom"
+title:		     "Control of chaos"
+description:	     "data science from physics perspective"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
 #   path:	     rss-feed.xml
+author:
+  name     : "Bartlomiej"
+  job      : "physics student and junior data scientist"
+  bio      : ""
+  thumb    : /assets/images/autor.jpg
+  email    : bklimowski1@gmail.com
+  url      : bklimowski.github.io
+  github   : http://github.com/bklimowski
+  twitter  : http://twitter.com/BKlimowski1
+
+
+# social settings
+og_locale: "en_US"
+twitter_card: "summary_large_image"
+twitter_site: "@BKlimowski1"
