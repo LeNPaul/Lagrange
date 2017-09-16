@@ -20,6 +20,6 @@ social:
 - {icon: 'twitter', link: 'https://twitter.com/paululele'}
 - {icon: 'linkedin', link: 'http://www.linkedin.com/in/lenpaul/'}
 - {icon: 'envelope', link: 'mailto:l.nguyen.paul@gmail.com'}
-- {icon: 'rss-square', link: '/feed.xml'}
+- {icon: 'rss-square', link: '{{ site.github.url }}\feed.xml'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
