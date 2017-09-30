@@ -6,7 +6,6 @@ categories: journal
 tags: [documentation,sample]
 image:
   feature: bag.jpg
-  teaser: bag-teaser.jpg
   credit:
   creditlink:
 ---

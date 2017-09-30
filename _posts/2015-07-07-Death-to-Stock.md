@@ -6,7 +6,6 @@ categories: journal
 tags: [documentation,sample]
 image:
   feature: forest.jpg
-  teaser: forest-teaser.jpg
   credit:
   creditlink:
 ---

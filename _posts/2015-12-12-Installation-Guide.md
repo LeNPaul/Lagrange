@@ -6,7 +6,6 @@ categories: journal
 tags: [documentation,sample]
 image:
   feature: computer.jpg
-  teaser: computer-teaser.jpg
   credit: Death to Stock Photo
   creditlink: ""
 ---

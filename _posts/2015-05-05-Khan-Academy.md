@@ -6,7 +6,6 @@ categories: journal
 tags: [documentation,sample]
 image:
   feature: cards.jpg
-  teaser: cards-teaser.jpg
   credit:
   creditlink:
 ---

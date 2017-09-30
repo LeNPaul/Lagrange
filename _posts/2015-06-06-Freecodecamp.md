@@ -6,7 +6,6 @@ categories: journal
 tags: [documentation,sample]
 image:
   feature: table.jpg
-  teaser: table-teaser.jpg
   credit:
   creditlink:
 ---
