@@ -70,3 +70,8 @@ It is possible to track your site statistics through [Google Analytics](https://
 ### RSS Feeds
 
 Atom is supported through [Jekyll-Feed](https://github.com/jekyll/jekyll-feed) and RSS 2.0 is supported through [RSS autodiscovery](http://www.rssboard.org/rss-autodiscovery).
+
+
+### Social Media icons
+
+All social media icons are courtesy of [Font Awesome](http://fontawesome.io/). You can change which icons appear, as well as the account that they link to, in the `settings.yml` file in the `_data` folder.
