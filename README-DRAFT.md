@@ -9,7 +9,10 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
 1. [Installation](#installation)
   1. [GitHub Pages Installation](#github-pages-installation)
   2. [Local Installation](#local-installation)
-2. [Jekyll Structure](#jekyll-structure)
+2. [Directory Structure](#directory-structure)
+3. [Configuration](#configuration)
+4. [Features](#features)
+5. [Everything Else](#everything-else)
 
 ## Installation
 
@@ -22,3 +25,34 @@ Head over to the `_posts` directory to view all the posts that are currently on 
 ### Local Installation
 
 For a full local installation of Lagrange, [download your own copy of Lagrange](https://github.com/LeNPaul/Lagrange/archive/gh-pages.zip) and unzip it into it's own directory. From there, open up your favorite command line tool, and enter `jekyll serve`. Your site should be up and running locally at [http://localhost:4000](http://localhost:4000).
+
+## Directory Structure
+
+If you are familiar with Jekyll, then the default directory structure shouldn't be too difficult to navigate. The following are highlights of some of the differences you might notice between how
+
+```bash
+Lagrange
+
+├── _data                      # Data files
+|  └── authors.yml             # For managing multiple authors
+|  └── settings.yml            # Theme settings and custom text
+├── _includes                  # Theme includes
+├── _layouts                   # Theme layouts (see below for details)
+├── _posts                     # Where all your posts will go
+├── assets
+|  ├── css
+|  |  └── main.css
+|  |  └── syntax.css
+|  └── img
+├── menu     
+├── _config.yml                # sample configuration
+└── index.md                   # sample home page (all posts/not paginated)
+```
+
+## Configuration
+
+
+## Features
+
+
+## Everything Else
