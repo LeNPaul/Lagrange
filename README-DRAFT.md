@@ -28,7 +28,7 @@ For a full local installation of Lagrange, [download your own copy of Lagrange](
 
 ## Directory Structure
 
-If you are familiar with Jekyll, then the default directory structure shouldn't be too difficult to navigate. The following are highlights of some of the differences you might notice between how
+If you are familiar with Jekyll, then the Lagrange directory structure shouldn't be too difficult to navigate. The following some highlights of the differences you might notice between the default directory structure. More information on what these folders and files do can be found in the [Jekyll documentation site](https://jekyllrb.com/docs/structure/).
 
 ```bash
 Lagrange
@@ -39,14 +39,14 @@ Lagrange
 ├── _includes                  # Theme includes
 ├── _layouts                   # Theme layouts (see below for details)
 ├── _posts                     # Where all your posts will go
-├── assets
+├── assets                     # Style sheets and images are found here
 |  ├── css
 |  |  └── main.css
 |  |  └── syntax.css
 |  └── img
-├── menu     
-├── _config.yml                # sample configuration
-└── index.md                   # sample home page (all posts/not paginated)
+├── menu                       # Menu pages
+├── _config.yml                # Site build settings
+└── index.md                   # Home page
 ```
 
 ## Configuration
@@ -60,6 +60,8 @@ If you are hosting your site on GitHub Pages, then committing a change to the `_
 In the `settings.yml` and `authors.yml` files found in the `_data` folder, you will be able to customize your site settings, such as the title of your site, what shows up in your menu, and social media information. To make author organization easier, especially if you have multiple authors, all author information is stored in the `authors.yml` file.
 
 ### Adding Menu Pages
+
+The menu pages are found in the `menu` folder in the root directory, and can be added to your menu in the `settings.yml` file.
 
 ## Features
 
