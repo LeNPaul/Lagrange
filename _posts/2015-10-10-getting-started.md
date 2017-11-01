@@ -20,6 +20,8 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
 ## Table of Contents
 
 1. [Introduction](#introduction)
+   1. [What is Jekyll](#what-is-jekyll)
+   2. [Never Used Jeykll Before?](#never-used-jekyll-before)
 2. [Installation](#installation)
    1. [GitHub Pages Installation](#github-pages-installation)
    2. [Local Installation](#local-installation)
@@ -38,6 +40,8 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
    4. [RSS Feeds](#rss-feeds)
    5. [Social Media Icons](#social-media-icons)
 5. [Everything Else](#everything-else)
+6. [Credits](#credits)
+7. [License](#license)
 
 ## Introduction
 
@@ -90,7 +94,7 @@ Lagrange
 
 ### Starting From Scratch
 
-
+To completely start from scratch, simply delete all the files in the `_posts`, and `menu` folder, and add your own content. You may also replace the `README.md` file with your own README. Everything in the `_data` folder can be edited to suit your needs.
 
 ## Configuration
 
@@ -180,3 +184,7 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [jekyll-docs]: http://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
+
+## Credits
+
+## License
