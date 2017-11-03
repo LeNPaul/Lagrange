@@ -26,6 +26,9 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
    3. [Google Analytics](#google-analytics)
    4. [RSS Feeds](#rss-feeds)
    5. [Social Media Icons](#social-media-icons)
+   6. [MathJax](#mathjax)
+   7. [Syntax Highlighting](#syntax-highlighting)
+   8. [Markdown](#markdown)
 5. [Everything Else](#everything-else)
 6. [Credits](#credits)
 7. [License](#license)
@@ -186,4 +189,22 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 
 ## Credits
 
+### Creator
+
+#### Paul Le
+
+* [www.lenpaul.com](http://lenpaul.com)
+
+* [Twitter](https://twitter.com/paululele)
+
+* [GitHub](https://github.com/LeNPaul)
+
+### Icons + Demo Images
+
+* [Death to Stock](https://deathtothestockphoto.com/)
+
+* [Font Awesome](http://fontawesome.io/)
+
 ## License
+
+Open sourced under the [MIT license](https://github.com/LeNPaul/Lagrange/blob/gh-pages/LICENSE.md).
