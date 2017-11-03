@@ -21,8 +21,6 @@ Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a
 
 [Text and Formatting]({{ site.github.url }}{% post_url 2015-09-09-Text-Formatting %})
 
-[Math and Code Formatting]({{ site.github.url }}{% post_url 2015-08-08-Math-and-Code-Formatting %})
-
 ### Questions?
 
 This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
