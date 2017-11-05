@@ -8,11 +8,13 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
 
 * Compatible with GitHub Pages.
 
-* Support for Jekyll's built-in Sass/SCSS preprocessor.
+* Support for Jekyll's built-in Sass/SCSS preprocessor and data files for making customizing easier.
 
 * [Google Analytics](https://www.google.com/analytics/) support.
 
 * Commenting support powered by [Disqus](https://disqus.com/).
+
+* Optimized for search engines.
 
 * LaTeX support through [MathJax](https://www.mathjax.org/).
 
@@ -27,11 +29,12 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
    3. [Directory Structure](#directory-structure)
    4. [Starting From Scratch](#starting-from-scratch)
 3. [Configuration](#configuration)
-   1. [Site Variables](#site-variables)
-   2. [Adding Menu Pages](#adding-menu-pages)
-   3. [Posts](#posts)
-   4. [Layouts](#layouts)
-   5. [YAML Front Block Matter](#yaml-front-block-matter)
+   1. [Sample Posts](#sample-posts)
+   2. [Site Variables](#site-variables)
+   3. [Adding Menu Pages](#adding-menu-pages)
+   4. [Posts](#posts)
+   5. [Layouts](#layouts)
+   6. [YAML Front Block Matter](#yaml-front-block-matter)
 4. [Features](#features)
    1. [Design Considerations](#design-considerations)
    2. [Disqus](#disqus)
@@ -42,6 +45,7 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
    7. [Syntax Highlighting](#syntax-highlighting)
    8. [Markdown](#markdown)
 5. [Everything Else](#everything-else)
+6. [Contributing](#Contributing)
 6. [Credits](#credits)
 7. [License](#license)
 
@@ -55,15 +59,13 @@ Jekyll is a simple, blog-aware, static site generator for personal, project, or 
 
 ### Never Used Jekyll Before?
 
-The beauty of hosting your website on GitHub is that you don't have to actually have Jekyll installed on your computer. Everything can be done through the GitHub code editor, with minimal knowledge of how to use Jekyll or the command line. All you have to do is add your posts to the `_posts` directory and edit the `_config.yml` file to change the site settings. With some rudimentary knowledge of HTML and CSS, you can even modify the site to your liking.
-
-This can all be done through the GitHub code editor, which acts like a content management system (CMS).
+The beauty of hosting your website on GitHub is that you don't have to actually have Jekyll installed on your computer. Everything can be done through the GitHub code editor, with minimal knowledge of how to use Jekyll or the command line. All you have to do is add your posts to the `_posts` directory and edit the `_config.yml` file to change the site settings. With some rudimentary knowledge of HTML and CSS, you can even modify the site to your liking. This can all be done through the GitHub code editor, which acts like a content management system (CMS).
 
 ## Installation
 
 ### GitHub Pages Installation
 
-To start using Jekyll right away using GitHub Pages, [fork the Lagrange repository on GitHub](https://github.com/LeNPaul/Lagrange/fork). From there, you can rename your repository to 'USERNAME.github.io', where 'USERNAME' is your GitHub username, and edit the `settings.yml` file in the `_data` folder to your liking. Ensure that you have a branch named `gh-pages`. Your website should be ready immediately at 'http://USERNAME.github.io'.
+To start using Jekyll right away using GitHub Pages, [fork the Lagrange repository on GitHub](https://github.com/LeNPaul/Lagrange/fork). From there, you can rename your repository to 'USERNAME.github.io', where 'USERNAME' is your GitHub username, and edit the `settings.yml` file in the `_data` folder to your liking. Ensure that you have a branch named `gh-pages`. Your website should be ready immediately at `http://USERNAME.github.io`. Note: if you are hosting several sites under the same GitHub username, then you will have to use Project Pages instead of User Pages - just change the repository name to something other than `http://USERNAME.github.io`.
 
 Head over to the `_posts` directory to view all the posts that are currently on the website, and to see examples of what post files generally look like. You can simply just duplicate the template post and start adding your own content.
 
@@ -96,9 +98,13 @@ Lagrange
 
 ### Starting From Scratch
 
-To completely start from scratch, simply delete all the files in the `_posts`, and `menu` folder, and add your own content. You may also replace the `README.md` file with your own README. Everything in the `_data` folder can be edited to suit your needs.
+To completely start from scratch, simply delete all the files in the `_posts`, `assets/img`, and `menu` folder, and add your own content. You may also replace the `README.md` file with your own README. Everything in the `_data` folder and `_config.yml` file can be edited to suit your needs. You may also change the `favicon.ico` file to your own favicon.
 
 ## Configuration
+
+### Sample Posts
+
+Visit the [the demo site](https://lenpaul.github.io/Lagrange/) to find sample posts that show what different types of text formatting look like, as well as best practices for setting up your own site.
 
 ### Site Variables
 
@@ -201,9 +207,9 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 
 ## Contributing
 
-If you would like to make a feature request, or report a bug or typo in the documentation, then please [submit a GitHub issue](https://github.com/LeNPaul/Lagrange/issues/new). If you would like to make a contribution, then feel free to [submit a pull request](https://help.github.com/articles/about-pull-requests/). If this is your first pull request, it may be helpful to read up on the [GitHub Flow](https://guides.github.com/introduction/flow/) first.
+If you would like to make a feature request, or report a bug or typo in the documentation, then please [submit a GitHub issue](https://github.com/LeNPaul/Lagrange/issues/new). If you would like to make a contribution, then feel free to [submit a pull request](https://help.github.com/articles/about-pull-requests/) - as a bonus, I will credit all contributors below! If this is your first pull request, it may be helpful to read up on the [GitHub Flow](https://guides.github.com/introduction/flow/) first.
 
-Lagrange has been designed as a base for users to customize and fit to their unique needs. Please keep this in mind when requesting features and/or submitting pull requests. Some examples of changes that I would love to see are things that would make the site easier to use, or better ways of doing things. Please avoid changes that do not benefit the majority of users.
+Lagrange has been designed as a base for users to customize and fit to their own unique needs. Please keep this in mind when requesting features and/or submitting pull requests. Some examples of changes that I would love to see are things that would make the site easier to use, or better ways of doing things. Please avoid changes that do not benefit the majority of users.
 
 ## Credits
 
@@ -217,11 +223,33 @@ Lagrange has been designed as a base for users to customize and fit to their uni
 
 * [GitHub](https://github.com/LeNPaul)
 
+### Contributors
+
+* [robqiao](https://github.com/robqiao)
+
+* [Mauladen](https://github.com/Mauladen)
+
+* [dhanus](https://github.com/dhanus)
+
+* [mlewand](https://github.com/mlewand)
+
+* [Hguimaraes](https://github.com/Hguimaraes)
+
+* [ilhamadun](https://github.com/ilhamadun)
+
 ### Icons + Demo Images
 
 * [Death to Stock](https://deathtothestockphoto.com/)
 
 * [Font Awesome](http://fontawesome.io/)
+
+### Other
+
+* [Jekyll](https://jekyllrb.com/)
+
+* [Free Code Camp](https://www.freecodecamp.org)
+
+* [Khan Academy](https://www.khanacademy.org/)
 
 ## License
 
