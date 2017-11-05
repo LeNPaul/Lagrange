@@ -14,6 +14,8 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
 
 * Commenting support powered by [Disqus](https://disqus.com/).
 
+* LaTeX support through [MathJax](https://www.mathjax.org/).
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -173,7 +175,7 @@ It is possible to track your site statistics through [Google Analytics](https://
 Atom is supported through [Jekyll-Feed](https://github.com/jekyll/jekyll-feed) and RSS 2.0 is supported through [RSS autodiscovery](http://www.rssboard.org/rss-autodiscovery).
 
 
-### Social Media icons
+### Social Media Icons
 
 All social media icons are courtesy of [Font Awesome](http://fontawesome.io/). You can change which icons appear, as well as the account that they link to, in the `settings.yml` file in the `_data` folder.
 
@@ -196,6 +198,12 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [jekyll-docs]: http://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
+
+## Contributing
+
+If you would like to make a feature request, or report a bug or typo in the documentation, then please [submit a GitHub issue](https://github.com/LeNPaul/Lagrange/issues/new). If you would like to make a contribution, then feel free to [submit a pull request](https://help.github.com/articles/about-pull-requests/). If this is your first pull request, it may be helpful to read up on the [GitHub Flow](https://guides.github.com/introduction/flow/) first.
+
+Lagrange has been designed as a base for users to customize and fit to their unique needs. Please keep this in mind when requesting features and/or submitting pull requests. Some examples of changes that I would love to see are things that would make the site easier to use, or better ways of doing things. Please avoid changes that do not benefit the majority of users.
 
 ## Credits
 
