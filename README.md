@@ -2,7 +2,17 @@
 
 Lagrange is a minimalist Jekyll theme for running a personal blog or site for free through [Github Pages](https://pages.github.com/), or on your own server. Everything that you will ever need to know about this Jekyll theme is included in the README below, which you can also find in [the demo site](https://lenpaul.github.io/Lagrange/).
 
-![alt text](https://cloud.githubusercontent.com/assets/8409329/21747617/7ef0e18e-d53a-11e6-8f90-8bb14b62ba20.jpg "Lagrange Demo Image")
+![alt text](https://user-images.githubusercontent.com/8409329/32411720-08127b88-c1b9-11e7-9ec2-f8844de63df2.jpg "Lagrange Demo Image")
+
+## Notable features
+
+* Compatible with GitHub Pages.
+
+* Support for Jekyll's built-in Sass/SCSS preprocessor.
+
+* [Google Analytics](https://www.google.com/analytics/) support.
+
+* Commenting support powered by [Disqus](https://disqus.com/).
 
 ## Table of Contents
 
