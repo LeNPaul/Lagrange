@@ -46,8 +46,9 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
    8. [Markdown](#markdown)
 5. [Everything Else](#everything-else)
 6. [Contributing](#Contributing)
-6. [Credits](#credits)
-7. [License](#license)
+7. [Questions?](#questions)
+8. [Credits](#credits)
+9. [License](#license)
 
 ## Introduction
 
@@ -65,7 +66,7 @@ The beauty of hosting your website on GitHub is that you don't have to actually 
 
 ### GitHub Pages Installation
 
-To start using Jekyll right away using GitHub Pages, [fork the Lagrange repository on GitHub](https://github.com/LeNPaul/Lagrange/fork). From there, you can rename your repository to 'USERNAME.github.io', where 'USERNAME' is your GitHub username, and edit the `settings.yml` file in the `_data` folder to your liking. Ensure that you have a branch named `gh-pages`. Your website should be ready immediately at `http://USERNAME.github.io`. Note: if you are hosting several sites under the same GitHub username, then you will have to use Project Pages instead of User Pages - just change the repository name to something other than `http://USERNAME.github.io`.
+To start using Jekyll right away using GitHub Pages, [fork the Lagrange repository on GitHub](https://github.com/LeNPaul/Lagrange/fork). From there, you can rename your repository to 'USERNAME.github.io', where 'USERNAME' is your GitHub username, and edit the `settings.yml` file in the `_data` folder to your liking. Ensure that you have a branch named `gh-pages`. Your website should be ready immediately at 'http://USERNAME.github.io'. Note: if you are hosting several sites under the same GitHub username, then you will have to use [Project Pages instead of User Pages](https://help.github.com/articles/user-organization-and-project-pages/) - just change the repository name to something other than 'http://USERNAME.github.io'.
 
 Head over to the `_posts` directory to view all the posts that are currently on the website, and to see examples of what post files generally look like. You can simply just duplicate the template post and start adding your own content.
 
@@ -78,8 +79,7 @@ For a full local installation of Lagrange, [download your own copy of Lagrange](
 If you are familiar with Jekyll, then the Lagrange directory structure shouldn't be too difficult to navigate. The following some highlights of the differences you might notice between the default directory structure. More information on what these folders and files do can be found in the [Jekyll documentation site](https://jekyllrb.com/docs/structure/).
 
 ```bash
-Lagrange
-
+Lagrange/
 ├── _data                      # Data files
 |  └── authors.yml             # For managing multiple authors
 |  └── settings.yml            # Theme settings and custom text
@@ -108,7 +108,7 @@ Visit the [the demo site](https://lenpaul.github.io/Lagrange/) to find sample po
 
 ### Site Variables
 
-To change site build settings, edit the `_config.yml` file found in the root of your repository, which you can tweak however you like. More information on configuration settings can be found on [the Jekyll documentation site](https://jekyllrb.com/docs/configuration/).
+To change site build settings, edit the `_config.yml` file found in the root of your repository, which you can tweak however you like. More information on configuration settings and plugins can be found on [the Jekyll documentation site](https://jekyllrb.com/docs/configuration/).
 
 If you are hosting your site on GitHub Pages, then committing a change to the `_config.yml` file will force a rebuild of your site with Jekyll. Any changes made should be viewable soon after. If you are hosting your site locally, then you must run `jekyll serve` again for the changes to take place.
 
@@ -210,6 +210,10 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 If you would like to make a feature request, or report a bug or typo in the documentation, then please [submit a GitHub issue](https://github.com/LeNPaul/Lagrange/issues/new). If you would like to make a contribution, then feel free to [submit a pull request](https://help.github.com/articles/about-pull-requests/) - as a bonus, I will credit all contributors below! If this is your first pull request, it may be helpful to read up on the [GitHub Flow](https://guides.github.com/introduction/flow/) first.
 
 Lagrange has been designed as a base for users to customize and fit to their own unique needs. Please keep this in mind when requesting features and/or submitting pull requests. Some examples of changes that I would love to see are things that would make the site easier to use, or better ways of doing things. Please avoid changes that do not benefit the majority of users.
+
+## Questions?
+
+This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
 
 ## Credits
 
