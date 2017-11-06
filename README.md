@@ -87,10 +87,10 @@ Lagrange/
 ├── _layouts                   # Theme layouts (see below for details)
 ├── _posts                     # Where all your posts will go
 ├── assets                     # Style sheets and images are found here
-|  ├── css
-|  |  └── main.css
-|  |  └── syntax.css
-|  └── img
+|  ├── css                     # Style sheets go here
+|  |  └── main.css             # Main CSS file
+|  |  └── syntax.css           # Style sheet for code syntax highlighting
+|  └── img                     # Images go here
 ├── menu                       # Menu pages
 ├── _config.yml                # Site build settings
 └── index.md                   # Home page

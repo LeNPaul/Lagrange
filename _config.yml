@@ -6,7 +6,7 @@ paginate:            5
 markdown:            kramdown
 highlighter:         rouge
 permalink:           none
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed]
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise feed settings (uncommenting following two fields to customise feed title and description)
 #title:		     "Lagrange-Custom"
