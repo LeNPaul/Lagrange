@@ -229,6 +229,8 @@ This theme is completely free and open source software. You may use it however y
 
 ### Contributors
 
+* [gmemstr](https://github.com/gmemstr)
+
 * [robqiao](https://github.com/robqiao)
 
 * [Mauladen](https://github.com/Mauladen)
