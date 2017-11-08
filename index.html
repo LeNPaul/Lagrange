@@ -3,7 +3,7 @@ layout: home
 title: Home
 ---
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 <div class="posts">
   <h1>
     <a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a>
@@ -19,17 +19,19 @@ title: Home
 {% endfor %}
 
 <!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
 <div class="pagination">
-  {% if site.next_page %}
+  {% if paginator.next_page %}
     <a class="pagination-button pagination-active" href="{{ site.github.url }}{{ site.next_page_path }}" class="next">Older</a>
   {% else %}
     <span class="pagination-button">Older</span>
   {% endif %}
 
-  {% if site.previous_page %}
+  {% if paginator.previous_page %}
     <a class="pagination-button pagination-active" href="{{ site.baseurl }}{{ site.previous_page_path }}">Newer</a>
     {% else %}
       <span class="pagination-button">Newer</span>
   {% endif %}
 
 </div>
+{% endif %}
