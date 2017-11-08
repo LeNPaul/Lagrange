@@ -1,7 +1,7 @@
 <head>
 
   <title>
-    {% if page.title == "Home" %}
+    {% if page.url == "/" %}
       {{ site.data.settings.title }} | {{ site.data.settings.tagline }}
     {% else %}
       {{ page.title }} | {{ site.data.settings.title }}
