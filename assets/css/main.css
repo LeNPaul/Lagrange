@@ -117,6 +117,21 @@ blockquote p {
 }
 
 /*
+  Thumbnail
+*/
+
+.thumbnail-container {
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.thumbnail-container img{
+  margin-top: -11.5%;
+  margin-bottom: -11.5%;
+}
+
+/*
   Post
 */
 
@@ -294,7 +309,7 @@ pre {
  table {
      border-collapse: collapse;
      margin-bottom: 30px;
-     widthl 100%;
+     width: 100%;
  }
 
  table, th, td {
