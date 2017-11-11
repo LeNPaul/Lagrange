@@ -72,7 +72,7 @@ Head over to the `_posts` directory to view all the posts that are currently on 
 
 ### Local Installation
 
-For a full local installation of Lagrange, [download your own copy of Lagrange](https://github.com/LeNPaul/Lagrange/archive/gh-pages.zip) and unzip it into it's own directory. From there, open up your favorite command line tool, and enter `jekyll serve`. Your site should be up and running locally at [http://localhost:4000](http://localhost:4000).
+For a full local installation of Lagrange, [download your own copy of Lagrange](https://github.com/LeNPaul/Lagrange/archive/gh-pages.zip) and unzip it into it's own directory. From there, open up your favorite command line tool, do `bundle install`, then enter `jekyll serve`. Your site should be up and running locally at [http://localhost:4000](http://localhost:4000).
 
 ### Directory Structure
 
@@ -228,6 +228,8 @@ This theme is completely free and open source software. You may use it however y
 * [GitHub](https://github.com/LeNPaul)
 
 ### Contributors
+
+* [gmemstr](https://github.com/gmemstr)
 
 * [robqiao](https://github.com/robqiao)
 
