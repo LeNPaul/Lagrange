@@ -6,7 +6,6 @@ categories: journal
 tags: [documentation,sample]
 image:
   feature: cutting.jpg
-  teaser: cutting-teaser.jpg
   credit:
   creditlink:
 ---
