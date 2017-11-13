@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Post Content Styles"
+author: "Paul Le"
 categories: journal
 tags: [documentation,sample]
 image:
