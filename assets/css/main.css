@@ -49,22 +49,11 @@ img {
 }
 
 blockquote {
-  border-left: 0.25rem solid #ccc;
-  margin: 1.5em 10px;
+  margin: 10px 20px 10px;
+  padding: 0px 15px;
+  border-left: 0.25em solid #ccc;
   color: #999;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-}
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-blockquote p {
-  display: inline;
+  line-height: 1.5;
 }
 
 /*
