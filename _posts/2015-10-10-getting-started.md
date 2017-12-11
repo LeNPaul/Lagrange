@@ -6,8 +6,6 @@ categories: journal
 tags: [documentation,sample]
 image:
   feature: forest.jpg
-  credit:
-  creditlink:
 ---
 
 # Lagrange
