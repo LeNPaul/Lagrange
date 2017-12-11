@@ -4,8 +4,7 @@ title: "Getting Started"
 author: "Paul Le"
 categories: journal
 tags: [documentation,sample]
-image:
-  feature: forest.jpg
+image: forest.jpg
 ---
 
 # Lagrange
