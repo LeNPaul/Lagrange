@@ -174,8 +174,9 @@ It is possible to track your site statistics through [Google Analytics](https://
 
 ### RSS Feeds
 
-Atom is supported through [Jekyll-Feed](https://github.com/jekyll/jekyll-feed) and RSS 2.0 is supported through [RSS autodiscovery](http://www.rssboard.org/rss-autodiscovery).
+Atom is supported through [Jekyll-Feed](https://github.com/jekyll/jekyll-feed), and RSS 2.0 is supported through [RSS auto-discovery](http://www.rssboard.org/rss-autodiscovery).
 
+With Jekyll-Feed, you can set configuration variables such as `title`, `description`, and `author` in the `_config.yml` file. For RSS 2.0, uncomment the last two lines in the `_config.yml` file to activate RSS auto-discovery.
 
 ### Social Media Icons
 
