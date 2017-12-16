@@ -175,7 +175,7 @@ Lagrange was designed to be a minimalist theme in order for the focus to remain 
 
 ### Disqus
 
-Lagrange supports comments at the end of posts through [Disqus](https://disqus.com/). In order to activate Disqus commenting, set `disqus.comments` to true in the `settings.yml` file under `_data`. If you do not have a Disqus account already, you will have to set one up, and create a profile for your website. You will be given a `disqus_shortname` that will be used to generate the appropriate comments sections for your site. More information on [how to set up Disqus](http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/).
+Lagrange supports comments at the end of posts through [Disqus](https://disqus.com/). In order to activate Disqus commenting, set `disqus.comments` to true in the `_data/settings.yml` file. If you do not have a Disqus account already, you will have to set one up, and create a profile for your website. You will be given a `disqus_shortname` that will be used to generate the appropriate comments sections for your site. More information on [how to set up Disqus](http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/).
 
 ### Google Analytics
 
@@ -183,9 +183,9 @@ It is possible to track your site statistics through [Google Analytics](https://
 
 ### RSS Feeds
 
-Atom is supported through [Jekyll-Feed](https://github.com/jekyll/jekyll-feed), and RSS 2.0 is supported through [RSS auto-discovery](http://www.rssboard.org/rss-autodiscovery).
+Atom is supported through [Jekyll-Feed](https://github.com/jekyll/jekyll-feed), and RSS 2.0 is supported through [RSS auto-discovery](http://www.rssboard.org/rss-autodiscovery). By default, Lagrange uses the Atom feed.
 
-With Jekyll-Feed, you can set configuration variables such as `title`, `description`, and `author` in the `_config.yml` file. For RSS 2.0, uncomment the last two lines in the `_config.yml` file to activate RSS auto-discovery.
+With Jekyll-Feed (Atom), you can set configuration variables such as `title`, `description`, and `author` in the `_config.yml` file. For RSS 2.0, uncomment the last two lines in the `_config.yml` file to activate RSS auto-discovery. The `rss-feed.xml` file that the feed path points to when using RSS 2.0 automatically uses the appropriate configuration variables found in `_data/settings.yml`.
 
 ### Social Media Icons
 
