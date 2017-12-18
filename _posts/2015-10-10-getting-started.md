@@ -183,17 +183,17 @@ It is possible to track your site statistics through [Google Analytics](https://
 
 ### RSS Feeds
 
-Atom is supported by default through [jekyll-feed](https://github.com/jekyll/jekyll-feed). With jekyll-feed, you can set configuration variables such as `title`, `description`, and `author` in the `_config.yml` file.
+Atom is supported by default through [jekyll-feed](https://github.com/jekyll/jekyll-feed). With jekyll-feed, you can set configuration variables such as 'title', 'description', and 'author', in the `_config.yml` file.
 
-RSS 2.0 is also supported through [RSS auto-discovery](http://www.rssboard.org/rss-autodiscovery). The `rss-feed.xml` file that the feed path points to when using RSS 2.0 automatically uses the appropriate configuration variables found in `_data/settings.yml`, based on the template found at [jekyll-rss-feeds](https://github.com/snaptortoise/jekyll-rss-feeds).
+RSS 2.0 is also supported through [RSS auto-discovery](http://www.rssboard.org/rss-autodiscovery). The `rss-feed.xml` file (based on the template found at [jekyll-rss-feeds](https://github.com/snaptortoise/jekyll-rss-feeds)) that the feed path points to when using RSS 2.0 is automatically generated based on the appropriate configuration variables found in `_data/settings.yml`.
 
 To use RSS 2.0, ensure the following is done:
 
-* Uncomment the last two lines in the `_config.yml`.
+* Uncomment the last two lines in the `_config.yml` file.
 
-* In `_data\settings.yml` under 'social', comment out the rss-square that points to `feed.xml`, and uncomment the rss-square that points to `rss-feed.xml`.
+* In `_data/settings.yml`, under 'social', comment out the rss-square that points to `feed.xml`, and uncomment the rss-square that points to `rss-feed.xml`.
 
-* In `_includes\head.html`, comment out `{% feed_meta %}` and uncomment the line under the RSS 2.0 comment.
+* In `_includes/head.html`, comment out `{% feed_meta %}` and uncomment the line under the RSS 2.0 comment.
 
 ### Social Media Icons
 
