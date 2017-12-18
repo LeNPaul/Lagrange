@@ -174,9 +174,17 @@ It is possible to track your site statistics through [Google Analytics](https://
 
 ### RSS Feeds
 
-Atom is supported through [Jekyll-Feed](https://github.com/jekyll/jekyll-feed), and RSS 2.0 is supported through [RSS auto-discovery](http://www.rssboard.org/rss-autodiscovery). By default, Lagrange uses the Atom feed.
+Atom is supported by default through [jekyll-feed](https://github.com/jekyll/jekyll-feed). With jekyll-feed, you can set configuration variables such as `title`, `description`, and `author` in the `_config.yml` file.
 
-With Jekyll-Feed (Atom), you can set configuration variables such as `title`, `description`, and `author` in the `_config.yml` file. For RSS 2.0, uncomment the last two lines in the `_config.yml` file to activate RSS auto-discovery. The `rss-feed.xml` file that the feed path points to when using RSS 2.0 automatically uses the appropriate configuration variables found in `_data/settings.yml`.
+RSS 2.0 is also supported through [RSS auto-discovery](http://www.rssboard.org/rss-autodiscovery). The `rss-feed.xml` file that the feed path points to when using RSS 2.0 automatically uses the appropriate configuration variables found in `_data/settings.yml`, based on the template found at [jekyll-rss-feeds](https://github.com/snaptortoise/jekyll-rss-feeds).
+
+To use RSS 2.0, ensure the following is done:
+
+* Uncomment the last two lines in the `_config.yml`.
+
+* In `_data\settings.yml` under 'social', comment out the rss-square that points to `feed.xml`, and uncomment the rss-square that points to `rss-feed.xml`.
+
+* In `_includes\head.html`, comment out `{% feed_meta %}` and uncomment the line under the RSS 2.0 comment.
 
 ### Social Media Icons
 
