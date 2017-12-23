@@ -102,6 +102,7 @@ Lagrange/
 |  └── img                     # Images go here
 ├── menu                       # Menu pages
 ├── _config.yml                # Site build settings
+├── Gemfile                    # Ruby Gemfile for managing Jekyll plugins
 └── index.md                   # Home page
 ```
 
@@ -113,7 +114,7 @@ To completely start from scratch, simply delete all the files in the `_posts`, `
 
 ### Sample Posts
 
-Visit the [the demo site](https://lenpaul.github.io/Lagrange/) to find sample posts that show what different types of text formatting look like, as well as best practices for setting up your own site.
+Visit the [the demo site](https://lenpaul.github.io/Lagrange/) to find sample posts that show what different types of text formatting look like. You can find these posts in the `_posts` folder, which show what the best practices for setting up your own site are.
 
 ### Site Variables
 
@@ -131,7 +132,7 @@ The menu pages are found in the `menu` folder in the root directory, and can be 
 
 You will find example posts in your `_posts` directory. Go ahead and edit any post and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention of `YYYY-MM-DD-name-of-post.md` and includes the necessary front matter. Take a look at any sample post to get an idea about how it works. If you already have a website built with Jekyll, simply copy over your posts to migrate to Lagrange. Note: Images were designed to be 1024x600 pixels, with teaser images being 1024x380 pixels.
+To add new posts, simply add a file in the `_posts` directory that follows the convention of `YYYY-MM-DD-name-of-post.md` and includes the necessary front matter. Take a look at any sample post to get an idea about how it works. If you already have a website built with Jekyll, simply copy over your posts to migrate to Lagrange.
 
 ### Layouts
 

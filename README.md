@@ -93,6 +93,7 @@ Lagrange/
 |  └── img                     # Images go here
 ├── menu                       # Menu pages
 ├── _config.yml                # Site build settings
+├── Gemfile                    # Ruby Gemfile for managing Jekyll plugins
 └── index.md                   # Home page
 ```
 
