@@ -1,5 +1,5 @@
-title:  Lagrange
-tagline:  a minimalist Jekyll theme
+title:  'Lagrange'
+tagline:  'a minimalist Jekyll theme'
 
 # Authors documented under _data
 
@@ -23,3 +23,8 @@ social:
 - {icon: 'envelope', link: 'mailto:l.nguyen.paul@gmail.com'}
 - {icon: 'rss-square', link: 'feed.xml'}
 # - {icon: 'rss-square', link: 'rss-feed.xml'}
+
+# Customize site text
+pagination:
+  next_page: 'Newer'
+  previous_page: 'Older'
