@@ -30,3 +30,5 @@ pagination:
   previous_page: 'Older'
 
 sharing_button: 'Feel free to share!'
+
+related_posts: 'You may also enjoy:'
