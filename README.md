@@ -104,7 +104,7 @@ To completely start from scratch, simply delete all the files in the `_posts`, `
 
 ### Sample Posts
 
-Visit the [the demo site](https://lenpaul.github.io/Lagrange/) to find sample posts that show what different types of text formatting look like, as well as best practices for setting up your own site.
+Visit the [the demo site](https://lenpaul.github.io/Lagrange/) to find sample posts that show what different types of text formatting look like. You can find these posts in the `_posts` folder, which show what the best practices for setting up your own site are.
 
 ### Site Variables
 
