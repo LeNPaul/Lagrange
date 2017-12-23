@@ -28,3 +28,5 @@ social:
 pagination:
   next_page: 'Newer'
   previous_page: 'Older'
+
+sharing_button: 'Feel free to share!'
