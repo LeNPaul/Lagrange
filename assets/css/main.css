@@ -81,12 +81,6 @@ blockquote {
   width: 615px;
 }
 
-@media (max-width: 1366px) {
-  .container {
-    width: 45vw;
-  }
-}
-
 /*48em*/
 
 @media (max-width: 768px) {
