@@ -1,4 +1,19 @@
 /*
+  Contents:
+    Base
+    Site container
+    Masthead
+    Thumbnail
+    Post
+    Pagination
+    Footer
+    Menu
+    Code
+    Tables
+    Social media icons
+*/
+
+/*
   Base
 */
 
@@ -317,22 +332,24 @@ pre code {
   border-radius: 0;
 }
 
-/**
- * Tables
- */
- table {
-     border-collapse: collapse;
-     margin-bottom: 30px;
-     width: 100%;
- }
+/*
+  Tables
+*/
 
- table, th, td {
-     border: 1px solid black;
- }
- th, td {
-     padding: 15px;
-     text-align: left;
- }
+table {
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
 
 /*
   Social media icons
