@@ -29,6 +29,8 @@ pagination:
   next_page: 'Newer'
   previous_page: 'Older'
 
-sharing_button: 'Feel free to share!'
+sharing_button_prompt: 'Feel free to share!'
 
 related_posts: 'You may also enjoy:'
+
+post_date_prefix: 'Written on'

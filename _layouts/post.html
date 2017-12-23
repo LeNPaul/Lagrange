@@ -13,7 +13,7 @@ layout: default
 {{ content }}
 
 <span class="post-date">
-  Written on
+  {{ site.data.settings.post_date_prefix }}
   {% assign d = page.date | date: "%-d"  %}
   {{ page.date | date: "%B" }}
   {% case d %}
