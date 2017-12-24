@@ -1,8 +1,3 @@
-title:  'Lagrange'
-tagline:  'a minimalist Jekyll theme'
-
-# Authors documented under _data
-
 # Change to true for Disqus comments
 disqus:
   comments: false

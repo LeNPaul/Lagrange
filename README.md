@@ -81,7 +81,6 @@ If you are familiar with Jekyll, then the Lagrange directory structure shouldn't
 ```bash
 Lagrange/
 ├── _data                      # Data files
-|  └── authors.yml             # For managing multiple authors
 |  └── settings.yml            # Theme settings and custom text
 ├── _includes                  # Theme includes
 ├── _layouts                   # Theme layouts (see below for details)
@@ -109,11 +108,11 @@ Visit the [the demo site](https://lenpaul.github.io/Lagrange/) to find sample po
 
 ### Site Variables
 
-To change site build settings, edit the `_config.yml` file found in the root of your repository, which you can tweak however you like. More information on configuration settings and plugins can be found on [the Jekyll documentation site](https://jekyllrb.com/docs/configuration/).
+To change site build settings, edit the `_config.yml` file found in the root of your repository, which you can tweak however you like. More information on configuration settings and plugins can be found on [the Jekyll documentation site](https://jekyllrb.com/docs/configuration/). This is also where you will be able to customize the title, description, and the author/owner of your site.
 
 If you are hosting your site on GitHub Pages, then committing a change to the `_config.yml` file will force a rebuild of your site with Jekyll. Any changes made should be viewable soon after. If you are hosting your site locally, then you must run `jekyll serve` again for the changes to take place.
 
-In the `settings.yml` and `authors.yml` files found in the `_data` folder, you will be able to customize your site settings, such as the title of your site, what shows up in your menu, and social media information. To make author organization easier, especially if you have multiple authors, all author information is stored in the `authors.yml` file.
+In the `settings.yml` file found in the `_data` folder, you will be able to customize your site settings, such as setting Disqus comments, Google Analytics, what shows up in your menu, and social media information.
 
 ### Adding Menu Pages
 

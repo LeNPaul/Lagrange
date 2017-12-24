@@ -2,5 +2,5 @@
   {% for item in site.data.settings.social %}
     <a href="{{ item.link }}" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
   {% endfor %}
-  <div class="post-date"><a href="{{ site.github.url }}/menu/about.html">{{ site.data.settings.title }} | {{ site.data.settings.tagline }} by {{ site.data.authors.primary.name }}</a></div>
+  <div class="post-date"><a href="{{ site.github.url }}/menu/about.html">{{ site.title }} | {{ site.description }} by {{ site.author }}</a></div>
 </footer>
