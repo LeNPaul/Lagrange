@@ -1,5 +1,10 @@
 ---
 layout: page
-title: About
+title: About the author
+tags: [documentation]
+image: author1.jpg
 ---
-Lagrange is a minimalist Jekyll. It is intended to have a clean, content focused interface for blog writing. For more information on how to install and use this theme, check out [the documentation]({{ site.github.url }}{% post_url 2016-01-01-welcome-to-lagrange %}).
+
+Hi, I'm Caity. While earning my Ph.D. in Ecology at the University of California, Davis, I write on a variety of topics ranging from the intersection of ecology and agriculture, world travels, and the great outdoors to ruminations on science, policy, food systems, and nature.
+
+In my spare time I am a freelance science writer and technical editor working in English, Spanish, and Portuguese. Feel free to [contact me ](mailto:ca.peterson32@gmail.com) or check out my [Linkedin](https://www.linkedin.com/in/caityp/) profile for more info.
