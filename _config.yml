@@ -21,7 +21,7 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'Field Notes'
-description:	       'stories and observations from around the world'
+description:	       'stories and observations from a wandering ecologist'
 author:              'Caity Peterson'
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
