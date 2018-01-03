@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Practice Post"
-author: "Caity Peterson "
+author: "Caity Peterson"
 categories: journal
-tags: [documentation]
+tags: [sample]
 image: mountains.jpg
 ---
 Welcome to the repository of musings and ruminations - field notes from a
