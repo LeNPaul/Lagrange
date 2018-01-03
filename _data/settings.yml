@@ -6,7 +6,6 @@ disqus:
 google-ID: 'UA-80213386-1'
 
 menu:
-- {name: 'Latest Posts', path: 'menu', url: 'latest.html'}
 - {name: 'Archive', path: 'menu', url: 'archive.html'}
 - {name: 'About', path: 'menu', url: 'about.html'}
 
