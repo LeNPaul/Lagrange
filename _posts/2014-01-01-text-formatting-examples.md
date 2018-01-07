@@ -54,7 +54,11 @@ Multi line blockquote with a cite reference:
 
 ## Code and Syntax Highlighting
 
-Code blocks are part of the Markdown spec, but syntax highlighting isn't. However, many renderers - like GitHub or most Jekyll themes - support syntax highlighting. Which languages are supported and how those language names should be written will vary from renderer to renderer. You can find the full list of supported programming languages [here](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers).
+Code blocks are part of the Markdown spec, but syntax highlighting isn't. However, many renderers - like GitHub or most Jekyll themes - support syntax highlighting. Which languages are supported and how those language names should be written will vary from renderer to renderer. You can find the full list of supported programming languages [here](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers). Also, it is possible to do `inline code blocks`, by wrapping the text in ` ` ` quotations.
+
+```
+No language indicated, so no syntax highlighting.
+```
 
 ```ruby
 def print_hi(name)
@@ -62,10 +66,6 @@ def print_hi(name)
 end
 print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
-```
-
-```
-No language indicated, so no syntax highlighting.
 ```
 
 {% highlight js %}
@@ -128,21 +128,11 @@ $$ \frac{\mathrm{d}}{\mathrm{d}t} \left ( \frac {\partial  L}{\partial \dot{q}_j
 ## Tables
 
 Title 1               | Title 2               | Title 3               | Title 4
---------------------- | --------------------- | --------------------- | ---------------------
+--------------------- | :-------------------: | :-------------------- | --------------------:
 lorem                 | lorem ipsum           | lorem ipsum dolor     | lorem ipsum dolor sit
 lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
 lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
 lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
-
-| Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|-----------------------------|
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|=============================|
-| Foot1   | Foot2   | Foot3   |
 
 ## Embedding
 
@@ -155,3 +145,13 @@ Plenty of social media sites offer the option of embedding certain parts of thei
 ## Inline HTML elements
 
 HTML defines a long list of available inline tags, which you can mix with Markdown if you like. A complete list of which can be found on the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
+
+## Useful Resources
+
+More information on Markdown can be found at the following links:
+
+- [Markdown Here Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet#code)
+- [Quick Markdown Example](http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html)
+- [Markdown Basics](https://daringfireball.net/projects/markdown/basics)
+- [GitHub Flavoured Markdown Spec](https://github.github.com/gfm/)
+- [Basic writing and formatting syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/#lists)
