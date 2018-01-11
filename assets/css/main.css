@@ -71,6 +71,10 @@ blockquote {
   line-height: 1.5;
 }
 
+hr {
+  border-top: 1px solid #ccc;
+}
+
 /*
   Site container
 */
