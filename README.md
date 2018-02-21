@@ -255,6 +255,8 @@ This theme is completely free and open source software. You may use it however y
 
 * [ilhamadun](https://github.com/ilhamadun)
 
+* [brianclemens](https://github.com/brianclemens)
+
 ### Icons + Demo Images
 
 * [Death to Stock](https://deathtothestockphoto.com/)
