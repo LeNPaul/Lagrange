@@ -1,6 +1,4 @@
 <footer class="footer">
-  {% for item in site.data.settings.social %}
-    <a href="{{ item.link }}" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
-  {% endfor %}
+  {% include social-icons.html %}
   <div class="post-date"><a href="{{ site.github.url }}/menu/about.html">{{ site.title }} | {{ site.description }} by {{ site.author }}</a></div>
 </footer>
