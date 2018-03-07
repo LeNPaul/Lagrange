@@ -5,8 +5,6 @@
     {% endfor %}
   </nav>
   <nav class="social-icons">
-    {% for item in site.data.settings.social %}
-      <a href="{{ item.link }}" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
-    {% endfor %}
+    {% include social-icons.html %}
   </nav>
 </div>
