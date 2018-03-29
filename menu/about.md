@@ -1,18 +1,12 @@
 ---
 layout: page
-title: Welcome to Lagrange!
+title: Welcome to My Blog!
 ---
 
-Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
+가끔 프로그래밍을 합니다.
 
-### Getting Started
+가끔 라즈베리파이와 아두이노를 이용한 메이킹을 합니다. 그 것말고도 이것 저것 만드는 것을 좋아합니다.
 
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
+그리고 제일 좋아하는 것은 가만히 있는 것입니다.
 
-### Example Content
-
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
-
-### Questions?
-
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+가끔 하는 일 들을 공유하기 위해 블로그를 만들었습니다. 좋아서 하는 블로그이니 꾸준히 하는 블로그가 될 수 있기를!
