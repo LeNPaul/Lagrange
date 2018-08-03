@@ -3,4 +3,6 @@ layout: page
 title: Contact
 ---
 
-If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=%40paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new)
+문의 사항은 개인 이메일로 연락 바랍니다 :)
+
+yh4571@gmail.com
