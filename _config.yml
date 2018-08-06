@@ -1,5 +1,6 @@
 # Site Build Settings
-
+title: "Casper's Blog Lab"
+url: "https://allcasper.github.io"
 # Jekyll-paginate-v2 configuration
 #  pagination:
 #   enabled: true
