@@ -22,7 +22,7 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'Gonçalo Henriques'
 description:	       'a minimalist Jekyll theme'
-author:              'Gonçalo Henriques'
+author:              'G. Henriques'
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
