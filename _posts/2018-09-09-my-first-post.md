@@ -12,4 +12,4 @@ Nothing to write home of...
 
 *italic* and bold 
 
-[wikipedia] (https://wikipedia.org)
+[wikipedia](https://wikipedia.org)
