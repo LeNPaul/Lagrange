@@ -85,8 +85,7 @@ Another option is to embed your code through [Gist](https://en.support.wordpress
 
 To add an image, use `![alt text](<Image url> "Image meta title")`:
 
-![alt text](http://noirve.com/wp-content/uploads/2013/10/DTTSP_Coffee.jpg "Example")
-
+![alt text]
 ## Unordered and Numbered Lists
 
 You can make an unordered and nested list by preceding one or more lines of text with `-`, `*`, or `+`, and indenting sublists. The following lists show the full range of possible list formats.
