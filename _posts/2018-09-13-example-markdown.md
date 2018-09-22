@@ -15,6 +15,10 @@ categories:
 
 ============
 
+[wikipedia](http://bit.do/exh6L)
+
+[mysite](http://bit.do/mlgr)
+
 Paragraphs are separated by a blank line.
 
 2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
