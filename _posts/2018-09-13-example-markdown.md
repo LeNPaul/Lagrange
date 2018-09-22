@@ -19,6 +19,8 @@ categories:
 
 [mysite](http://bit.do/mlgr)
 
+[mysite_bitly](http://bit.ly/2zn6NN5)
+
 Paragraphs are separated by a blank line.
 
 2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
