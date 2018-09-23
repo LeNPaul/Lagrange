@@ -34,8 +34,10 @@ url: https://samarulmeu.github.io/mylagrange
 
 repository  : samarulmeu.github.io/mylagrange
 
-comments:
-  provider  : "staticman"
+#comments:
+#  provider  : "staticman"
+
+comments: staticman
 
 staticman:
    branch: "gh-pages"
