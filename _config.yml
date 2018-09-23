@@ -24,8 +24,8 @@ title:		           'My test site'
 description:	       'using Lagrange theme'
 author:              'Samarul'
 
-#remote_theme: LeNPaul/Lagrange
-remote_theme: samarulmeu/mylagrange
+remote_theme: LeNPaul/Lagrange
+#remote_theme: samarulmeu/mylagrange
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
 #  path: rss-feed.xml
