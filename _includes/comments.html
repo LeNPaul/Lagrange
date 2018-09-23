@@ -51,6 +51,48 @@ STOP
 {% endif %}
 <h5>end comments</h5>
 
+
+<h2> COMMENTS ORIGINAL </h2>
+
+{% if site.repository and site.staticman.branch %}
+
+{% if site.data.comments[page.slug] %}
+
+  <p>
+    <h3>
+    {% if site.data.comments[page.slug].size > 1 %}
+      {{ site.data.comments[page.slug] | size }}
+    {% endif %}
+    Comments:
+    </h3>
+  </p>
+
+  <hr>
+
+  {% assign comments = site.data.comments[page.slug] | sort %}
+
+  <p>
+    {% for comment in comments %}
+     {% assign email = comment[1].email %}
+                {% assign name = comment[1].name %}
+                {% assign url = comment[1].url %}
+                {% assign date = comment[1].date %}
+                {% assign comment = comment[1].comment %}
+                {% include comment.html index=forloop.index email=email name=name url=url date=date message=comment %}
+              
+      <br>
+      <legend><strong>{{ comment[1].name }}</strong></legend>
+      <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
+      <p>{{ comment[1].comment | markdownify }}</p>
+      <hr>
+    {% endfor %}
+  </p>
+{% endif %}
+
+
+
+
+
 <!-- Comment form -->
 <p>
   <h3>Post a comment:</h3>
