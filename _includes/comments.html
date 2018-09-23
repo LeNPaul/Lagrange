@@ -44,7 +44,8 @@ page.slug
   <h3>Post a comment:</h3>
   <form method="POST" action="https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/mylagrange/gh-pages/comments">
   <input name="options[redirect]" type="hidden" value="https://samarulmeu.github.io/mylagrange/">
-    <input name="options[slug]" type="hidden" value="{{ page.slug }}">
+    <input name="fields[slug]" type="hidden" value="{{ page.slug }}">
+     <input type="hidden" name="fields[reply_to]" value="">
       <div>
       <legend>Name</legend>
       <input name="fields[name]" type="text">
