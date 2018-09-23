@@ -10,8 +10,8 @@ comments:
   allowedFields: ["name", "email", "website", "comment"]
   #allowedFields: ["name", "email", "url", "message"]
 
-  auth:
-    required: false
+  #auth:
+  #  required: false
 
   # (*) REQUIRED
   #
