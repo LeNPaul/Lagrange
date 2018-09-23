@@ -13,10 +13,31 @@ SOOOOO
 
   <hr>
 
- {% if site.repository and site.staticman.branch %}
+{% if site.repository and site.staticman.branch %}
 something
 {% endif %}
+<div class="comments__existing js-comments" {% if comments == null %}aria-hidden="true"{% endif %}>
+      <h2 class="comments__heading heading-2">Comments</h2>
 
+      {% for comment in comments %}
+        <article id="comment{{ forloop.index }}" class="js-comment comment">
+          <div class="comment__avatar-wrapper">
+            <img class="comment__avatar" src="https://www.gravatar.com/avatar/{{ comment.email }}?d=mm&s=100">
+          </div>
+          <div class="comment__content-wrapper">
+            <h3 class="comment__author">{{ comment.name }}</h3>
+            <p class="comment__date">
+              <a href="#comment{{ forloop.index }}">
+                {{ comment.date | fullDate }}
+              </a>
+            </p>
+            <div class="comment__body">
+              {{ comment.message | markdownify }}
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
 
   
 
