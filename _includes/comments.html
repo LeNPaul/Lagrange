@@ -10,9 +10,8 @@ No comments?
 
 SOOOOO
 
-{% if site.repository and site.staticman.branch %}
-
-{% if site.data.comments[page.slug] %}
+ {% if site.repository and site.staticman.branch %}
+    {% if site.data.comments[page.slug] %}
 
   <h3>
     {% if site.data.comments[page.slug].size > 1 %}
@@ -34,7 +33,7 @@ SOOOOO
     <hr>
   {% endfor %}
   <p>
-{% endif %}
+  {% endif %}
 
 {% endif %}
 
