@@ -7,6 +7,7 @@
 <!-- Also partly based on Eduardo Boucas' reviews.html file -->
 <!-- https://github.com/eduardoboucas/popcorn/blob/gh-pages/_includes/reviews.html -->
 No comments?
+
 {% if site.repository and site.staticman.branch %}
 
 {% if site.data.comments[page.slug] %}
@@ -27,11 +28,11 @@ No comments?
   <p>
     {% for comment in comments %}
      {% assign email = comment[1].email %}
-                {% assign name = comment[1].name %}
-                {% assign url = comment[1].url %}
-                {% assign date = comment[1].date %}
-                {% assign message = comment[1].message %}
-                {% include comment.html index=forloop.index email=email name=name url=url date=date message=message %}
+     {% assign name = comment[1].name %}
+     {% assign url = comment[1].url %}
+     {% assign date = comment[1].date %}
+     {% assign message = comment[1].message %}
+     {% include comment.html index=forloop.index email=email name=name url=url date=date message=message %}
               
       <br>
       <legend><strong>{{ comment[1].name }}</strong></legend>
