@@ -13,28 +13,7 @@ SOOOOO
 
   <hr>
 
-  {% assign comments = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == blank' %}
-        
-
-  <p>
-        {% for comment in comments %}
-          {% assign index       = forloop.index %}
-          {% assign replying_to = comment[1].replying_to | to_integer %}
-          {% assign avatar      = comment[1].avatar %}
-          {% assign email       = comment[1].email %}
-          {% assign name        = comment[1].name %}
-          {% assign url         = comment[1].url %}
-          {% assign date        = comment[1].date %}
-          {% assign message     = comment[1].message %}
-          {% include comment.html index=index replying_to=replying_to avatar=avatar email=email name=name url=url date=date message=message %}
-        {% endfor %}
-      <br>
-      <legend><strong>{{ comment[1].name }}</strong></legend>
-      <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
-      <p>{{ comment[1].message | markdownify }}</p>
-      <hr>
-    
-  </p>
+ 
 
   
 
