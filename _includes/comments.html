@@ -10,13 +10,15 @@ No comments?
 
 SOOOOO
 
-
+{% if site.repository and site.staticman.branch %}
+    {% if site.data.comments[page.slug] %}
   <hr>
 
 something
 
 
       <h2 class="comments__heading heading-2">Comments</h2>
+
 {% assign comments = site.data.comments[page.slug] | sort %}
   
 <h1>nothing</h1>
@@ -33,7 +35,10 @@ something
                 </article>
       {% endfor %}
 
+ {% endif %}
 
+    
+  {% endif %}
   
 
 <!-- Comment form -->
