@@ -36,7 +36,7 @@ repository  : samarulmeu.github.io/mylagrange
 
 staticmanUrl: https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/mylagrange/gh-pages/comments
 
-comments: true
+# comments: true
 #  provider  : "staticman"
 
 #comments: staticman
