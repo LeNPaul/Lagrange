@@ -31,5 +31,5 @@ author:              'Samarul'
 #feed:
 #  path: rss-feed.xml
 
-staticman:
-  branch: "gh-pages"
+#staticman:
+#  branch: "gh-pages"
