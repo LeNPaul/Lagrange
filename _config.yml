@@ -34,13 +34,4 @@ url: https://samarulmeu.github.io/mylagrange
 
 staticman:
    branch: "gh-pages"
-   path: "comments/{options.slug}"
-   filename: "comment-{@timestamp}"
-   format: "yaml"
-   allowedFields: ["name", "email", "website", "comment"]
-   requiredFields: ["name", "comment", "email"]
-   generatedFields:
-    date:
-      type: date
-      options:
-        format: "iso8601"
+ 
