@@ -11,7 +11,7 @@ categories:
 
 ---
 
-# An h1 header
+# An h1 header ???
 
 ============
 
@@ -70,7 +70,7 @@ Note again how the actual text starts at 4 columns in (4 characters
 from the left side). Here's a code sample:
 
     # Let me re-iterate ...
-
+    
     for i in 1 .. 10 { do-something(i) }
 
 As you probably guessed, indented 4 spaces. By the way, instead of
@@ -126,17 +126,17 @@ Now a nested list:
     this algorithm:
 
         find wooden spoon
-
+    
         uncover pot
-
+    
         stir
-
+    
         cover pot
-
+    
         balance wooden spoon precariously on pot handle
-
+    
         wait 10 minutes
-
+    
         goto first step (or shut off burner when done)
 
     Do not bump wooden spoon or it will fall.
@@ -180,13 +180,13 @@ keyword   text
 red       Sunsets, apples, and
 
           other red or reddish
-
+    
           things.
 
 green     Leaves, grass, frogs
 
           and other things it's
-
+    
           not easy being.
 
 --------  -----------------------
