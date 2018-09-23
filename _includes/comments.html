@@ -27,19 +27,7 @@ page.slug:
 {{ page.slug }}
 <br>
 
-SITE_DATA
 
-{{ site.documents.comments }} 
-{{ site.data }}
-SITE_DATA_SETTINGS
-{{ site.data.settings }}
-STOP
-{{ site.comments.provider }}
-SITE_COMMENTS
-{{ site.comments }}
-{{ site.comments[page.slug].size }}
-{{ site.comments.comments }}
-STOP
 SITE_DATA_COMMENTS
 {{ site.data.comments }}
 {{ site.data.comments[page.slug] }}
@@ -59,7 +47,6 @@ SITE_DATA_COMMENTS
 
 <h2> COMMENTS ORIGINAL </h2>
 
-{% if site.repository and site.staticman.branch %}
 
 {% if site.data.comments[page.slug] %}
 
@@ -78,7 +65,7 @@ SITE_DATA_COMMENTS
 
   {% assign comments = site.data.comments[page.slug] | sort: 'date' %}
 
-{{ include.index }}
+
 
   <p>
     {% for comment in comments %}
@@ -98,7 +85,7 @@ SITE_DATA_COMMENTS
     {% endfor %}
   </p>
 {% endif %}
-{% endif %}
+
 
 
 
