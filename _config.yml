@@ -34,7 +34,7 @@ url: https://samarulmeu.github.io/mylagrange
 
 staticman:
    branch: "gh-pages"
-   allowedFields: ["name", "email", "website", "comment"]
+   allowedFields: ["name", "email", "website", "comment", "reply_to"]
    filename: "comment-{@timestamp}"
    format: "yaml"
    generatedFields:
