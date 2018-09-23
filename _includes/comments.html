@@ -10,6 +10,7 @@ No comments?
 
 SOOOOO
 
+{% if site.repository and site.staticman.branch %}
 
 {% if site.data.comments[page.slug] %}
 
@@ -34,6 +35,9 @@ SOOOOO
   {% endfor %}
   <p>
 {% endif %}
+
+{% endif %}
+}
   
 
 <!-- Comment form -->
@@ -56,7 +60,7 @@ SOOOOO
     </div>
     <div>
       <legend>Message (<a href="https://kramdown.gettalong.org/syntax.html">Markdown</a> allowed)</legend>
-      <textarea style="width:100%" name="fields[message]" rows="12"></textarea>
+      <textarea style="width:100%" name="fields[comment]" rows="12"></textarea>
     </div> 
     <div>
       <legend><em>Comments will appear after moderation.</em></legend>
