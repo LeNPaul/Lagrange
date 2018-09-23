@@ -32,18 +32,3 @@ url: https://samarulmeu.github.io/mylagrange
 #feed:
 #  path: rss-feed.xml
 
-staticman:
-   branch: "gh-pages"
-   allowedFields: ["name", "email", "website", "comment", "reply_to"]
-   filename: "comment-{@timestamp}"
-   format: "yaml"
-   generatedFields:
-    date:
-      type: date
-      options:
-        format: "iso8601"
-   moderation: false
-   name: "samarulmeu.github.io/mylagrange"
-   path: "comments/{options.slug}"
-   requiredFields: ["name", "comment", "email"]
-  
