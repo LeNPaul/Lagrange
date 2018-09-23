@@ -17,7 +17,7 @@ comments:
   #
   # Name of the branch being used. Must match the one sent in the URL of the
   # request.
-  branch: "master"
+  branch: "gh-pages"
 
   # Text to use as the commit message or pull request title. Accepts placeholders.
   commitMessage: "Add Staticman data"
