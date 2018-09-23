@@ -6,6 +6,7 @@
 <!-- https://github.com/mmistakes/minimal-mistakes/blob/master/_includes/comments.html -->
 <!-- Also partly based on Eduardo Boucas' reviews.html file -->
 <!-- https://github.com/eduardoboucas/popcorn/blob/gh-pages/_includes/reviews.html -->
+<!--
 No comments?
 
 {{ site.repository }}
@@ -39,7 +40,7 @@ SITE_DATA_COMMENTS
 
 <h2> COMMENTS ORIGINAL </h2>
 
-
+-->
 {% if site.data.comments[page.slug] %}
 
  
@@ -60,7 +61,6 @@ SITE_DATA_COMMENTS
      {% assign comment = comment[1].comment %}
               
       <br>
-      SOMETHING
       <legend><strong>{{ comment[1].name }}</strong></legend>
       <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
       <p>{{ comment[1].comment | markdownify }}</p>
