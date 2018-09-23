@@ -30,7 +30,7 @@ SOOOOO
     <br>
     <legend><strong>{{ comment[1].name }}</strong><legend>
     <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
-    <p>{{ comment[1].message | markdownify }}
+    <p>{{ comment[1].comment | markdownify }}
     <hr>
   {% endfor %}
   <p>
@@ -56,7 +56,7 @@ SOOOOO
     </div>
     <div>
       <legend>Website (optional)</legend>
-      <input name="fields[url]" type="url">
+      <input name="fields[website]" type="url">
     </div>
     <div>
       <legend>Message (<a href="https://kramdown.gettalong.org/syntax.html">Markdown</a> allowed)</legend>
