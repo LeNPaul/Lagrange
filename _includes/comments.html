@@ -15,14 +15,23 @@ SOOOOO
 {% if site.staticman.branch %}
 staticman branch
 {% endif %}
+{{ site.staticman.branch}}
+
 
 {{ page.slug }}
 
 {% if page.slug %}
 page.slug
 {% endif %}
+
+{{ site.data.comments }}
+{{ site.data.comments[page.slug] }}
+
+
  {% if site.data.comments[page.slug] %}
-}
+
+
+
 <hr>
 <h3>Someting</h3>
 
