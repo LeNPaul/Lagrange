@@ -1,0 +1,23 @@
+ {% if site.data.comments[page.slug] %}
+
+  <h3>
+    {% if site.data.comments[page.slug].size > 1 %}
+      {{ site.data.comments[page.slug] | size }}
+    {% endif %}
+    Comments:
+  </h3>
+
+  <p>
+  <hr>
+
+  {% assign comments = site.data.comments[page.slug] | sort %}
+
+  {% for comment in comments %}
+    <br>
+    <legend><strong>{{ comment[1].name }}</strong><legend>
+    <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
+    <p>{{ comment[1].comment | markdownify }}
+    <hr>
+  {% endfor %}
+  <p>
+  {% endif %}
