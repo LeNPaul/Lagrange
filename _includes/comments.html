@@ -15,7 +15,7 @@ SOOOOO
 
 {% if site.repository and site.staticman.branch %}
 something
-{% endif %}
+
 
       <h2 class="comments__heading heading-2">Comments</h2>
 {% assign comments = site.data.comments[page.slug] | sort %}
@@ -34,7 +34,7 @@ something
                 </article>
       {% endfor %}
 
-
+{% endif %}
   
 
 <!-- Comment form -->
