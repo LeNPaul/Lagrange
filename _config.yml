@@ -35,5 +35,5 @@ url: https://samarulmeu.github.io/mylagrange
 staticman:
    branch: "gh-pages"
    path: "comments/{options.slug}"
-   filename: comment-{@timestamp}
+   filename: "comment-{@timestamp}"
    format: "yaml"
