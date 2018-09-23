@@ -18,7 +18,7 @@ something
 {% endif %}
 
       <h2 class="comments__heading heading-2">Comments</h2>
-
+{% assign comments = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == nil' %}
       {% for comment in comments %}
         <article >
            <h3 >{{ comment.name }}</h3>
