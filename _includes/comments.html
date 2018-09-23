@@ -16,9 +16,11 @@ SOOOOO
 staticman branch
 {% endif %}
 
-{{% page.slug }}
-
+{% if page.slug }
+page.slug
+{% endif %}
  {% if site.data.comments[page.slug] %}
+}
 <hr>
 <h3>Someting</h3>
 
