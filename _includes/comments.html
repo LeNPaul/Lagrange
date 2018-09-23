@@ -69,9 +69,9 @@ STOP
 
   <hr>
 
-  {% capture i %}{{ include.index }}{% endcapture %}
+  
 
-  {% assign comments = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == i' %}
+  {% assign comments = site.data.comments[page.slug] | sort: 'date' %}
 
   <p>
     {% for comment in comments %}
