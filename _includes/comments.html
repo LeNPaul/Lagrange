@@ -1,0 +1,74 @@
+
+<hr>
+
+<!-- Static comments -->
+<!-- Partly based on Made Mistakes' comments.html file: -->
+<!-- https://github.com/mmistakes/minimal-mistakes/blob/master/_includes/comments.html -->
+<!-- Also partly based on Eduardo Boucas' reviews.html file -->
+<!-- https://github.com/eduardoboucas/popcorn/blob/gh-pages/_includes/reviews.html -->
+No comments?
+{% if site.repository and site.staticman.branch %}
+
+{% if site.data.comments[page.slug] %}
+
+  <p>
+    <h3>
+    {% if site.data.comments[page.slug].size > 1 %}
+      {{ site.data.comments[page.slug] | size }}
+    {% endif %}
+    Comments:
+    </h3>
+  </p>
+
+  <hr>
+
+  {% assign comments = site.data.comments[page.slug] | sort %}
+
+  <p>
+    {% for comment in comments %}
+     {% assign email = comment[1].email %}
+                {% assign name = comment[1].name %}
+                {% assign url = comment[1].url %}
+                {% assign date = comment[1].date %}
+                {% assign message = comment[1].message %}
+                {% include comment.html index=forloop.index email=email name=name url=url date=date message=message %}
+              
+      <br>
+      <legend><strong>{{ comment[1].name }}</strong></legend>
+      <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
+      <p>{{ comment[1].message | markdownify }}</p>
+      <hr>
+    {% endfor %}
+  </p>
+{% endif %}
+
+<!-- Comment form -->
+<p>
+  <h3>Post a comment:</h3>
+  <form method="POST" action="https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/samarulmeu.github.io/master/comments">
+  <input name="options[redirect]" type="hidden" value="https://samarulmeu.github.io">
+    <input name="options[slug]" type="hidden" value="{{ page.slug }}">
+      <div>
+      <legend>Name</legend>
+      <input name="fields[name]" type="text">
+    </div>
+    <div>
+      <legend>E-mail (optional)</legend>
+      <input name="fields[email]" type="email">
+    </div>
+    <div>
+      <legend>Website (optional)</legend>
+      <input name="fields[url]" type="url">
+    </div>
+    <div>
+      <legend>Message (<a href="https://kramdown.gettalong.org/syntax.html">Markdown</a> allowed)</legend>
+      <textarea style="width:100%" name="fields[message]" rows="12"></textarea>
+    </div> 
+    <div>
+      <legend><em>Comments will appear after moderation.</em></legend>
+      <button type="submit">Submit Comment</button>
+    </div>
+</form>
+    
+ 
+</p>
