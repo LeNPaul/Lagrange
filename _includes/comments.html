@@ -16,18 +16,19 @@ SOOOOO
 staticman branch
 {% endif %}
 {{ site.staticman.branch}}
-
+<br>
 
 {{ page.slug }}
 
 {% if page.slug %}
 page.slug
 {% endif %}
-
+<br>
 {{ site.data.comments }}
 {{ site.data.comments[page.slug] }}
 
-
+{{ site.data.comments[page.slug].size }}
+<br>
  {% if site.data.comments[page.slug] %}
 
 
