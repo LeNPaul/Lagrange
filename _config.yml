@@ -32,3 +32,7 @@ url: https://samarulmeu.github.io/mylagrange
 #feed:
 #  path: rss-feed.xml
 
+staticman:
+   branch: "gh-pages"
+
+  
