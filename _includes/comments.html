@@ -73,14 +73,16 @@ STOP
 
   {% assign comments = site.data.comments[page.slug] | sort: 'date' %}
 
+{{ include.index }}
+
   <p>
     {% for comment in comments %}
      {% assign email = comment[1].email %}
-                {% assign name = comment[1].name %}
-                {% assign url = comment[1].url %}
-                {% assign date = comment[1].date %}
-                {% assign comment = comment[1].comment %}
-                {% include comment.html index=forloop.index email=email name=name url=url date=date message=comment %}
+     {% assign name = comment[1].name %}
+     {% assign url = comment[1].url %}
+     {% assign date = comment[1].date %}
+     {% assign comment = comment[1].comment %}
+     {% include comment.html index=forloop.index email=email name=name url=url date=date message=comment %}
               
       <br>
       <legend><strong>{{ comment[1].name }}</strong></legend>
