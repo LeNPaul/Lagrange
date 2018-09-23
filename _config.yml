@@ -17,14 +17,14 @@ paginate:            5
 markdown:            kramdown
 highlighter:         rouge
 permalink:           none
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag, jekyll-remote-theme]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'My test site'
 description:	       'using Lagrange theme'
 author:              'Samarul'
 
-remote_theme: LeNPaul/Lagrange
+#remote_theme: LeNPaul/Lagrange
 #remote_theme: samarulmeu/mylagrange
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
