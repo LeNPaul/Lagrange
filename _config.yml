@@ -37,7 +37,7 @@ repository  : samarulmeu.github.io/mylagrange
 #comments:
 #  provider  : "staticman"
 
-comments: staticman
+#comments: staticman
 
 staticman:
    branch: "gh-pages"
