@@ -10,35 +10,30 @@ No comments?
 
 SOOOOO
 
-{% if site.repository and site.staticman.branch %}
-    {% if site.data.comments[page.slug] %}
+
+{% if site.data.comments[page.slug] %}
+
+  <h3>
+    {% if site.data.comments[page.slug].size > 1 %}
+      {{ site.data.comments[page.slug] | size }}
+    {% endif %}
+    Comments:
+  </h3>
+
+  <p>
   <hr>
 
-something
+  {% assign comments = site.data.comments[page.slug] | sort %}
 
-
-      <h2 class="comments__heading heading-2">Comments</h2>
-
-{% assign comments = site.data.comments[page.slug] | sort %}
-  
-<h1>nothing</h1>
-
-      {% for comment in comments %}
-        <article >
-           <h3 >{{ comment.name }}</h3>
-            <p>
-              <a href="#comment{{ forloop.index }}">
-                {{ comment.date | fullDate }}
-              </a>
-            </p>
-               {{ comment.message | markdownify }}
-                </article>
-      {% endfor %}
-
- {% endif %}
-
-    
-  {% endif %}
+  {% for comment in comments %}
+    <br>
+    <legend><strong>{{ comment[1].name }}</strong><legend>
+    <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
+    <p>{{ comment[1].message | markdownify }}
+    <hr>
+  {% endfor %}
+  <p>
+{% endif %}
   
 
 <!-- Comment form -->
