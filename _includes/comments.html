@@ -13,7 +13,8 @@ SOOOOO
 
   <hr>
 
-  {% assign comments = site.data.comments[page.slug] | sort %}
+  {% assign comments = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == blank' %}
+        
 
   <p>
     {% for comment in comments %}
