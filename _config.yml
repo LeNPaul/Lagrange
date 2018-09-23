@@ -16,7 +16,8 @@ paginate:            5
 # Build settings
 markdown:            kramdown
 highlighter:         rouge
-permalink:           none
+#permalink:           none
+permalink:           /:title/
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag, jekyll-remote-theme]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
