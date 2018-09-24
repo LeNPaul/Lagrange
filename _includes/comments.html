@@ -61,10 +61,12 @@ SITE_DATA_COMMENTS
 
       <legend><strong>{{ comment[1].name }}</strong></legend>
       <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
-      <p>{{ comment[1].comment | markdownify }}</p>
-      <hr>
+      <br>
+   {{ comment[1].comment | markdownify }}
+   
     {% endfor %}
   </p>
+<hr>
 {% endif %}
 
 
