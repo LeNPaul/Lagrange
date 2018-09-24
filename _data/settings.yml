@@ -10,6 +10,7 @@ menu:
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
 - {icon: 'gitlab', link: 'https://www.gitlab.com/samarulmeu'}
+- {icon: 'github', link: 'https://www.github.com/samarulmeu'}
 - {icon: 'twitter', link: 'https://twitter.com/samarulmeu'}
 - {icon: 'facebook', link: 'http://www.facebook.com/'}
 - {icon: 'google-plus', link: 'http://www.google.com/'}
