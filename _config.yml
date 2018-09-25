@@ -34,7 +34,7 @@ url: https://samarulmeu.github.io/mylagrange
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
 #  path: rss-feed.xml
-
+timezone: Europe/Bucharest
 repository  : samarulmeu.github.io/mylagrange
 
 staticmanUrl: https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/mylagrange/gh-pages/comments
