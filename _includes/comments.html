@@ -1,5 +1,5 @@
 
-<hr>
+
 
 <!-- Static comments -->
 <!-- Partly based on Made Mistakes' comments.html file: -->
@@ -58,13 +58,15 @@ SITE_DATA_COMMENTS
      {% assign date = comment[1].date %}
      {% assign comment = comment[1].comment %}
               
-      <br>
+
       <legend><strong>{{ comment[1].name }}</strong></legend>
       <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
-      <p>{{ comment[1].comment | markdownify }}</p>
-      <hr>
+
+   {{ comment[1].comment | markdownify }}
+   
     {% endfor %}
   </p>
+<hr>
 {% endif %}
 
 
