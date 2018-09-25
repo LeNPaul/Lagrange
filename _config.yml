@@ -21,6 +21,8 @@ permalink:           /:title/
 # plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag, jekyll-redirect-from]
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
+
+future: false
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'My test site'
 description:	       'using Lagrange theme'
