@@ -18,4 +18,31 @@ If you are having any problems, any questions or suggestions, feel free to [twee
       <input type="text" name="b_96d9e6e519173af7bdbdab9d_23138bd741" tabindex="-1" value="">
   </div>
   <input type="submit" class="btn" value="Submit" name="subscribe" id="submitContact">
-</form>
+  </form>
+
+  <script type="text/javascript">
+$(document).ready(function() {
+    if ($('#newContact').length > 0 ) {
+        contactScript('forcontact');
+    }
+});
+//firebase
+function contactScript(value) {
+    var a = {
+	apiKey: "AIzaSyAQ9Rmqx4d3YvQ2GtzIY0cJF-DNmj-wMi4",
+    authDomain: "mylagrange-contactform.firebaseapp.com",
+    databaseURL: "https://mylagrange-contactform.firebaseio.com",
+    projectId: "mylagrange-contactform",
+    storageBucket: "mylagrange-contactform.appspot.com",
+	messagingSenderId: "630125452492"};
+    firebase.initializeApp(a);
+    var b = firebase.database().ref("messages");
+        $("#newContact").submit(function(a) { $(this), console.log("Submit to Firebase");
+        var c = $("#name").val(),
+            d = $("#email").val(),
+            f = { name: c, email: d};
+        return b.push(f).then(function(a) {
+            $(".sucess").css("display", "block"),
+            $(".sucess-none").css("display", "none") }), !1 })
+}
+</script>
