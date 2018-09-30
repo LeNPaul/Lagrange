@@ -82,12 +82,12 @@ SITE_DATA_COMMENTS
     <input name="options[slug]" type="hidden" value="{{ page.slug }}">
      <input type="hidden" name="fields[reply_to]" value="">
       <div>
-      <legend>Name</legend>
-      <input name="fields[name]" type="text">
+      <legend>Name (required)</legend>
+      <input name="fields[name]" type="text" required>
     </div>
     <div>
-      <legend>E-mail (optional)</legend>
-      <input name="fields[email]" type="email">
+      <legend>E-mail (required)</legend>
+      <input name="fields[email]" type="email" required>
     </div>
     <div>
       <legend>Website (optional)</legend>
@@ -95,7 +95,7 @@ SITE_DATA_COMMENTS
     </div>
     <div>
       <legend>Message (<a href="https://kramdown.gettalong.org/syntax.html">Markdown</a> allowed)</legend>
-      <textarea style="width:100%" name="fields[comment]" rows="12"></textarea>
+      <textarea style="width:100%" name="fields[comment]" rows="12" required></textarea>
     </div> 
     <div>
 		<legend><em>Comments will appear after moderation.</em></legend> 
