@@ -78,7 +78,7 @@ SITE_DATA_COMMENTS
 <p>
   <h3>Post a comment:</h3>
   <form method="POST" action="https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/mylagrange/gh-pages/comments">
-  <input name="options[redirect]" type="hidden" value="https://samarulmeu.github.io/mylagrange/">
+	  <input name="options[redirect]" type="hidden" value="https://samarulmeu.github.io/mylagrange{{ page.url }}">
     <input name="options[slug]" type="hidden" value="{{ page.slug }}">
      <input type="hidden" name="fields[reply_to]" value="">
       <div>
@@ -98,8 +98,8 @@ SITE_DATA_COMMENTS
       <textarea style="width:100%" name="fields[comment]" rows="12"></textarea>
     </div> 
     <div>
-      <legend><em>Comments will appear after moderation.</em></legend>
-      <button type="submit">Submit Comment</button>
+		<legend><em>Comments will appear after moderation.</em></legend> 
+		<button type="submit">Submit Comment</button> 
     </div>
 </form>
     
