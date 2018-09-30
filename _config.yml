@@ -28,7 +28,7 @@ title:		           'My test site'
 description:	       'using Lagrange theme'
 author:              'Samarul'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: https://samarulmeu.github.io/mylagrange
+# url: https://samarulmeu.github.io/mylagrange
 #remote_theme: LeNPaul/Lagrange
 #remote_theme: samarulmeu/mylagrange
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
@@ -37,7 +37,7 @@ url: https://samarulmeu.github.io/mylagrange
 timezone: "Europe/Bucharest"
 repository  : samarulmeu.github.io/mylagrange
 
-staticmanUrl: https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/mylagrange/gh-pages/comments
+# staticmanUrl: https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/mylagrange/gh-pages/comments
 
 # comments: true
 #  provider  : "staticman"
