@@ -20,4 +20,5 @@ Muzicologă în bej vând whisky și tequila, preț fix.
 ## Citat
 
 > „Muzicologă în bej vând whisky și tequila, preț fix.”
+>
 > Muzicologă în bej vând whisky și tequila, preț fix.
