@@ -19,14 +19,14 @@
 
 body {
   font-family: "Source Sans", sans-serif;
-  /*font-size: 18px;*/
+  font-size: 18px;
   color: #515151;
   line-height: 1.75rem;
 }
 
 @media (max-width: 30em) {
   body {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5rem;
   }
   body h1 {
