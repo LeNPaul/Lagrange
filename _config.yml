@@ -13,6 +13,7 @@
 # jekyll-paginate configuration
 paginate:            5
 title_separator: "|"
+locale: "ro-RO"
 # Build settings
 markdown:            kramdown
 highlighter:         rouge
