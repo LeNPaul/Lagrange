@@ -1,0 +1,45 @@
+---
+layout: post
+title: "Articol test pentru fonturi și formatare"
+description: "Un banal articol"
+date: 2018-10-02 00:32:20 +0300
+image:  "unsplash-image-8.jpg"# Add image post (optional)
+tag: [ceva, altceva]
+category: [articol, jurnal]
+comments: true
+comments_locked: false
+---
+
+Muzicologă în bej vînd whisky și tequila, preț fix.
+
+*Muzicologă în bej vînd whisky și tequila, preț fix.*
+
+**Muzicologă în bej vînd whisky și tequila, preț fix.**
+
+
+
+[link](https://wikipedia.org/link)
+
+>Muzicologă în bej vînd whisky și tequila, preț fix. Muzicologă în bej vînd whisky și tequila, preț fix. Muzicologă în bej vînd whisky și tequila, preț fix. Muzicologă în bej vînd whisky și tequila, preț fix.
+>
+> [Citatul aici](https://wikipedia.org/link)
+>
+>*Muzicologă în bej vînd whisky și tequila, preț fix.*
+>
+>**Muzicologă în bej vînd whisky și tequila, preț fix.** [Citatul aici](https://wikipedia.org/link)
+>
+> <cite> Ioan Popa, [**Ceva**](link) </cite>
+
+Și aceasta ar trebui să fie o notă[^1].
+
+You’ll [^](Notă oarecare și...) find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is[^Măcar de am ști ceva] updated[^](Să zicem).
+
+
+Jekyll[^footnote] also offers powerful support for code snippets:
+
+
+[^1]: O notă oarecare. O notă pe mai multe rînduri. Oare apare pe mai multe rînduri. Și mai adăugăm ceva ca să fie cît mai multe 
+[^fdootnote]: notă subsol
+[^footnote]: și altceva
+Altceva...
+

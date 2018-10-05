@@ -19,13 +19,13 @@ highlighter:         rouge
 # permalink:           none
 permalink:           /:title/
 # plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag, jekyll-redirect-from]
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed]
 
 
 future: false
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           'Scribbler'
-description:	       'using Lagrange theme'
+title:               'My test site'
+description:         'using Lagrange theme'
 author:              'Samarul'
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://samarulmeu.github.io/mylagrange
