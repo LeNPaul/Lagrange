@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Articol test pentru fonturi și formatare"
+title: "Articol test pentru fonturi și formatare. Ați văzut"
 description: "Un banal articol"
 date: 2018-10-02 00:32:20 +0300
 image:  "unsplash-image-8.jpg"# Add image post (optional)
@@ -16,11 +16,11 @@ Muzicologă în bej vînd whisky și tequila, preț fix.
 
 **Muzicologă în bej vînd whisky și tequila, preț fix.**
 
-
+Și dacă ai ști ce Ți-a zis cînd ți-a zis.
 
 [link](https://wikipedia.org/link)
 
->Muzicologă în bej vînd whisky și tequila, preț fix. Muzicologă în bej vînd whisky și tequila, preț fix. Muzicologă în bej vînd whisky și tequila, preț fix. Muzicologă în bej vînd whisky și tequila, preț fix.
+>Și dacă ai ști ce Ți-a zis cînd ți-a zis. Muzicologă în bej vînd whisky și tequila, preț fix. Muzicologă în bej vînd whisky și tequila, preț fix. Muzicologă în bej vînd whisky și tequila, preț fix. Muzicologă în bej vînd whisky și tequila, preț fix.
 >
 > [Citatul aici](https://wikipedia.org/link)
 >
