@@ -104,6 +104,9 @@ hr {
   font-family: "Cormorant SC";
 }
 
+.masthead h3 {
+  font-family: "Cormorant SC"
+}
 .masthead a:hover {
   color:black;
 }
