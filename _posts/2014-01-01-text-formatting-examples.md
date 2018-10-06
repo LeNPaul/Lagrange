@@ -85,7 +85,7 @@ Another option is to embed your code through [Gist](https://en.support.wordpress
 
 To add an image, use `![alt text](<Image url> "Image meta title")`:
 
-![alt text](http://noirve.com/wp-content/uploads/2013/10/DTTSP_Coffee.jpg "Example")
+![alt text](/assets/img/forest.jpg "Example")
 
 ## Unordered and Numbered Lists
 
@@ -144,7 +144,7 @@ lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ip
 
 Plenty of social media sites offer the option of embedding certain parts of their site on your own site, such as YouTube and Twitter:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mthtn1X4eUY" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/mthtn1X4eUY" frameborder="0" allowfullscreen></iframe>
 
 <a class="twitter-grid" data-partner="tweetdeck" href="https://twitter.com/paululele/timelines/755079130027352064">New Collection</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
