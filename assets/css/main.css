@@ -43,7 +43,7 @@ h1 a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Cormorant SC", sans-serif;
+  font-family: "Cormorant SC";
   color: #333;
 }
 
@@ -101,7 +101,7 @@ hr {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-bottom: 4rem;
-  font-family: "Quattrocento Sans", sans-serif;
+  font-family: "Cormorant SC";
 }
 
 .masthead a:hover {
