@@ -63,13 +63,57 @@ img {
   border-radius: 5px;
 }
 
-blockquote {
+/*blockquote {
   margin: 10px 20px 10px;
   padding: 0px 15px;
   border-left: 0.25em solid #ccc;
   color: #999;
   line-height: 1.5;
+}*/
+
+
+blockquote{
+  display:block;
+  background: #fff;
+  padding: 15px 15px 15px 70px;
+  margin: 0 0 20px;
+  position: relative;
+  border-radius: 5px;
+  /*Font*/
+  /*font-family: Lora, Georgia, serif;*/
+  /*font-size: 16px;*/
+  line-height: 1.3;
+  color: #666;
+  /*text-align: justify;*/
+  /*Borders - (Optional)*/
+  /*border-left: 15px solid #c76c0c;
+  border-right: 2px solid #c76c0c;*/
+  /*Box Shadow - (Optional)*/
+  /*-moz-box-shadow: 2px 2px 8px #ccc;
+  -webkit-box-shadow: 2px 2px 8px #ccc;
+  box-shadow: 3px 3px 8px #ccc;*/
 }
+
+blockquote::before{
+  content: "\201D"; /*Unicode for Left Double Quote*/
+  /*Font*/
+  font-family:  "Old Standard TT", Georgia;
+  font-size: 100px;
+  font-weight: bold;
+  /*color: #999;*/
+  color: darkslategray;
+  /*Positioning*/
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top:5px;
+}
+
+blockquote::after{
+  /*Reset to make sure*/
+  content: "";
+}
+
 
 hr {
   border-top: 1px solid #ccc;

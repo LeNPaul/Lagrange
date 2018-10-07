@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Articol test pentru fonturi și formatare. Ați văzut"
-description: "Un banal articol"
+title: "„Muzicologă în bej vînd whisky și tequila, preț fix.”"
+description: "Articol test pentru fonturi și formatare."
 date: 2018-10-02 00:32:20 +0300
 image:  "unsplash-image-8.jpg"# Add image post (optional)
 tag: [ceva, altceva]
@@ -10,7 +10,10 @@ comments: true
 comments_locked: false
 ---
 
+
 Muzicologă în bej vînd whisky și tequila, preț fix.
+
+„Muzicologă în bej vînd whisky și tequila, preț fix.”
 
 *Muzicologă în bej vînd whisky și tequila, preț fix.*
 
