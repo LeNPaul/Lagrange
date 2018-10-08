@@ -193,10 +193,11 @@ hr {
 .pagination-button {
   color: #999;
   border: 1px solid #e0e0e0;
-  padding: 0.7rem 2.1rem;
+  padding: 0.6rem 1.8rem;
   display: inline-block;
   font-size: 16px;
   font-weight: bold;
+  margin-left: -5px;
 }
 
 .pagination-active {
