@@ -26,8 +26,10 @@ body {
 
 @media (max-width: 30em) {
   body {
+    font-family: "Noto Serif";
     font-size: 17px;
     line-height: 1.5rem;
+
   }
   body h1 {
     font-size: 1.5rem;
