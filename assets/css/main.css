@@ -22,11 +22,12 @@ body {
   font-size: 18px;
   color: #515151;
   line-height: 1.75rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (max-width: 30em) {
   body {
-    font-family: "Open Sans";
     font-size: 17px;
     line-height: 1.5rem;
 
