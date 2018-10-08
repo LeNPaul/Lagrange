@@ -27,8 +27,10 @@ title: Home
   {% else %}
     <span class="pagination-button">{{ site.data.settings.pagination.previous_page }}</span>
   {% endif %}
-
-  {% if paginator.previous_page %}
+	
+		<span class="pagination-button"> {{paginator.page}} of {{paginator.total_pages}} </span>
+  
+	{% if paginator.previous_page %}
     <a class="pagination-button pagination-active" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">{{ site.data.settings.pagination.next_page }}</a>
   {% else %}
     <span class="pagination-button">{{ site.data.settings.pagination.next_page }}</span>

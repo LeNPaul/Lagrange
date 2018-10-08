@@ -7,13 +7,13 @@ tags: [documentation,sample]
 image: forest.jpg
 ---
 
-# Lagrange
+<h1> Lagrange </h1>
 
 Lagrange is a minimalist Jekyll theme for running a personal blog or site for free through [Github Pages](https://pages.github.com/), or on your own server. Everything that you will ever need to know about this Jekyll theme is included in the README below, which you can also find in [the demo site](https://lenpaul.github.io/Lagrange/).
 
 ![alt text](https://user-images.githubusercontent.com/8409329/32631384-17107870-c56e-11e7-932f-deeb7c12e4db.png "Lagrange Demo Image")
 
-## Notable features
+<h2> Notable features </h2>
 
 * Compatible with GitHub Pages.
 
@@ -27,37 +27,11 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
 
 * LaTeX support through [MathJax](https://www.mathjax.org/).
 
-## Table of Contents
+<h2> Table of Contents </h2>
 
-1. [Introduction](#introduction)
-   1. [What is Jekyll](#what-is-jekyll)
-   2. [Never Used Jeykll Before?](#never-used-jekyll-before)
-2. [Installation](#installation)
-   1. [GitHub Pages Installation](#github-pages-installation)
-   2. [Local Installation](#local-installation)
-   3. [Directory Structure](#directory-structure)
-   4. [Starting From Scratch](#starting-from-scratch)
-3. [Configuration](#configuration)
-   1. [Sample Posts](#sample-posts)
-   2. [Site Variables](#site-variables)
-   3. [Adding Menu Pages](#adding-menu-pages)
-   4. [Posts](#posts)
-   5. [Layouts](#layouts)
-   6. [YAML Front Block Matter](#yaml-front-block-matter)
-4. [Features](#features)
-   1. [Design Considerations](#design-considerations)
-   2. [Disqus](#disqus)
-   3. [Google Analytics](#google-analytics)
-   4. [RSS Feeds](#rss-feeds)
-   5. [Social Media Icons](#social-media-icons)
-   6. [MathJax](#mathjax)
-   7. [Syntax Highlighting](#syntax-highlighting)
-   8. [Markdown](#markdown)
-5. [Everything Else](#everything-else)
-6. [Contributing](#Contributing)
-7. [Questions?](#questions)
-8. [Credits](#credits)
-9. [License](#license)
+1. TOC
+{: toc}
+
 
 ## Introduction
 
@@ -234,9 +208,10 @@ This theme is completely free and open source software. You may use it however y
 
 ## Credits
 
-### Creator
 
-#### Paul Le
+<h3> Creator </h3>
+
+<h4> Paul Le </h4>
 
 * [www.lenpaul.com](http://lenpaul.com)
 
@@ -244,7 +219,7 @@ This theme is completely free and open source software. You may use it however y
 
 * [GitHub](https://github.com/LeNPaul)
 
-### Contributors
+<h3> Contributors </h3>
 
 * [nikolalukovic](https://github.com/nikolalukovic)
 
@@ -264,13 +239,13 @@ This theme is completely free and open source software. You may use it however y
 
 * [ilhamadun](https://github.com/ilhamadun)
 
-### Icons + Demo Images
+<h3> Icons + Demo Images </h3>
 
 * [Death to Stock](https://deathtothestockphoto.com/)
 
 * [Font Awesome](http://fontawesome.io/)
 
-### Other
+<h3> Other </h3>
 
 * [Jekyll](https://jekyllrb.com/)
 
