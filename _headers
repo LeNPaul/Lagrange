@@ -1,0 +1,13 @@
+
+# A path:
+/assets/*
+   # Headers for that path:
+   Cache-Control: public, max-age=360000 
+  
+/templates/index.html
+   X-Frame-Options: DENY
+   X-XSS-Protection: 1; mode=block
+  
+/templates/index2.html
+   X-Frame-Options: SAMEORIGIN
+  
