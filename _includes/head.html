@@ -12,7 +12,6 @@
   <meta charset="utf-8">
 
   <link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css">
-  <link rel="stylesheet" href="{{ site.github.url }}/assets/css/syntax.css">
   <!-- Use Atom -->
   {% feed_meta %}
   <!-- Use RSS-2.0 -->
@@ -23,7 +22,7 @@
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+SC">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Niramit">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+Pro">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="{{ site.url }}/assets/css/font-awesome.min.css">
 
 
 
@@ -77,10 +76,6 @@
 {% include cookieconsent.html %}
 
 
-
-  <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
 
   <!-- Google Analytics -->
   {% include google-analytics.html %}
