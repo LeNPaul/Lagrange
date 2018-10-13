@@ -121,6 +121,8 @@ Numbered lists are made by using numbers instead of bullet points.
 
 ## MathJax Example
 
+Inline formula: $f(x) = y + 1$
+
 The [Schrödinger equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation) is a partial differential equation that describes how the quantum state of a quantum system changes with time:
 
 $$
