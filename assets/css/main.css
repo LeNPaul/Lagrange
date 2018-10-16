@@ -102,7 +102,7 @@ blockquote{
 blockquote::before{
   content: "\201D"; /*Unicode for Left Double Quote*/
   /*Font*/
-  font-family:  "Old Standard TT", Georgia;
+  font-family:  Cormorant, "Old Standard TT", Georgia;
   font-size: 100px;
   font-weight: bold;
   /*color: #999;*/
