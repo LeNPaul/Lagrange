@@ -104,7 +104,7 @@ blockquote::before{
   /*Font*/
   font-family:  Cormorant, "Old Standard TT", Georgia;
   font-size: 100px;
-  font-weight: bold;
+  font-weight: 400;
   /*color: #999;*/
   color: darkslategray;
   /*Positioning*/
