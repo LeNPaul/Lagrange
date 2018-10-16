@@ -102,7 +102,7 @@ blockquote{
 blockquote::before{
   content: "\201D"; /*Unicode for Left Double Quote*/
   /*Font*/
-  font-family:  Cormorant;
+  font-family: "Cormorant SC";
   font-size: 100px;
   font-weight: 400;
   /*color: #999;*/
@@ -155,7 +155,7 @@ hr {
 }
 
 .masthead h3 {
-  font-family: "Cormorant";
+  font-family: "Cormorant SC";
 }
 .masthead a:hover {
   color:black;
