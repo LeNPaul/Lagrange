@@ -103,7 +103,7 @@ blockquote::before{
   content: "\201D"; /*Unicode for Left Double Quote*/
   /*Font*/
   font-family: "Cormorant SC";
-  font-size: 100px;
+  font-size: 11rem;
   font-weight: 400;
   /*color: #999;*/
   color: darkslategray;
