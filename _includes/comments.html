@@ -80,7 +80,9 @@ SITE_DATA_COMMENTS
 <p>
   <h3>Post a comment:</h3>
   <form method="POST" action="https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/mylagrange/gh-pages/comments">
-	  <input name="options[redirect]" type="hidden" value="{{ site.url }}{{ page.url }}">
+    <input type="hidden" name="options[origin]" value="originOrigin">
+    <input type="hidden" name="options[parent]" value="parentOrigin">
+    <input name="options[redirect]" type="hidden" value="{{ site.url }}{{ page.url }}">
     <input name="options[slug]" type="hidden" value="{{ page.slug }}">
      <input type="hidden" name="fields[reply_to]" value="">
       <div>
