@@ -32,7 +32,7 @@ page.slug:
 SITE_DATA_COMMENTS
 
 <br>
- 
+
 
 
 <h5>end comments</h5>
@@ -43,7 +43,7 @@ SITE_DATA_COMMENTS
 -->
 {% if site.data.comments[page.slug] %}
 
- 
+
 
 
   {% assign comments = site.data.comments[page.slug] | sort %}
@@ -57,13 +57,13 @@ SITE_DATA_COMMENTS
      {% assign url = comment[1].url %}
      {% assign date = comment[1].date %}
      {% assign comment = comment[1].comment %}
-              
+
 
       <legend><strong>{{ comment[1].name }}</strong></legend>
       <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
 
    {{ comment[1].comment | markdownify }}
-   
+
     {% endfor %}
   </p>
 <hr>
@@ -96,12 +96,18 @@ SITE_DATA_COMMENTS
     <div>
       <legend>Message (<a href="https://kramdown.gettalong.org/syntax.html">Markdown</a> allowed)</legend>
       <textarea style="width:100%" name="fields[comment]" rows="12" required></textarea>
-    </div> 
+    </div>
+    <fieldset>
+            <label for="comment-form-reply">
+              <input type="checkbox" id="comment-form-reply" name="options[subscribe]" value="email">
+              Notify me of replies by email.
+            </label>
     <div>
-		<legend><em>Comments will appear after moderation.</em></legend> 
-		<button type="submit">Submit Comment</button> 
+		<legend><em>Comments will appear after moderation.</em></legend>
+		<button type="submit">Submit Comment</button>
+    </fieldset>
     </div>
 </form>
-    
- 
+
+
 </p>
