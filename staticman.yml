@@ -45,7 +45,7 @@ comments:
   githubAuth:
     clientId: c1AjPfVP9I/vCM3UUAC00o2ihSS1SrWiTfGcLys5VRIsrXrCLPzOrMJZCuIapFrwX3HnmhP4KYn1/d7xLZ1/FQ==
     clientSecret: DH/QnzzaZ3AYJ6SkO49JbMeHvYnrR8KUcJnMdijSLH5/VSYFU8ltNPZX1zI8V7t0poIE9Qnx8sDQgQcWLrrHUXyug8Woxbz35weXKpilaSTAnSRUHHfmHW/WsHJxI4R5BhwtQO7WCZZs2oUySf0DKuPqMWFSl19TpPDVKvwm8to=
-    redirectUri: https://samarulmeu.github.io/mylagrange
+    redirectUri: https://samarul.tk
 
   # Whether entries need to be appproved before they are published to the main
   # branch. If set to `true`, a pull request will be created for your approval.
@@ -53,7 +53,7 @@ comments:
   moderation: false #true #false
 
   # Name of the site. Used in notification emails.
-  name: "samarulmeu.github.io/mylagrange"
+  name: "Samarul"
 
   # Notification settings. When enabled, users can choose to receive notifications
   # via email when someone adds a reply or a new comment. This requires an account
