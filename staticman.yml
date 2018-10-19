@@ -9,7 +9,7 @@ comments:
   # not here is part of the request, an error will be thrown.
   allowedFields: ["name", "email", "website", "comment","reply_to"]
   #allowedFields: ["name", "email", "url", "message"]
-  allowedOrigins: ["samarul.tk","mg.samarul.tk"]
+  allowedOrigins: ["samarul.tk"]
   #auth:
   #  required: false
 
