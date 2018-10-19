@@ -102,9 +102,9 @@ blockquote{
 blockquote::before{
   content: "\201D"; /*Unicode for Left Double Quote*/
   /*Font*/
-  font-family:  "Old Standard TT", Georgia;
-  font-size: 100px;
-  font-weight: bold;
+  font-family: "Cormorant SC";
+  font-size: 11rem;
+  font-weight: 400;
   /*color: #999;*/
   color: darkslategray;
   /*Positioning*/
@@ -155,7 +155,7 @@ hr {
 }
 
 .masthead h3 {
-  font-family: "Cormorant";
+  font-family: "Cormorant SC";
 }
 .masthead a:hover {
   color:black;

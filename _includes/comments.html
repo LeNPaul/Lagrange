@@ -58,6 +58,8 @@ SITE_DATA_COMMENTS
      {% assign date = comment[1].date %}
      {% assign comment = comment[1].comment %}
 
+ <img src="https://www.gravatar.com/avatar/{{ comment[1].email }}?d=mm&s=60" alt="{{ comment[1].name }}">
+
 
       <legend><strong>{{ comment[1].name }}</strong></legend>
       <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
