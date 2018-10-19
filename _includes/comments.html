@@ -80,7 +80,7 @@ SITE_DATA_COMMENTS
 <p>
   <h3>Post a comment:</h3>
   <form method="POST" action="https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/mylagrange/gh-pages/comments">
-    <input type="hidden" name="options[origin]" value="originOrigin">
+    <input type="hidden" name="options[origin]" value="origineaOriginii">
     <input type="hidden" name="options[parent]" value="parentOrigin">
     <input name="options[redirect]" type="hidden" value="{{ site.url }}{{ page.url }}">
     <input name="options[slug]" type="hidden" value="{{ page.slug }}">
@@ -103,7 +103,7 @@ SITE_DATA_COMMENTS
     </div>
     <fieldset>
             <label for="comment-form-reply">
-              <input type="checkbox" id="comment-form-reply" name="options[subscribe]" value="email">
+              <input type="hidden" id="comment-form-reply" name="options[subscribe]" value="email">
               Notify me of replies by email.
             </label>
     <div>
