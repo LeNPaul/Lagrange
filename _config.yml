@@ -37,7 +37,8 @@ url: https://samarul.tk
 #  path: rss-feed.xml
 timezone: "Europe/Bucharest"
 repository  : samarulmeu.github.io/mylagrange
-
+include:
+  - _redirects
 staticmanUrl: https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/mylagrange/gh-pages/comments
 
 # comments: true
