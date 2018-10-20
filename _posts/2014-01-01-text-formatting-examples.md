@@ -85,7 +85,7 @@ Another option is to embed your code through [Gist](https://en.support.wordpress
 
 To add an image, use `![alt text](<Image url> "Image meta title")`:
 
-![alt text](http://noirve.com/wp-content/uploads/2013/10/DTTSP_Coffee.jpg "Example")
+![alt text](/assets/img/forest.jpg "Example")
 
 ## Unordered and Numbered Lists
 
