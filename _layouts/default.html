@@ -7,6 +7,10 @@
 
   <div class="container">
     {% include header.html %}
+    
+    {% if paginator.page == 1 %} 
+    IMAGINE 
+    {% endif %} 
 
     <div class="post-container">
       {{ content }}
