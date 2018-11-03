@@ -71,11 +71,12 @@ comments:
     #
     # Mailgun domain (encrypted)
     domain: "lT8Z7liEcAV9HOB/tFj0hMK3jrfzw/Qf1XpwcQn9OWAFE15PORJ856lCDk9MOeqE1YvZu9Ad6jiTpHUSzzdtZQ=="
+  
   reCaptcha:
-    siteKey: "6LfEgHgUAAAAAFqM1FI0n6SXyrg7bOKkA5ooVCHZ"
+    siteKey: 6LfZgHgUAAAAAPkesZ3EOmkFYRl2SkQGxhov03VP
     # Encrypt reCaptcha secret key using Staticman /encrypt endpoint
     # For more information, https://staticman.net/docs/encryption
-    secret: "chcQx5O4o4PZTCL0ORY3gNzWhtcZC8fQiNvJg69Rqa+ZbADiOVjR5nphuoeJ8cvi7ATbGwmxXshP8NukLUXHckv5f/NqwU+TJzbjSHNuultdWy2jNkJ/uB3i9NMaXLcNv7+7kWyHkgju/qNAG4RwuLVdqi2AOpsESR0wmVYLNkI="
+    secret: jSokxAWW2IU7ClN+RBggY8b28U0+Obxk0OyJMfxtNraj9pJnt4dLhe17hNVZGGESxShmQf4l7zIzCvLbBZVk6pKr+ubaS28+BM1DybCyvTpKgXGOnxkVeWd8JWmzTKyzLmrctctEceqO1mUvLu46XEH2g9oS59BMFw1QIsq8LOU=
   
   # (*) REQUIRED
   #
