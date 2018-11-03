@@ -119,8 +119,12 @@ SITE_DATA_COMMENTS
 </form>
 <script>
        function recaptcha_callback() {
+        return new Promise(function(resolve, reject) { 
+
        document.getElementById("trimite").removeAttr("disabled");
-        };                                 
+       resolve();
+        });
+        }                                 
  </script>
 
 
