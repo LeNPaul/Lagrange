@@ -49,8 +49,8 @@ reCaptcha:
     siteKey: "6LfEgHgUAAAAAFqM1FI0n6SXyrg7bOKkA5ooVCHZ"
     # Encrypt reCaptcha secret key using Staticman /encrypt endpoint
     # For more information, https://staticman.net/docs/encryption
-    secret: "pFnMxCZkLomxEEirSQRRNXqj1WmVsALsDoLzdDUgx65XdZAFZaO7tUs/bWHa7ji7chh85AIeFRUIFOnMi0gj92s/tTyDvFZzld5MkDcsRkKI4EW6xbzFFBnZO9v/NdwRlTxrLGkV/r9aVKSoKtMoho4H+1C2+4uzaRt3jWu68GQ="
-
+    secret: "chcQx5O4o4PZTCL0ORY3gNzWhtcZC8fQiNvJg69Rqa+ZbADiOVjR5nphuoeJ8cvi7ATbGwmxXshP8NukLUXHckv5f/NqwU+TJzbjSHNuultdWy2jNkJ/uB3i9NMaXLcNv7+7kWyHkgju/qNAG4RwuLVdqi2AOpsESR0wmVYLNkI="
+  
 
 staticman:
    branch: "gh-pages"
