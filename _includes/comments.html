@@ -84,6 +84,9 @@ SITE_DATA_COMMENTS
     <input type="hidden" name="options[parent]" value="{{ site.url }}{{ page.url }}">
     <input name="options[redirect]" type="hidden" value="{{ site.url }}{{ page.url }}">
     <input name="options[slug]" type="hidden" value="{{ page.slug }}">
+	  
+       <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.reCaptcha.siteKey }}">
+        <input type="hidden" name="options[reCaptcha][secret]" value="{{ site.reCaptcha.secret }}">
      <input type="hidden" name="fields[reply_to]" value="">
       <div>
       <legend>Name (required)</legend>
@@ -109,10 +112,13 @@ SITE_DATA_COMMENTS
             </label>
     <div>
 		<legend><em>Comments will appear after moderation.</em></legend>
+		<div class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}"></div>
 		<button type="submit">Submit Comment</button>
     </fieldset>
     </div>
 </form>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 
 </p>
