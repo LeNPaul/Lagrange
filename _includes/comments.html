@@ -112,11 +112,12 @@ SITE_DATA_COMMENTS
             </label>
     <div>
 		<legend><em>Comments will appear after moderation.</em></legend>
-		<div class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}" data-callback="recaptcha_callback"></div>
-		<button id="trimite" disabled="disabled" type="submit">Submit Comment</button>
+		<!-- <div class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}" data-callback="recaptcha_callback"></div> -->
+		<button id="trimite" type="submit">Submit Comment</button>
     </fieldset>
     </div>
 </form>
+<!--
 <script>
        function recaptcha_callback() {
         return new Promise(function(resolve, reject) { 
@@ -129,6 +130,6 @@ SITE_DATA_COMMENTS
 
 
 <script src='https://www.google.com/recaptcha/api.js' defer></script>
-
+-->
 
 </p>
