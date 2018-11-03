@@ -45,6 +45,12 @@ staticmanUrl: https://staticmanlagr.herokuapp.com/v3/entry/github/samarulmeu/myl
 #  provider  : "staticman"
 
 #comments: staticman
+reCaptcha:
+    siteKey: "6LfEgHgUAAAAAFqM1FI0n6SXyrg7bOKkA5ooVCHZ"
+    # Encrypt reCaptcha secret key using Staticman /encrypt endpoint
+    # For more information, https://staticman.net/docs/encryption
+    secret: "pFnMxCZkLomxEEirSQRRNXqj1WmVsALsDoLzdDUgx65XdZAFZaO7tUs/bWHa7ji7chh85AIeFRUIFOnMi0gj92s/tTyDvFZzld5MkDcsRkKI4EW6xbzFFBnZO9v/NdwRlTxrLGkV/r9aVKSoKtMoho4H+1C2+4uzaRt3jWu68GQ="
+
 
 staticman:
    branch: "gh-pages"
