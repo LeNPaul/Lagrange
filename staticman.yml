@@ -71,6 +71,7 @@ comments:
     #
     # Mailgun domain (encrypted)
     domain: "lT8Z7liEcAV9HOB/tFj0hMK3jrfzw/Qf1XpwcQn9OWAFE15PORJ856lCDk9MOeqE1YvZu9Ad6jiTpHUSzzdtZQ=="
+    host: api.eu.mailgun.net
   
   reCaptcha:
     siteKey: 6LfZgHgUAAAAAPkesZ3EOmkFYRl2SkQGxhov03VP
