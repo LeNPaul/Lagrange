@@ -1,8 +1,9 @@
-# Change to true for Disqus comments
+# Change 'comments' to true for Disqus comments
 disqus:
   comments: false
   disqus_shortname: 'https-lenpaul-github-io-lagrange'
 
+# If you are not using Google Analytics, please change 'google-ID' to an empty string
 google-ID: 'UA-112060364-1'
 
 menu:
