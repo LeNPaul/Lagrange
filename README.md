@@ -259,6 +259,8 @@ This theme is completely free and open source software. You may use it however y
 
 * [leyhline](https://github.com/leyhline)
 
+* [aritra24](https://github.com/aritra24)
+
 ### Icons + Demo Images
 
 * [Death to Stock](https://deathtothestockphoto.com/)
