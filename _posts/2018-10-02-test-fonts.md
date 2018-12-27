@@ -36,6 +36,8 @@ Muzicologă în bej vînd whisky și tequila, preț fix.
 
 Și aceasta ar trebui să fie o notă[^1].
 
+<iframe src="https://www.orfium.com/embedded/track/585965/skyline-gravity-circus/?ref=undefined" width="100%" height="150px" style="border: none;"></iframe>
+
 You’ll [^](Notă oarecare și...) find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is[^Măcar de am ști ceva] updated[^](Să zicem).
 
 
