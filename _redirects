@@ -1,2 +1,3 @@
 https://mylagrange.netlify.com/* https://samarul.tk/:splat 301!
-https://samarul.tk/*?fbclid https://samarul.tk/:splat 301
+#https://samarul.tk/*?fbclid https://samarul.tk/:splat 301
+https://samarul.tk/* fbclid=:val1 https://samarul.tk/:splat 301
