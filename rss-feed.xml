@@ -14,11 +14,7 @@ layout: null
 				{% if post.author %}
 					<dc:creator>{{ post.author | xml_escape }}</dc:creator>
 				{% endif %}
-				{% if post.excerpt %}
 <description><![CDATA[ <img src="{{ post_image }}" alt="" />{{ post.description | xml_escape }}... ]]></description>
-
-					<description>{{ post.content | xml_escape }}</description>
-				{% endif %}
 				<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 				<link>{{ site.url }}{{ post.url }}</link>
 				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
