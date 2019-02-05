@@ -20,7 +20,7 @@ highlighter:         rouge
 # permalink:           none
 permalink:           /:title/
 # plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag, jekyll-redirect-from]
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed]
+plugins:             [jekyll-paginate, jekyll-sitemap]
 
 
 future: false
