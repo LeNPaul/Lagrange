@@ -27,6 +27,7 @@ layout: null
       {% assign post_image = site.url | append: "/assets/img/" | append: site.image %}
     {% endif %}
     <content type="html"><![CDATA[ <img width="615" src="{{ post_image }}" hspace="10" />{{ post.description | xml_escape }}... ]]></content>
+    <description><![CDATA[<img width="615" src="{{ post_image }}" hspace="10" />{{ post.description | xml_escape }}... ]]></description>
     {% if post.author %} 
       {% assign author = post.author %}
     {% else %}
