@@ -1,0 +1,43 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ro">
+  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll v{{ jekyll.version }}</generator>
+  <title type="text" xml:lang="ro">{{ site.title | xml_escape }}</title>
+  <subtitle type="text" xml:lang="ro">{{ site.subtitle | xml_escape }}</subtitle>
+  <link type="application/atom+xml" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self"/>
+  <link type="text/html" href="{{ site.url }}" rel="alternate"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}</id>
+  <author>
+    <name>site.author</name>
+  </author>
+  <rights>site.copyright</rights>
+
+  {% for post in site.posts limit:12 %}
+  <entry>
+    <title>{{ post.title | xml_escape }}</title>
+    <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <id>{{ post.url | prepend: site.baseurl | prepend: site.url }}</id>
+    <content type="html">{{ post.description | xml_escape }} <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">Continuare</a></content>
+    {% if post.author %} 
+      {% assign author = post.author %}
+    {% else %}
+       {% assign author = site.author %}
+    {% endif %}
+    <author><name>{{ author }}</name></author>
+    {% if post.image %}
+      {% assign post_image = site.url | append: "/assets/img/" | append: post.image %}
+    {% else %}
+      {% assign post_image = site.url | append: "/assets/img/" | append: site.image %}
+    {% endif %}
+    <image>
+        <url>{{ post_image }}</url>
+        <title>{{ post.title }}</title>
+        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+      </image>
+  </entry>
+  {% endfor %}
+</feed>
