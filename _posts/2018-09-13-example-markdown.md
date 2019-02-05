@@ -5,7 +5,7 @@ layout: post
 title:  "Example markdown"
 
 date:   2018-09-13 12:19:37 +0300
-
+image:  "spools.jpg"
 
 categories: 
 
