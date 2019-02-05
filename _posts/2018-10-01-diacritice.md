@@ -6,6 +6,7 @@ title: Test pentru ș ț ă î â
 permalink: diacritice/
 
 description: 'Ceva despre nimic'
+image:  "cards.jpg"
 
 date: 2018-10-01 12:47 +03:00
 
