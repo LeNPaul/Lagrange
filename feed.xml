@@ -26,8 +26,9 @@ layout: null
     {% else %}
       {% assign post_image = site.url | append: "/assets/img/" | append: site.image %}
     {% endif %}
-<content type="html"><![CDATA[ <img width="615" src="{{ post_image }}" hspace="10" />{{ post.description | xml_escape }}... ]]></content>
-   
+<content type="html">{{ post.description | xml_escape }}...</content>
+   <image:image xmlns:image="http://web.resource.org/rss/1.0/modules/image/">{{ post_image }}</image:image>
+
     {% if post.author %} 
       {% assign author = post.author %}
     {% else %}
