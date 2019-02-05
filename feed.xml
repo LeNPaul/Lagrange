@@ -9,7 +9,7 @@ layout: null
   <link type="application/atom+xml" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self"/>
   <link type="text/html" href="{{ site.url }}" rel="alternate"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>{{ site.url }}</id>
+  <id>"{{ site.url }}"</id>
   <author>
     <name>site.author</name>
   </author>
@@ -18,10 +18,10 @@ layout: null
   {% for post in site.posts limit:12 %}
   <entry>
     <title>{{ post.title | xml_escape }}</title>
-    <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+    <link href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>{{ post.url | prepend: site.baseurl | prepend: site.url }}</id>
-    <content type="html">{{ post.description | xml_escape }} <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">Continuare</a></content>
+    <content type="html">{{ post.description | xml_escape }}...</content>
     {% if post.author %} 
       {% assign author = post.author %}
     {% else %}
