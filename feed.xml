@@ -21,18 +21,19 @@ layout: null
     <link href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>{{ post.url | prepend: site.baseurl | prepend: site.url }}</id>
-    <content type="html">{{ post.description | xml_escape }}...</content>
+    {% if post.image %}
+      {% assign post_image = site.url | append: "/assets/img/" | append: post.image %}
+    {% else %}
+      {% assign post_image = site.url | append: "/assets/img/" | append: site.image %}
+    {% endif %}
+    <content type="html"><![CDATA[ <img width="615" src="{{ post_image }}" hspace="10" />{{ post.description | xml_escape }}... ]]></content>
     {% if post.author %} 
       {% assign author = post.author %}
     {% else %}
        {% assign author = site.author %}
     {% endif %}
     <author><name>{{ author }}</name></author>
-    {% if post.image %}
-      {% assign post_image = site.url | append: "/assets/img/" | append: post.image %}
-    {% else %}
-      {% assign post_image = site.url | append: "/assets/img/" | append: site.image %}
-    {% endif %}
+    
     <image>
         <url>{{ post_image }}</url>
         <title>{{ post.title }}</title>
