@@ -14,6 +14,12 @@ layout: null
 				{% if post.author %}
 					<dc:creator>{{ post.author | xml_escape }}</dc:creator>
 				{% endif %}
+
+				    {% if post.image %}
+      {% assign post_image = site.url | append: "/assets/img/" | append: post.image %}
+    {% else %}
+      {% assign post_image = site.url | append: "/assets/img/" | append: site.image %}
+    {% endif %}
 <description><![CDATA[ <img src="{{ post_image }}" alt="" />{{ post.description | xml_escape }}... ]]></description>
 				<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 				<link>{{ site.url }}{{ post.url }}</link>
