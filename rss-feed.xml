@@ -9,7 +9,7 @@ layout: null
 		<description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
  		<language>{{ site.locale }}</language>
  		<sy:updatePeriod>hourly</sy:updatePeriod><sy:updateFrequency>1</sy:updateFrequency>
- 		<generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll v{{ jekyll.version }}</generator>
+ 		<generator>Jekyll v{{ jekyll.version }}</generator>
 		<link>{{ site.url }}</link>
 		{% for post in site.posts limit:8 %}
 			<item>
