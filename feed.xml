@@ -2,40 +2,36 @@
 layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ro">
-  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll v{{ jekyll.version }}</generator>
-  <title type="text" xml:lang="ro">{{ site.title | xml_escape }}</title>
-  <subtitle type="text" xml:lang="ro">{{ site.subtitle | xml_escape }}</subtitle>
-  <link type="application/atom+xml" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self"/>
-  <link type="text/html" href="{{ site.url }}" rel="alternate"/>
-  <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>"{{ site.url }}"</id>
-  <author>
-    <name>site.author</name>
-  </author>
-  <rights>site.copyright</rights>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"	xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+	<channel>
+		<title>{{ site.title | xml_escape }}</title>
+		<atom:link href="{{ page.url | absolute_url }}" rel="self" type="application/rss+xml" />
+		<description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
+ 		<language>{{ site.locale }}</language>
+ 		<sy:updatePeriod>hourly</sy:updatePeriod><sy:updateFrequency>1</sy:updateFrequency>
+ 		<generator>Jekyll v{{ jekyll.version }}</generator>
+		<link>{{ site.url }}</link>
+		{% for post in site.posts limit:8 %}
+			<item>
+				<title>{{ post.title | xml_escape }}</title>
+				<link>{{ site.url }}{{ post.url }}</link>
+				{% if post.author %}
+				<dc:creator><![CDATA[{{ post.author | xml_escape }}]]></dc:creator>
+				{% else %}
+				<dc:creator><![CDATA[{{ site.author | xml_escape }}]]></dc:creator>
+				{% endif %}
+			    <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+			    <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+				{% if post.image %}
+			    	{% assign post_image = site.url | append: "/assets/img/" | append: post.image %}
+			    {% else %}
+			    	{% assign post_image = site.url | append: "/assets/img/" | append: site.image %}
+			    {% endif %}
+			    <description><![CDATA[ <img width="615" src="{{ post_image }}" hspace="10" alt="" /> {{ post.content | xml_escape | truncate: 580 }}... ]]></description>
+			    {% if post.category %}{% for category in post.category %}<category><![CDATA[{{ category | xml_escape }}]]></category>{% endfor %}{% endif %}
+			    {% for tag in post.tags %}<category><![CDATA[{{ tag | xml_escape }}]]></category>{% endfor %}
+			</item>
+		{% endfor %}
+	</channel>
+</rss>
 
-  {% for post in site.posts limit:12 %}
-  <entry>
-    <title>{{ post.title | xml_escape }}</title>
-    <link href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}"/>
-    <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>{{ post.url | prepend: site.baseurl | prepend: site.url }}</id>
-    {% if post.image %}
-      {% assign post_image = site.url | append: "/assets/img/" | append: post.image %}
-    {% else %}
-      {% assign post_image = site.url | append: "/assets/img/" | append: site.image %}
-    {% endif %}
-<description><![CDATA[ <img src="{{ post_image }}" alt="" />{{ post.description | xml_escape }}... ]]></description>
-
-    {% if post.author %} 
-      {% assign author = post.author %}
-    {% else %}
-       {% assign author = site.author %}
-    {% endif %}
-    <author><name>{{ author }}</name></author>
-    
-    
-  </entry>
-  {% endfor %}
-</feed>
