@@ -299,6 +299,12 @@ pre code {
   background-color: transparent;
 }
 
+/* Horizontal code overflow fix */
+pre.highlight {
+  white-space: pre;
+  overflow-x: auto;
+}
+
 /* Pygments via Jekyll */
 .highlight {
   margin-bottom: 1rem;
