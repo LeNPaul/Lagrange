@@ -261,6 +261,8 @@ This theme is completely free and open source software. You may use it however y
 
 * [aritra24](https://github.com/aritra24)
 
+* [DuckSoft](https://github.com/DuckSoft)
+
 ### Icons + Demo Images
 
 * [Death to Stock](https://deathtothestockphoto.com/)
