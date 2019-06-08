@@ -8,5 +8,6 @@ category: [articol, jurnal]
 comments: true
 comments_locked: false
 ---
+TESTE NOI IAR SI IAR
 
 Something new about nothing
