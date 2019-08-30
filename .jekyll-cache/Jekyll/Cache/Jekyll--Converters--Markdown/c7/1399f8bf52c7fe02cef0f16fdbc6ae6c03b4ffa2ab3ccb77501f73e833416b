@@ -1,0 +1,326 @@
+I"�Y<h1 id="lagrange">Lagrange</h1>
+
+<p>Lagrange is a minimalist Jekyll theme for running a personal blog or site for free through <a href="https://pages.github.com/">Github Pages</a>, or on your own server. Everything that you will ever need to know about this Jekyll theme is included in the README below, which you can also find in <a href="https://lenpaul.github.io/Lagrange/">the demo site</a>.</p>
+
+<p><img src="https://user-images.githubusercontent.com/8409329/32631384-17107870-c56e-11e7-932f-deeb7c12e4db.png" alt="alt text" title="Lagrange Demo Image" /></p>
+
+<h2 id="notable-features">Notable features</h2>
+
+<ul>
+  <li>
+    <p>Compatible with GitHub Pages.</p>
+  </li>
+  <li>
+    <p>Support for Jekyll’s built-in Sass/SCSS preprocessor and data files for making customizing easier.</p>
+  </li>
+  <li>
+    <p><a href="https://www.google.com/analytics/">Google Analytics</a> support.</p>
+  </li>
+  <li>
+    <p>Commenting support powered by <a href="https://disqus.com/">Disqus</a>.</p>
+  </li>
+  <li>
+    <p>Optimized for search engines.</p>
+  </li>
+  <li>
+    <p>LaTeX support through <a href="https://www.mathjax.org/">MathJax</a>.</p>
+  </li>
+</ul>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ol>
+  <li><a href="#introduction">Introduction</a>
+    <ol>
+      <li><a href="#what-is-jekyll">What is Jekyll</a></li>
+      <li><a href="#never-used-jekyll-before">Never Used Jeykll Before?</a></li>
+    </ol>
+  </li>
+  <li><a href="#installation">Installation</a>
+    <ol>
+      <li><a href="#github-pages-installation">GitHub Pages Installation</a></li>
+      <li><a href="#local-installation">Local Installation</a></li>
+      <li><a href="#directory-structure">Directory Structure</a></li>
+      <li><a href="#starting-from-scratch">Starting From Scratch</a></li>
+    </ol>
+  </li>
+  <li><a href="#configuration">Configuration</a>
+    <ol>
+      <li><a href="#sample-posts">Sample Posts</a></li>
+      <li><a href="#site-variables">Site Variables</a></li>
+      <li><a href="#adding-menu-pages">Adding Menu Pages</a></li>
+      <li><a href="#posts">Posts</a></li>
+      <li><a href="#layouts">Layouts</a></li>
+      <li><a href="#yaml-front-block-matter">YAML Front Block Matter</a></li>
+    </ol>
+  </li>
+  <li><a href="#features">Features</a>
+    <ol>
+      <li><a href="#design-considerations">Design Considerations</a></li>
+      <li><a href="#disqus">Disqus</a></li>
+      <li><a href="#google-analytics">Google Analytics</a></li>
+      <li><a href="#rss-feeds">RSS Feeds</a></li>
+      <li><a href="#social-media-icons">Social Media Icons</a></li>
+      <li><a href="#mathjax">MathJax</a></li>
+      <li><a href="#syntax-highlighting">Syntax Highlighting</a></li>
+      <li><a href="#markdown">Markdown</a></li>
+    </ol>
+  </li>
+  <li><a href="#everything-else">Everything Else</a></li>
+  <li><a href="#Contributing">Contributing</a></li>
+  <li><a href="#questions">Questions?</a></li>
+  <li><a href="#credits">Credits</a></li>
+  <li><a href="#license">License</a></li>
+</ol>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Lagrange is a Jekyll theme that was built to be 100% compatible with <a href="https://pages.github.com/">GitHub Pages</a>. If you are unfamiliar with GitHub Pages, you can check out <a href="https://help.github.com/categories/github-pages-basics/">their documentation</a> for more information. <a href="http://jmcglone.com/guides/github-pages/">Jonathan McGlone’s guide</a> on creating and hosting a personal site on GitHub is also a good resource.</p>
+
+<h3 id="what-is-jekyll">What is Jekyll?</h3>
+
+<p>Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Basically, Jekyll takes your page content along with template files and produces a complete website. For more information, visit the <a href="https://jekyllrb.com/docs/home/">official Jekyll site</a> for their documentation. Codecademy also offers a great course on <a href="https://www.codecademy.com/learn/deploy-a-website">how to deploy a Jekyll site</a> for complete beginners.</p>
+
+<h3 id="never-used-jekyll-before">Never Used Jekyll Before?</h3>
+
+<p>The beauty of hosting your website on GitHub is that you don’t have to actually have Jekyll installed on your computer. Everything can be done through the GitHub code editor, with minimal knowledge of how to use Jekyll or the command line. All you have to do is add your posts to the <code class="highlighter-rouge">_posts</code> directory and edit the <code class="highlighter-rouge">_config.yml</code> file to change the site settings. With some rudimentary knowledge of HTML and CSS, you can even modify the site to your liking. This can all be done through the GitHub code editor, which acts like a content management system (CMS).</p>
+
+<h2 id="installation">Installation</h2>
+
+<h3 id="github-pages-installation">GitHub Pages Installation</h3>
+
+<p>To start using Jekyll right away with GitHub Pages, <a href="https://github.com/LeNPaul/Lagrange/fork">fork the Lagrange repository on GitHub</a>. From there, you can rename your repository to ‘USERNAME.github.io’, where ‘USERNAME’ is your GitHub username, and edit the <code class="highlighter-rouge">settings.yml</code> file in the <code class="highlighter-rouge">_data</code> folder to your liking. Ensure that you have a branch named <code class="highlighter-rouge">gh-pages</code>. Your website should be ready immediately at ‘http://USERNAME.github.io’. Note: if you are hosting several sites under the same GitHub username, then you will have to use <a href="https://help.github.com/articles/user-organization-and-project-pages/">Project Pages instead of User Pages</a> - just change the repository name to something other than ‘http://USERNAME.github.io’.</p>
+
+<p>Head over to the <code class="highlighter-rouge">_posts</code> directory to view all the posts that are currently on the website, and to see examples of what post files generally look like. You can simply just duplicate the template post and start adding your own content.</p>
+
+<h3 id="local-installation">Local Installation</h3>
+
+<p>For a full local installation of Lagrange, <a href="https://github.com/LeNPaul/Lagrange/archive/gh-pages.zip">download your own copy of Lagrange</a> and unzip it into it’s own directory. From there, open up your favorite command line tool, enter <code class="highlighter-rouge">bundle install</code>, and then enter <code class="highlighter-rouge">jekyll serve</code>. Your site should be up and running locally at <a href="http://localhost:4000">http://localhost:4000</a>.</p>
+
+<h3 id="directory-structure">Directory Structure</h3>
+
+<p>If you are familiar with Jekyll, then the Lagrange directory structure shouldn’t be too difficult to navigate. The following some highlights of the differences you might notice between the default directory structure. More information on what these folders and files do can be found in the <a href="https://jekyllrb.com/docs/structure/">Jekyll documentation site</a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Lagrange/
+├── _data                      <span class="c"># Data files</span>
+|  └── settings.yml            <span class="c"># Theme settings and custom text</span>
+├── _includes                  <span class="c"># Theme includes</span>
+├── _layouts                   <span class="c"># Theme layouts (see below for details)</span>
+├── _posts                     <span class="c"># Where all your posts will go</span>
+├── assets                     <span class="c"># Style sheets and images are found here</span>
+|  ├── css                     <span class="c"># Style sheets go here</span>
+|  |  └── main.css             <span class="c"># Main CSS file</span>
+|  |  └── syntax.css           <span class="c"># Style sheet for code syntax highlighting</span>
+|  └── img                     <span class="c"># Images go here</span>
+├── menu                       <span class="c"># Menu pages</span>
+├── _config.yml                <span class="c"># Site build settings</span>
+├── Gemfile                    <span class="c"># Ruby Gemfile for managing Jekyll plugins</span>
+├── index.md                   <span class="c"># Home page</span>
+├── LICENSE.md                 <span class="c"># License for this theme</span>
+├── README.md                  <span class="c"># Includes all of the documentation for this theme</span>
+└── rss-feed.xml               <span class="c"># Generates RSS 2.0 file which Jekyll points to</span>
+</code></pre></div></div>
+
+<h3 id="starting-from-scratch">Starting From Scratch</h3>
+
+<p>To completely start from scratch, simply delete all the files in the <code class="highlighter-rouge">_posts</code>, <code class="highlighter-rouge">assets/img</code>, and <code class="highlighter-rouge">menu</code> folder, and add your own content. You may also replace the <code class="highlighter-rouge">README.md</code> file with your own README. Everything in the <code class="highlighter-rouge">_data</code> folder and <code class="highlighter-rouge">_config.yml</code> file can be edited to suit your needs. You may also change the <code class="highlighter-rouge">favicon.ico</code> file to your own favicon.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<h3 id="sample-posts">Sample Posts</h3>
+
+<p>Visit the <a href="https://lenpaul.github.io/Lagrange/">the demo site</a> to find sample posts that show what different types of text formatting look like. You can find these posts in the <code class="highlighter-rouge">_posts</code> folder, which show what the best practices for setting up your own site are.</p>
+
+<h3 id="site-variables">Site Variables</h3>
+
+<p>To change site build settings, edit the <code class="highlighter-rouge">_config.yml</code> file found in the root of your repository, which you can tweak however you like. More information on configuration settings and plugins can be found on <a href="https://jekyllrb.com/docs/configuration/">the Jekyll documentation site</a>. This is also where you will be able to customize the title, description, and the author/owner of your site.</p>
+
+<p>If you are hosting your site on GitHub Pages, then committing a change to the <code class="highlighter-rouge">_config.yml</code> file will force a rebuild of your site with Jekyll. Any changes made should be viewable soon after. If you are hosting your site locally, then you must run <code class="highlighter-rouge">jekyll serve</code> again for the changes to take place.</p>
+
+<p>In the <code class="highlighter-rouge">settings.yml</code> file found in the <code class="highlighter-rouge">_data</code> folder, you will be able to customize your site settings, such as setting Disqus comments, Google Analytics, what shows up in your menu, and social media information.</p>
+
+<h3 id="adding-menu-pages">Adding Menu Pages</h3>
+
+<p>The menu pages are found in the <code class="highlighter-rouge">menu</code> folder in the root directory, and can be added to your menu in the <code class="highlighter-rouge">settings.yml</code> file.</p>
+
+<h3 id="posts">Posts</h3>
+
+<p>You will find example posts in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit any post and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention of <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.md</code> and includes the necessary front matter. Take a look at any sample post to get an idea about how it works. If you already have a website built with Jekyll, simply copy over your posts to migrate to Lagrange.</p>
+
+<h3 id="layouts">Layouts</h3>
+
+<p>There are two main layout options that are included with Lagrange: post and page. Layouts are specified through the <a href="https://jekyllrb.com/docs/frontmatter/">YAML front block matter</a>. Any file that contains a YAML front block matter will be processed by Jekyll. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: post
+title: "Example Post"
+---
+</code></pre></div></div>
+
+<p>Examples of what posts looks like can be found in the <code class="highlighter-rouge">_posts</code> directory, which includes this post you are reading right now. Posts are the basic blog post layout, which includes a header image, post content, author name, date published, social media sharing links, and related posts.</p>
+
+<p>Pages are essentially the post layout without any of the extra features of the posts layout. An example of what pages look like can be found at the <a href="https://lenpaul.github.io/Lagrange/menu/about.html">About</a> and <a href="https://lenpaul.github.io/Lagrange/menu/contact.html">Contacts</a>.</p>
+
+<p>In addition to the two main layout options above, there are also custom layouts that have been created for the <a href="https://lenpaul.github.io/Lagrange/">home page</a> and the <a href="https://lenpaul.github.io/Lagrange/menu/writing.html">archives page</a>. These are simply just page layouts with some <a href="https://shopify.github.io/liquid/">Liquid template code</a>. Check out the <code class="highlighter-rouge">index.html</code> file in the root directory for what the code looks like.</p>
+
+<h3 id="yaml-front-block-matter">YAML Front Block Matter</h3>
+
+<p>The recommended YAML front block is:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout:
+title:
+author:
+categories:
+tags: []
+image:
+---
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">layout</code> specifies which layout to use, <code class="highlighter-rouge">title</code> is the page or post title, <code class="highlighter-rouge">categories</code> can be used to better organize your posts, <code class="highlighter-rouge">tags</code> are used when generating related posts based on the topic of the post, and <code class="highlighter-rouge">image</code> specifies which images to use. Have a look at some posts in the <code class="highlighter-rouge">_posts</code> directory to see how these variables are set.</p>
+
+<h2 id="features">Features</h2>
+
+<h3 id="design-considerations">Design Considerations</h3>
+
+<p>Lagrange was designed to be a minimalist theme in order for the focus to remain on your content. For example, links are signified mainly through an underline text-decoration, in order to maximize the perceived affordance of clickability (I originally just wanted to make the links a darker shade of grey).</p>
+
+<h3 id="disqus">Disqus</h3>
+
+<p>Lagrange supports comments at the end of posts through <a href="https://disqus.com/">Disqus</a>. In order to activate Disqus commenting, set <code class="highlighter-rouge">disqus.comments</code> to true in the <code class="highlighter-rouge">_data/settings.yml</code> file. If you do not have a Disqus account already, you will have to set one up, and create a profile for your website. You will be given a <code class="highlighter-rouge">disqus_shortname</code> that will be used to generate the appropriate comments sections for your site. More information on <a href="http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/">how to set up Disqus</a>.</p>
+
+<h3 id="google-analytics">Google Analytics</h3>
+
+<p>It is possible to track your site statistics through <a href="https://www.google.com/analytics/">Google Analytics</a>. Similar to Disqus, you will have to create an account for Google Analytics, and enter the correct Google ID for your site under <code class="highlighter-rouge">google-ID</code> in the <code class="highlighter-rouge">settings.yml</code> file. More information on <a href="https://michaelsoolee.com/google-analytics-jekyll/">how to set up Google Analytics</a>.</p>
+
+<h3 id="rss-feeds">RSS Feeds</h3>
+
+<p>Atom is supported by default through <a href="https://github.com/jekyll/jekyll-feed">jekyll-feed</a>. With jekyll-feed, you can set configuration variables such as ‘title’, ‘description’, and ‘author’, in the <code class="highlighter-rouge">_config.yml</code> file.</p>
+
+<p>RSS 2.0 is also supported through <a href="http://www.rssboard.org/rss-autodiscovery">RSS auto-discovery</a>. The <code class="highlighter-rouge">rss-feed.xml</code> file (based on the template found at <a href="https://github.com/snaptortoise/jekyll-rss-feeds">jekyll-rss-feeds</a>) that the feed path points to when using RSS 2.0 is automatically generated based on the appropriate configuration variables found in <code class="highlighter-rouge">_data/settings.yml</code>.</p>
+
+<p>To use RSS 2.0, ensure the following is done:</p>
+
+<ul>
+  <li>
+    <p>Uncomment the last two lines in the <code class="highlighter-rouge">_config.yml</code> file.</p>
+  </li>
+  <li>
+    <p>In <code class="highlighter-rouge">_data/settings.yml</code>, under ‘social’, comment out the rss-square that points to <code class="highlighter-rouge">feed.xml</code>, and uncomment the rss-square that points to <code class="highlighter-rouge">rss-feed.xml</code>.</p>
+  </li>
+  <li>
+    <p>In <code class="highlighter-rouge">_includes/head.html</code>, comment out <code class="highlighter-rouge">&lt;link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Yingjie Zhu" /&gt;</code> and uncomment the line under the RSS 2.0 comment.</p>
+  </li>
+</ul>
+
+<h3 id="social-media-icons">Social Media Icons</h3>
+
+<p>All social media icons are courtesy of <a href="http://fontawesome.io/">Font Awesome</a>. You can change which icons appear, as well as the account that they link to, in the <code class="highlighter-rouge">settings.yml</code> file in the <code class="highlighter-rouge">_data</code> folder.</p>
+
+<h3 id="mathjax">MathJax</h3>
+
+<p>Lagrange comes out of the box with <a href="https://www.mathjax.org/">MathJax</a>, which allows you to display mathematical equations in your posts through the use of <a href="http://www.andy-roberts.net/writing/latex/mathematics_1">LaTeX</a>.</p>
+
+<h3 id="syntax-highlighting">Syntax Highlighting</h3>
+
+<p>Lagrange provides syntax highlighting through <a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/">fenced code blocks</a>. Syntax highlighting allows you to display source code in different colors and fonts depending on what programming language is being displayed. You can find the full list of supported programming languages <a href="https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers">here</a>. Another option is to embed your code through <a href="https://en.support.wordpress.com/gist/">Gist</a>.</p>
+
+<h3 id="markdown">Markdown</h3>
+
+<p>As always, Jekyll offers support for GitHub Flavored Markdown, which allows you to format your posts using the <a href="https://guides.github.com/features/mastering-markdown/">Markdown syntax</a>. Examples of these text formatting features can be seen below. You can find this post in the <code class="highlighter-rouge">_posts</code> directory as well as the <code class="highlighter-rouge">README.md</code> file.</p>
+
+<h2 id="everything-else">Everything Else</h2>
+
+<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>If you would like to make a feature request, or report a bug or typo in the documentation, then please <a href="https://github.com/LeNPaul/Lagrange/issues/new">submit a GitHub issue</a>. If you would like to make a contribution, then feel free to <a href="https://help.github.com/articles/about-pull-requests/">submit a pull request</a> - as a bonus, I will credit all contributors below! If this is your first pull request, it may be helpful to read up on the <a href="https://guides.github.com/introduction/flow/">GitHub Flow</a> first.</p>
+
+<p>Lagrange has been designed as a base for users to customize and fit to their own unique needs. Please keep this in mind when requesting features and/or submitting pull requests. Some examples of changes that I would love to see are things that would make the site easier to use, or better ways of doing things. Please avoid changes that do not benefit the majority of users.</p>
+
+<h2 id="questions">Questions?</h2>
+
+<p>This theme is completely free and open source software. You may use it however you want, as it is distributed under the <a href="http://choosealicense.com/licenses/mit/">MIT License</a>. If you are having any problems, any questions or suggestions, feel free to <a href="https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele">tweet at me</a>, or <a href="https://github.com/lenpaul/lagrange/issues/new">file a GitHub issue</a>.</p>
+
+<h2 id="credits">Credits</h2>
+
+<h3 id="creator">Creator</h3>
+
+<h4 id="paul-le">Paul Le</h4>
+
+<ul>
+  <li>
+    <p><a href="http://lenpaul.com">www.lenpaul.com</a></p>
+  </li>
+  <li>
+    <p><a href="https://twitter.com/paululele">Twitter</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/LeNPaul">GitHub</a></p>
+  </li>
+</ul>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/nikolalukovic">nikolalukovic</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/gmemstr">gmemstr</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/lynn9388">lynn9388</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/robqiao">robqiao</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/Mauladen">Mauladen</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/dhanus">dhanus</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/mlewand">mlewand</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/Hguimaraes">Hguimaraes</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/ilhamadun">ilhamadun</a></p>
+  </li>
+</ul>
+
+<h3 id="icons--demo-images">Icons + Demo Images</h3>
+
+<ul>
+  <li>
+    <p><a href="https://deathtothestockphoto.com/">Death to Stock</a></p>
+  </li>
+  <li>
+    <p><a href="http://fontawesome.io/">Font Awesome</a></p>
+  </li>
+</ul>
+
+<h3 id="other">Other</h3>
+
+<ul>
+  <li>
+    <p><a href="https://jekyllrb.com/">Jekyll</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.freecodecamp.org">Free Code Camp</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.khanacademy.org/">Khan Academy</a></p>
+  </li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p>Open sourced under the <a href="https://github.com/LeNPaul/Lagrange/blob/gh-pages/LICENSE.md">MIT license</a>.</p>
+:ET

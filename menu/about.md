@@ -13,6 +13,8 @@ Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a
 
 [Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
 
-### Questions?
+### About the Theme?
 
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+This website use the Jekyll theme Lagrange by [Paul](https://www.github.com/lenpaul), which is completely free and open source software. Yingjie thank Paul for sharing such a nice Jekyll theme.
+
+It is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems about Paul's theme, any questions or suggestions, feel free to [tweet at him](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).

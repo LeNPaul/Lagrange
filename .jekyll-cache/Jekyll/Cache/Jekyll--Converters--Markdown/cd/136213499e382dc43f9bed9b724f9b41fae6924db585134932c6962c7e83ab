@@ -1,0 +1,14 @@
+I"Ñ<p>The beauty of computer programming is that you do not need to formally go to school to learn how to program. You can learn almost everything that you would need to know online, and for free. The following resources are some that I have used personally, that I highly recommend, for anyone looking to learn more about computer programming.</p>
+
+<h2 id="free-code-camp"><a href="https://www.freecodecamp.org/">Free Code Camp</a></h2>
+
+<p>My personal favourite for learning full stack web development. They offer a great front and back end curriculum that requires you to complete a variety of projects in order to apply the knowledge that you learn during the lessons. As a bonus, at the end of the curriculum you will have a few impressive projects under your belt for your portfolio.</p>
+
+<h2 id="codecademy"><a href="https://www.codecademy.com/">Codecademy</a></h2>
+
+<p>Not only does Codecademy have many great courses on various web development languages such as <a href="https://www.codecademy.com/learn/learn-html">HTML</a>, <a href="https://www.codecademy.com/learn/learn-css">CSS</a>, and <a href="https://www.codecademy.com/learn/introduction-to-javascript">JavaScript</a>, but they even offer a course on <a href="https://www.codecademy.com/learn/deploy-a-website">how to deploy a Jekyll site</a>. If you are completely new to Jekyll, I would recommend working through that course as a great start for learning how to deploy your Jekyll site.</p>
+
+<h2 id="khan-academy"><a href="https://www.khanacademy.org/">Khan Academy</a></h2>
+
+<p>A great resource not only for learning mathematics (what most people probably know Khan Academy for), but also <a href="https://www.khanacademy.org/computing/computer-programming">computer programming</a>. What Khan Academy offers that is different from the other two above resources is that it offers courses in <a href="https://www.khanacademy.org/computing/computer-science">computer science related</a> topics, such as <a href="https://www.khanacademy.org/computing/computer-science/algorithms">algorithms</a> and <a href="https://www.khanacademy.org/computing/computer-science/cryptography">cryptography</a>. This is unique in that most online resources mostly focus on the programming side of things.</p>
+:ET

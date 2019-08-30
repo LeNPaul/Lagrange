@@ -1,0 +1,206 @@
+I"z-<h1 id="markdown-support">Markdown Support</h1>
+
+<p>As always, Jekyll offers support for GitHub Flavored Markdown, which allows you to format your posts using the <a href="https://guides.github.com/features/mastering-markdown/">Markdown syntax</a>. Examples of these text formatting features can be seen below. You can find this post in the <code class="highlighter-rouge">_posts</code> directory.</p>
+
+<h2 id="basic-formatting">Basic Formatting</h2>
+
+<p>With Markdown, it is possible to emphasize words by making them <em>italicized</em>, using <em>astericks</em> or <em>underscores</em>, or making them <strong>bold</strong>, using <strong>double astericks</strong> or <strong>double underscores</strong>. Of course, you can combine those two formats, with both <em><strong>bold and italicized</strong></em> text, using any combination of the above syntax. You can also add a strikethrough to text using a <del>double tilde</del>.</p>
+
+<h2 id="paragraphs">Paragraphs</h2>
+
+<p>This is what a paragraph looks like. For the purpose of demonstration, the rest of this paragraph and the next paragraph after will mean absolutely nothing. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</p>
+
+<p>Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</p>
+
+<h2 id="headings">Headings</h2>
+
+<p>Sometimes it is useful to have different levels of headings to structure your documents. Start lines with <code class="highlighter-rouge">#</code> to create headings. Multiple <code class="highlighter-rouge">##</code> in a row denote smaller heading size. The following demonstrate the full range of heading sizes:</p>
+
+<h1 id="heading-one-h1">Heading One (h1)</h1>
+
+<h2 id="heading-two-h2">Heading Two (h2)</h2>
+
+<h3 id="heading-three-h3">Heading Three (h3)</h3>
+
+<h4 id="heading-four-h4">Heading Four (h4)</h4>
+
+<h5 id="heading-five-h5">Heading Five (h5)</h5>
+
+<h6 id="heading-six-h6">Heading Six (h6)</h6>
+
+<h2 id="links">Links</h2>
+
+<p>You can create an inline link by wrapping link text in square brackets <code class="highlighter-rouge">[ ]</code>, and then wrapping the URL in parentheses <code class="highlighter-rouge">( )</code>. For example, it is very easy to <a href="http://google.com">link to Google!</a>.</p>
+
+<h2 id="blockquotes">Blockquotes</h2>
+
+<p>Blockquotes are useful for denoting quotes, or highlighting a large block of text. Single line blockquote:</p>
+
+<blockquote>
+  <p>This quote will change your life.</p>
+</blockquote>
+
+<p>Multi line blockquote with a cite reference:</p>
+
+<blockquote>
+  <p>People think focus means saying yes to the thing you’ve got to focus on. But that’s not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick carefully. I’m actually as proud of the things we haven’t done as the things I have done. Innovation is saying no to 1,000 things.</p>
+</blockquote>
+
+<h2 id="code-and-syntax-highlighting">Code and Syntax Highlighting</h2>
+
+<p>Code blocks are part of the Markdown spec, but syntax highlighting isn’t. However, many renderers - like GitHub or most Jekyll themes - support syntax highlighting. Which languages are supported and how those language names should be written will vary from renderer to renderer. You can find the full list of supported programming languages <a href="https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers">here</a>. Also, it is possible to do <code class="highlighter-rouge">inline code blocks</code>, by wrapping the text in ` ` ` quotations.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>No language indicated, so no syntax highlighting.
+</code></pre></div></div>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span>
+</code></pre></div></div>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console</span>
+
+<span class="c1">// Create a function that takes two arguments and returns the sum of those arguments</span>
+<span class="kd">var</span> <span class="nx">adder</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">return a + b</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// Call the function</span>
+<span class="nx">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+<span class="c1">// &gt; 8</span></code></pre></figure>
+
+<p>Another option is to embed your code through <a href="https://en.support.wordpress.com/gist/">Gist</a>.</p>
+
+<h2 id="images">Images</h2>
+
+<p>To add an image, use <code class="highlighter-rouge">![alt text](&lt;Image url&gt; "Image meta title")</code>:</p>
+
+<p><img src="http://noirve.com/wp-content/uploads/2013/10/DTTSP_Coffee.jpg" alt="alt text" title="Example" /></p>
+
+<h2 id="unordered-and-numbered-lists">Unordered and Numbered Lists</h2>
+
+<p>You can make an unordered and nested list by preceding one or more lines of text with <code class="highlighter-rouge">-</code>, <code class="highlighter-rouge">*</code>, or <code class="highlighter-rouge">+</code>, and indenting sublists. The following lists show the full range of possible list formats.</p>
+
+<ul>
+  <li>List item one
+    <ul>
+      <li>List item one
+        <ul>
+          <li>List item one</li>
+          <li>List item two</li>
+          <li>List item three</li>
+          <li>List item four</li>
+        </ul>
+      </li>
+      <li>List item two</li>
+      <li>List item three</li>
+      <li>List item four</li>
+    </ul>
+  </li>
+  <li>List item two</li>
+  <li>List item three</li>
+  <li>List item four</li>
+</ul>
+
+<p>Numbered lists are made by using numbers instead of bullet points.</p>
+
+<ol>
+  <li>List item one
+    <ol>
+      <li>List item one
+        <ol>
+          <li>List item one</li>
+          <li>List item two</li>
+          <li>List item three</li>
+          <li>List item four</li>
+        </ol>
+      </li>
+      <li>List item two</li>
+      <li>List item three</li>
+      <li>List item four</li>
+    </ol>
+  </li>
+  <li>List item two</li>
+  <li>List item three</li>
+  <li>List item four</li>
+</ol>
+
+<h2 id="mathjax-example">MathJax Example</h2>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation">Schrödinger equation</a> is a partial differential equation that describes how the quantum state of a quantum system changes with time:</p>
+
+<script type="math/tex; mode=display">i\hbar\frac{\partial}{\partial t} \Psi(\mathbf{r},t) = \left [ \frac{-\hbar^2}{2\mu}\nabla^2 + V(\mathbf{r},t)\right ] \Psi(\mathbf{r},t)</script>
+
+<p><a href="https://en.wikipedia.org/wiki/Joseph-Louis_Millennial">Joseph-Louis Millennial</a> was an Italian mathematician and astronomer who was responsible for the formulation of Lagrangian mechanics, which is a reformulation of Newtonian mechanics.</p>
+
+<script type="math/tex; mode=display">\frac{\mathrm{d}}{\mathrm{d}t} \left ( \frac {\partial  L}{\partial \dot{q}_j} \right ) =  \frac {\partial L}{\partial q_j}</script>
+
+<h2 id="tables">Tables</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title 1</th>
+      <th style="text-align: center">Title 2</th>
+      <th style="text-align: left">Title 3</th>
+      <th style="text-align: right">Title 4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lorem</td>
+      <td style="text-align: center">lorem ipsum</td>
+      <td style="text-align: left">lorem ipsum dolor</td>
+      <td style="text-align: right">lorem ipsum dolor sit</td>
+    </tr>
+    <tr>
+      <td>lorem ipsum dolor sit</td>
+      <td style="text-align: center">lorem ipsum dolor sit</td>
+      <td style="text-align: left">lorem ipsum dolor sit</td>
+      <td style="text-align: right">lorem ipsum dolor sit</td>
+    </tr>
+    <tr>
+      <td>lorem ipsum dolor sit</td>
+      <td style="text-align: center">lorem ipsum dolor sit</td>
+      <td style="text-align: left">lorem ipsum dolor sit</td>
+      <td style="text-align: right">lorem ipsum dolor sit</td>
+    </tr>
+    <tr>
+      <td>lorem ipsum dolor sit</td>
+      <td style="text-align: center">lorem ipsum dolor sit</td>
+      <td style="text-align: left">lorem ipsum dolor sit</td>
+      <td style="text-align: right">lorem ipsum dolor sit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="embedding">Embedding</h2>
+
+<p>Plenty of social media sites offer the option of embedding certain parts of their site on your own site, such as YouTube and Twitter:</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mthtn1X4eUY" frameborder="0" allowfullscreen=""></iframe>
+
+<p><a class="twitter-grid" data-partner="tweetdeck" href="https://twitter.com/paululele/timelines/755079130027352064">New Collection</a> <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<h2 id="inline-html-elements">Inline HTML elements</h2>
+
+<p>HTML defines a long list of available inline tags, which you can mix with Markdown if you like. A complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
+
+<h2 id="horizontal-rule">Horizontal Rule</h2>
+
+<p>Can be created by having three or more hyphens <code class="highlighter-rouge">---</code>, asterisks <code class="highlighter-rouge">***</code>, or underscores <code class="highlighter-rouge">___</code>:</p>
+
+<hr />
+
+<h2 id="useful-resources">Useful Resources</h2>
+
+<p>More information on Markdown can be found at the following links:</p>
+
+<ul>
+  <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet#code">Markdown Here Cheatsheet</a></li>
+  <li><a href="http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html">Quick Markdown Example</a></li>
+  <li><a href="https://daringfireball.net/projects/markdown/basics">Markdown Basics</a></li>
+  <li><a href="https://github.github.com/gfm/">GitHub Flavoured Markdown Spec</a></li>
+  <li><a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#lists">Basic writing and formatting syntax</a></li>
+</ul>
+:ET
