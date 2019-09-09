@@ -7,11 +7,11 @@ tags: [documentation,sample]
 image: spools.jpg
 ---
 
-“Sorry, man! Things made me sullen; so I was acting out.”
+“Sorry, man! Things made me sullen; so I was acting out.”  
 
 “You always insult me whenever you lose an argument.”
 
-“Always! What the hell did you say? Fucking always!”
+“Always! What the hell did you say? Fucking always!” 
 
 “Are you saying you don’t? I can’t take these anymore. How rude did you behave with me!”
 
@@ -23,5 +23,11 @@ I conferred it as a surface level paradigm to make you follow what I’m discuss
 
 Extrapolated generalizations cause infliction in diverse fields. Say—in physics: plenty of physical phenomena are context-based: works in specific cases. When we take a physical law that operates in a unique condition and we apply in general, that makes no sense. Well, the real world relates more to chemistry than physics. In chemistry, we seldom find general theories. Most chemical phenomena are for different specialized situations like our real life. You can always find a bunch of exceptions in almost all chemical laws. In real life, we can’t define generic laws for happenings, quite like chemistry. There’s a term that we call Poisson distribution in probability theory and statistics. It’s a modified expression of binomial probability function where the favorable probability is damn low and you have almost infinite trials. Poisson distribution simplifies the binomial expansion for these distinct cases. Nonetheless, if you work out 10/15 trials and use the Poisson’s probability function to assess your expectation or say, your two cases are equiprobable to proceed and you use, this will present you misled data. The Poisson distribution thing reveals a strange phenomenon. Why do we people love using the Poisson distribution in the wrong places? Why do we generalize too much? Because that’s easy. Using the Poisson function is simpler than using the binomial one each time for different cases. Throwing a generalized comment on an unknown girl is easier than exploring her, being friends in real life. Generalization awards you room to judge countless entities at once. Truth doesn’t matter: we’re inclined to do what’s smooth. Judging them together is much easier than actually analyzing them individually being familiar enough. We, humans—love to make stuff easy, extrapolated generalization saves our struggles, shapes our lives easy, so we do. Throughout human history, we kept advancing to make our living effortless, not speculating the psychosocial outgrowths, which makes us give making things easy the highest priority. 
 
-
 This is dangerous. People around and not around us are continually being judged by others who don’t even know them well. Mutual harmony is massively influenced by this, as generalization makes us rather judge more people by extrapolation and hasty induction than being well-acquainted with more souls in the real world. We all should consider being cautious while expressing regarding people and commenting on stuff to make sure we’re not performing a misguided generalization. 
+
+
+
+
+
+
+
