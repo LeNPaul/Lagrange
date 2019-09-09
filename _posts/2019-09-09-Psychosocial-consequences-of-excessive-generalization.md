@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Learning Resources"
+author: "A.S.K.M. Sayeef Uddin"
+categories: journal
+tags: [documentation,sample]
+image: spools.jpg
+---
 
 # Psychosocial consequences of excessive generalization
 
