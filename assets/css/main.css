@@ -101,7 +101,7 @@ hr {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-bottom: 4rem;
-  font-family: "Quattrocento Sans", sans-serif;
+  font-family: "Inria Serif", serif;
 }
 
 .masthead a:hover {
@@ -153,7 +153,7 @@ hr {
   margin-top:3px;
   margin-bottom: 1rem;
   color: #9a9a9a;
-  font-family: 'Quattrocento Sans', sans-serif;
+  font-family: "Inria Serif", serif;
   font-size:0.8rem;
 }
 
@@ -182,7 +182,7 @@ hr {
 
 .pagination {
   overflow: hidden;
-  font-family: 'Quattrocento Sans', sans-serif;
+  font-family: "Inria Serif", serif;
   text-align: center;
 }
 
