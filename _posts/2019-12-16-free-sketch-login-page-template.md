@@ -3,7 +3,7 @@ layout: post
 title: "Free Sketch Login Page Template"
 author: "Fatik Owais"
 categories: freebie
-tags: [freebie, sketch]
+tags: [sketch]
 image: login-screens.jpg
 ---
 
