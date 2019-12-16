@@ -10,8 +10,8 @@
  sort_field: 'date'
  sort_reverse: true
 
-# jekyll-paginate configuration
-paginate:            5
+# # jekyll-paginate configuration
+# paginate:            5
 
 # Build settings
 markdown:            kramdown
