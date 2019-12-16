@@ -4,7 +4,7 @@ disqus:
   disqus_shortname: 'https-fatik-owais'
 
 # If you are not using Google Analytics, please change 'google-ID' to an empty string
-google-ID: 'UA-112060364-1'
+google-ID: 'UA-33063697-2'
 
 menu:
 - {name: 'About', path: 'menu', url: 'about.html'}
@@ -15,7 +15,7 @@ menu:
 social:
 - {icon: 'github', link: 'https://www.github.com/fatik'}
 - {icon: 'facebook', link: 'https://facebook.com/fatikowais'}
-- {icon: 'linkedin', link: 'http://www.linkedin.com/in/lenpaul/'}
+# - {icon: 'linkedin', link: 'http://www.linkedin.com/in/lenpaul/'}
 - {icon: 'envelope', link: 'mailto:fatikowais@gmail.com'}
 - {icon: 'rss-square', link: '/feed.xml'}
 # - {icon: 'rss-square', link: '/rss-feed.xml'}
