@@ -3,7 +3,7 @@ layout: page
 title: Fatik's Blog
 ---
 
-Its my personal blog where I share my thoughts.
+A personal blog where I share my thoughts.
 
 ### About Fatik
 
