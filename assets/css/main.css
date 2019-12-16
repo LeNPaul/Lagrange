@@ -18,9 +18,9 @@
 */
 
 body {
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
+font-family: 'Questrial', sans-serif;
   font-size: 18px;
-  color: #515151;
+  color: #2b2b2b;
   line-height: 1.75rem;
 }
 
@@ -43,7 +43,7 @@ h1 a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Quattrocento Sans", sans-serif;
+  font-family: "Inria Serif", serif;
   color: #333;
 }
 
