@@ -21,16 +21,16 @@ body {
     font-family: "Inria Serif", serif;
     font-size: 20px;
   color: #2b2b2b;
-  line-height: 1.75rem;
+  line-height: 2rem;
 }
 
 @media (max-width: 30em) {
   body {
     font-size: 18px;
-    line-height: 1.5rem;
+    line-height: 1.75rem;
   }
   body h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 }
 
