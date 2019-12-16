@@ -13,4 +13,4 @@ The login page with the picture of a girl is looking nice not only because the g
 
 The font used is Cereal by Airbnb, which I am currently obsessed with. Have fun with the resource
 
-[Download Sketch File](https://fatikowais.com/assets/logins-fatik-owais.sketch)
+[Download Sketch File](https://fatikowais.com/assets/freebies/logins-fatik-owais.sketch)
