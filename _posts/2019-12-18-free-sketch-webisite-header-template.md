@@ -4,7 +4,7 @@ title: "Free Sketch Website Header Template"
 author: "Fatik Owais"
 categories: freebie
 tags: [freebie,sketch]
-image: pricing-cards.jpg
+image: website-headers.jpg
 ---
 
 Here's some website headers to get started your project. 
