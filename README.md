@@ -263,6 +263,8 @@ This theme is completely free and open source software. You may use it however y
 
 * [DuckSoft](https://github.com/DuckSoft)
 
+* [larrylawl](https://github.com/larrylawl)
+
 ### Icons + Demo Images
 
 * [Death to Stock](https://deathtothestockphoto.com/)
