@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Research - Archis Joglekar
+title: Research
 ---
 
 During my undergraduate career, I was fortunate to work with Professor Tim Chupp, and Professor Ron Gilgenbach before 
@@ -26,3 +26,6 @@ engineering environment has doubled my appreciation for documentation and contin
 
 I have authored or co-authored publications in `Physical Revew Letters`, `Physical Review X`, and `Physical Review E` 
 amongst others. I have contributed to open-source software (e.g. `Tensorflow`, `JAX`) and maintain projects of my own.
+
+My Google Scholar page [can be found here.](https://scholar.google.com/citations?user=E8MzWzsAAAAJ&hl=en).
+My GitHub page [is here](https://github.com/joglekara).

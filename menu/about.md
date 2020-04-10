@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About - Archis Joglekar
+title: About Me
 ---
 
 Hello World, my name is Archis Joglekar. I like to spend much of my time thinking about 
