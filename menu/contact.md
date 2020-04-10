@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About - Archis Joglekar
+title: Contact - Archis Joglekar
 ---
 
 If you are having any problems, any questions or suggestions, feel free to 
