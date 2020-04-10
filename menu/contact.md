@@ -1,6 +1,11 @@
 ---
 layout: page
-title: Contact
+title: About - Archis Joglekar
 ---
 
-If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=%40paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new)
+If you are having any problems, any questions or suggestions, feel free to 
+[file a GitHub issue](https://github.com/joglekara/joglekara.github.io/issues/new) or 
+[reach out to me via LinkedIn](https://www.linkedin.com/in/archis-joglekar)
+
+My Google Scholar page [can be found here.](https://scholar.google.com/citations?user=E8MzWzsAAAAJ&hl=en)
+

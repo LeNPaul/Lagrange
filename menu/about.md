@@ -1,18 +1,11 @@
 ---
 layout: page
-title: Welcome to Lagrange!
+title: About - Archis Joglekar
 ---
 
-Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
+Hello World, my name is Archis Joglekar. I like to spend much of my time thinking about 
+partial differential equations, high-performance computing, writing modular scientific software, fusion energy, 
+deep learning, differentiable programming, and so on ... (in no particular order)
 
-### Getting Started
-
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
-
-### Example Content
-
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
-
-### Questions?
-
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+When I'm not doing that, you can find me somewhere in the great outdoors of California on a kayak in the open sea 
+or hiking a mountain, or in the kitchen crafting meals with my partner.
