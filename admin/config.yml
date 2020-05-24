@@ -18,8 +18,8 @@ collections:
       - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
-      - {label: "Author"}
-      - {categories: "journal"}
+      - label: "Author"
+      - categories: "journal"
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
