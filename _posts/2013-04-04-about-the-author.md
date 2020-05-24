@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "About the Author"
-author: "Paul Le"
+author: "Umaru S. Biango"
 categories: journal
 tags: [documentation,sample]
 image: cutting.jpg
