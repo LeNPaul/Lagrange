@@ -3,4 +3,4 @@ layout: page
 title: Contact
 ---
 
-If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=%40paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new)
+Do you want us to connect and work on your upcoming design project? Feel free to tell me about it to my email: usbiango@gmail.com. I'm more than happy to hold your hand and lead you throughout the whole process. 
