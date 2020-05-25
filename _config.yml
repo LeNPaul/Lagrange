@@ -20,8 +20,8 @@ permalink:           none
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           'US Biango'
-description:	       'A freelance web designer'
+title:		           'US BIANGO'
+description:	       'Freelance web designer'
 author:              'Umaru S. Biango'
 
 # set to 'true' to enable Netlify CMS (/admin) in production builds
