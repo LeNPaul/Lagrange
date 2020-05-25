@@ -16,7 +16,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
-      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
       - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
       - label: "Author"
       - categories: "journal"
