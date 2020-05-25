@@ -1,18 +1,14 @@
 ---
 layout: page
-title: Welcome to Lagrange!
+title: Welcome to my journal!
 ---
 
-Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
+This is my personal space, where I write about what I'm learning in web design, branding, my freelance business, personal productivity and my journey in tech.
 
-### Getting Started
+I hate to write. Writing is too hard for me; however, I love to make knowledge go viral.
 
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
+### We can work together
 
-### Example Content
+Whether you have a well-designed brand for your business/organization or not, I can design a beautiful yet purposeful website for you that you can be proud of. [Click here](https://www.subdesigne.com) to learn more about my work.
 
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
-
-### Questions?
-
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+Do you want us to start discussing your project right away? Contact me on usbiango@gmail.com
