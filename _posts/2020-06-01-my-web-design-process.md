@@ -5,7 +5,7 @@ description:
 author: "Umaru Biango"
 categories: journal
 tags: [documentation,web design]
-image: mountains.jpg
+image: simple-wireframe.jpg
 ---
 ## Introduction
 
