@@ -1,5 +1,6 @@
 <head>
-
+{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+  
   <title>
     {% if page.title == "Home" %}
       {{ site.title }} | {{ site.description }}
