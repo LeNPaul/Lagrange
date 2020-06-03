@@ -3,4 +3,4 @@ layout: page
 title: Contact
 ---
 
-If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=%40paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new)
+Whether you have a project that you'd like me to work on or you just want to say "Hi" and connect with me, feel free to send me your message at **usbiango@gmail.com** or chat with me on WhatsApp [here.](https://wa.me/23230861581 "WhatsAppp link")
