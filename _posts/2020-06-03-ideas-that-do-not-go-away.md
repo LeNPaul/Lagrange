@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Ideas That Do Not Go Away"
+description: 
 author: "Umaru Biango"
 categories: journal
 tags: [documentation,personal]
