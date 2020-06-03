@@ -5,7 +5,7 @@ description:
 author: "Umaru Biango"
 categories: journal
 tags: [documentation,web design]
-image: simple-wireframe.jpg
+image: wireframe.jpg
 ---
 ## Introduction
 
