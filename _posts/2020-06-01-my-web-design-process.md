@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "My Web Design Process"
+description:
 author: "Umaru Biango"
 categories: journal
 tags: [documentation,web design]
