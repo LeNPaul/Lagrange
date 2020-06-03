@@ -10,14 +10,14 @@ Have you ever had an idea for a long time that is still in your mind now? I beli
 
 But first, let's know what an idea is.
 
-> "Any conception existing in the mind as a result of mental understanding..."
+> "Any conception existing in the mind as a result of mental understanding...
 According to [Dictionary.com](https://www.dictionary.com/browse/idea).
 
 *"...conception existing in the mind"* this clause says it all. So many ideas come to us daily. Some are good; some are bad. Some ideas come to us like a flash of light, in split seconds, and most of them don't stay for long.
 
 But trust me some ideas stay permanently in our minds. They'd be dwindled and suppressed, but they don't go away. Here is how it looks like. 
 
-### My story
+## My story
 I grew up with a curiosity mindset for tech. in 2011; my Dad bough me a cell phone. And that was my first phone which I got at the right time because a friend of mine had just introduced internet to me.
 
 I used to google the names of footballers and their profiles would come up. That, to me, was amazing. I wanted to read my profile on google. I searched my name and nothing came up. 
@@ -36,7 +36,7 @@ I started learning how to build websites. I fiddled with HTML (Hyper-text Markup
 
 All I could build was convert my resume into a basic web page (which was never published). At first, I thought web development was for extrimely smart people only. But after that single page resume website, I realised if I put in the time, I'd make it. But then, after I had gotten some hope, I faced many adversities, so I gave it up again. 
 
-### A new desire
+## A new desire
 
 I developed a new desire to become a Network Administrator. I figured out a roadmap and read around it. I bought a book about the first course I needed to take (A+). But before the book came from eBay, I had given up that one too. I noticed that the idea of making my website was becoming a force to reckon with. It became deeply rooted in my mind, occupying all the space for anything else I could think about to do with my life. 
 
@@ -44,7 +44,7 @@ I didn't know what to do for a few months, so, I voluntered on a few projects wi
 
 In early 2019, after some situations taht caused so much turmoil in my life, I saw my vision in another dimension. A more sensible one. 
 
-### My idea turned into a business
+## My idea turned into a business
 
 I was that 21st-century guy who'd google products or services first to learn about them, and the problems they could solve for me before I take out my debit card or wallet to make a purchase.
 
@@ -56,11 +56,11 @@ Finally, I decided not to only build my website but to use the knowledge and hel
 
 Thus, **SUBDESIGNE** (my freelance business) was born. 
 
-### Conclusion
+## Conclusion
 
 You had great ideas. Some of them are still with you today. Your mind is not their home. They came to you for you to bring them alive. I encourage you to figure out that long-living idea on your mind and make it a reality. No matter how small it is, you can nourish it and make it grow into a giant one. Just like I have planned to make mine in years to come. 
 
-### We can bring your own idea to life
+## We can bring your own idea to life
 
 Are you a freelancer like me? Are you a creative person who does quality work for clients? Do you run a small business or start-up? Do you have a local NGO and you'd want the world to know how you are helping your community and changing lives? 
 
@@ -68,10 +68,9 @@ Sure you do!
 
 I know that because I know you want to grow. Therefore, I started [subdesigne](https://www.subdesigne.com) to help you design a beautiful and purposeful website you can be proud of.
 
-Use the contact form on this blog and tell me about your project. Long process?
+Please tell me about your project at **usbiango@gmail.com**
 
-Call me on **+23230 861 581** or email me at **usbiango@gmail.com**
-
-> "The secret of getting ahead is getting started," so start building your brand now.
+> "The secret of getting ahead is getting started" 
+So, start building your brand now.
 
 You deserve to be seen!
