@@ -29,7 +29,7 @@ After discussing some ideas about the main navigation with my client, I will the
 
 Wireframe. I use pen and paper here again first before any software. I try to use my imagination as best as possible to come up with something. At this stage, I don't go into details. My sight is on the layout. I just scribble down ideas. Therefore, I use pen most of the times because I don't want to erase any initial concepts as I would be tempted to do if I were to use a pencil.
 
-It's now time to clean things up and make it a bit tidy. My go-to software for basic wireframe is [Balsamiq](https://balsamiq.com/wireframes/){:target="_blank"}. Here, I eperiment with my sketches and refine my ideas I want to go with. I'm not worried about the content or anything else, even though I make use of Lorem Ipsum (dummy text). 
+It's now time to clean things up and make it a bit tidy. My go-to software for basic wireframe is <a href="https://balsamiq.com/wireframes/" target="_blank">balsamiq</a>. Here, I eperiment with my sketches and refine my ideas I want to go with. I'm not worried about the content or anything else, even though I make use of Lorem Ipsum (dummy text). 
 
 I make sure all the sections and call to actions are captured. After the wireframe is done, I'll then present (not just show) it to my client for approval. After my client has approved, I move to the next stage.
 
