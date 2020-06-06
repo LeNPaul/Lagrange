@@ -12,7 +12,7 @@ Have you ever had an idea for a long time that is still in your mind now? I beli
 But first, let's know what an idea is.
 
 According to [Dictionary.com](https://www.dictionary.com/browse/idea):
-> "Any conception existing in the mind as a result of mental understanding...
+> Any conception existing in the mind as a result of mental understanding...
 
 *"...conception existing in the mind"* this clause says it all. So many ideas come to us daily. Some are good; some are bad. Some ideas come to us like a flash of light, in split seconds, and most of them don't stay for long.
 
@@ -71,7 +71,7 @@ I know that because I know you want to grow. Therefore, I started [subdesigne](h
 
 Please tell me about your project at **usbiango@gmail.com**
 
-> "The secret of getting ahead is getting started" 
+> The secret of getting ahead is getting started 
 
 So, start building your brand now.
 
