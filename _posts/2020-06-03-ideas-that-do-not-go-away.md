@@ -19,7 +19,7 @@ According to [Dictionary.com](https://www.dictionary.com/browse/idea):
 But trust me some ideas stay permanently in our minds. They'd be dwindled and suppressed, but they don't go away. Here is how it looks like. 
 
 ## My story
-I grew up with a curiosity mindset for tech. in 2011; my Dad bough me a cell phone. And that was my first new phone which I got at the right time because a friend of mine had just introduced internet to me.
+I grew up with a curiosity mindset for tech. in 2011; my Dad bought me a cell phone. And that was my first new phone which I got at the right time because a friend of mine had just introduced internet to me.
 
 I used to google the names of footballers and their profiles would come up. That, to me, was amazing. I wanted to read my profile on google. I searched my name and nothing came up. 
 
