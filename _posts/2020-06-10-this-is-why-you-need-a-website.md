@@ -59,7 +59,7 @@ I encourage you to start now and take the venture before your competitors know i
 
 At this juncture, if you're thinking of how to get started designing one for your business, I can help you achieve that.
 
-I design beautiful websites and brand identities for small businesses, organizations and professional individuals. Visit my [freelance website](https://subdesigne.com to view some of the projects I have done.
+I design beautiful websites and brand identities for small businesses, organizations and professional individuals. Visit my [freelance website](https://subdesigne.com) to view some of the projects I have done.
 
 Email me for your upcoming project at **usbiango@gmail.com**
 
