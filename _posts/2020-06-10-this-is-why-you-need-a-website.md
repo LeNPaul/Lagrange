@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "This Is Why You Need a Website for Your Small Business"
+title: "Your Small Business Needs a Website"
 description: Discover the need for you to consider designing a website for your small business. Start designing your brand now to get ahead of the curve of your competitors. 
 author: "Umaru Biango"
 categories: Web Design
