@@ -28,7 +28,7 @@ This post is _centred_ on the reasons small businesses must have a well-designed
 
    Isn't it awesome?
 
-2. **Credibility:**  You gain the trust of everyone who knows you have a website that can help them get the information they want, without physically visiting your business place. That shows you are serious about what you do. 
+2. **Credibility:**  You gain the trust of everyone who knows you have a website that can help them get the information they want without physically visiting your business place. That shows you are serious about what you do. 
 
    As you know, to sustain a small business in this competitive world of ours is hard. If you can spend some money and put in the time to update and maintain it in a way that it remains useful to your customers, you're credible. People can count on you to deliver products or services that will solve their problems the most effective way.
 
@@ -61,6 +61,6 @@ Email me for your upcoming project at **usbiango@gmail.com**
 
 > The secrete of getting ahead is getting started
 
-Start building your online presence and take your business to the next level. 
+Start building your online presence now and take your business to the next level. 
 
 
