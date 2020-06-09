@@ -5,7 +5,7 @@ description: Discover the need for you to consider designing a website for your 
 author: "Umaru Biango"
 categories: Web Design
 tags: [Branding, Design]
-image: idea.jpg
+image: website-online.jpg
 ---
 
 ## Introduction 
