@@ -8,6 +8,8 @@ tags: [Branding, Design]
 image: website-online.jpg
 ---
 
+![](/assets/img/website-online.jpg)
+
 ## Introduction 
 
 In this day and age, we have to expect that every business (big or small) has a website. Like so many other web users, I would first type your business name on google to know about your product or service, and to learn why I should do business with you instead of your competitor. You already know how I will feel if I can't find any information about your business. 
@@ -18,7 +20,7 @@ Before I get down to the why let's first of all start with the what?
 
 ## What is a website? 
 
-A website is simply a collection of web pages and related contents linked to each other, which is stored on a server and identified by a domain name. E.g., facebook.com, subdesigne.com etc. Your website is your business's physical address on the internet that is opened 24/7 to everyone, everywhere. 
+A website is simply a collection of web pages and related contents linked to each other, which is stored on a server and identified by a domain name. E.g., facebook.com, subdesigne.com, etc. Your website is your business's physical address on the internet that is opened 24/7 to everyone, everywhere. 
 
 This post is _centred_ on the reasons small businesses must have a well-designed website, but organizations, etc. must also have too; it has enormous benefits for them. But that's another article I will write someday.
 
