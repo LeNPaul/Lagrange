@@ -58,6 +58,6 @@ It's very simple. I design beautiful yet purposeful websites and brand identitie
 
 I can help you design a look and feel website that you'd be proud of. Visit my portfolio website to view some of the projects I have done.
 
-Email me for your upcoming project at _usbiango@gmail.com_ or send me your message through social media. 
+Email me for your upcoming project at **_usbiango@gmail.com_** or send me your message through social media. 
 
 You can share this article if you think you got something useful out of it with your friends or if you think it could be specifically beneficial to someone. 
