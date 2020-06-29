@@ -18,7 +18,7 @@ A website is a collection of related webpages shared by a unique domain and stor
 
 ## 5 reasons why you must consider creating a website for your org.
 
-A lot of local organizations don't even think of creating a website. Maybe because they are small, they think only global and international organizations need to have a website. If that is what you have been thinking, read on to learn the value it brings to your doorstep. 
+A lot of local NGOs don't even think of creating a website. Maybe because they are small, they think only global and international organizations need to have a website. If that is what you have been thinking, read on to learn the value it brings to your doorstep. 
 
 1. **Help and support:** As a small organization, you already know the importance of funds for your projects. You can only achieve your goals if you have funding for your projects. You're doing all the thinking and hard work to create an impact in the lives of people and the communities you work with. You'd need a network of supporters and partners for you to achieve your vision. So having individuals, partners and other organizations donate to your project will make your dreams come true. 
 
