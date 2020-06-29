@@ -8,7 +8,6 @@ tags: [Branding, Design]
 image: website-online.jpg
 ---
 
-![](/assets/img/website-online.jpg)
 
 ## Introduction 
 
