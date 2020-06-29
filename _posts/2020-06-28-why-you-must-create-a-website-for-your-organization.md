@@ -56,7 +56,7 @@ Often decision-makers in an organization think it is too expensive to create a b
 
 It's very simple. I design beautiful yet purposeful websites and brand identities for small businesses, local organizations, and professional individuals like you. 
 
-I can help you design a look and feel website that you'd be proud of. Visit my portfolio website to view some of the projects I have done.
+I can help you design a look and feel website that you'd be proud of. Visit my [portfolio website](https://subdesigne.com) to view some of the projects I have done.
 
 Email me for your upcoming project at **_usbiango@gmail.com_** or send me your message through social media. 
 
