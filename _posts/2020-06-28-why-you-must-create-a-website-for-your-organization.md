@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Your Local Organization Needs a Website"
+title: "Why You Must Create a Website for Your Organization"
 description: In this article, you will learn the five great reasons why you must create a website for your local organization
 author: "Umaru Biango"
 categories: journal
