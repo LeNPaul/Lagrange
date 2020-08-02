@@ -21,7 +21,7 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'UMARU S BIANGO'
-description:	       'a freelance web designer'
+description:	       'I'm a Freelance web designer'
 author:              'Umaru Biango'
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
