@@ -4,4 +4,11 @@
     <small class="masthead-subtitle">{{ site.description }}</small>
     {% include menu.html %}
   </h3>
+  
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:title" content="{{ page.og_title }}" />
+<meta property="og:description" content="{{ page.og_description }}" />
+<meta property="og:image" content="{{ site.url }}{{ page.og_image }}" />
+<meta property="og:type"  content="{{ page.og_type }}" />
+<meta property="og:locale"  content="en_US" />
 </header>
