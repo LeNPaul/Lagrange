@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Welcome to my personal blog!
+Description: "I am Freelance web and brand identity designer. I help small/start-up businesses, local organizations and professional individuals to be seen on the web"
 ---
 
 I'm Umaru Sahr Biango, a freelance web and brand identity designer. I started my freelance business to help small businesses, local organizations and professional individuals to be seen on the web. Here is a [link](https://www.subdesigne.com "Portfolio website") to my portfolio website.
