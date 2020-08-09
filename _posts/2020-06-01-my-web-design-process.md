@@ -4,6 +4,7 @@ title: "My Web Design Process"
 description: To design a website involves a lot of processes. Read this post to learn about my web design process and get insights into how I come up with design solutions.
 author: "Umaru Biango"
 categories: journal
+permalink: "/journal/my-web-design-process/"
 tags: [documentation,web design]
 image: wireframe.jpg
 ---
