@@ -18,7 +18,7 @@ markdown:            kramdown
 highlighter:         rouge
 permalink:           none
 url:                 https://blog.subdesigne.com/
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-seo-tag, jekyll-feed]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'U.S BIANGO'
