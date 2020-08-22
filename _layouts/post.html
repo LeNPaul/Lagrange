@@ -6,10 +6,10 @@ layout: default
   {{ page.title }}
 </h1>
 <span>[
-  {% for tag in page.tags %}
-    {% capture tag_name %}{{ tag }}{% endcapture %}
-    <a class="no-underline" href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
-  {% endfor %}
+{% for tag in page.tags %}
+  {% capture tag_name %}{{ tag }}{% endcapture %}
+  <a class="no-underline" href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+{% endfor %}
 ]</span>
 <span class="post-date">
   {{ site.data.settings.post_date_prefix }}
@@ -38,7 +38,6 @@ layout: default
 
 
 {% include social-sharing.html %}
-
 {% include subscription-form.html %}
 
 {% include related-posts.html %}
