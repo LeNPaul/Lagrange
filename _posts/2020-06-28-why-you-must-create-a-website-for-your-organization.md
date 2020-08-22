@@ -5,7 +5,7 @@ description: "In this article, you will learn the five great reasons why you mus
 author: "Umaru Biango"
 categories: Journal
 permalink: "/journal/This-is-why-you-must-create-a-website-for-your-organization/"
-tags: web design
+tags: web-design
 image: website on a macbook.jpg
 ---
 
