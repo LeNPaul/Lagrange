@@ -33,7 +33,11 @@
         }
       });
   </script>
-
+  
+  {% if site.tags != "" %}
+    {% include collecttags.html %}
+  {% endif %}
+  
   <!-- Google Analytics -->
   {% include google-analytics.html %}
 
