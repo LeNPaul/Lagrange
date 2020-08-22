@@ -5,7 +5,7 @@ description: To design a website involves a lot of processes. Read this post to 
 author: "Umaru Biango"
 categories: journal
 permalink: "/journal/my-web-design-process/"
-tags: [documentation,web design]
+tags: personal web design
 image: wireframe.jpg
 ---
 ## Introduction
