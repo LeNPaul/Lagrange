@@ -5,7 +5,7 @@ og_description: Discover the need for you to consider designing a website for yo
 author: "Umaru Biango"
 categories: Web Design
 permalink: "/journal/your-small-business-needs-a-website/"
-tags: web design
+tags: web-design
 og_image: website-online.jpg
 ---
 
