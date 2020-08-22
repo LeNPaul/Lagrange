@@ -3,7 +3,7 @@ layout: post
 og_title: "Your Small Business Needs a Website"
 og_description: Discover the need for you to consider designing a website for your small business. Start designing your brand now to get ahead of the curve of your competitors. 
 author: "Umaru Biango"
-categories: Web Design
+categories: web-design
 permalink: "/journal/your-small-business-needs-a-website/"
 tags: web-design
 og_image: website-online.jpg
