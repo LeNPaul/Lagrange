@@ -72,7 +72,7 @@ Sure you do!
 
 I know that because I know you want to grow. Therefore, I started [subdesigne](https://www.subdesigne.com) to help you design a beautiful and purposeful website you can be proud of.
 
-Please tell me about your project at **usbiango@gmail.com**
+Please tell me about your project at **umaru@subdesigne.com**
 
 > The secret of getting ahead is getting started 
 
