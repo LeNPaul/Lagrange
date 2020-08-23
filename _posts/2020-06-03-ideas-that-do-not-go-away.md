@@ -6,8 +6,7 @@ author: "Umaru Biango"
 categories: journal
 permalink: "/journal/ideas-that-do-not-go-away/"
 tags: personal
-image:
-  path: /assets/img/idea.png
+image: idea.png
   height: 100
   width: 100
 ---
