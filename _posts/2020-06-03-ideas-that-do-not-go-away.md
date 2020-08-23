@@ -6,7 +6,10 @@ author: "Umaru Biango"
 categories: journal
 permalink: "/journal/ideas-that-do-not-go-away/"
 tags: personal
-image: idea.jpg
+image:
+  path: /assets/img/idea.png
+  height: 100
+  width: 100
 ---
 Have you ever had an idea for a long time that is still in your mind now? I believe everyone has gotten a few of those ideas in their life time. Those are ideas that are always spinning in our minds. Maybe you've not. It is sometimes cluttered by so much noise that goes on in our heads. Let's jump into my story.
 
