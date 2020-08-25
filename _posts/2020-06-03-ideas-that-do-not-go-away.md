@@ -3,7 +3,6 @@ layout: post
 title: "Ideas That Do Not Go Away"
 description: How some ideas that come to us always stays with us no matter what. Read this story about an idea that came to me and never went away. 
 author: "Umaru Biango"
-categories: journal
 permalink: "/journal/ideas-that-do-not-go-away/"
 tags: personal
 image: sketch-of-ideas.jpg
