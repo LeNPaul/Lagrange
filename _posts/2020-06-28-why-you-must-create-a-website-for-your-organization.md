@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "This is Why You Must Create a Website for Your Organization"
-description: "In this article, you will learn the five great reasons why you must create a website for your local organization"
+description: In this article, you will learn the five great reasons why you must create a website for your local organization
 author: "Umaru Biango"
 categories: Journal
 permalink: "/This-is-why-you-must-create-a-website-for-your-organization/"
