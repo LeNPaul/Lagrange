@@ -15,7 +15,7 @@ I have been a student of branding and brand strategy for a few months now, so I 
 Let's start by what he says a brand isn't, first. In his book, The Brand Gap, Marty Neumeier states that the term brand is not a logo, nor an identity, or even a product. 
 Many people think when they design a logo, boom! That it is! They now have a brand. But Logos, identities, illustrations, and all those little prints are visual elements (or visual identities) of a company or product. They are the elements you see and sometimes touch.
 
-## So, what does the term brand means?
+## What is it?
 
 "A brand is a person's gut feeling about a product, service, or organization," Marty Neumeier. Gut feeling here is the reputation a company or an organization has out there to the world. With that definition, a brand is not what you or anyone in your business or organization says it is. You don't describe it. It is what happens inside the heads of other people. It's not visual, but emotional.
 
