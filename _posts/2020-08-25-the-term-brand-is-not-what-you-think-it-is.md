@@ -10,7 +10,7 @@ image: coke-bottles.jpg
 
 I have been a student of branding and brand strategy for a few months now, so I want to share with you what I have learned so far. My best teacher about branding who shaped my concept is Marty Neumeier, (author of The Brand Gap). So in this post, I want to explain from that concept, what the term brand means in the simplest way possible for clear understanding.
 
-## What is not a brand?
+## What a brand is not?
 
 Let's start by what he says a brand isn't, first. In his book, The Brand Gap, Marty Neumeier states that the term brand is not a logo, nor an identity, or even a product. 
 Many people think when they design a logo, boom! That it is! They now have a brand. But Logos, identities, illustrations, and all those little prints are visual elements (or visual identities) of a company or product. They are the elements you see and sometimes touch.
