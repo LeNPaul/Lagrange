@@ -3,7 +3,7 @@ layout: post
 title: "The Term Brand Is Not What Yout Think It Is"
 description: The term brand is not a logo, nor an identity, or even a product. It's not any of these things that you hear people say it is.
 author: "Umaru Biango"
-permalink: "/a-brand-is-not-what-you-think-it-is"
+permalink: "/the-term-brand-is-not-what-you-think-it-is"
 tags: branding design
 image: brand.jpg
 ---
