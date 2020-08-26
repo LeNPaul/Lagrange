@@ -27,7 +27,7 @@ All of that stems from everything that companies or organizations do. How the pr
 
 To go a bit more in the concept of a brand, here is a little story about my experience with apple—the tech company I mean.
 
-![apple tab and phone](/assets/img/apple-tab-and-phone.png "Apple products on a table")
+![apple products on a flat surface](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/apple-tab-and-phone.jpg?raw=true)
 
 I had my first experience an iPhone in 2014. When I hold the phone in my hand and keenly observe it, I knew I was holding something different. The phone was well-designed with rounded corners and a smooth touch interface. That triggered a feeling inside me that Apple is the best company that cares about design.
 
