@@ -5,7 +5,7 @@ description: The term brand is not a logo, nor an identity, or even a product. I
 author: "Umaru Biango"
 permalink: "/a-brand-is-not-what-you-think-it-is"
 tags: branding design
-image: wireframe.jpg
+image: white-text-on-red-background.jpg
 ---
 
 I have been a student of branding and brand strategy for a few months now, so I want to share with you what I have learned so far. My best teacher about branding who shaped my concept is Marty Neumeier, (author of The Brand Gap). So in this post, I want to explain from that concept, what the term brand means in the simplest way possible for clear understanding.
@@ -26,6 +26,8 @@ All of that stems from everything that companies or organizations do. How the pr
 ## My experience with apple.
 
 To go a bit more in the concept of a brand, here is a little story about my experience with apple—the tech company I mean.
+
+![apple tab and phone](/assets/img/apple-tab-and-phone.png "Apple products on a table")
 
 I had my first experience an iPhone in 2014. When I hold the phone in my hand and keenly observe it, I knew I was holding something different. The phone was well-designed with rounded corners and a smooth touch interface. That triggered a feeling inside me that Apple is the best company that cares about design.
 
