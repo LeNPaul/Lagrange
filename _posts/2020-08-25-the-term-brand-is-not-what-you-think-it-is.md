@@ -29,7 +29,7 @@ To go a bit more in the concept of a brand, here is a little story about my expe
 
 ![apple products on a flat surface](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/apple-tab-and-phone.jpg?raw=true)
 
-I had my first experience an iPhone in 2014. When I hold the phone in my hand and keenly observe it, I knew I was holding something different. The phone was well-designed with rounded corners and a smooth touch interface. That triggered a feeling inside me that Apple is the best company that cares about design.
+I had my first experience with an iPhone in 2014. When I held the phone in my hand and keenly observed it, I knew I was holding something different. The phone was well-designed with rounded corners and a smooth touch interface. That triggered a feeling inside me that Apple is the best company that cares about design.
 
 Since then, anytime I see any of their products, the feeling of trust for them in terms of quality, efficiency—you name it—is triggered in my emotions immediately. I don't even need to have any experience with it. 
 
