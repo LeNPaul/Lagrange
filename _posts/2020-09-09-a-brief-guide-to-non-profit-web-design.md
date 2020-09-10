@@ -10,7 +10,7 @@ image: Non-profit-guide.jpg
 
 It is easy to contact a web designer or agency for your website project. But before you grab the phone, there are few things you need to do to make sure that you set up the sitting room just right for your visitor.
 
-These things are so significant to the point that if you don't get them straight from the on-set, it will result in confusion and a tremendous waste of your time and that of the designer. Unless you already have a website and those things were made clear, otherwise taking the time with your team to do the groundwork is key to successful website design.
+These things are so significant to the point that if you don't get them straight from the onset, it will result in confusion and a tremendous waste of your time and that of the designer. Unless you already have a website and those things were made clear, otherwise taking the time with your team to do the groundwork is key to a successful design of your website.
 
 Alright! So let's get down into it.
 
@@ -67,17 +67,17 @@ Except for independent contractors, but most agencies will only respond if you h
 
 As the saying goes, "proper prior planning prevents problem". You don't want to go down the line and run into issues with your designer because you failed to do the groundwork.
 
-Making sure the above things well-planned before going down to the nitty-gritty is paramount as the success of the whole web project starts right from there.
+Making sure all the above are well-planned before going down to the nitty-gritty is paramount as the success of the whole web project starts right from there.
 
 That is it!
 
-If you read this far and you want to get started with your non-profit website project, contact me on umaru@subdesigne.com.
+I hope this article gave you some insights into web design. You can apply the ideas here into any web design project.
+
+If you read this far and you want to get started with your non-profit website project, get in-touch with me on umaru@subdesigne.com
 
 Contact me if you need help with the pre-requisites mentioned above. I will be glad to hold your hand and lead you throughout the whole project.
 
 Visit my portfolio website and view my past client's work [here](https://subdesigne.com/)
-
-I hope this article gave you some insights into web design. You can apply the ideas here into any web design project.
 
 Leave your thoughts below in the comment section. I would love to read them.
 
