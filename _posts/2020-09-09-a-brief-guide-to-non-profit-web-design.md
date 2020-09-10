@@ -56,7 +56,7 @@ Additionally, decide if you'd need any other illustrations or elements in your w
 
 As the designer discovers these needs, it'd enable him to give you the quote for the entire website design.
 
-##Budget and time
+## Budget and time
 Now, plan or anticipate the date you'd like the project completed.
 
 The web designer you contact will give you details of the project timeline. But it is also very essential to discuss it as a team and know if it is something you can embark on now.
