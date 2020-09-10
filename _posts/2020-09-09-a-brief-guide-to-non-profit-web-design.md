@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Brief Guide To Non-Profit Web Design"
-description: How some ideas that come to us always stays with us no matter what. Read this story about an idea that came to me and never went away. 
+description: Follow this short brief guide and find out what you need to know right from the start before you approach the web design process.
 author: "Umaru Biango"
 permalink: "/a-brief-guide-to-non-profit-web-design/"
 tags: web-design
