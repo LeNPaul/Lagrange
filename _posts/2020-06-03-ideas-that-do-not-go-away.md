@@ -53,9 +53,7 @@ But sadly, I could not find any information about most locally produced goods or
 
 I asked myself, "How can I help solve this problem? Those businesses might need websites too. It's probably that they don't have someone who can design them or they aren't aware that they need it. Why can't I learn how to make purposeful websites and help those business to be seen?"
 
-Finally, I did not only built my website, ([subdesigne](https://subdesigne.com)) but I'm now using the knowledge to help small businesses, professionals, and local organisations have their stories up on the internet.
-
-Thus, **SUBDESIGNE** (my freelance business) was born. 
+Viola! I did not only built my website, ([subdesigne](https://subdesigne.com)), but I'm now using the knowledge to help professional individuals and local organisations have their stories up on the internet.
 
 ## Conclusion
 
