@@ -7,7 +7,7 @@ permalink: "/journal/ideas-that-do-not-go-away/"
 tags: personal
 image: sketch-of-ideas.jpg
 ---
-Have you ever had an idea for a long time that is still in your mind now? I believe everyone has gotten a few of those ideas in their life time. Those are ideas that are always spinning in our minds. Maybe you've not. It is sometimes cluttered by so much noise that goes on in our heads. Let's jump into my story.
+Have you ever had an idea for a long time that is still in your mind now? I believe everyone has gotten a few of those ideas in their lifetime. Those are ideas that are always spinning in our minds. Maybe you've not. It is sometimes cluttered by so much noise that goes on in our heads. Let's jump into my story.
 
 But first, let's know what an idea is.
 
@@ -19,7 +19,7 @@ According to [Dictionary.com](https://www.dictionary.com/browse/idea):
 But trust me some ideas stay permanently in our minds. They'd be dwindled and suppressed, but they don't go away. Here is how it looks like. 
 
 ## My story
-I grew up with a curiosity mindset for tech. in 2011; my Dad bought me a cell phone. And that was my first new phone which I got at the right time because a friend of mine had just introduced internet to me.
+I grew up with a curiosity mindset for tech. In 2011; my Dad bought me a cell phone. And that was my first new phone which I got at the right time because a friend of mine had just introduced the internet to me.
 
 I used to google the names of footballers and their profiles would come up. That, to me, was amazing. I wanted to read my profile on google. I searched my name and nothing came up. 
 
@@ -35,13 +35,13 @@ At the end of 2016, I bought a computer with money that was meant for my college
 
 I started learning how to build websites. I fiddled with HTML (Hyper-text Markup Language) and CSS (Cascading Style Sheet). It was getting exciting.
 
-All I could build was convert my resume into a basic web page (which was never published). At first, I thought web development was for extrimely smart people only. But after that single page resume website, I realised if I put in the time, I'd make it. But then, after I had gotten some hope, I faced many adversities, so I gave it up again. 
+All I could build was convert my resume into a basic web page (which was never published). At first, I thought web development was for extremely smart people only. But after that single page resume website, I realised if I put in the time, I'd make it. But then, after I had gotten some hope, I faced many adversities, so I gave it up again. 
 
 ## A new desire
 
 I developed a new desire to become a Network Administrator. I figured out a roadmap and read around it. I bought a book about the first course I needed to take (A+). But before the book came from eBay, I had given up that one too. I noticed that the idea of making my website was becoming a force to reckon with. It became deeply rooted in my mind, occupying all the space for anything else I could think about to do with my life. 
 
-I didn't know what to do for a few months, so, I voluntered on a few projects with some organisations. Since I was passionate (still I'm) about tech, I offered myself to work in a small printing press to level up my Microsoft Office skills. I had some joy in doing all that I did at the time, but I was not fulfilled. I was still thinking that something was missing. 
+I didn't know what to do for a few months, so, I volunteered on a few projects with some organisations. Since I was passionate (still I'm) about tech, I offered myself to work in a small printing press to level up my Microsoft Office skills. I had some joy in doing all that I did at the time, but I was not fulfilled. I was still thinking that something was missing. 
 
 In early 2019, after some situations that caused so much turmoil in my life, I saw my vision in another dimension. A more sensible one. 
 
@@ -53,7 +53,7 @@ But sadly, I could not find any information about most locally produced goods or
 
 I asked myself, "How can I help solve this problem? Those businesses might need websites too. It's probably that they don't have someone who can design them or they aren't aware that they need it. Why can't I learn how to make purposeful websites and help those business to be seen?"
 
-Finally, I decided not to only build my website but to use the knowledge and help small businesses, professionals, and local organisations have their stories up on the internet.
+Finally, I did not only built my website, ([subdesigne](https://subdesigne.com)) but I'm now using the knowledge to help small businesses, professionals, and local organisations have their stories up on the internet.
 
 Thus, **SUBDESIGNE** (my freelance business) was born. 
 
@@ -67,7 +67,7 @@ Are you a freelancer like me? Are you a creative person who does quality work fo
 
 Sure you do!
 
-I know that because I know you want to grow. Therefore, I started [subdesigne](https://www.subdesigne.com) to help you design a beautiful and purposeful website you can be proud of.
+I know that because I know you want to grow. Therefore, I started [subdesigne](https://subdesigne.com) to help you design a beautiful and purposeful website you can be proud of.
 
 Please tell me about your project at **umaru@subdesigne.com**
 
