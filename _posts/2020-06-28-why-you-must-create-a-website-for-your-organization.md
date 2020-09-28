@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "This is Why You Must Create a Website for Your Organization"
+title: "This is Why You Must Design a Website for Your Organization"
 description: In this article, you will learn the five great reasons why you must create a website for your local organization
 author: "Umaru Biango"
 categories: Journal
-permalink: "/This-is-why-you-must-create-a-website-for-your-organization/"
+permalink: "/This-is-why-you-must-design-a-website-for-your-organization/"
 tags: web-design
 image: website on a macbook.jpg
 ---
@@ -31,7 +31,7 @@ A lot of local NGOs don't even think of creating a website. Maybe because they a
    
    Your perceived value drops instantly in the minds of a lot of people if they cannot find you online. It keeps them thinking that if you were serious and cared so much about your mission, then you'd have created. 
    
-3. **Gets you connected:** A well-designed website is useful for your organization's profile. It gives an overview of your entire organization all the time. It makes it easy for people to look up your organization and see if you are a good fit to partner with for their projects. More so, it helps people learn about what you are doing through writing articles and blog posts. It allows them to stay abreast of    your work and the impact you are creating. You are limitless when it comes to networking. 
+3. **Gets you connected:** A well-designed website is useful for your organization's profile. It gives an overview of your entire organization all the time. It makes it easy for people to look up your organization and see if you are a good fit to partner with for their projects. More so, it helps people learn about what you are doing through writing articles and blog posts. It allows them to stay abreast of your work and the impact you are creating. You are limitless when it comes to networking. 
 
    How many times have you tried to explain to someone what your organization is about? And most times it will still not be clear to them. If you have a website, you can simply pass on your web address to people who may want to know about what you do. They might never ask you further questions again. It makes you look professional. If they miss your contact at any time, they can go to your website. That is possible because even if they forget your exact web address, Google can save them by indexing your website when they search your organization's name. 
    
@@ -41,13 +41,13 @@ A lot of local NGOs don't even think of creating a website. Maybe because they a
    
    Unlike brochures and offline profiles, it is so much easier, faster, and less costly to update your website with new content. Everyone can get the latest info in minutes. Putting a simple Q&A (question and answer) page on your website helps to clear the air about the common questions you are most frequently asked about your organization. This is a huge takeaway because it allows you to focus on more important communications. 
    
-5. **1.	It serves as a database or archive for your organization:** If you invest your time and money to create a website with well laid-out content, it will be much easier for you or any visitor looking for something. It saves you from the constraints of randomly muddling through stacks of files to search for reports or just some info about a past project. 
+5. **It serves as a database or archive for your organization:** If you invest your time and money to create a website with well laid-out content, it will be much easier for you or any visitor looking for something. It saves you from the constraints of randomly muddling through stacks of files to search for reports or just some info about a past project. 
 
-  With a website, it's just a few clicks away to get you to any information you want. It can be a valuable reference for your team when implementing similar projects. Your information is not affected by disaster; they are available to you and your team at all the time regardless of the location. All your project information is always safe in one place for easy access.
+   With a website, it's just a few clicks away to get you to any information you want. It can be a valuable reference for your team when implementing similar projects. Your information is not affected by disaster; they are available to you and your team at all the time regardless of the location. All your project information is always safe in one place for easy access.
   
 ## Conclusion 
 
-There is no more thinking whether you need a website for your organization or not. You have learned about just a few advantages of a website to your organization. As a small NGO, don't hesitate to invest in a website. 
+There is no more thinking about whether you need a website for your organization or not. You have learned about just a few advantages of a website to your organization. As a small NGO, don't hesitate to invest in a website. 
 
 The return on investment is enormous. 
 
@@ -59,6 +59,6 @@ It's very simple. I design beautiful yet purposeful websites and brand identitie
 
 I can help you design a look and feel website that you'd be proud of. Visit my [portfolio website](https://subdesigne.com) to view some of the projects I have done.
 
-Email me for your upcoming project at **_usbiango@gmail.com_** or send me your message through social media. 
+Email me for your upcoming project at **_umaru@subdesigne.com_** or send me your message through social media. 
 
-You can share this article if you think you got something useful out of it with your friends or if you think it could be specifically beneficial to someone. 
+You can share this article if you think you got something useful out of it with your friends and family. Also, don't forget to leave your thoughts in comments. I would love to read it.
