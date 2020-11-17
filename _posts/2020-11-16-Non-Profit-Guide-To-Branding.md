@@ -11,7 +11,7 @@ image: Branding.jpg
 When you are building a nonprofit, one of the first things you need to consider is branding. How you can properly brand for you to create the right impression you want. But often, nonprofits ignore it, whether out of ignorance or they just don’t care. So their lack of consciously creating a good branding system hit their reputation and dent its value perception.  
 
 ## Logo Is Not Branding
-Many people thought when you create a logo, that’s it, you are done. But a logo is just one element of the whole branding ecosystem. There are over 10 brand touch points there is, but in this guide, I’m going to talk about a few of the basics you need to get started. 
+Many people think when you create a logo, that’s it, you are done. But a logo is just one element of the whole branding ecosystem. There are over 10 brand touch points there is, but in this guide, I’m going to talk about a few of the basics you need to get started. 
 
 ## Start With Choosing Your Colors
 As a small nonprofit, one the thigs you need to do is selecting colors. Choosing color is fun, but sometimes it’s difficult to get the right matching colors for your brand. People find it difficult to choose the right colors that will invoke the feeling that they would want people to get about them. 
