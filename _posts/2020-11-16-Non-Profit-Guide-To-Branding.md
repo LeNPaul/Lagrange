@@ -49,6 +49,8 @@ Logos are not just ordinary symbols, but they depict a message. This is where cr
 ### Letterhead, business card and envelope
 The best way to design these three things is to do it together with the same design layout. The reason for this is that you want to have a professional look that reinforces each other and makes everything unified and cohesive. 
 
+![different types of fonts](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Brand-elements.jpg)
+
 Choose one alignment and structure on all three. You can put your logo at the top and contact info at the bottom right or left of the page.  
 
 Who said they all have to be at the top of the page?
