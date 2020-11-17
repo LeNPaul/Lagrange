@@ -20,7 +20,7 @@ To choose the right color for your nonprofit, you need to understand some colors
 
 To help you speed things up, you can use a color wheel or have a designer help you match the colors for you.
 
-![Color wheel](https://https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Color-wheel.jpg?raw=true)
+![Color wheel](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Color-wheel.jpg)
 
 Be conscious about using colors. Don't just throw them on your print and digital designs. If you use a consistent branding color on all your identities, it will tie everything together and give it a unifying look. Your brand should be memorable and cohesive. 
 
