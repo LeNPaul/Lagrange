@@ -20,7 +20,7 @@ To choose the right color for your nonprofit, you need to understand some colors
 
 To help you speed things up, you can use a color wheel or have a designer help you match the colors for you.
 
-![Color wheel](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/apple-tab-and-phone.jpg?raw=true)
+![Color wheel](https://https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Color-wheel.jpg?raw=true)
 
 Be conscious about using colors. Don't just throw them on your print and digital designs. If you use a consistent branding color on all your identities, it will tie everything together and give it a unifying look. Your brand should be memorable and cohesive. 
 
@@ -33,7 +33,7 @@ We have different types of fonts, and choosing the ones that will contrast is da
 
 Sometimes, choosing just one font with a variety of family members is just what you'd need. You will have a concordant copy with lots of family to contrast. But if you can choose one serif and Sans-serif fonts, that is the best idea. The main point here is contrast—difference, not similarities. 
 
-![different types of fonts](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Difference-typefaces.jpg)
+![different types of fonts](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Difference-typefaces.jpg?raw=true)
 
 If that's the idea you go with, you must select one for your headings and the other for body copy. Consistently using your selected fonts on all your digital and printed materials will make you stand out of the crowd in your game.  
 
@@ -50,7 +50,7 @@ Logos are not just ordinary symbols, but they depict a message. That is where cr
 ### Letterhead, business card and envelope
 The best way to design these three things is to do it together with the same design layout. The reason for this is that you want to have a professional look that reinforces each other and makes everything unified and cohesive. 
 
-![letterhead, business card and envelope](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Brand-elements.jpg)
+![letterhead, business card and envelope](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Brand-elements.jpg?raw=true)
 
 Choose one alignment and structure on all three. You can put your logo at the top and contact info at the bottom right or left of the page.  
 
