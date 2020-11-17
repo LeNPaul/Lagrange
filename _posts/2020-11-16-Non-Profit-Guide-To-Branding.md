@@ -10,6 +10,8 @@ image: Branding.jpg
 
 When you are building a nonprofit, one of the first things you need to consider is branding. How you can properly brand for you to create the right impression you want. But often, nonprofits ignore it, whether out of ignorance or they don't care. So their lack of consciously creating a brand strategy hit their reputation and dent its value perception.   
 
+But before we get into it, let's make something clear here.
+
 ## Logo Is Not Branding
 Many people think when they create a logo, that's it! A logo is just one element of the whole branding package. There are many branding touchpoints out there. In this article, I am going to mention a few of the basics you need to do to get started. 
 
