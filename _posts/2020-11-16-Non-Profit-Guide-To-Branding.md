@@ -20,8 +20,6 @@ To choose the right color for your nonprofit, you need to understand some colors
 
 To help you speed things up, you can use a color wheel or have a designer help you match the colors for you.
 
-![Color wheel](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Color-wheel.jpg)
-
 Be conscious about using colors. Don't just throw them on your print and digital designs. If you use a consistent branding color on all your identities, it will tie everything together and give it a unifying look. Your brand should be memorable and cohesive. 
 
 ## Typeface (Fonts)
@@ -67,7 +65,7 @@ Many organizations and small businesses, especially in developing countries, don
 
 But the case is not always like that. With codeless tools now available on the internet, you can even design your website yourself. Pick a theme that looks like what you want to create and change it to your unique design.
 
-I wrote an article about why every nonprofit, regardless of size, must design a website.
+I wrote an article about [why every nonprofit, regardless of size, must design a website](https://blog.subdesigne.com/This-is-why-you-must-design-a-website-for-your-organization/)
 
 A website is also an excellent place to empower your brand to shine through and become more memorable. 
 
