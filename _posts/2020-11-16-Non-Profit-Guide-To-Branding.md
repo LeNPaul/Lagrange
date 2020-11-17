@@ -5,7 +5,7 @@ description: Follow this guide to learn how you can properly brand for you to cr
 author: "Umaru Biango"
 permalink: "/nonprofit-guide-to-branding/"
 tags: branding
-image: brand.jpg
+image: Branding.jpg
 ---
 
 When you are building a nonprofit, one of the first things you need to consider is branding. How you can properly brand for you to create the right impression you want. But often, nonprofits ignore it, whether out of ignorance or they just don’t care. So their lack of consciously creating a good branding system hit their reputation and dent its value perception.  
