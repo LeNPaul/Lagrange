@@ -31,9 +31,9 @@ Fonts are very crucial in branding because you use them in every aspect of commu
 
 We have different types of fonts, and choosing the ones that will contrast is daunting. First off, I must tell you to stay away from Arial, Helvetica, and Times New Roman. Except if you want your copy to look like it's from the 1970s.
 
-![different types of fonts](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Difference-typefaces.jpg)
-
 Sometimes, choosing just one font with a variety of family members is just what you'd need. You will have a concordant copy with lots of family to contrast. But if you can choose one serif and Sans-serif fonts, that is the best idea. The main point here is contrast—difference, not similarities. 
+
+![different types of fonts](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Difference-typefaces.jpg)
 
 If that's the idea you go with, you must select one for your headings and the other for body copy. Consistently using your selected fonts on all your digital and printed materials will make you stand out of the crowd in your game.  
 
