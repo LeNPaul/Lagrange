@@ -16,7 +16,7 @@ Many people thought when you create a logo, that’s it, you are done. But a log
 ## Start With Choosing Your Colors
 As a small nonprofit, one the thigs you need to do is selecting colors. Choosing color is fun, but sometimes it’s difficult to get the right matching colors for your brand. People find it difficult to choose the right colors that will invoke the feeling that they would want people to get about them. 
 
-![different types of fonts](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/colour-wheel.jpg)
+![different types of fonts](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Color-wheel.jpg)
 
 To choose the right color for your nonprofit, you need to understand some colors and their meanings. You don’t want to choose red, yellow and blue, except if your nonprofit is about children. These are the primary colors; they are all too often found in children’s books.  
 
