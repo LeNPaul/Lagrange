@@ -16,11 +16,11 @@ Many people think when they create a logo, that's it! A logo is just one element
 ## Start With Choosing Your Colors
 As a small nonprofit, one of the things you need to do is selecting colors. Choosing colors is fun, but sometimes it can be hard to get the right matching colors for your brand. People find it daunting to choose the right colors that will invoke the feeling that they would want people to feel about them. 
 
-![Color wheel](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Color-wheel.jpg)
-
 To choose the right color for your nonprofit, you need to understand some colors and their meanings. You don't want to choose red, yellow, and blue, except if your nonprofit is about children. These are the primary colors; they are all too often seen in children's books. 
 
 To help you speed things up, you can use a color wheel or have a designer help you match the colors for you.
+
+![Color wheel](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Color-wheel.jpg)
 
 Be conscious about using colors. Don't just throw them on your print and digital designs. If you use a consistent branding color on all your identities, it will tie everything together and give it a unifying look. Your brand should be memorable and cohesive. 
 
@@ -50,7 +50,7 @@ Logos are not just ordinary symbols, but they depict a message. That is where cr
 ### Letterhead, business card and envelope
 The best way to design these three things is to do it together with the same design layout. The reason for this is that you want to have a professional look that reinforces each other and makes everything unified and cohesive. 
 
-![different types of fonts](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Brand-elements.jpg)
+![letterhead, business card and envelope](https://github.com/SUBiango/blog/blob/gh-pages/assets/img/Brand-elements.jpg)
 
 Choose one alignment and structure on all three. You can put your logo at the top and contact info at the bottom right or left of the page.  
 
