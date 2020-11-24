@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    src="{{ site.github.url }}/assets/js/MathJax.js?config=TeX-MML-AM_CHTML">
     MathJax.Hub.Config({
         tex2jax: {
           inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -35,6 +35,9 @@
 
   <!-- Google Analytics -->
   {% include google-analytics.html %}
+  
+  <!-- Yandex metrika -->
+  {% include yandex-metrika.html %}	
 
   <!-- Use Jekyll SEO plugin -->
   {% seo %}
