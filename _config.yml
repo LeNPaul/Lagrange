@@ -20,8 +20,8 @@ permalink:           none
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           'Записная книжка'
-description:	       'Чтобы самому не забыть и другим рассказать'
+title:		           'retro3f'
+description:	       'blog'
 author:              'retro3f'
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
