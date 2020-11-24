@@ -10,8 +10,3 @@ title: О блоге
 
  
 Приятного чтения!
-
-Контакты:
-
-* [Mail](mailto:botx68@gmail.com)
-* [Github](https://github.com/retro3f)
