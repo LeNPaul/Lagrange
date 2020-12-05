@@ -3,7 +3,7 @@ layout: page
 title: Hi, I'm John.
 ---
 
-I'm a Mechanical Engineering student at the University of Minnesota, with interests in aerospace engineering, car modifications, and neuroscience applied in CS.
+I'm a Mechanical Engineering student at the University of Minnesota, with interests in aerodynamics, energy efficiency, and neuroscience applied in CS.
 
 ### Computer Science
 
@@ -18,7 +18,7 @@ I started minor programming projects throughout middle school, later being accep
 
 ### Mechanical and Electrical Engineering
 
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
+I didn't get much into mechanical engineering until joining UMN's FSAE Active Aerodynamics and Engine Modification subteams. I plan on continuing the studies of aerodynamics alongside electronic components as well as efficiency of power throughout college both academically and extracurricularly.
 
 ### Questions?
 
