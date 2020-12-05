@@ -1,15 +1,22 @@
 ---
 layout: page
-title: Welcome to Lagrange!
+title: Hi, I'm John.
 ---
 
-Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
+I'm a Mechanical Engineering student at the University of Minnesota, with interests in aerospace engineering, car modifications, and neuroscience applied in CS.
 
-### Getting Started
+### Computer Science
 
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
+I started minor programming projects throughout middle school, later being accepted into my high school's IT Specialty program, taking classes such as:
+- Advanced Computer Math
+- AP Computer Science A
+- Cisco Networking Fundamentals I and II
+- Data Structures
+- Database Design and management
+- Advanced Computer Studies
+- Advanced Database
 
-### Example Content
+### Mechanical and Electrical Engineering
 
 [Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
 
