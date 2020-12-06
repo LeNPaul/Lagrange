@@ -3,7 +3,7 @@ layout: page
 title: Hi, I'm John.
 ---
 
-I'm a Mechanical Engineering student at the University of Minnesota, with interests in aerodynamics, energy efficiency, and neuroscience applied in CS.
+I'm a Mechanical Engineering student at the University of Minnesota, with interests in [active] aerodynamics, energy efficiency, and neuroscience applied in CS.
 
 ### Computer Science
 
@@ -20,6 +20,10 @@ I started minor programming projects throughout middle school, later being accep
 
 I didn't get much into mechanical engineering until joining UMN's FSAE Active Aerodynamics and Engine Modification subteams. I plan on continuing the studies of aerodynamics alongside electronic components as well as efficiency of power throughout college both academically and extracurricularly.
 
-### Questions?
+### Clubs and Activities
 
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+Starting freshman year of high school, I participated in ILITE [CyberPatriot]({{ https://www.uscyberpatriot.org/ }}{% post_url 2014-01-01-text-formatting-examples %}) competitions, involving the securing and defense of linux, windows, and cisco systems, this continued through the next two years, eventually becoming Linux Lead, teaching security concepts for Ubuntu.
+
+Junior year, I joined ILITE FRC Robotics as a programmer, working with control systems, becoming Programming Lead the following year.
+
+Currently, I participate in FSAE, as a member of the Engine and Aerodynamics subteams, working with internals modifications and the active aerodynamics components of the car.
