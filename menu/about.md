@@ -26,4 +26,4 @@ Starting freshman year of high school, I participated in ILITE [CyberPatriot]({{
 
 Junior year, I joined [ILITE FRC Robotics]({{ site.github.url }}{https://ilite.us/}) as a programmer, working with control systems, becoming Programming Lead the following year.
 
-Currently, I participate in [UMN FSAE]({{ site.github.url }{https://gophermotorsports.com/}), as a member of the Engine and Aerodynamics subteams, working with internals modifications and the active aerodynamics components of the car.
+Currently, I participate in [UMN FSAE]({{ site.github.url }}{https://gophermotorsports.com/}), as a member of the Engine and Aerodynamics subteams, working with internals modifications and the active aerodynamics components of the car.
