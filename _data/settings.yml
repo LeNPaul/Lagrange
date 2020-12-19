@@ -8,9 +8,9 @@ google-ID: ''
 
 menu:
 - {name: 'about', path: 'menu', url: 'about.html'}
-- {name: 'engineering', path: 'menu', url: 'writing.html'}
-- {name: 'photography', path: 'menu', url: 'writing.html'}
-- {name: 'health', path: 'menu', url: 'writing.html'}
+- {name: 'engineering', path: 'menu', url: 'engineering.html'}
+- {name: 'photography', path: 'menu', url: 'photography.html'}
+- {name: 'health', path: 'menu', url: 'health.html'}
 - {name: 'contact', path: 'menu', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
