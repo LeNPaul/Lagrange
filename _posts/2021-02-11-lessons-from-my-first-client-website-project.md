@@ -5,7 +5,7 @@ description: You don't have to make all the mistakes yourself for you to learn f
 author: "Umaru Biango"
 permalink: "/lessons-from-my-first-client-website-project/"
 tags: journal
-image: first-website-project.jpg
+image: First-website.jpg
 ---
 
 Freelancing is something I resorted to after many other things failed. I launched SubDesigne to help small businesses, local organizations, and professional individuals to have a web presence.
