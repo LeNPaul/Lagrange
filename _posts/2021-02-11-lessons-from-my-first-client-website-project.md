@@ -50,6 +50,6 @@ In life, sometimes, we treat mistakes and failures as something that shouldn't h
 
 If you read this far and are wondering how we can get started with your project, contact me through WhatsApp: +232 30 861581 or email: umaru@subdesigne.com.
 
- Do you want to see the project I have done? Head over to my [website](https://subdesigne.com) and view my portfolio.
+Do you want to see the projects I have done? Head over to my [website](https://subdesigne.com) and view my portfolio.
 
 Feel free to share.
