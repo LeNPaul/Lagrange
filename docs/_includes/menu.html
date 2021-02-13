@@ -1,0 +1,10 @@
+<div class="menu">
+  <nav class="menu-content">
+    {% for item in site.data.settings.menu %}
+      <a href="{{ site.github.url }}/{{ item.path }}/{{ item.url }}">{{ item.name }}</a>
+    {% endfor %}
+  </nav>
+  <nav class="social-icons">
+    {% include social-icons.html %}
+  </nav>
+</div>
