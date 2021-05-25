@@ -3,4 +3,5 @@ layout: page
 title: Contact
 ---
 
-Update the `menu/contact.md` file to change your Contact page.
+Feel free to send me an email:
+dlafarga9505@sdsu.edu
