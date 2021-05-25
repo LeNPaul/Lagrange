@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "About the Author"
-author: "Paul Le"
+author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
-image: cutting.jpg
 ---
 
-Hi there! I'm Paul. I’m a physics major turned programmer. Ever since I first learned how to program while taking a scientific computing for physics course, I have pursued programming as a passion, and as a career. Check out [my personal website](https://www.lenpaul.com/) for more information on my other projects (including more Jekyll themes!), as well as some of my writing.
+Hello my name is Dani Lafarga and I am a computational science masters student at San Diego State University. I did my undergraduate degree at the University of California San Diego and have since invested most of my time into climate research. You can find a comprehesive log of my progress in my [writings](https://dlafarga.github.io/menu/writing.html).
+
+
