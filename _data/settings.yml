@@ -4,7 +4,7 @@ disqus:
   disqus_shortname: ''
 
 # If you are not using Google Analytics, please change 'google-ID' to an empty string
-google-ID: 'dlafarga9505@sdsu.edu'
+google-ID: ''
 
 menu:
 - {name: 'About', path: 'menu', url: 'about.html'}
@@ -13,16 +13,13 @@ menu:
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
-- {icon: 'github', link: ''}
-- {icon: 'linkedin', link: ''}
+- {icon: 'linkedin', link: 'https://www.linkedin.com/in/dani-lafarga-47b38116b/'}
 
 # Customize site text
 pagination:
   next_page: 'Newer'
   previous_page: 'Older'
 
-sharing_button_prompt: 'Feel free to share!'
-
-related_posts: 'You may also enjoy:'
+related_posts: 'Check out:'
 
 post_date_prefix: 'Written on'
