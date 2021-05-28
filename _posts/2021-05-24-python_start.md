@@ -56,7 +56,41 @@ Prior to computing EOFs the climatology for the smaller data is coputed alond wi
 
 ![Climatology]({{ site.url }}/assets/css/Clim_for_jan_1950.png)
 
-<center>Climatology as reference</center>
-$$\text{Climatology as reference}$$
+<center>Figure 1: Climatology as reference</center>
+
+The files that wer impoted were a matlab files that were then turned into a matrix:
+
+NOTE: use ```python os.chdir``` to change the directory  to the directory the files are in
+
+```python
+data = {}
+for file in os.listdir():
+    if ".mat" in file:
+        data[file] = sc.loadmat(file)["data"][:,:,:].flatten()
+data = list(data.values())
+data = np.mat(data)
+# only taking the surface 
+data = data[:, 0:64800]
+```
+The line ```python data[file] = sc.loadmat(file)["data"][:,:,:].flatten()``` will load each multidimensional matrix named data into a dictionary where every key is the name of each 360 x 180  x 33 matrix. 
+
+To compute climatology python was used:
+
+```python
+clim_sdev  = np.empty(shape = [len(data),2])
+
+import warnings
+
+# I expect to see RuntimeWarnings in this block
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore", category=RuntimeWarning)
+    clim = np.nanmean(data, axis = 1)
+sdev = np.std(data, axis = 1)
+clim_sdev = np.column_stack((clim, sdev))
+
+plt.plot(clim_sdev[:1000,0],".", label = "Climatology")
+```
+The plot is identical to the reference graph in figure 1.
+
 
 
