@@ -96,8 +96,8 @@ The plot is identical to the reference graph in figure 1.
 
 <center>Figure 2: Climatology computed using python</center>
 
-
-<center> </center>![Climatology]({{ site.url }}/assets/css/img/std_dev.png)
+<div style="text-align: center">
+![Climatology]({{ site.url }}/assets/css/img/std_dev.png)
 
 <center>Figure 3: Standard deviation computed using python</center>
 
