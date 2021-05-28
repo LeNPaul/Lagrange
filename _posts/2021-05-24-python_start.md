@@ -105,5 +105,14 @@ The plot is identical to the reference graph in figure 1.
 Computing anomalies from this point is simple. Merely subtract each data point with their corresponding climatology:
 
 ```python 
-anom = data - clim```
+anom = data - clim
+```
+To compute the standardized anomalies you simply divide the anomalies by the standard deviation
 
+![Climatology]({{ site.url }}/assets/css/img/anom.png){: .center-image }
+
+<center>Figure 4: Anomalies computed using python</center>
+
+![Climatology]({{ site.url }}/assets/css/img/std_anom.png){: .center-image }
+
+<center>Figure 5: Standardized anomalies computed using python</center>
