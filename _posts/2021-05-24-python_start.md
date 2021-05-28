@@ -97,8 +97,13 @@ The plot is identical to the reference graph in figure 1.
 
 <center>Figure 2: Climatology computed using python</center>
 
-{: .center-image }
-![Climatology]({{ site.url }}/assets/css/img/std_dev.png)
+
+![Climatology]({{ site.url }}/assets/css/img/std_dev.png){: .center-image }
 
 <center>Figure 3: Standard deviation computed using python</center>
+
+Computing anomalies from this point is simple. Merely subtract each data point with their corresponding climatology:
+
+```python 
+anom = data - clim```
 
