@@ -92,11 +92,11 @@ plt.plot(clim_sdev[:1000,0],".", label = "Climatology")
 ```
 The plot is identical to the reference graph in figure 1.
 
-<center> </center>![Climatology]({{ site.url }}/assets/css/img/climatology_python.png)
+<center> <center>![Climatology]({{ site.url }}/assets/css/img/climatology_python.png)
 
 <center>Figure 2: Climatology computed using python</center>
 
-<div style="text-align: center">
+
 ![Climatology]({{ site.url }}/assets/css/img/std_dev.png)
 
 <center>Figure 3: Standard deviation computed using python</center>
