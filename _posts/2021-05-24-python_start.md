@@ -53,6 +53,8 @@ Where t' represents another year for the same month and N represents the total n
 
 Prior to computing EOFs the climatology for the smaller data is coputed alond with the standard deviation. The following figures are the results of computing the climatology and standard deviation, and comparing them to previous results:
 
+
 ![Climatology]({{ site.url }}/assets/css/Clim_for_jan_1950.png)
-* Climatology *
+$$\text{Climatology as reference}$$
+
 
