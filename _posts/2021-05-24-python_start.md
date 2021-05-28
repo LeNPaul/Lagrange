@@ -10,5 +10,5 @@ Sea surface temperatures (SST) is studied more often than deep sea temperatures.
 
 <img src="_posts/Clim_for_jan_1950.png" class="img-responsive" alt=""> </div>
 
-![Climatology]({{ site.url }} /_posts/Clim_for_jan_1950.png)
+![Climatology]({{ site.url }}/_posts/Clim_for_jan_1950.png)
 
