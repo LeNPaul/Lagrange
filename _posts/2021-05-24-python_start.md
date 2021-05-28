@@ -28,11 +28,31 @@ $$1/4^\circ \times 1/4^\circ \times 33 \ layers \  \times 5 \ days$$
 $$ = 1442 \times 698 \times 33 = 33,215,028 \ entries$$
 
 there are 8 bytes for each dataum therefore there is:
+
 $$ 8 \times 33,215,028 = 265MB \ per\ entry$$
 
-The actual amount of bytes per entry is 274MB.There are 73 files for each year as each file represents a 5 day block. The total amount of bytes is:
-$$ 1901 \ files \times 274MB = 521GB \times \ temperature \ and \ salinity = 521 \times 2 = 3TB$$
+The actual amount of bytes per entry is 274MB.There are 73 files for each year as each file represents a 5 day block and this is done for 26 years so there are 1901 files. The total amount of bytes is:
 
+$$ 1901 \ files \times 274MB = 521GB \times \ temperature \ and \ salinity = 521 \times 2 = 1.04TB \times 3 = 3TB$$
+
+To handle this big data problem the file will be read in by parts and instead of computing the EoFs using singular value decomposition (SVD), as done before, eigen values and eigen vectors are computed from a temporal covariance matrix.
+
+Anomolies for this data at time t is represented by $$a_i (t)$$. If each temperature point is $$x_i$$ and their mean is $$\bar x$$ then their anomalies are:
+
+$$ a_i(t) = x_i - \bar x$$
+
+The mean $$\bar x$$ is also known as the climatology which is computed as:
+
+$$\bar x = \frac1 Y \sum_{t=1} ^Y x_{it}$$
+
+The covariance for the data is:
+
+$$Covariance_{tt'}  = \frac1 N \sum_{tt'} a(t)a(t')$$
+
+Where t' represents another year for the same month and N represents the total number of data points. From this eigen values and eigen vectors can be computed. 
+
+Prior to computing EOFs the climatology for the smaller data is coputed alond with the standard deviation. The following figures are the results of computing the climatology and standard deviation, and comparing them to previous results:
 
 ![Climatology]({{ site.url }}/assets/css/Clim_for_jan_1950.png)
+* Climatology *
 
