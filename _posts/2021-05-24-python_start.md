@@ -55,6 +55,8 @@ Prior to computing EOFs the climatology for the smaller data is coputed alond wi
 
 
 ![Climatology]({{ site.url }}/assets/css/Clim_for_jan_1950.png)
+
+<center>Climatology as reference</center>
 $$\text{Climatology as reference}$$
 
 
