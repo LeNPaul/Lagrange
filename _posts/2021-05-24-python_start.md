@@ -8,7 +8,7 @@ tags: [documentation,sample]
 
 Sea surface temperatures (SST) is studied more often than deep sea temperatures. More recently there has been more interest in deep ocean temperatures, but there has been a limitation due to the lack of measurement in those areas. The objective of this NERTO research is to make a high-resolution reconstruction of deep ocean temperatures of surfaces up to 5,500 meters depth at ¼ degree spatial resolution and 5-day time resolution with 33 layers for 26 years.
 
-#Week 1
+#  Week 1
 The first step taken to model this data is to start with a larger resolution and therefore a smaller amount of data. Consider then computing emperical orthogonal functions (EOFs) for each month from 1950-2003 for 33 depths of the ocean. On a one degree by one degree grid this would mean:
 
 $$
