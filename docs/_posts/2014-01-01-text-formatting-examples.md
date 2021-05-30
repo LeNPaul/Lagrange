@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Week 2"
+title: " "
 author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
