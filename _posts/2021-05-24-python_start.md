@@ -8,6 +8,7 @@ tags: [documentation,sample]
 
 Sea surface temperatures (SST) is studied more often than deep sea temperatures. More recently there has been more interest in deep ocean temperatures, but there has been a limitation due to the lack of measurement in those areas. The objective of this NERTO research is to make a high-resolution reconstruction of deep ocean temperatures of surfaces up to 5,500 meters depth at ¼ degree spatial resolution and 5-day time resolution with 33 layers for 26 years.
 
+#Week 1
 The first step taken to model this data is to start with a larger resolution and therefore a smaller amount of data. Consider then computing emperical orthogonal functions (EOFs) for each month from 1950-2003 for 33 depths of the ocean. On a one degree by one degree grid this would mean:
 
 $$
@@ -98,7 +99,7 @@ The plot is identical to the reference graph in figure 1.
 <center>Figure 2: Climatology computed using python</center>
 
 
-![Climatology]({{ site.url }}/assets/css/img/std_dev.png){: .center-image }
+![standard deviation]({{ site.url }}/assets/css/img/std_dev.png){: .center-image }
 
 <center>Figure 3: Standard deviation computed using python</center>
 
@@ -107,12 +108,13 @@ Computing anomalies from this point is simple. Merely subtract each data point w
 ```python 
 anom = data - clim
 ```
+
 To compute the standardized anomalies you simply divide the anomalies by the standard deviation
 
-![Climatology]({{ site.url }}/assets/css/img/anom.png){: .center-image }
+![anomalies]({{ site.url }}/assets/css/img/anom.png){: .center-image }
 
 <center>Figure 4: Anomalies computed using python</center>
 
-![Climatology]({{ site.url }}/assets/css/img/std_anom.png){: .center-image }
+![standardized anomalies]({{ site.url }}/assets/css/img/std_anom.png){: .center-image }
 
 <center>Figure 5: Standardized anomalies computed using python</center>
