@@ -1,0 +1,46 @@
+/*
+  Thumbnail
+*/
+
+.thumbnail-container {
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.thumbnail-container img{
+  margin-top: -11.5%;
+  margin-bottom: -11.5%;
+}
+
+/*
+  Pagination
+*/
+
+.pagination {
+  overflow: hidden;
+  font-family: 'Quattrocento Sans', sans-serif;
+  text-align: center;
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+.pagination-button {
+  color: #999;
+  border: 1px solid #e0e0e0;
+  padding: 15px 45px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.pagination-active {
+  color: black;
+}
+
+.pagination-active:hover {
+  background-color: #e0e0e0;
+}

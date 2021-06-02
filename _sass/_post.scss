@@ -1,0 +1,41 @@
+/*
+  Post
+*/
+
+.post-container {
+  margin-bottom: 4rem;
+}
+
+.posts {
+  margin-bottom: 5rem;
+  padding: 0px;
+  list-style: none;
+}
+
+.post-date {
+  display: block;
+  margin-top:3px;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size:0.8rem;
+}
+
+@media (max-width: 30rem) {
+  .posts h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.related {
+  padding-bottom: 2rem;
+}
+
+.related-posts {
+  padding-left: 0px;
+  list-style: none;
+}
+
+.related-posts a {
+  text-decoration: none;
+}
