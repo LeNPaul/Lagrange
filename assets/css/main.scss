@@ -1,8 +1,12 @@
 ---
 ---
 
-$header-font-family: "Quattrocento Sans", sans-serif;
-$body-font-family:   "PT Serif", Georgia, "Times New Roman", serif;
-$code-font-family:   "Source Code Pro", monospace;
+$sans-serif-font-family: "Quattrocento Sans", sans-serif;
+$serif-font-family:      "PT Serif", Georgia, "Times New Roman", serif;
+$code-font-family:       "Source Code Pro", monospace;
+
+$dark-gray-color:  #333;
+$light-gray-color: #999;
+$body-color:       #515151;
 
 @import "-sections-dir";
