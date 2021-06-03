@@ -3,7 +3,7 @@
 */
 
 body {
-  font-family: $body-font-family;
+  font-family: $serif-font-family;
   font-size: 18px;
   color: #515151;
   line-height: 1.75rem;
@@ -28,13 +28,13 @@ h1 a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $header-font-family;
-  color: #333;
+  font-family: $sans-serif-font-family;
+  color: $dark-gray-color;
 }
 
 a {
   text-decoration: underline;
-  color: #333;
+  color: $dark-gray-color;
 }
 
 a:hover {
@@ -52,7 +52,7 @@ blockquote {
   margin: 10px 20px 10px;
   padding: 0px 15px;
   border-left: 0.25em solid #ccc;
-  color: #999;
+  color: $light-gray-color;
   line-height: 1.5;
 }
 

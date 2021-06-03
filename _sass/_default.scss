@@ -24,7 +24,7 @@
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-bottom: 4rem;
-  font-family: $header-font-family;
+  font-family: $sans-serif-font-family;
 }
 
 .masthead a:hover {
@@ -38,7 +38,7 @@
 }
 
 .masthead-subtitle {
-  color: #999;
+  color: $light-gray-color;
 }
 
 /*
@@ -55,7 +55,7 @@
 }
 
 .menu-content a {
-  color: #999;
+  color: $light-gray-color;
   font-size: 1rem;
   padding-right: 10px;
 }
@@ -65,7 +65,7 @@
 }
 
 .social-icons a {
-  color: #999;
+  color: $light-gray-color;
   font-size: 1rem;
 }
 
@@ -84,17 +84,17 @@
 */
 
 .footer {
-  color: #999;
+  color: $light-gray-color;
   text-align: center;
   margin: 2rem;
 }
 
 .footer a {
-  color: #999;
+  color: $light-gray-color;
   padding: 10px;
   text-decoration: none;
 }
 
 .footer a:hover {
-  color: #333;
+  color: $dark-gray-color;
 }

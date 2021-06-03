@@ -20,7 +20,7 @@
 
 .pagination {
   overflow: hidden;
-  font-family: $header-font-family;
+  font-family: $sans-serif-font-family;
   text-align: center;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .pagination-button {
-  color: #999;
+  color: $light-gray-color;
   border: 1px solid #e0e0e0;
   padding: 15px 45px;
   display: inline-block;
