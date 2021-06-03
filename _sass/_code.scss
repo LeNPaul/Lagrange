@@ -4,7 +4,7 @@
 
 code,
 pre {
-  font-family: "Source Code Pro", monospace;
+  font-family: $code-font-family;
 }
 code {
   padding: .25em .5em;
@@ -49,7 +49,7 @@ pre.highlight {
 
 /* Gist via GitHub Pages */
 .gist .gist-file {
-  font-family: "Source Code Pro", monospace !important;
+  font-family: $code-font-family !important;
 }
 .gist .markdown-body {
   padding: 15px;
