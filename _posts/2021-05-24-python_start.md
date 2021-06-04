@@ -22,7 +22,7 @@ Consider data X that consists of N stations and Y time steps:
 $$ X = [x_{it}]_{N\times Y}$$
 
 Covarance can then be computed by first computing anomalies:
-$$ [a_{it}]_{N\times Y} =  [x_{it} - \bar x_{i}]_{N\times Y}$$
+$$ A_{N \times Y} = [a_{it}]_{N\times Y} =  [x_{it} - \bar x_{i}]_{N\times Y}$$
 
 Where:
 $$\bar x = \frac1 Y \sum_{t=1} ^Y x_{it}$$
@@ -32,10 +32,23 @@ $$ i = 1,2...N$$
 This is the mean of the data or more formally climatology.
 
 Covariance is computed by:
-$$[\sum_{ij}] = \frac1 Y [a_{it}]_{N\times Y}[a_{it}]_{N\times Y}^T$$
+$$[\sum_{ij}]_{N\times N} = \frac1 Y A_{N\times Y} A_{Y\times N}^T$$
 
+for this case becuase the data set is so large the  covariance is computed in terms of time rather than in terms of space. Instead of computing the covariance for each station we are computing  the covariance for every year given a specific month. 
+
+$$[\sum_{tt'}]_{Y\times Y} = \frac1 N \sum_{i=1}^N a(t)a(t') = \frac1 N A_{Y\times N} A_{N\times Y}^T$$
+
+from this we can compute emperical orthogonal functions.
 
 ## What are Empirical Orthogonal functions?
+Emperical orthogonal function come from eigenvectors. Consider the square covariance matrix $$[\sum_{tt'}]_{Y\times Y} $$ and some vector  w which runs parallel to $$[\sum_{tt'}]_{Y\times Y} $$ . There is a scalar or eigenvalue $$\lambda$$ which scales w such that:
+
+$$[\sum_{tt'}]_{Y\times Y} \times w = \lambda \times w$$
+ 
+The first few eigenvectors of a large climate covariance matrix of climate data often represent some typical patterns of climate variability (Shen and Somerville 97). Usually EOFs are computed using singular value decomposition (SVD), but the method  used here is first finding covariance in time and then computing eigenvectors from that covariance matrix followed by multiplying the vectors to the anomaly matrix.
+
+For example the reconstruction of climate data using the first eigen vector would look like
+$$A \times w_1$$
 
 #  Week 1
 The first step taken to model this data was to start with a larger resolution and therefore a smaller amount of data. Consider then computing emperical orthogonal functions (EOFs) for each month from 1950-2003 for 33 depths of the ocean. On a one degree by one degree grid this would mean:
@@ -66,28 +79,9 @@ The total amount of bytes is:
 
 $$ 1901 \ files \times 274MB = 521GB \times \ temperature \ and \ salinity = 521 \times 2 = 1.04TB \times 3 = 3TB$$
 
-To handle this big data problem the file will be read in by parts and EOFs are computed by first finding the covariance matrix then computing eigen vectors as opposed to computing them through SVD as they were done before. 
+As mentioned above EOFs are computed by finding the eigenvectors of the temporal covariance matrix. In this case the covariance matrix is computed on a 1 degree grid for 54 years therefor N = 54. Eigenvectors should be of dimension 1 by N and there should be N eigenvectors for each year. 
 
-Anomolies for this data at time t is represented by $$a_i (t)$$. If each temperature point is $$x_i$$ and their mean is $$\bar x$$ then their anomalies are:
-
-$$ a_i(t) = x_i - \bar x$$
-
-The mean $$\bar x$$ is also known as climatology which is computed as:
-
-$$\bar x = \frac1 Y \sum_{t=1} ^Y x_{it}$$
-
-Consider a covariance matrix that is Y by Y:
-$$ Covariance_{tt'} = [c_{tt'}]_{Y \times Y} $$
-
-The covariance is computed as:
-
-$$Covariance_{tt'}  = \frac1 N \sum_{tt'} a(t)a(t')$$
-
-Where t' represents another year for the same month and N represents the total number of data points. For a 1 degree grid N = 360*180 = 64800. For the larger grid this amount will vary based on how many points are read in at one time. 
-
-From this eigen values and eigen vectors can be computed. Eigen vectors should be of dimension N by 1 and there should be N eigen vectors. 
-
-Prior to computing EOFs the climatology for the smaller data is coputed alond with the standard deviation. The following figures are the results of computing the climatology and standard deviation, and comparing them to previous results:
+Prior to computing EOFs the climatology for the smaller data is computed along with the standard deviation. The following figures are the results of computing the climatology, standard deviation, anomalies, and EOFs:
 
 
 ![Climatology]({{ site.url }}/assets/css/Clim_for_jan_1950.png)
@@ -149,6 +143,14 @@ To compute the standardized anomalies you simply divide the anomalies by the sta
 ![anomalies]({{ site.url }}/assets/css/img/anom.png){: .center-image }
 
 <center>Figure 4: Anomalies computed using python</center>
+
+![standardized anomalies]({{ site.url }}/assets/css/img/std_anom.png){: .center-image }
+
+<center>Figure 5: Standardized anomalies computed using python</center>
+
+![standardized anomalies]({{ site.url }}/assets/css/img/std_anom.png){: .center-image }
+
+<center>Figure 5: Standardized anomalies computed using python</center>
 
 ![standardized anomalies]({{ site.url }}/assets/css/img/std_anom.png){: .center-image }
 
