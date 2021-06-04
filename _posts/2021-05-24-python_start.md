@@ -12,25 +12,27 @@ Sea surface temperature (SST) is studied more often than deep sea temperatures. 
 ## What is covariance?
 Covariance measures how much two variables change. Typically in climatology covariance is considered between stations, grid boxes, or grid points. Covariance between two stations i and j can be denoted as:
 
-$$ [\sum_{ij}]$$
+$$ \sum _{ij}$$
 
 For N stations covariance would be an N by N matrix:
 
-$$ [\sum_ij]_{N\timesN}$$
+$$ [\sum _{ij}]_{N\times N}$$
 
 Consider data X that consists of N stations and Y time steps:
-$$ X = [x_{it}]_{N\timesY}
+$$ X = [x_{it}]_{N\times Y}$$
 
 Covarance can then be computed by first computing anomalies:
-$$ [a_{it}]_{N\timesY} =  [x_{it} - \barx_{i}]_{N\timesY}$$
+$$ [a_{it}]_{N\times Y} =  [x_{it} - \bar x_{i}]_{N\times Y}$$
 
 Where:
 $$\bar x = \frac1 Y \sum_{t=1} ^Y x_{it}$$
+and recall:
+$$ i = 1,2...N$$
 
 This is the mean of the data or more formally climatology.
 
 Covariance is computed by:
-$$[\sum_{ij}] = \frac1 Y [a_{it}]_{N\timesY}[a_{it}]_{N\timesY}^T
+$$[\sum_{ij}] = \frac1 Y [a_{it}]_{N\times Y}[a_{it}]_{N\times Y}^T$$
 
 
 ## What are Empirical Orthogonal functions?
