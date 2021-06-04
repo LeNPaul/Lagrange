@@ -174,7 +174,7 @@ for j in range(anom.shape[1]):
  ```
  and plot using contourf. 
  
-![EOF]({{ site.url }}/assets/css/img/greg_EOF/1modes_5m-.png){: .center-image }
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/1modes_5m-5500m_577_Reconstructed_Temp_Anomaly_Jan1998_Bn.png){: .center-image }
 
 <center>Figure 7: EOF mode 1</center>
 
@@ -182,7 +182,7 @@ for j in range(anom.shape[1]):
 
 <center>Figure 8: EOF mode 1 computed using python</center>
 
-![EOF]({{ site.url }}/assets/css/img/greg_EOF/2modes_5m-.png){: .center-image }
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/2modes_5m-5500m_577_Reconstructed_Temp_Anomaly_Jan1998_Bn.png){: .center-image }
 
 <center>Figure 9: EOF mode 2</center>
 
@@ -190,7 +190,7 @@ for j in range(anom.shape[1]):
 
 <center>Figure 10: EOF mode 2 computed using python</center>
 
-![EOF]({{ site.url }}/assets/css/img/greg_EOF/3modes_5m-.png){: .center-image }
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/3modes_5m-5500m_577_Reconstructed_Temp_Anomaly_Jan1998_Bn.png){: .center-image }
 
 <center>Figure 11: EOF mode 3</center>
 
@@ -198,7 +198,7 @@ for j in range(anom.shape[1]):
 
 <center>Figure 12: EOF mode 3 computed using python</center>
 
-![EOF]({{ site.url }}/assets/css/img/greg_EOF/4modes_5m-.png){: .center-image }
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/4modes_5m-5500m_577_Reconstructed_Temp_Anomaly_Jan1998_Bn.png){: .center-image }
 
 <center>Figure 13: EOF mode 4</center>
 
