@@ -5,7 +5,7 @@
 body {
   font-family: $serif-font-family;
   font-size: 18px;
-  color: #515151;
+  color: $body-color;
   line-height: 1.75rem;
 }
 
@@ -38,7 +38,7 @@ a {
 }
 
 a:hover {
-  color: black;
+  color: $link-color;
   border-bottom: none;
 }
 
@@ -51,13 +51,13 @@ img {
 blockquote {
   margin: 10px 20px 10px;
   padding: 0px 15px;
-  border-left: 0.25em solid #ccc;
+  border-left: 0.25em solid $extra-light-gray-color;
   color: $light-gray-color;
   line-height: 1.5;
 }
 
 hr {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid $extra-light-gray-color;
 }
 
 /*

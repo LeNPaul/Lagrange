@@ -30,7 +30,7 @@
 
 .pagination-button {
   color: $light-gray-color;
-  border: 1px solid #e0e0e0;
+  border: 1px solid $pagination-button-color;
   padding: 15px 45px;
   display: inline-block;
   font-size: 16px;
@@ -38,9 +38,9 @@
 }
 
 .pagination-active {
-  color: black;
+  color: $link-color;
 }
 
 .pagination-active:hover {
-  background-color: #e0e0e0;
+  background-color: $pagination-button-color;
 }
