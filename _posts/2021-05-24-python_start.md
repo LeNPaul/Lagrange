@@ -132,7 +132,7 @@ anom = data - clim
 
 <center>Figure 3: Anomalies of jan 1998 top layer</center>
 
-![anomalies]({{ site.url }}/assets/css/img/anom/depth600/anom_jan1998_depth5.png){: .center-image }
+![anomalies]({{ site.url }}/assets/css/img/anom/depth5/anom_jan1998_depth5.png){: .center-image }
 
 <center>Figure 4: Anomalies of jan 1998 top layer computed using python</center>
 
