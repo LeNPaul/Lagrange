@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Writing
+permalink: /writing
 ---
 <ul class="posts">
   {% for post in site.posts %}
