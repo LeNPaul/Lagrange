@@ -10,7 +10,7 @@
 
 /*48em*/
 
-@media (max-width: 768px) {
+@media (max-width: $container-responsive-width) {
   .container {
     width: 90vw;
   }
@@ -69,7 +69,7 @@
   font-size: 1rem;
 }
 
-@media (max-width: 30em) {
+@media (max-width: $elements-responsive-width) {
   .social-icons {
     float: left;
     padding-top: 0px;
