@@ -43,7 +43,7 @@ from this we can compute emperical orthogonal functions.
 ## What are Empirical Orthogonal functions?
 Emperical orthogonal function come from eigenvectors. Consider the square covariance matrix $$[\sum_{tt'}]_{Y\times Y} $$ and some vector  w which runs parallel to $$[\sum_{tt'}]_{Y\times Y} $$ . There is a scalar or eigenvalue $$\lambda$$ which scales w such that:
 
-$$[\sum_{tt'}]_{Y\times Y} \times w = \lambda \times w$$
+$$[\sum _{tt'}]_{Y\times Y} \times w = \lambda \times w$$
  
 The first few eigenvectors of a large climate covariance matrix of climate data often represent some typical patterns of climate variability (Shen and Somerville 97). Usually EOFs are computed using singular value decomposition (SVD), but the method  used here is first finding covariance in time and then computing eigenvectors from that covariance matrix followed by multiplying the vectors to the anomaly matrix.
 
@@ -83,12 +83,7 @@ As mentioned above EOFs are computed by finding the eigenvectors of the temporal
 
 Prior to computing EOFs the climatology for the smaller data is computed along with the standard deviation. The following figures are the results of computing the climatology, standard deviation, anomalies, and EOFs:
 
-
-![Climatology]({{ site.url }}/assets/css/Clim_for_jan_1950.png)
-
-<center>Figure 1: Climatology as reference</center>
-
-The files that wer impoted were a matlab files that were then turned into a matrix:
+The files that wer impoted were matlab files that were then turned into a matrix:
 
 NOTE: use ```python os.chdir``` to change the directory  to the directory the files are in
 
@@ -96,15 +91,13 @@ NOTE: use ```python os.chdir``` to change the directory  to the directory the fi
 data = {}
 for file in os.listdir():
     if ".mat" in file:
-        data[file] = sc.loadmat(file)["data"][:,:,:].flatten()
+        data[file] = sc.loadmat(file)["data"][:,:,16].flatten()
 data = list(data.values())
 data = np.mat(data)
-# only taking the surface 
-data = data[:, 0:64800]
 ```
-The line ```python data[file] = sc.loadmat(file)["data"][:,:,:].flatten()``` will load each multidimensional matrix named data into a dictionary where every key is the name of each 360 x 180  x 33 matrix. 
+The line ```python data[file] = sc.loadmat(file)["data"][:,:,depth].flatten()``` will load each multidimensional matrix named data into a dictionary where every key is the name of each 360 x 180  x 33 matrix. 
 
-To compute climatology python was used:
+To compute climatology and standard deviation:
 
 ```python
 clim_sdev  = np.empty(shape = [len(data),2])
@@ -117,43 +110,101 @@ with warnings.catch_warnings():
     clim = np.nanmean(data, axis = 1)
 sdev = np.std(data, axis = 1)
 clim_sdev = np.column_stack((clim, sdev))
-
-plt.plot(clim_sdev[:1000,0],".", label = "Climatology")
 ```
 The plot is identical to the reference graph in figure 1.
 
 
-![Climatology]({{ site.url }}/assets/css/img/climatology_python.png){: .center-image }
+![Climatology]({{ site.url }}/assets/css/img/clim/clim_jan600.png){: .center-image }
 
-<center>Figure 2: Climatology computed using python</center>
+<center>Figure 1: Climatology computed using python with depth of 600</center>
 
 
-![standard deviation]({{ site.url }}/assets/css/img/std_dev.png){: .center-image }
+![standard deviation]({{ site.url }}/assets/css/img/std_dev/standarddev_jan600.png){: .center-image }
 
-<center>Figure 3: Standard deviation computed using python</center>
+<center>Figure 2: Standard deviation computed using python with depth of 600</center>
 
 Computing anomalies from this point is simple. Merely subtract each data point with their corresponding climatology:
 
 ```python 
 anom = data - clim
 ```
+![anomalies]({{ site.url }}/assets/css/img/greg_anom/Top Layer577_Reconstructed_Temp_Anomaly_Jan1998.png){: .center-image }
 
-To compute the standardized anomalies you simply divide the anomalies by the standard deviation
+<center>Figure 3: Anomalies of jan 1998 top layer</center>
 
-![anomalies]({{ site.url }}/assets/css/img/anom.png){: .center-image }
+![anomalies]({{ site.url }}/assets/css/img/anom/depth600/anom_jan1998_depth5.png){: .center-image }
 
-<center>Figure 4: Anomalies computed using python</center>
+<center>Figure 4: Anomalies of jan 1998 top layer computed using python</center>
 
-![standardized anomalies]({{ site.url }}/assets/css/img/std_anom.png){: .center-image }
+![anomalies]({{ site.url }}/assets/css/img/greg_anom/600m577_Reconstructed_Temp_Anomaly_Jan1998.png){: .center-image }
 
-<center>Figure 5: Standardized anomalies computed using python</center>
+<center>Figure 5: Anomalies of jan 1998 600m</center>
 
-![standardized anomalies]({{ site.url }}/assets/css/img/std_anom.png){: .center-image }
+![anomalies]({{ site.url }}/assets/css/img/anom/depth600/anom_jan1998.png){: .center-image }
 
-<center>Figure 5: Standardized anomalies computed using python</center>
+<center>Figure 6: Anomalies of jan 1998 600m computed using python</center>
 
-![standardized anomalies]({{ site.url }}/assets/css/img/std_anom.png){: .center-image }
+At this point covariance needs to be computed. To do so NaN need to be romoved from the data using:
+```python
+new_data = []
+for i in range(0,data.shape[0]):
+    temp = []
+    for j in range(0, data.shape[1]): 
+        if ~np.isnan(data[i,j]):
+            temp.append(data[i,j])
+    new_data.append(temp)
+ ```
+Followed by the simple command:
 
-<center>Figure 5: Standardized anomalies computed using python</center>
+```python
+cov = np.cov(new_data)
+```
+ then compute eigenvalues and vectors using:
+ ```python
+ eigvals, eigvecs = la.eig(cov)
+ ```
+ Compute EOFs by multiplying each eigenvector to the anomalies:
+ ```python
+ EOF = []
+for j in range(anom.shape[1]): 
+    temp = []
+    for i in range(anom.shape[0]):
+        temp = anom[:,j] * eigvecs[i,:]
+    EOF.append(temp)
+ ```
+ and plot using contourf. 
+ 
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/1modes_5m-.png){: .center-image }
+
+<center>Figure 7: EOF mode 1</center>
+
+![EOF]({{ site.url }}/assets/css/img/EOF/EOF_jan1depth of10.png){: .center-image }
+
+<center>Figure 8: EOF mode 1 computed using python</center>
+
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/2modes_5m-.png){: .center-image }
+
+<center>Figure 9: EOF mode 2</center>
+
+![EOF]({{ site.url }}/assets/css/img/EOF/EOF_jan2depth of10.png){: .center-image }
+
+<center>Figure 10: EOF mode 2 computed using python</center>
+
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/3modes_5m-.png){: .center-image }
+
+<center>Figure 11: EOF mode 3</center>
+
+![EOF]({{ site.url }}/assets/css/img/EOF/EOF_jan3depth of10.png){: .center-image }
+
+<center>Figure 12: EOF mode 3 computed using python</center>
+
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/4modes_5m-.png){: .center-image }
+
+<center>Figure 13: EOF mode 4</center>
+
+![EOF]({{ site.url }}/assets/css/img/EOF/EOF_jan4depth of10.png){: .center-image }
+
+<center>Figure 14: EOF mode 4 computed using python</center>
+
 
 
