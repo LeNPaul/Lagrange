@@ -17,27 +17,27 @@
 }
 
 /*
-  Masthead
+  Header
 */
 
-.masthead {
+.header {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-bottom: 4rem;
   font-family: $sans-serif-font-family;
 }
 
-.masthead a:hover {
+.header a:hover {
   color:black;
 }
 
-.masthead-title a {
+.header-title a {
   font-size: 2rem;
   text-decoration: none;
   color: $body-color;
 }
 
-.masthead-subtitle {
+.header-subtitle {
   color: $light-gray-color;
 }
 
