@@ -8,7 +8,6 @@
     {{ words | divided_by:180 }} minute read
   {% endif %}
 {% endif %}
-
 {% if post.layout == post %}
   {% assign words = content | number_of_words %}
   {% if words < 180 %}
