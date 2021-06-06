@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "lagrange"
-  spec.version       = "3.0.0"
+  spec.version       = "4.0.0"
   spec.authors       = ["Paul Le"]
   spec.email         = ["hello@paulle.ca"]
 
