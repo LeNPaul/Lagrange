@@ -98,3 +98,12 @@
 .footer a:hover {
   color: $dark-gray-color;
 }
+
+.footer-description {
+  display: block;
+  margin-top:3px;
+  margin-bottom: 1rem;
+  color: $light-gray-color;
+  font-family: $sans-serif-font-family;
+  font-size:0.8rem;
+}

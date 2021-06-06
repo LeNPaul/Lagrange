@@ -1,4 +1,14 @@
 /*
+  Posts
+*/
+
+.posts-container {
+  margin-bottom: 5rem;
+  padding: 0px;
+  list-style: none;
+}
+
+/*
   Thumbnail
 */
 
@@ -43,17 +53,4 @@
 
 .pagination-active:hover {
   background-color: $pagination-button-color;
-}
-
-/*
-  Footer
-*/
-
-.footer-description {
-  display: block;
-  margin-top:3px;
-  margin-bottom: 1rem;
-  color: $light-gray-color;
-  font-family: $sans-serif-font-family;
-  font-size:0.8rem;
 }
