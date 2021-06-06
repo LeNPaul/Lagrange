@@ -1,0 +1,33 @@
+---
+---
+
+$sans-serif-font-family: "Quattrocento Sans", sans-serif;
+$serif-font-family:      "PT Serif", Georgia, "Times New Roman", serif;
+$code-font-family:       "Source Code Pro", monospace;
+
+$body-color:             #505050;
+$link-color:             black;
+
+$code-background-color:   #f5f5f5;
+$pagination-button-color: #e0e0e0;
+
+$dark-gray-color:        #333;
+$light-gray-color:       #999;
+$extra-light-gray-color: #ccc;
+
+$container-responsive-width: 768px;
+$elements-responsive-width:  30em;
+
+$icon-transition-time: .5s;
+$envelope-color:       #f39c12;
+$twitter-color:        #00aced;
+$instagram-color:      #375989;
+$github-color:         #343434;
+$linkedin-color:       #0073a4;
+$facebook-color:       #3d5b99;
+$pinterest-color:      #bd081c;
+$medium-color:         #00AB6C;
+$codepen-color:        black;
+$rss-color:            #ff6600;
+
+@import "-sections-dir";

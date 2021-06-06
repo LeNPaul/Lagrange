@@ -1,0 +1,56 @@
+/*
+  Posts
+*/
+
+.posts-container {
+  margin-bottom: 5rem;
+  padding: 0px;
+  list-style: none;
+}
+
+/*
+  Thumbnail
+*/
+
+.thumbnail-container {
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.thumbnail-container img{
+  margin-top: -11.5%;
+  margin-bottom: -11.5%;
+}
+
+/*
+  Pagination
+*/
+
+.pagination {
+  overflow: hidden;
+  font-family: $sans-serif-font-family;
+  text-align: center;
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+.pagination-button {
+  color: $light-gray-color;
+  border: 1px solid $pagination-button-color;
+  padding: 15px 45px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.pagination-active {
+  color: $link-color;
+}
+
+.pagination-active:hover {
+  background-color: $pagination-button-color;
+}
