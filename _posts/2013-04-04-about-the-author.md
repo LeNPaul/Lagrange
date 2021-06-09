@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "About the Author"
+title: "يوم أدركت أن صديقتي لم تعد صديقتي"
 author: "Paul Le"
 categories: journal
 tags: [documentation,sample]
