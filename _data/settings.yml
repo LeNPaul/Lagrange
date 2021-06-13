@@ -7,9 +7,9 @@ disqus:
 google-ID: 'UA-112060364-1'
 
 menu:
-- {name: 'عني/ About',   url: 'about.html'}
+- {name: 'About/عني',   url: 'about.html'}
 - {name: 'Diaries / ثرثرة', url: 'writing.html'}
-- {name: 'Where to find me?/ فين كمان؟', url: 'contact.html'}
+- {name: 'Knock..Knock', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
