@@ -1,6 +1,6 @@
 ---
 layout: page
-title: أهلين/ About
+title: عني/ About
 permalink: /about
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: فين كمان؟/Where else to find me
+title: فين كمان؟/Where to find me
 permalink: /contact
 ---
 
