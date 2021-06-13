@@ -4,4 +4,4 @@ title: Contact
 permalink: /contact
 ---
 
-If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=%40paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new)
+ [Find me babbling on Twitter](https://twitter.com/kintsu9i), or [Stalk my visual diary here](https://www.instagram.com/kintsu9ii/).
