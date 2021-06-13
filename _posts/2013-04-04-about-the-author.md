@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "يوم أدركت أن صديقتي لم تعد صديقتي"
-author: "Paul Le"
+title: "هايكو متعثرة"
+author: "نور"
 categories: journal
 tags: [documentation,sample]
 image: cutting.jpg
