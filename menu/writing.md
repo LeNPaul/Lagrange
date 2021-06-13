@@ -1,5 +1,5 @@
 ---
 layout: archive
-title: Writing
+title: Diaries / ثرثرة
 permalink: /writing
 ---
