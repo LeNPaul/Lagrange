@@ -9,7 +9,7 @@ tags: [documentation,sample]
 Sea surface temperature (SST) is studied more often than deep sea temperatures. More recently there has been more interest in deep ocean temperatures, but there has been a limitation to research due to the lack of measurement in those areas. The objective of this NERTO research is to make a high-resolution reconstruction of deep ocean temperatures of depths up to 5,500 meters at ¼ degree spatial resolution and 5-day time resolution with 33 layers for 26 years.
 
 # Background
-## What is covariance?
+### What is covariance?
 Covariance measures how much two variables change. Typically in climatology covariance is considered between stations, grid boxes, or grid points. Covariance between two stations i and j can be denoted as:
 
 $$ \sum _{ij}$$
@@ -25,7 +25,7 @@ Covarance can then be computed by first computing anomalies:
 $$ A_{N \times Y} = [a_{it}]_{N\times Y} =  [x_{it} - \bar x_{i}]_{N\times Y}$$
 
 Where:
-$$\bar x = \frac1 Y \sum_{t=1} ^Y x_{it}$$
+$$\bar x_i = \frac1 Y \sum_{t=1} ^Y x_{it}$$
 and recall:
 $$ i = 1,2...N$$
 
@@ -36,21 +36,37 @@ $$[\sum_{ij}]_{N\times N} = \frac1 Y A_{N\times Y} A_{Y\times N}^T$$
 
 for this case becuase the data set is so large the  covariance is computed in terms of time rather than in terms of space. Instead of computing the covariance for each station we are computing  the covariance for every year given a specific month. 
 
-$$[\sum_{tt'}]_{Y\times Y} = \frac1 N \sum_{i=1}^N a(t)a(t') = \frac1 N A_{Y\times N} A_{N\times Y}^T$$
+$$[\sum_{tt'}]_{Y\times Y} = \frac1 N \sum_{i=1}^N a(t)a(t') = \frac1 N A_{Y\times N}^T A_{N\times Y}$$
 
 from this we can compute emperical orthogonal functions.
 
-## What are Empirical Orthogonal functions?
-Emperical orthogonal function come from eigenvectors. Consider the square covariance matrix $$[\sum_{tt'}]_{Y\times Y} $$ and some vector  w which runs parallel to $$[\sum_{tt'}]_{Y\times Y} $$ . There is a scalar or eigenvalue $$\lambda$$ which scales w such that:
+### What are Empirical Orthogonal functions?
+Emperical orthogonal function come from eigenvectors. Eigenvectors are vectors that point in the same direction as their corresponding matrix.
 
-$$[\sum _{tt'}]_{Y\times Y} \times w = \lambda \times w$$
+Consider the square covariance matrix $$[\sum_{tt'}]_{Y\times Y} $$ and some vector  w which runs parallel to $$[\sum_{tt'}]_{Y\times Y} $$ . There is a scalar or eigenvalue $$\lambda$$ which scales w such that:
+
+$$[\sum _{tt'}]_{Y\times Y}  \vec{v} = \lambda \vec{v}$$
  
 The first few eigenvectors of a large climate covariance matrix of climate data often represent some typical patterns of climate variability (Shen and Somerville 97). Usually EOFs are computed using singular value decomposition (SVD), but the method  used here is first finding covariance in time and then computing eigenvectors from that covariance matrix followed by multiplying the vectors to the anomaly matrix.
 
-For example the reconstruction of climate data using the first eigen vector would look like
-$$A \times w_1$$
+### Covariance in Time and EOFs 
+Consider some data $$x_{it}$$ whose anomalies are $$ A_{N \times Y}$$ their spatial covariance is then:
+
+$$ [C_{ij}]_{N\times N} = A_{N \timesY} A_{Y\times N}^T$$
+
+and their covarience with respect to time is:
+
+$$ [\sum_{tt'}]_{Y\times Y} = A_{Y\times N}^T A_{N \timesY}$$
+
+In space there is some vector $$\vec{v}$$ that points in the same direction as $$ [C_{ij}]_{N\times N}$$ such that
+
+$$ [C_{ij}]_{N\times N} \vec{v} = \rho \vec{v}$$
+
+Recall that in time there is some other vector $$\vec{v}$$ that points in the same direction as $$[\sum _{tt'}]_{Y\times Y}$$ such that:
+$$[\sum _{tt'}]_{Y\times Y}  \vec{v} = \lambda \vec{v}$$
 
 #  Week 1
+## The Data
 The first step taken to model this data was to start with a larger resolution and therefore a smaller amount of data. Consider then computing emperical orthogonal functions (EOFs) for each month from 1950-2003 for 33 depths of the ocean. On a one degree by one degree grid this would mean:
 
 $$ 1 ^\circ \times 1^\circ \times 33 \ layers\ = 360 \times 180 \times 33 = 2,138,400\ Bytes\ of\ data\ per\ month$$
@@ -79,6 +95,7 @@ The total amount of bytes is:
 
 $$ 1901 \ files \times 274MB = 521GB \times \ temperature \ and \ salinity = 521 \times 2 = 1.04TB \times 3 = 3TB$$
 
+## Computing EOFs
 As mentioned above EOFs are computed by finding the eigenvectors of the temporal covariance matrix. In this case the covariance matrix is computed on a 1 degree grid for 54 years therefor N = 54. Eigenvectors should be of dimension 1 by N and there should be N eigenvectors for each year. 
 
 Prior to computing EOFs the climatology for the smaller data is computed along with the standard deviation. The following figures are the results of computing the climatology, standard deviation, anomalies, and EOFs:
