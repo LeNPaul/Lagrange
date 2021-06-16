@@ -50,20 +50,55 @@ $$[\sum _{tt'}]_{Y\times Y}  \vec{v} = \lambda \vec{v}$$
 The first few eigenvectors of a large climate covariance matrix of climate data often represent some typical patterns of climate variability (Shen and Somerville 97). Usually EOFs are computed using singular value decomposition (SVD), but the method  used here is first finding covariance in time and then computing eigenvectors from that covariance matrix followed by multiplying the vectors to the anomaly matrix.
 
 ### Covariance in Time and EOFs 
-Consider some data $$x_{it}$$ whose anomalies are $$ A_{N \times Y}$$ their spatial covariance is then:
+Consider some data $$x_{it}$$ whose anomalies are $$ A_{N\times Y}$$ their spatial covariance is then:
 
-$$ [C_{ij}]_{N\times N} = A_{N \timesY} A_{Y\times N}^T$$
+$$ [C_{ij}]_{N\times N} = A_{N\times Y} A_{Y\times N}^T$$
 
 and their covarience with respect to time is:
 
-$$ [\sum_{tt'}]_{Y\times Y} = A_{Y\times N}^T A_{N \timesY}$$
+$$ [\sum_{tt'}]_{Y\times Y} = A_{Y\times N}^T A_{N\times Y}$$
 
 In space there is some vector $$\vec{v}$$ that points in the same direction as $$ [C_{ij}]_{N\times N}$$ such that
 
-$$ [C_{ij}]_{N\times N} \vec{v} = \rho \vec{v}$$
+$$ [C_{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
 
 Recall that in time there is some other vector $$\vec{v}$$ that points in the same direction as $$[\sum _{tt'}]_{Y\times Y}$$ such that:
+
 $$[\sum _{tt'}]_{Y\times Y}  \vec{v} = \lambda \vec{v}$$
+
+Meaning $$\vec{u}$$ are the eigenvectors of  $$[C_{ij}]_{N\times N}$$ with $$\rho$$ being it's eigenvalues, and $$\vec{v}$$ are the eigenvectors of  $$[\sum _{tt'}]_{Y\times Y}$$ with $$\lambda$$ being it's eigenvalues. 
+
+The problem we are trying to answer is how these things eigenvectors and eigenvalues relate? Recall we defined covariance as:
+
+$$[\sum_{tt'}]_{Y\times Y} = \frac1 N A_{Y\times N}^T A_{N\times Y} $$
+
+Because we are considering the covariances eigenvectors we can ignore the  1/N as this will only scale the unique vector and not change its direction. Therefore:
+
+$$[\sum_{tt'}]_{Y\times Y} = A_{Y\times N}^T A_{N\times Y} $$
+
+plugging this into its eigen value problem:
+
+$$A_{Y\times N}^T A_{N\times Y} \vec{v} = \lambda \vec{v}$$
+
+Multiply both sides by A:
+
+$$A_{N\times Y} A_{Y\times N}^T A_{N\times Y} \vec{v} = \lambda A_{N\times Y}\vec{v}$$
+
+because $$[C_{ij}]_{N\times N} = A_{N\times Y} A_{Y\times N}^T$$ we can redefine the equation above as:
+
+$$[C_{ij}]_{N\times N} A_{N\times Y} \vec{v} = \lambda A_{N\times Y}\vec{v}$$
+
+let $$\vec{w} = A_{N\times Y} \vec{v}$$ this gives:
+
+$$[C_{ij}]_{N\times N}\vec{w} = \lambda\vec{w}$$
+
+This is similar to:
+$$ [C_{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
+
+Comparing the two equations we can conclude:
+$$ \rho = lambda$$
+and 
+$$\vec{v} = \fraction{\vec{w}} {| \mathbf{W$$} \|
 
 #  Week 1
 ## The Data
