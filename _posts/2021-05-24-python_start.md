@@ -96,9 +96,9 @@ This is similar to:
 $$ [C_{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
 
 Comparing the two equations we can conclude:
-$$ \rho = lambda$$
+$$ \rho = \lambda$$
 and 
-$$\vec{v} = \fraction{\vec{w}} {| \mathbf{W$$} \|
+$$\vec{v} = \frac{\vec{w}} {| \mathbf{w$$} \|$$
 
 #  Week 1
 ## The Data
