@@ -62,17 +62,14 @@ In space there is some vector $$\vec{v}$$ that points in the same direction as $
 
 $$ [C_{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
 
-Recall that in time there is some other vector $$\vec{v}$$ that points in the same direction as $$[\sum _{tt'}]_{Y\times Y}$$ such that:
+In time there is some other vector $$\vec{v}$$ that points in the same direction as $$[\sum _{tt'}]_{Y\times Y}$$ such that:
 
 $$[\sum _{tt'}]_{Y\times Y}  \vec{v} = \lambda \vec{v}$$
 
 Meaning $$\vec{u}$$ are the eigenvectors of  $$[C_{ij}]_{N\times N}$$ with $$\rho$$ being it's eigenvalues, and $$\vec{v}$$ are the eigenvectors of  $$[\sum _{tt'}]_{Y\times Y}$$ with $$\lambda$$ being it's eigenvalues. 
 
-The problem we are trying to answer is how these things eigenvectors and eigenvalues relate? Recall we defined covariance as:
-
-$$[\sum_{tt'}]_{Y\times Y} = \frac1 N A_{Y\times N}^T A_{N\times Y} $$
-
-Because we are considering the covariances eigenvectors we can ignore the  1/N as this will only scale the unique vector and not change its direction. Therefore:
+The problem we are trying to answer is how these things eigenvectors and eigenvalues relate? Above we defined covariance in time as
+$$[\sum_{tt'}]_{Y\times Y} = \frac1 N A_{Y\times N}^T A_{N\times Y} $$. We can ignore the  1/N as this will only scale the unique vector and not change its direction. Therefore:
 
 $$[\sum_{tt'}]_{Y\times Y} = A_{Y\times N}^T A_{N\times Y} $$
 
