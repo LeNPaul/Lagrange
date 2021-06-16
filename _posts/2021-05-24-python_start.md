@@ -94,8 +94,7 @@ $$ [C_{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
 
 Comparing the two equations we can conclude:
 $$ \rho = \lambda$$
-and 
-$$ \vec{v} = \frac\vec{w} \norm{\vec{w}}$$
+and $$ \vec{v} = \frac\vec{w} \vec{w}$$
 
 #  Week 1
 ## The Data
