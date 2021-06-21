@@ -92,7 +92,7 @@ $$[C_{ij}]_{N\times N}\vec{w} = \lambda\vec{w}$$
 This is similar to:
 $$ [C_{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
 
-Comparing the two equations we can conclude: $$ \rho = \lambda$$ and $$ \vec{v} = $$
+Comparing the two equations we can conclude: $$ \rho = \lambda$$ and $$ \vec{w} = \frac\vec{v} ||\vec{v}|| $$
 
 #  Week 1
 ## The Data
