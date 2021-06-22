@@ -2,7 +2,7 @@
 layout: post
 title:  "Deeplearning.ai Neural Networks and Deep Learning Week 1 & Week 2"
 categories: [ Machine Learning, Study Notes ]
-image: assets/images/PostsImages/DeepLearningCoursera1Blog1/Notebookcover.png
+image: assets/img/PostsImages/DeepLearningCoursera1Blog1/Notebookcover.png
 author : Noor
 ---
 
@@ -32,7 +32,7 @@ A binary classification problem that a neural network could solve is a cat calss
 i.e) an image of 64px is converted into a feature vector of 64X64X3 size = 12288 (n), since its RGB values are going to be matrices of 64X64 size.
 
 ### Notation
-<img src="/assets/images/PostsImages/DeepLearningCoursera1Blog1/Screen Shot 2020-09-21 at 2.34.11 AM.png" alt="notation shot" width="700">
+<img src="/assets/img/PostsImages/DeepLearningCoursera1Blog1/Screen Shot 2020-09-21 at 2.34.11 AM.png" alt="notation shot" width="700">
 
  * `Training example -> (x,y)`, where x belongs to the feature vector of size n and y belongs to the output vector of values of either {0,1}.
 
@@ -44,13 +44,13 @@ i.e) an image of 64px is converted into a feature vector of 64X64X3 size = 12288
 
 
 ### Logistic Regression
-<img src="/assets/images/PostsImages/DeepLearningCoursera1Blog1/Screen Shot 2020-09-21 at 3.23.44 AM.png" alt="logistic regression shot" width="700">
+<img src="/assets/imag/PostsImages/DeepLearningCoursera1Blog1/Screen Shot 2020-09-21 at 3.23.44 AM.png" alt="logistic regression shot" width="700">
 
 In logistic regression we take an input which is x that belongs to a feature vector of size nx and we want to output a value either 0 or 1, this can be an indication of the probability of the occurance of a certain event (a photo that has a cat in it), given a certain x as an input `y^ = P(y=1|x)`
 and with having w and b as parameters to these inputs that can affect this probability or `y^` ,the output must be dependant on w and b. but multiplying the transpose of `w` with `X` and adding `b` vector will yield numbers that can be bigger than 1 or smaller than 0, so to limit the output to these two duels we insert our equation into a sigmoid function that evaluates the output into either a 0 or a 1 depending on w and b in our equation which now we call it `Z` as an input to the sigmoid function.
 
 ### Cost Function
-<img src="/assets/images/PostsImages/DeepLearningCoursera1Blog1/Screen Shot 2020-09-21 at 3.47.22 AM.png" alt="cost function shot" width="700">
+<img src="/assets/img/PostsImages/DeepLearningCoursera1Blog1/Screen Shot 2020-09-21 at 3.47.22 AM.png" alt="cost function shot" width="700">
 
 while training our algorithm to compute the best w and b parameter values, we need to make it adjust to the parameters that give the least error. by denoting `y^` as the output computed by the algorithm and `y` as the true output in our data set, we define out loss function to be the metric of error, and to minimize it, the algorithm adjusts the parameters `(w & b)` to yield the `y^` that's close enough to `y` as possible : `L(y^,y) = - (ylog y^ + (1-y) log (1-y^))`.
 
@@ -59,7 +59,7 @@ but this will calculate the error per training example, if we want to compute th
 it's defined as the summation of the errors for each training example averaged over their number and it gives an indication about how fit are our parameters w and b for computing outputs that are as close to the true outputs as possible.
 
 ### Gradient Descent
-<img src="/assets/images/PostsImages/DeepLearningCoursera1Blog1/Screen Shot 2020-09-21 at 5.32.30 AM.png" alt="cost function shot" width="700">
+<img src="/assets/img/PostsImages/DeepLearningCoursera1Blog1/Screen Shot 2020-09-21 at 5.32.30 AM.png" alt="cost function shot" width="700">
 
 Is basically changing the value of the parameters that gives us the least error (cost function), we randomly initialize our parameters at first and then move in the direction (values of `w` and `b` ) that gives us the least error.
 

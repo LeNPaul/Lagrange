@@ -2,7 +2,7 @@
 layout: post
 title:  "My first sunset in Germany and a new year's start"
 categories: [ Resolutions, Travel, Germany ]
-image: assets/images/PostsImages/MyFirstSunsetInGermany/hofgarten1.jpg
+image: assets/img/PostsImages/MyFirstSunsetInGermany/hofgarten1.jpg
 author : Noor
 ---
 
@@ -61,59 +61,59 @@ On my way, I passed by the Isar river and reached to Marienplatz through Tal str
 
 <!-- ![walking]({{ site.baseurl }}assets/images/PostsImages/MyFirstSunsetInGermany/hofgarten.jpg) -->
 
- <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/isar_river.jpg" alt="view on isar river" width="400">
+ <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/isar_river.jpg" alt="view on isar river" width="400">
 
 <div class="row">
   <div class="column">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/tal.jpg" alt="tal street" width="300">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/tal.jpg" alt="tal street" width="300">
   </div>
     <div class="column">
 
 
   </div>
   <div class="column">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/streetview.jpg" alt="tal street with buildings and shops" width="300">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/streetview.jpg" alt="tal street with buildings and shops" width="300">
   </div>
 </div>
 <div class="row">
   <div class="column">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/artwork_gallery.jpg" alt="artwork gallery" width="350">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/dancing_figurenes.jpg" alt="dancing figurenes" width="350">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/artwork_gallery.jpg" alt="artwork gallery" width="350">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/dancing_figurenes.jpg" alt="dancing figurenes" width="350">
   </div>
   <div class="column">
   </div>
 </div>
-<img src="/assets/images/PostsImages/MyFirstSunsetInGermany/free_falling.jpg" alt="free falling painting" width="400" text-align="center">
-<img src="/assets/images/PostsImages/MyFirstSunsetInGermany/new_town_hall.jpg" alt="munich new town hall" width="600">
+<img src="/assets/img/PostsImages/MyFirstSunsetInGermany/free_falling.jpg" alt="free falling painting" width="400" text-align="center">
+<img src="/assets/img/PostsImages/MyFirstSunsetInGermany/new_town_hall.jpg" alt="munich new town hall" width="600">
 <div class="row">
   <div class="column">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/new_town_hall2.jpg" alt="munich new town hall" width="300">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/new_town_hall2.jpg" alt="munich new town hall" width="300">
   </div>
     <div class="column">
 
 
   </div>
   <div class="column">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/theantinestrentr.jpg" alt="theantine street" width="300">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/theantinestrentr.jpg" alt="theantine street" width="300">
   </div>
 </div>
- <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/theantine_church.jpg" alt="theantine church" width="600">
+ <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/theantine_church.jpg" alt="theantine church" width="600">
 <div class="row">
   <div class="column">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/theantinestr1.jpg" alt="theantine street" width="300">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/theantinestr1.jpg" alt="theantine street" width="300">
   </div>
 <div class="column">
   </div>
   <div class="column">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/hofgarten_entrance.jpg" alt="hofgarten entrance" width="300">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/hofgarten_entrance.jpg" alt="hofgarten entrance" width="300">
   </div>
     <div class="column">
   </div>
   <div class="column">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/selfie_with_dome.jpg" alt="selfie with hofgarten dome" width="250">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/selfie_with_dome.jpg" alt="selfie with hofgarten dome" width="250">
   </div>
     <div class="column">
-    <img src="/assets/images/PostsImages/MyFirstSunsetInGermany/hofgarten2.jpg" alt="hofgarten" width="500">
+    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/hofgarten2.jpg" alt="hofgarten" width="500">
   </div>
 </div>
 

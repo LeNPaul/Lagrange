@@ -2,7 +2,7 @@
 layout: post
 title:  "Getting stuck with stuff like a pro"
 categories: [Outreachy]
-image: assets/images/PostsImages/GettingStuckWithThings/inexplicable_2x.png
+image: assets/img/PostsImages/GettingStuckWithThings/inexplicable_2x.png
 author : Noor
 ---
 
