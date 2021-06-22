@@ -3,7 +3,7 @@ layout: post
 title:  "What might be my true engine?"
 categories: [Outreachy]
 author : Noor
-image: assets/img/PostsImages/coreValues/mulan-cover.jpg
+image: mulan-cover.jpg
 
 ---
 

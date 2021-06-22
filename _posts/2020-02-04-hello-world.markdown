@@ -2,7 +2,7 @@
 layout: post
 title:  "Why did I make this blog?"
 categories: [ Personal ]
-image: assets/images/PostsImages/WhyIMadeThisBlog/demo1.jpg
+image: demo1.jpg
 author : Noor
 ---
 

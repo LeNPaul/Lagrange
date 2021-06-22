@@ -2,7 +2,7 @@
 layout: post
 title:  "My first sunset in Germany and a new year's start"
 categories: [ Resolutions, Travel, Germany ]
-image: assets/img/PostsImages/MyFirstSunsetInGermany/hofgarten1.jpg
+image: hofgarten1.jpg
 author : Noor
 ---
 
