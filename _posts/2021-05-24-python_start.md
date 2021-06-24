@@ -92,7 +92,9 @@ $$[C_{ij}]_{N\times N}\vec{w} = \lambda\vec{w}$$
 This is similar to:
 $$ [C_{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
 
-Comparing the two equations we can conclude: $$ \rho = \lambda$$ and $$ \vec{w} = A \vec{v}$$. $$ \vec{w}$$ does not equal to one so  it needs to be normalized. To do  this  we divide it by its magnitude $$vec{w}$$ \||$$\vec{w}$$||. 
+Comparing the two equations we can conclude: $$ \rho = \lambda$$ and $$ \vec{w} = A \vec{v}$$. $$ \vec{w}$$ does not equal to one so  it needs to be normalized. To do this  we divide it by its magnitude 
+
+$$ \frac{A \vec{v}} {norm  \vec{v}}
 
 #  Week 1
 ## The Data
