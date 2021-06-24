@@ -5,8 +5,12 @@ author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
 ---
+
+
 # Motivation
 Sea surface temperature (SST) is studied more often than deep sea temperatures. More recently there has been more interest in deep ocean temperatures, but there has been a limitation to research due to the lack of measurement in those areas. The objective of this NERTO research is to make a high-resolution reconstruction of deep ocean temperatures of depths up to 5,500 meters at ¼ degree spatial resolution and 5-day time resolution with 33 layers for 26 years.
+
+
 
 # Background
 ### What is covariance?
@@ -97,7 +101,7 @@ Comparing the two equations we can conclude: $$ \rho = \lambda$$ and $$ \vec{w} 
 $$ EOF = \frac{A \vec{v}} {norm(A \vec{v})} $$
 
 #  Week 1
-## The Data
+### The Data
 The first step taken to model this data was to start with a larger resolution and therefore a smaller amount of data. Consider then computing emperical orthogonal functions (EOFs) for each month from 1950-2003 for 33 depths of the ocean. On a one degree by one degree grid this would mean:
 
 $$ 1 ^\circ \times 1^\circ \times 33 \ layers\ = 360 \times 180 \times 33 = 2,138,400\ Bytes\ of\ data\ per\ month$$
@@ -126,7 +130,7 @@ The total amount of bytes is:
 
 $$ 1901 \ files \times 274MB = 521GB \times \ temperature \ and \ salinity = 521 \times 2 = 1.04TB \times 3 = 3TB$$
 
-## Computing EOFs
+### Computing EOFs
 As mentioned above EOFs are computed by finding the eigenvectors of the temporal covariance matrix. In this case the covariance matrix is computed on a 1 degree grid for 54 years therefor N = 54. Eigenvectors should be of dimension 1 by N and there should be N eigenvectors for each year. 
 
 Prior to computing EOFs the climatology for the smaller data is computed along with the standard deviation. The following figures are the results of computing the climatology, standard deviation, anomalies, and EOFs:
