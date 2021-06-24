@@ -21,6 +21,6 @@ pagination:
   next_page: 'Newer'
   previous_page: 'Older'
 
-related_posts: 'Check out:'
+#related_posts: 'Check out:'
 
 post_date_prefix: 'Written on'
