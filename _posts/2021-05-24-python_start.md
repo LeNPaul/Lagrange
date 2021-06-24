@@ -7,12 +7,12 @@ tags: [documentation,sample]
 ---
 
 
-# Motivation
+## Motivation
 Sea surface temperature (SST) is studied more often than deep sea temperatures. More recently there has been more interest in deep ocean temperatures, but there has been a limitation to research due to the lack of measurement in those areas. The objective of this NERTO research is to make a high-resolution reconstruction of deep ocean temperatures of depths up to 5,500 meters at ¼ degree spatial resolution and 5-day time resolution with 33 layers for 26 years.
 
 
 
-# Background
+## Background
 ### What is covariance?
 Covariance measures how much two variables change. Typically in climatology covariance is considered between stations, grid boxes, or grid points. Covariance between two stations i and j can be denoted as:
 
@@ -100,7 +100,7 @@ Comparing the two equations we can conclude: $$ \rho = \lambda$$ and $$ \vec{w} 
 
 $$ EOF = \frac{A \vec{v}} {norm(A \vec{v})} $$
 
-#  Week 1
+##  Week 1
 ### The Data
 The first step taken to model this data was to start with a larger resolution and therefore a smaller amount of data. Consider then computing emperical orthogonal functions (EOFs) for each month from 1950-2003 for 33 depths of the ocean. On a one degree by one degree grid this would mean:
 
