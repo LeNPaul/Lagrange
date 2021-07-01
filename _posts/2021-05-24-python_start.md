@@ -129,7 +129,7 @@ $$
 The actual size of a one month file is 5.4 GB which is much easier to work with as a personal computer could read all of this data in at once, and perform the math needed to compute EOFs. 
 
 ## Computing Standard Deviation and Climatology
-Before computing EOFs climatology  and standard deviation are computed. These are computed for all 33 depths at once therefore each year has N = 360*180*33 = 2,138,400 data points. In python it’s simple to compute climatology(mean) and standard deviation:
+Before computing EOFs climatology  and standard deviation are computed. These are computed for all 33 depths at once therefore each year has $$  N = 360 \times 180 \times 33 = 2,138,400 $$ data points. In python it’s simple to compute climatology(mean) and standard deviation:
 
 ```python
 import warnings
@@ -194,5 +194,121 @@ stnd_anom = anom/sdev
 ![anomalies]({{ site.url }}/assets/img/post1/std_anom_jan1998_depth600.png){: .center-image }
 
 <center>Figure 9: Standardized anomalies of Jan 1998 600m computed using python</center>
+
+Closer to the poles the grid boxes tend to get smaller. For this reason the standardized anomalies are multiplied by an area weight. This weight is based on latitude radian values.
+
+$$ Cos(\phi \times \frac{\pi}{180}) $$
+
+where %% \phi$$ is the lattitude values. 
+
+from here we find weighted anomalies by:
+
+$$ A_w = \frac{A}{\sigma} \times Cos(\phi \times \frac{\pi}{180}) $$
+
+The weighted anomalies are what are used to compute covariance and then EOFs.
+
+## Compute Covariance, Eigenvectors, and Eigenvalues
+
+Because the data takes into account land, there are NaN values in the data. To get rid of this we take advantage of the fact that no matter what year it is land does not move. As a result if a row has a NaN value every column in that row also has a NaN value meaning that entire row is NaN. This makes it easy to know how many rows have values and how many rows do not have values. We can then fill a new matrix with only values and no NaNs.
+
+Finding how many rows have values:
+```python
+na_rows = np.argwhere(np.isnan(anom) == False)
+num_rows = []
+count = 0
+for i in range(1036304):
+    num_rows.append(na_rows[i*54,0])
+numrows = np.array(num_rows)
+```
+
+Inputing values into new matrix:
+```python
+new_anom = np.empty((numrows.shape[0],Y))
+for i in range(numrows.shape[0]):
+        new_anom[i,:] = weighted_A[numrows[i],:]
+new_anom = np.mat(new_anom)
+```
+
+Covariance is computed as explained above:
+
+```python
+cov = (new_anom.transpose() * new_anom)/N
+```
+
+The eigenvalues and eigenvectors are found using:
+```python
+eigvals, eigvecs = la.eig(cov)
+```
+
+The figure below shows both the variance percentage and cumulative variance percentage. Variance shows the amount of the original data each eigenvalue explains. The cumulative variance reflects the amount of the original data is explained at that eigenvalue and the values before. 
+
+![Scree]({{ site.url }}/assets/img/post1/scree_plot.png){: .center-image }
+
+<center>Figure 10: Variance percentage and Cumulative variance percentage for Jan</center>
+
+For the most part this plot shows behavior that is typical. Eigenvalues should decrease. They are sorted in order of importance. The only mode that is atypical is mode 10. For this reason the maximum amount of modes used in the reconstruction will be less than 10. 
+
+## Computing EOFs for the Smaller Dataset
+EOFs are computed by finding the eigenvectors of the temporal covariance matrix, multiplying eigenvectors by the anomalies, and dividing the magnitude of the multiplication. 
+
+```python
+EOF = np.empty((anom.shape[0],anom.shape[1]))
+for i in range(anom.shape[1]):
+    for j in range(anom.shape[0]): 
+        EOF[j,i] = weighted_A[j,:] * eigvecs[:,i]
+        
+mag = np.zeros(Y)
+for i in range(Y):
+    mag[i] = np.linalg.norm(new_EOF[:,i])
+    EOF[:,i] = EOF[:,i]/mag[i]
+```
+
+Where new_EOF is just the EOF matrix without NaN values. As a way to check that these EOFs are valid the magnitude of each EOF mode should be 1.
+
+```python
+# checking magnitude of EOF. Each should be 1
+for i in range (54):
+    EOF1 = np.mat(EOF[:,i])
+    nan_flag = np.isnan(EOF1)
+    EOF1_clean = EOF1[~nan_flag]
+    print(np.linalg.norm(EOF1_clean))
+```
+
+These are the resulting EOFs computed from time covariance. 
+
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/1modes_5m-5500m_577_Reconstructed_Temp_Anomaly_Jan1998_Bn.png){: .center-image }
+
+<center>Figure 11: EOF mode 1</center>
+
+![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_0_depth_10.png){: .center-image }
+
+<center>Figure 12: EOF mode 1 computed using time covariance </center>
+
+
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/2modes_5m-5500m_577_Reconstructed_Temp_Anomaly_Jan1998_Bn.png){: .center-image }
+
+<center>Figure 13: EOF mode 2</center>
+
+![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_1_depth_10.png){: .center-image }
+
+<center>Figure 14: EOF mode 2 computed using time covariance </center>
+
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/3modes_5m-5500m_577_Reconstructed_Temp_Anomaly_Jan1998_Bn.png){: .center-image }
+
+<center>Figure 15: EOF mode 3</center>
+
+![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_2_depth_10.png){: .center-image }
+
+<center>Figure 16: EOF mode 3 computed using time covariance </center>
+
+![EOF]({{ site.url }}/assets/css/img/greg_EOF/4modes_5m-5500m_577_Reconstructed_Temp_Anomaly_Jan1998_Bn.png){: .center-image }
+
+<center>Figure 17: EOF mode 4</center>
+
+![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_3_depth_10.png){: .center-image }
+
+<center>Figure 18: EOF mode 4 computed using time covariance </center>
+
+
 
 
