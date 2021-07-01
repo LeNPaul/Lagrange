@@ -100,7 +100,7 @@ Comparing the two equations we can conclude: $$ \rho = \lambda$$ and $$ \vec{w} 
 $$ EOF = \frac{A \vec{v}} {norm(A \vec{v})} $$
 
 ## The Data
-The data used in the reconstruction of ocean temperatures is from JPL’s non-Boussinesq ocean general circulation model (OGCM). This data was initially collected on a $$1/4^\circ$$ by $$1/4^\circ$$ grid with ocean temperatures (in $$c^\circ$$) of multiple depths (in m) taken for 26 years. The data  is taken every 5 days making this quite a large problem for computing EOFs. The total amount of bytes needed to be read is:
+The data used in the reconstruction of ocean temperatures is from JPL’s non-Boussinesq ocean general circulation model (OGCM). This data was initially collected on a $$1/4^\circ$$ by $$1/4^\circ$$ grid with ocean temperatures (in $$ ^\circ c$$) of multiple depths (in m) taken for 26 years. The data  is taken every 5 days making this quite a large problem for computing EOFs. The total amount of bytes needed to be read is:
 
 $$1/4^\circ \times 1/4^\circ \times 33 \ layers \  \times 5 \ days$$
 
@@ -117,7 +117,7 @@ The total amount of bytes is:
 
 $$ 1901 \ files \times 274MB = 521GB \times \ temperature \ and \ salinity = 521 \times 2 = 1.04TB \times 3 = 3TB$$
 
-To model this data we start with a larger resolution and therefore a smaller amount of data. Consider then computing EOFs for each month from 1955-2003 for 33 depths of the ocean. On a one degree by one degree grid this would mean:
+To model this data we start with a larger resolution and therefore a smaller amount of data. Consider instead computing EOFs for each month from 1955-2003 for 33 depths of the ocean. On a one degree by one degree grid this would mean:
 
 $$ 1 ^\circ \times 1^\circ \times 33 \ layers\ = 360 \times 180 \times 33 = 2,138,400\ Bytes\ of\ data\ per\ month$$
 
@@ -170,7 +170,7 @@ anom = data - clim
 ```
 ![anomalies]({{ site.url }}/assets/css/img/greg_anom/Top Layer577_Reconstructed_Temp_Anomaly_Jan1998.png){: .center-image }
 
-<center>Figure 5: Anomalies of Jan 1998 top layer</center>
+<center>Figure 5: Anomalies of Jan 1998 top layer from Shen et al 2017</center>
 
 ![anomalies]({{ site.url }}/assets/img/post1/anom_jan1998_depth5.png){: .center-image }
 
@@ -179,7 +179,7 @@ anom = data - clim
 
 ![anomalies]({{ site.url }}/assets/css/img/greg_anom/600m577_Reconstructed_Temp_Anomaly_Jan1998.png){: .center-image }
 
-<center>Figure 7: Anomalies of Jan 1998 600m</center>
+<center>Figure 7: Anomalies of Jan 1998 600m Shen et al 2017</center>
 
 
 ![anomalies]({{ site.url }}/assets/img/post1/anom_jan1998_depth600.png){: .center-image }
@@ -199,8 +199,6 @@ stnd_anom = anom/sdev
 Closer to the poles the grid boxes tend to get smaller. For this reason the standardized anomalies are multiplied by an area weight. This weight is based on latitude radian values.
 
 $$ Cos(\phi \times \frac{\pi}{180}) $$
-
-where %% \phi$$ is the lattitude values. 
 
 from here we find weighted anomalies by:
 
