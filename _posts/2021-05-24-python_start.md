@@ -294,6 +294,6 @@ These are the resulting EOFs computed from time covariance.
 
 <center>Figure 14: EOF mode 4 computed using time covariance </center>
 
-
+These EOFs are consistent with the EOFs in Shen et al. 2017 and will be used for the reconstruction of climate data through multivariate regression.
 
 
