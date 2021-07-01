@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reconstructing Climate data Using Python"
+title: "Computing EOFs Using Covariance in Time"
 author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
