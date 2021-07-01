@@ -4,6 +4,7 @@ title: "Reconstructing Climate data Using Python"
 author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
+image: EOF_jan_mode_3_depth_10.png
 ---
 
 
