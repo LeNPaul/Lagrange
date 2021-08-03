@@ -15,7 +15,7 @@ menu:
 social:
 - {icon: 'github',     link: 'https://github.com/bvenkatakarthik'}
 - {icon: 'twitter',    link: 'https://mobile.twitter.com/karthik27182'}
-- {icon: 'stackexchange', link: 'https://math.stackexchange.com/users/303300/?tab=answers'}
+- {icon: 'stackoverflow', link: 'https://math.stackexchange.com/users/303300/?tab=answers'}
 - {icon: 'envelope',   link: 'mailto:bvenkatakarthik@gmail.com'}
 - {icon: 'rss-square', link: '/feed.xml'}
 # - {icon: 'rss-square', link: '/rss-feed.xml'}
