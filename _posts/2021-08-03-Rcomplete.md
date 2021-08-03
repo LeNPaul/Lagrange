@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "$\mathbb{R}$ is complete"
+title: "Reals are complete"
 author: "Karthik"
 categories: journal
 tags: [documentation,sample]
