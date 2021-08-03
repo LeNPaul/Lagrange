@@ -4,4 +4,4 @@ title: About
 permalink: /about
 ---
 
-Hi I am Bandaru Venkata-Karthik, a math student at Indian Statistical Institute Bangalore.
+Hi I am Bandaru Venkata-Karthik, an MMath student at Indian Statistical Institute Bangalore.
