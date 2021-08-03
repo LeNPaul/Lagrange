@@ -14,7 +14,6 @@ menu:
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
 - {icon: 'github',     link: 'https://github.com/bvenkatakarthik'}
-- {icon: 'twitter',    link: 'https://mobile.twitter.com/karthik27182'}
 - {icon: 'stack-overflow', link: 'https://math.stackexchange.com/users/303300/?tab=answers'}
 - {icon: 'envelope',   link: 'mailto:bvenkatakarthik@gmail.com'}
 - {icon: 'rss-square', link: '/feed.xml'}
