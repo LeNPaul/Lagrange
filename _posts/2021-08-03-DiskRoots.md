@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Text Formatting Examples"
+title: "Disk containing roots"
 author: "Karthik"
 categories: journal
 tags: [documentation,sample]
