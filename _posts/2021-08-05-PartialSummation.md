@@ -11,7 +11,7 @@ $\color{goldenrod}{\text{Pf}} $: To get rid of $ g(k) $s, we can write
 $$ \begin{aligned} \sum_{k=1}^{n} a_k g(k) &= a_1 G(1) + \sum_{k=2}^{n} a_k (G(k) - G(k-1)) \\\\\\ &= \sum_{k=1}^{n} a_k G(k) - \sum_{k=1}^{n-1} a_{k+1} G(k) \\\\\\ &= a_n G(n) + \sum_{k=1}^{n-1} (a_{k} - a_{k+1}) G(k) \end{aligned}$$   
 Let $ M &gt; 0 $ be such that $ \| G(k) \| \leq M $ for all $ k $.   
 Now for $ m &gt; n $ we have   
-$$\begin{aligned} \left| \sum_{k=n+1}^{m} a_k g(k) \right| &= \left| (a_m G(m) - a_n G(n)) + \sum_{k=n}^{m-1} (a_k - a_{k+1}) G(k) \right| \\\\\\ &\leq a_m M + a_n M + \sum_{k=n}^{m-1} (a_k - a_{k+1}) M \\\\\\ &= 2 a_n M ( \to 0 \text{ as } n \to \infty) \end{aligned}$$   
+$$\begin{aligned} \left| \sum_{k=n+1}^{m} a_k g(k) \right| &= \left| (a_m G(m) - a_n G(n)) + \sum_{k=n}^{m-1} (a_k - a_{k+1}) G(k) \right| \\\\\\ &\leq a_m M + a_n M + \sum_{k=n}^{m-1} (a_k - a_{k+1}) M \\\\\\ &= 2 a_n M \text{ } ( \to 0 \text{ as } n \to \infty) \end{aligned}$$   
 So seq of partial sums of $ \sum a_k g(k) $ is Cauchy, hence convergent. 
 
 ----
