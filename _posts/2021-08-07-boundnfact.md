@@ -12,7 +12,7 @@ This sum is $ \int_{1}^{2} \log(2) + \ldots + \int_{n-1}^{n} \log(n) $ $ \geq \i
 
 Also $ \log(2) + \ldots + \log(n-1) $ $ = \int_{2}^{3} \log(2) + \ldots + \int_{n-1}^{n} \log(n-1) $ $ \leq \int_{2}^{3} \log(t)dt + \ldots + \int_{n-1}^{n} \log(t)dt $ $ \leq \int_{1}^{n} \log(t)dt = n \log(n) - n + 1 $.   
 So adding $ \log(n) $,   
-$latex \log(1) + \ldots + \log(n) \leq \log(n) + (n \log(n) - n + 1). $
+$ \log(1) + \ldots + \log(n) \leq \log(n) + (n \log(n) - n + 1). $
 
 Finally,   
 $ n \log(n) - n + 1 $ $ \leq \log(1) + \ldots + \log(n)$ $ \leq \log(n) + (n \log(n) - n + 1). $   
