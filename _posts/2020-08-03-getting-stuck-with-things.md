@@ -50,7 +50,7 @@ I was required to redesign the widget and add more features to it. The process w
 
     [Close private tabs feature PR](https://github.com/mozilla-mobile/firefox-ios/pull/6971#pullrequestreview-458879860)
 
-4. On WWDC 2020, Apple introduced entirely new widgets to iOS, with a new API and they were on the homescreen instead of residing in the notification center. That introduced new opportunities to explore for me since I was working on the widget and a call for having a home screen widget for firefox à la iOS 14 was much expected.
+4. On WWDC 2020, Apple introduced entirely new widgets to iOS, with a new API and they were on the homescreen instead of residing in the today section. That introduced new opportunities to explore for me since I was working on the widget and a call for having a home screen widget for firefox à la iOS 14 was much expected.
 
 5. I had to do research on how Apple's Widget Kit works, so I checked their WWDC talks and code alongs and made a summarized doc for the API. Luckily, a contributer made a PR for the new design using Swift UI, which I took and built on top of it the new features that we were building for the old Today Widget.
 
