@@ -4,7 +4,7 @@ title: "Computing EOFs Using Covariance in Time"
 author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
-image: EOF_jan_mode_3_depth_5.png
+image: EOF_mode_3.gif
 ---
 
 
