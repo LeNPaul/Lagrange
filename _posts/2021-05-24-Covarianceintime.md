@@ -192,9 +192,9 @@ If we divide the anomalies by their respective standard deviation  then their st
 stnd_anom = anom/sdev
 ```
 
-![anomalies]({{ site.url }}/assets/img/post1/std_anom_jan1998_depth600.png){: .center-image }
+![anomalies]({{ site.url }}/assets/img/post1/std_anom_jan1998_depth5.png){: .center-image }
 
-<center>Figure 9: Standardized anomalies of Jan 1998 600m computed using python</center>
+<center>Figure 9: Standardized anomalies of Jan 1998 5m computed using python</center>
 
 Closer to the poles the grid boxes tend to get smaller. For this reason the standardized anomalies are multiplied by an area weight. This weight is based on latitude radian values.
 
