@@ -245,7 +245,7 @@ The figure below shows both the variance percentage and cumulative variance perc
 
 <center>Figure 10: Variance percentage and Cumulative variance percentage for Jan</center>
 
-For the most part this plot shows behavior that is typical. Eigenvalues should decrease. They are sorted in order of importance. The only mode that is atypical is mode 10. For this reason the maximum amount of modes used in the reconstruction will be less than 10. 
+This scree plot shows the percentage variance of each mode and up to how much information cumulatively we will have at a specific mode. The latter will come in handy during the multivariate  regression in telling us how many modes we would want to use for a large percent of information. The percentage variance will tell us how important each mode is.
 
 ## Computing EOFs for the Smaller Dataset
 EOFs are computed by finding the eigenvectors of the temporal covariance matrix, multiplying eigenvectors by the anomalies, and dividing the magnitude of the multiplication. 
@@ -276,20 +276,22 @@ for i in range (54):
 These are the resulting EOFs computed from time covariance. 
 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_1_depth_5.png){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/EOF_Mode1.gif){: .center-image }
 
 <center>Figure 11: EOF mode 1 computed using time covariance </center>
 
+Surprisingly the first mode does not show the most prominent characteristic to be El Nino. This is what previous calculations done in 2D showed. The first mode has the most amount of percent variance being at around 35%. Meaning most variance is found in the first mode. We would expect then for El Nino to appear within this mode but instead we see equitorial upwelling. This is when deep ocean waters rise up and push surface waters outwards. The next mode starts to show the split between cold and warmer waters at the oceans  surface as expected from El Nino. 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_2_depth_5.png){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/EOF_Mode2.gif){: .center-image }
 
 <center>Figure 12: EOF mode 2 computed using time covariance </center>
 
+The last mode is consitent with previous calculations done in 2D. Those calculations show El Nino as the first mode, but here we see it as the third mode. 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_3_depth_5.png){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/EOF_Mode3.gif){: .center-image }
 
 <center>Figure 14: EOF mode 3 computed using time covariance </center>
 
-These EOFs are consistent with the EOFs in Shen et al. 2017 and will be used for the reconstruction of climate data through multivariate regression.
+
 
 
