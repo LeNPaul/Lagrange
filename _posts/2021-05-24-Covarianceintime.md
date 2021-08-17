@@ -143,7 +143,7 @@ sdev = np.std(data_T, axis = 1)
 clim_sdev = np.column_stack((clim, sdev))
 
 ```
-Note the argument “axis = 1”  in each function call for the N by Y data “data_T” tells each function to take the mean or standard deviation for that row. 
+Note the argument “axis = 1”  in each function call for the N by Y data tells each function to take the mean or standard deviation for that row. 
 
 ![Climatology]({{ site.url }}/assets/img/post1/clim_jan_depth5.png){: .center-image }
 
