@@ -276,22 +276,19 @@ for i in range (54):
 These are the resulting EOFs computed from time covariance. 
 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_0_depth_10.png){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_1_depth_5.png){: .center-image }
 
 <center>Figure 11: EOF mode 1 computed using time covariance </center>
 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_1_depth_10.png){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_2_depth_5.png){: .center-image }
 
 <center>Figure 12: EOF mode 2 computed using time covariance </center>
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_2_depth_10.png){: .center-image }
 
-<center>Figure 13: EOF mode 3 computed using time covariance </center>
+![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_3_depth_5.png){: .center-image }
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_jan_mode_3_depth_10.png){: .center-image }
-
-<center>Figure 14: EOF mode 4 computed using time covariance </center>
+<center>Figure 14: EOF mode 3 computed using time covariance </center>
 
 These EOFs are consistent with the EOFs in Shen et al. 2017 and will be used for the reconstruction of climate data through multivariate regression.
 
