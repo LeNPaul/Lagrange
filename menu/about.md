@@ -4,6 +4,6 @@ title: About
 permalink: /about
 ---
 
-Hi I am Bandaru Venkata-Karthik, an MMath student at Indian Statistical Institute Bangalore. I intend to use the blog as a digital notebook of sorts. 
+Hi I am Bandaru Venkata-Karthik, an MMath student at Indian Statistical Institute Bangalore. 
 
-In case you like the posts : I am also on [Math.SE](https://math.stackexchange.com/users/303300/?tab=answers).
+I intend to use the blog as a digital notebook of sorts, and the posts will mostly have routine stuff. I am also on [Math.SE](https://math.stackexchange.com/users/303300/?tab=answers).
