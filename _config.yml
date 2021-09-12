@@ -24,6 +24,12 @@ title:		           'Lagrange'
 description:	       'a minimalist Jekyll theme'
 author:              'Paul Le'
 
+# URL settings
+url:  # Root of the domain. Full URL including protocol, domain, and port (if applicable), e.g., https://example.com
+
+# baseurl is optional: Name of sub-directory where the site is served from, e.g., in https://example.com/Lagrange
+baseurl: /Lagrange # comment this line if the site lives at the root of the domain
+
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
 #  path: rss-feed.xml
