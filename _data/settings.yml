@@ -8,7 +8,7 @@ google-ID:
 
 menu:
 - {name: 'About',   url: 'about.html'}
-- {name: 'Posts', url: 'writing.html'}
+- {name: 'Writing', url: 'writing.html'}
 #- {name: 'Contact', url: 'contact.html'}
 - {name: 'References', url: 'references.html'}
 
