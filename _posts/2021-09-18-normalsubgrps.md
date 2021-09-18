@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[MSE] Why Normal Subgroups ?"
+title: "[MSE] Normal Subgroups"
 author: "Karthik"
 categories: journal
 tags: [documentation,sample]
