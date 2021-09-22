@@ -9,7 +9,7 @@ image: EOF_Mode3.gif
 
 
 ## Motivation
-Sea surface temperature (SST) is studied more often than deep sea temperatures. More recently there has been more interest in deep ocean temperatures, but there has been a limitation to research due to the lack of measurement in those areas. The objective of this NERTO research is to make a high-resolution reconstruction of deep ocean temperatures of depths up to 5,500 meters at ¼ degree spatial resolution and 5-day time resolution with 33 layers for 26 years.
+Sea surface temperature (SST) is studied more often than deep sea temperatures. More recently there has been more interest in deep ocean temperatures, but there has been a limitation to research due to the lack of measurement in those areas. The objective of this NERTO research is to make a high-resolution reconstruction of deep ocean temperatures of depths up to 2,000 meters at ¼ degree spatial resolution and 5-day time resolution with 33 layers for 26 years.
 
 ## Background
 ### What is covariance?
