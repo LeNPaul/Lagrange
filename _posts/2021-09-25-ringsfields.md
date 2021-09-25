@@ -10,7 +10,7 @@ tags: [documentation,sample]
 
 **ROUGH NOTES (!)**
 
-**Lec-1**: Rings (Well, commutative rings with unity. So no to matrix rings). Eg : $\mathbb{Z}, \mathbb{Q}, \mathbb{Z}[i] := \lbrace x + iy : x,y \in \mathbb{Z} \rbrace$ are rings. $\frac{1}{2} \mathbb{Z}$ isn't, as it has $\frac{1}{2}$ but not $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$; Subrings (subgrps of $(R, +)$ closed under mult and *containing $1_R$*)
+**Lec-1**: Rings (Well, commutative rings with unity. So no to matrix rings). Eg : $\mathbb{Z}, \mathbb{Q}, \mathbb{Z}[i] := \lbrace x + iy : x,y \in \mathbb{Z} \rbrace$ are rings. $\frac{1}{2} \mathbb{Z}$ isn't, as it has $\frac{1}{2}$ but not $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$; Subrings (subgrps of $(R, +)$ closed under mult and *containing $1 _R$*)
 
 **Lec-2**: Some definitions of rings don't require presence of unity (There for instance $2\mathbb{Z} \subseteq \mathbb{Z}$ is considered a subring. Not here though); For $n\in \mathbb{Z} _{\geq 0}$, $\mathbb{Z}/{n\mathbb{Z}}$ is a ring; $\mathscr{C}(\mathbb{R}) = \lbrace \text{continuous maps } f:\mathbb{R} \to \mathbb{R} \rbrace$ is a ring; Units (invertible elements, wrt multiplication); Fields (Rings where every nonzero elem is invertible) 
 
@@ -101,7 +101,7 @@ Noetherian rings (all ideals finitely generated); Eg : $\mathbb{Z}$, $k[x]$. Als
 
 **Q1**) Let $p$ be a prime number. Describe $\lbrace \text{ideals of } \mathbb{Z}[\frac{1}{p}] \rbrace .$
 Sol) Consider the ring homomorphism $\mathbb{Z}[x] \overset{\varphi}{\to} \mathbb{Q}$ sending $f \mapsto f(\frac{1}{p})$. This has image $\mathbb{Z}[\frac{1}{p}]$. Its kernel is given by 
-$\begin{aligned} \ker(\varphi) &=\lbrace f \in \mathbb{Z}[x] : f(1/p) = 0 \rbrace = \mathbb{Z}[x] \cap (x - 1/p) \mathbb{Q}[x] \\ &= \mathbb{Z}[x] \cap (px -1) \mathbb{Q}[x] \overset{(\ast)}{=} (px-1) \mathbb{Z}[x] \end{aligned}$
+$\begin{aligned} \ker(\varphi) &=\lbrace f \in \mathbb{Z}[x] : f(1/p) = 0 \rbrace = \mathbb{Z}[x] \cap (x - 1/p) \mathbb{Q}[x] \\\\\\ &= \mathbb{Z}[x] \cap (px -1) \mathbb{Q}[x] \overset{(\ast)}{=} (px-1) \mathbb{Z}[x] \end{aligned}$
  
 > ($\ast$) Let $(px-1)(c _0 + \ldots + c _n x ^n) \in \mathbb{Z}[x]$ with $c _0, \ldots, c _n \in \mathbb{Q}$. Now ${c _0, \ldots, c _n \in \mathbb{Z}}$, because :   
 > Looking at the constant term, $c _0 \in \mathbb{Z}$. Let $c _0, \ldots, c _k \in \mathbb{Z}$, as the induction hypothesis. Then from $x ^{k+1}$term, $p c _k - c _{k+1} \in \mathbb{Z}$, ie $c _{k+1} \in \mathbb{Z}$, as needed. 
@@ -135,7 +135,7 @@ Sol) Such an $f$ should map $[1] \mapsto [1],$ so $[2021] \mapsto [2021],$ ie $[
 **Q8**) Let $p,q$ be distinct primes. Describe all ring homomorphisms $\mathbb{Z}[\frac{1}{p}] \to \mathbb{Z}[\frac{1}{q}]$ and $\mathbb{Z}[\frac{1}{p}] \to \mathbb{Z}.$   
 Sol) From **Q1**, $\mathbb{Z}[\frac{1}{p}] \simeq \mathbb{Z}[t]/(pt-1).$   
 i) Say $\mathbb{Z}[t]/(pt-1) \overset{f}{\longrightarrow} \mathbb{Z}[t]/(qt-1)$ is a ring homomorphism. As $[1]\mapsto [1]$, we have $[p] \mapsto [p]$ and $[q] \mapsto [q]$. As $f([0]) = [0]$, we get $f([pt-1]) = [qt-1]$, ie $[p]f([t]) = [q] [t].$ Writing $f([t]) = [g(t)]$, this means $p g(t) - qt \in (qt-1)\mathbb{Z}[t],$ ie $\frac{pg(t) - 1}{qt-1} \in \mathbb{Z}[t].$   
-Taking $\frac{pg(t)-1}{qt-1} = a _0 + \ldots + a _n t ^n,$ we have $\begin{aligned} g(t) &= \frac{(qt-1)(a _0 + \ldots + a _n t ^n) + 1}{p} \\ &= \frac{(1-a _0)+ t(a _0 q - a _1)  + \ldots + t ^n (a _{n-1}q - a _n) + t ^{n+1} (a _n q)}{p} \in \mathbb{Z}[t] \end{aligned}$
+Taking $\frac{pg(t)-1}{qt-1} = a _0 + \ldots + a _n t ^n,$ we have $\begin{aligned} g(t) &= \frac{(qt-1)(a _0 + \ldots + a _n t ^n) + 1}{p} \\\\\\ &= \frac{(1-a _0)+ t(a _0 q - a _1)  + \ldots + t ^n (a _{n-1}q - a _n) + t ^{n+1} (a _n q)}{p} \in \mathbb{Z}[t] \end{aligned}$
 Focusing on coefficients from right to left, we see $p$ must divide all of $a _n, \ldots, a _0$ as well as $(1- a _0)$, absurd. So there is no such homomorphism.   
 ii) Say $\mathbb{Z}[t]/(pt-1) \overset{f}{\longrightarrow} \mathbb{Z}$ is a ring homomorphism. As $[1] \mapsto 1$, we have $[p] \mapsto p.$ As $[0] \mapsto 0$, we have $f([pt-1]) = 0,$ ie $pf([t]) - 1 = 0,$ absurd. So there is no such homomorphism. 
 
