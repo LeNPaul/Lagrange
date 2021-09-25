@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[NPTEL] Rings and Fields"
+title: "[NPTEL] Rings and Fields - I"
 author: "Karthik"
 categories: journal
 tags: [documentation,sample]
@@ -8,7 +8,7 @@ tags: [documentation,sample]
 
 [Link to lectures](https://youtube.com/playlist?list=PLEAYkSg4uSQ3AaON5oCbS6ecwKsoopBN3)
 
-**ROUGH NOTES**
+**ROUGH NOTES (!)**
 
 **Lec-1**: Rings (Well, commutative rings with unity. So no to matrix rings). Eg : $\mathbb{Z}, \mathbb{Q}, \mathbb{Z}[i] := \lbrace x + iy : x,y \in \mathbb{Z} \rbrace$ are rings. $\frac{1}{2} \mathbb{Z}$ isn't, as it has $\frac{1}{2}$ but not $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$; Subrings (subgrps of $(R, +)$ closed under mult and *containing $1_R$*)
 
@@ -29,7 +29,7 @@ tags: [documentation,sample]
 Eg: For int $n \geq 2$, $R _n := \lbrace \frac{a}{b} \in \mathbb{Q} \text{ reduced}: n \nmid b \rbrace$. $R _n$ is a ring $\iff$ $n$ is prime.   
 Sol: $\implies$ : If $n$ were composite, $n=kl$ with $1\lt k,l \lt n$. Now $\frac{1}{k}, \frac{1}{l}$ are in $R _n$ but not their product, absurd. (Other direction clear)
 
-Eg: $R := \lbrace \frac{a}{2^n} : a \in \mathbb{Z}, n \in \mathbb{Z} _{\geq 0} \rbrace$ is a ring 
+Eg: $R := \lbrace \frac{a}{2 ^n} : a \in \mathbb{Z}, n \in \mathbb{Z} _{\geq 0} \rbrace$ is a ring 
 
 Ring homom injective iff kernel is $\lbrace 0\rbrace$. 
 
@@ -50,7 +50,7 @@ Check : Call LHS $\mathbf{A}$ and RHS $\mathbf{B}$. Define $\mathbf{A} \overset{
 
 **Lec-13**: Any ideal $\neq (0)$ of $k[x]$ looks like $(f)$ with $f$ monic (Pf like in $\mathbb{Z}$ case : Pick a lowest degree monic in the ideal); Eg: Take $\mathbb{R}[x] \to \mathbb{C}$, $f\mapsto f(i)$. This is a surj homom, and its kernel is $\neq (0)$. So kernel looks like $(f)$ for some monic $f$. Now $f$ cant be deg 0 or 1 (check), and $x ^2 +1$ is in kernel. So the kernel is $(x ^2 +1)$, giving $\mathbb{R}[x]/{(x ^2 +1)} \simeq \mathbb{C}$. Also by corresp thm, there are only two ideals of $\mathbb{R}[x]$ containing $(x^2 +1)$, namely $(x^2+1)$ and $\mathbb{R}[x]$ (that is, "$(x^2+1)$ is a maximal ideal"). 
 
-**Lec-14**: Prime ideals (Ideals $I \subseteq R$ for which $R/I$ is integral domain. Equivalently : where $ab \in I$ implies $a\in I$ or $b \in I$). Eg: Prime ideals of $\mathbb{Z}$ are $\lbrace p\mathbb{Z} : p \text{ prime number} \rbrace \cup \lbrace (0)\rbrace$; $(x) \subseteq \mathbb{Q}[x]$ is prime 
+**Lec-14**: Prime ideals (Ideals $I \subsetneq R$ for which $R/I$ is integral domain. Equivalently : Ideals $I \subsetneq R$ where $ab \in I$ implies $a\in I$ or $b \in I$). Eg: Prime ideals of $\mathbb{Z}$ are $\lbrace p\mathbb{Z} : p \text{ prime number} \rbrace \cup \lbrace (0)\rbrace$; $(x) \subseteq \mathbb{Q}[x]$ is prime 
 
 **Lec-15**: Integral domains (product of nonzeroes is nonzero); $R$ integral domain $\implies$ $R[X]$ integral domain; Maximal ideal (Ideal $I\subseteq R$ s.t. $R/I$ is a field. Equivalently : ideal $I \subsetneq R$ s.t. the only ideals containing $I$ are $I$ and $R$). Esp. every maximal ideal is prime; Eg: Maximal ideals of $\mathbb{Z}$ are $\lbrace p\mathbb{Z} : p \text{ prime number} \rbrace$
 
@@ -87,32 +87,56 @@ Eg: $\mathbb{F} _{2} [x]/ (x ^3 + x + 1)$ is a field.
 Sol: $x ^3 + x + 1$ has no root in $\mathbb{F} _2$ so is irreducible in $\mathbb{F} _2 [x]$.
 
 **Lec-20**: Field of fractions $ff(R)$ of an integral domain $R$   
-> Take set of all formal expressions $S =\lbrace \frac{a}{b} \rvert : a,b \in R, b \neq 0 \rbrace$, and form quotient $S/{\equiv}$ wrt equiv relation $\frac{a}{b} \rvert \equiv \frac{c}{d} \rvert \overset{\text{def}}{\iff} ad = bc$. We write equivalence class containing $\frac{a}{b} \rvert$ as "$\frac{a}{b}$". Check $\frac{a}{b} \cdot \frac{c}{d} := \frac{ac}{bd}$ and $\frac{a}{b} + \frac{c}{d} := \frac{ad + bc}{bd}$ are valid operations on the quotient, and make it a field
+> Take set of all formal expressions $S =\lbrace \frac{a}{b} \rvert : a,b \in R, b \neq 0 \rbrace$, and form quotient $S/{\equiv}$ wrt equiv relation $\frac{a}{b} \rvert \equiv \frac{c}{d} \rvert \overset{\text{def}}{\iff} ad = bc$. We write equivalence class containing $\frac{a}{b} \rvert$ as "$\frac{a}{b}$". Check $\frac{a}{b} \cdot \frac{c}{d} := \frac{ac}{bd}$ and $\frac{a}{b} + \frac{c}{d} := \frac{ad + bc}{bd}$ are valid operations on the quotient and make it a field
 
 Here $R \hookrightarrow ff(R)$, $r \mapsto \frac{r}{1}$. For fields this is surjective (because any $\frac{a}{b}$ is $\frac{ab ^{-1}}{b b ^{-1}}$ $=\frac{ab ^{-1}}{1} ,$ an image of $a b ^{-1}$), so $\mathbb{F} \simeq ff(\mathbb{F})$; We write $ff(\mathbb{F}[x _1, \ldots, x _n])$ as "$\mathbb{F}(x _1, \ldots, x _n)$"; $ff(\mathbb{Z}[x _1, \ldots, x _n]) = \mathbb{Q}(x _1, \ldots, x _n)$; $\mathbb{Z}[\frac{1}{2}]$ is "smallest subring of $\mathbb{Q}$ with $\frac{1}{2}$" (elements look like $a _0 + a _1 \left( \frac{1}{2} \right) + \ldots + a _n \left( \frac{1}{2} \right) ^n$ with $a _0, \ldots, a _n \in \mathbb{Z}$). Its field of fractions is $\mathbb{Q}$; Field of fractions of $\mathbb{Z}[i]$ is $\mathbb{Q}[i]$ ($=\mathbb{Q}(i)$); 
 
-Above $R \hookrightarrow ff(R)$ embeds any integral domain $R$ into a field. Integral domain crucial (ring $A$  with zero divisors cant embed in a field); 
+Above $R \hookrightarrow ff(R)$ embeds any integral domain $R$ into a field. Integral domain crucial (a ring  with zero divisors cant embed into a field); 
 
-Noetherian rings (all ideals finitely generated); Eg : $\mathbb{Z}$, $k[x]$. Also $\mathbb{Z}[x]$ (not every ideal is principal though, eg $(2, x)$, ie polys with const term even); $\mathbb{Z}[X _1, X _2, \ldots]$  polynomial ring over infinitely many vars isnt Noetherian  : take $(X _1, X _2, \ldots )$ [Say its of form $(f _1, \ldots, f _r)$. Take largest positive integer $N$ s.t. $X _N$ appears in one of $f _1, \ldots, f _r$. Now $X _{N+1} \not\in (f _1, \ldots, f _r)$, absurd]. 
+Noetherian rings (all ideals finitely generated); Eg : $\mathbb{Z}$, $k[x]$. Also $\mathbb{Z}[x]$ (not every ideal is principal though, eg $(2, x)$, ie polys with const term even); $\mathbb{Z}[X _1, X _2, \ldots]$  polynomial ring over infinitely many vars isnt Noetherian  : Take $(X _1, X _2, \ldots )$ [Say its of form $(f _1, \ldots, f _r)$. Take largest positive integer $N$ s.t. $X _N$ appears in one of $f _1, \ldots, f _r$. Now $X _{N+1} \not\in (f _1, \ldots, f _r)$, absurd].
 
-**Lec-21**: 
+---
 
+**Some problems from MMath** [Algebra-1](https://sites.google.com/view/ramdinmawia/mathematical/teaching/isi/algebraI2021?authuser=0) 
 
-
-
-
-
+**Q1**) Let $p$ be a prime number. Describe $\lbrace \text{ideals of } \mathbb{Z}[\frac{1}{p}] \rbrace .$
+Sol) Consider the ring homomorphism $\mathbb{Z}[x] \overset{\varphi}{\to} \mathbb{Q}$ sending $f \mapsto f(\frac{1}{p})$. This has image $\mathbb{Z}[\frac{1}{p}]$. Its kernel is given by 
+$\begin{aligned} \ker(\varphi) &=\lbrace f \in \mathbb{Z}[x] : f(1/p) = 0 \rbrace = \mathbb{Z}[x] \cap (x - 1/p) \mathbb{Q}[x] \\ &= \mathbb{Z}[x] \cap (px -1) \mathbb{Q}[x] \overset{(\ast)}{=} (px-1) \mathbb{Z}[x] \end{aligned}$
  
+> ($\ast$) Let $(px-1)(c _0 + \ldots + c _n x ^n) \in \mathbb{Z}[x]$ with $c _0, \ldots, c _n \in \mathbb{Q}$. Now ${c _0, \ldots, c _n \in \mathbb{Z}}$, because :   
+> Looking at the constant term, $c _0 \in \mathbb{Z}$. Let $c _0, \ldots, c _k \in \mathbb{Z}$, as the induction hypothesis. Then from $x ^{k+1}$term, $p c _k - c _{k+1} \in \mathbb{Z}$, ie $c _{k+1} \in \mathbb{Z}$, as needed. 
 
+Hence $\mathbb{Z}[\frac{1}{p}] \simeq \mathbb{Z}[t]/(pt-1)$. So it suffices to describe ideals of $\mathbb{Z}[t]/(pt -1)$.   
+As in **Q6**, we see the required ideals look like $( \pi(f _1), \ldots, \pi(f _r) ) \subseteq \mathbb{Z}[t]/(pt-1),$ where $f _1, \ldots, f _r \in \mathbb{Z}[t]$ and $\pi$ is the natural projection $\mathbb{Z}[t] \twoheadrightarrow \mathbb{Z}[t]/(pt-1).$ 
 
+**Q2**) Let $A$ be a finite ring $\neq \lbrace 0 \rbrace$. Show that all its prime ideals are maximal.   
+Sol)  Let $\mathfrak{p} \subsetneq A$ be a prime ideal. Now $A/{\mathfrak{p}}$ is a finite integral domain, hence a field. So $\mathfrak{p}$ is maximal.   
+> Any finite integral domain $R \neq \lbrace 0 \rbrace$ is a field : Let $a \neq 0$ in $R$. The map $R \to R$, $t \mapsto at$ is injective hence bijective. So $ab =1$ for some $b \in R$. 
 
+**Q3**) Let $\phi : A \to B$ be a surjective ring homomorphism with kernel $\mathfrak{a}$. Show that there is a bijection $\lbrace \text{ideals of } A \text{ containing } \mathfrak{a} \rbrace \leftrightarrow \lbrace \text{ideals of }B \rbrace.$   
+Sol) Consider a ring homomorphism $R \overset{\varphi}{\to} R'$.   
+For any ideal $J$ of subring $\varphi(R)$, clearly $\color{purple}{\varphi(\varphi ^{-1} (J)) = J}$.   
+Also, for any ideal $I$ of $R$,  $\varphi ^{-1} (\varphi(I))$ $= \lbrace t \in R : \varphi(t) = \varphi(i) \text{ for some } i \in I \rbrace$ ${= \lbrace t \in R : t - i \in \ker(\varphi) \text{ for some } i \in I \rbrace}$ $= I + \ker(\varphi)$.   
+That is, for any ideal $I$ of $R$, $\color{purple}{\varphi ^{-1} (\varphi (I)) = I + \ker(\varphi)}$.   
+But ideal $I + \ker(\varphi) = I$ if and only if $I \supseteq \ker(\varphi)$. This suggests :   
+**Th**: Let $R \overset{\varphi}{\to} R'$ be a ring homomorphism. There is a bijection $$\lbrace \text{ideals of } R \text{ containing } \ker(\varphi)\rbrace \leftrightarrow \lbrace \text{ideals of } \varphi(R) \rbrace, $$ where $I$ in LHS is mapped to $\varphi(I)$.   
+**Pf**: Call LHS $\mathbf{A}$ and RHS $\mathbf{B}$. Define $\mathbf{A} \overset{f}{\to} \mathbf{B}$ by $I \mapsto \varphi(I)$, and $\mathbf{B} \overset{g}{\to} \mathbf{A}$ by $J \mapsto \varphi ^{-1}(J)$. These are well-defined : $I \in \mathbf{A}$ implies $\varphi(I) \in \mathbf{B}$, and $J \in \mathbf{B}$ implies $\varphi ^{-1}(J) \in \mathbf{A}.$   
+For any $J \in \mathbf{B}$, $(f \circ g)(J)$ $= \varphi(\varphi ^{-1}(J))$ $=J$. So $f \circ g = \text{id} _{\mathbf{B}}$.   
+Similarly for any $I \in \mathbf{A}$, $(g \circ f)(I)$ $= \varphi ^{-1} (\varphi(I))$ $= I + \ker(\varphi)$ $=I$. So $g \circ f = \text{id} _{\mathbf{A}}$ too, as needed. 
 
+**Q6**) Let $G = \mathbb{Z}/{2\mathbb{Z}}$. Describe all ideals and corresponding quotient rings of $\mathbb{Z}[G].$   
+Sol) Elements of $\mathbb{Z}[G]$ look like $x _1 \cdot \mathfrak{0} + x _2 \cdot \mathfrak{1}$ with $x _1, x _2 \in \mathbb{Z}$, and combine like  $$(x _1 \cdot \mathfrak{0} + x _2 \cdot \mathfrak{1}) + (y _1 \cdot \mathfrak{0} + y _2 \cdot \mathfrak{1}) = (x _1 + y _1) \cdot \mathfrak{0} + (x _2 + y _2) \cdot \mathfrak{1}, \\(x _1 \cdot \mathfrak{0} + x _2 \cdot \mathfrak{1}) \bullet (y _1 \cdot \mathfrak{0} + y _2 \cdot \mathfrak{1}) = (x _1 y _1 + x _2 y _2) \cdot \mathfrak{0} + (x _1 y _2 + x _2 y _1) \cdot \mathfrak{1}. $$ So $\mathbb{Z}[G] \overset{\varphi}{\to} \mathbb{Z}[t]/(t ^2 -1)$ sending $x _1 \cdot \mathfrak{0} + x _2 \cdot \mathfrak{1} \mapsto x _1 + x _2 [t]$ is a ring isomorphism. So it suffices to describe ideals and quotients of $\mathbb{Z}[t]/(t ^2 -1)$.   
+From correspondence theorem on $\mathbb{Z}[t] \overset{\pi}{\twoheadrightarrow} \mathbb{Z}[t]/(t ^2 -1),$ the required ideals are precisely those of the form $\pi(I)$  where $I$ is an ideal of $\mathbb{Z}[t]$ containing $(t ^2 -1)$. Since $\mathbb{Z}[t]$ is Noetherian, $I$ here is of the form $(f _1, \ldots, f _r)$ with $t ^2 -1 \in (f _1, \ldots, f _r)$, that is ${I = (f _1, \ldots, f _r) =  (t ^2-1, f _1, \ldots, f _r).}$   
+So finally, the required ideals look like $(\pi(f _1), \ldots, \pi(f _r)) \subseteq \mathbb{Z}[t]/(t ^2 -1)$ where $f _1, \ldots, f _r \in \mathbb{Z}[t].$ The required quotients look like $\mathbb{Z}[t]/(t ^2 -1, f _1, \ldots, f _r)$ where $f _1, \ldots, f _r \in \mathbb{Z}[t].$
 
+**Q7**) Is there a ring homomorphism $\mathbb{Z}/{2021 \mathbb{Z}} \overset{f}{\longrightarrow} \mathbb{Z}/{2022 \mathbb{Z}}$ ?   
+Sol) Such an $f$ should map $[1] \mapsto [1],$ so $[2021] \mapsto [2021],$ ie $[0] \mapsto [2021].$ So $[2021] = [0]$ in $\mathbb{Z}/{2022\mathbb{Z}},$ absurd. Hence there can't be such an $f.$ 
 
+**Q8**) Let $p,q$ be distinct primes. Describe all ring homomorphisms $\mathbb{Z}[\frac{1}{p}] \to \mathbb{Z}[\frac{1}{q}]$ and $\mathbb{Z}[\frac{1}{p}] \to \mathbb{Z}.$   
+Sol) From **Q1**, $\mathbb{Z}[\frac{1}{p}] \simeq \mathbb{Z}[t]/(pt-1).$   
+i) Say $\mathbb{Z}[t]/(pt-1) \overset{f}{\longrightarrow} \mathbb{Z}[t]/(qt-1)$ is a ring homomorphism. As $[1]\mapsto [1]$, we have $[p] \mapsto [p]$ and $[q] \mapsto [q]$. As $f([0]) = [0]$, we get $f([pt-1]) = [qt-1]$, ie $[p]f([t]) = [q] [t].$ Writing $f([t]) = [g(t)]$, this means $p g(t) - qt \in (qt-1)\mathbb{Z}[t],$ ie $\frac{pg(t) - 1}{qt-1} \in \mathbb{Z}[t].$   
+Taking $\frac{pg(t)-1}{qt-1} = a _0 + \ldots + a _n t ^n,$ we have $\begin{aligned} g(t) &= \frac{(qt-1)(a _0 + \ldots + a _n t ^n) + 1}{p} \\ &= \frac{(1-a _0)+ t(a _0 q - a _1)  + \ldots + t ^n (a _{n-1}q - a _n) + t ^{n+1} (a _n q)}{p} \in \mathbb{Z}[t] \end{aligned}$
+Focusing on coefficients from right to left, we see $p$ must divide all of $a _n, \ldots, a _0$ as well as $(1- a _0)$, absurd. So there is no such homomorphism.   
+ii) Say $\mathbb{Z}[t]/(pt-1) \overset{f}{\longrightarrow} \mathbb{Z}$ is a ring homomorphism. As $[1] \mapsto 1$, we have $[p] \mapsto p.$ As $[0] \mapsto 0$, we have $f([pt-1]) = 0,$ ie $pf([t]) - 1 = 0,$ absurd. So there is no such homomorphism. 
 
-
-
-
-
-
-
+---
