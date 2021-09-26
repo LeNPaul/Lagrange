@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[NPTEL] Rings and Fields - I"
+title: "[Hanumanthu] Rings and Fields - I"
 author: "Karthik"
 categories: journal
 tags: [documentation,sample]
