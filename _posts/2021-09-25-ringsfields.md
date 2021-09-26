@@ -8,7 +8,7 @@ tags: [documentation,sample]
 
 [Link to lectures](https://youtube.com/playlist?list=PLEAYkSg4uSQ3AaON5oCbS6ecwKsoopBN3)
 
-**ROUGH NOTES (!)**
+**ROUGH NOTES**
 
 **Lec-1**: Rings (Well, commutative rings with unity. So no to matrix rings). Eg : $\mathbb{Z}, \mathbb{Q}, \mathbb{Z}[i] := \lbrace x + iy : x,y \in \mathbb{Z} \rbrace$ are rings. $\frac{1}{2} \mathbb{Z}$ isn't, as it has $\frac{1}{2}$ but not $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$; Subrings (subgrps of $(R, +)$ closed under mult and *containing $1 _R$*)
 
