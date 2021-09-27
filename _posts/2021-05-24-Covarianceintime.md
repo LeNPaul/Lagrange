@@ -4,7 +4,7 @@ title: "Computing EOFs Using Covariance in Time"
 author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
-image: EOF_Mode3.gif
+image: EOF_Dec_mode_1_depth_2000depthw.gif
 ---
 
 
@@ -136,31 +136,24 @@ Before computing EOFs climatology  and standard deviation are computed. These ar
 import warnings
 
 # I expect to see RuntimeWarnings in this block
+
 with warnings.catch_warnings():
     warnings.simplefilter("ignore", category=RuntimeWarning)
-    clim = np.mean(data_T, axis = 1)
-sdev = np.std(data_T, axis = 1)
-clim_sdev = np.column_stack((clim, sdev))
+    clim = np.nanmean(data_T, axis = 1)   # climatology  
+    sdev = np.nanstd(data_T, axis = 1)    # standard deviation
+clim_sdev = np.column_stack((clim, sdev)) # save this as one matrix 
 
 ```
 Note the argument “axis = 1”  in each function call for the N by Y data tells each function to take the mean or standard deviation for that row. 
 
-![Climatology]({{ site.url }}/assets/img/post1/clim_jan_depth5.png){: .center-image }
+![Climatology]({{ site.url }}/assets/img/post1/clim_Dec_depth2000.gif){: .center-image }
 
-<center>Figure 1: Climatology computed using python with depth of 5m</center>
+<center>Figure 1: Climatology computed using python</center>
 
-![Climatology]({{ site.url }}/assets/img/post1/clim_jan_depth600.png){: .center-image }
+![StandardDev]({{ site.url }}/assets/img/post1/sdev_Dec_depth2000.gif){: .center-image }
 
-<center>Figure 2: Climatology computed using python with depth of 600m</center>
+<center>Figure 3: Standard deviation computed using python</center>
 
-
-![StandardDev]({{ site.url }}/assets/img/post1/sdev_jan_depth5.png){: .center-image }
-
-<center>Figure 3: Standard deviation computed using python with depth of 5m</center>
-
-![StandardDev]({{ site.url }}/assets/img/post1/sdev_jan_depth600.png){: .center-image }
-
-<center>Figure 4: Standard deviation computed using python with depth of 600m</center>
 
 ## Compute Anomalies 
 Computing anomalies from this point is simple. Merely subtract each data point with their corresponding climatology:
@@ -192,11 +185,7 @@ If we divide the anomalies by their respective standard deviation  then their st
 stnd_anom = anom/sdev
 ```
 
-![anomalies]({{ site.url }}/assets/img/post1/std_anom_jan1998_depth5.png){: .center-image }
-
-<center>Figure 9: Standardized anomalies of Jan 1998 5m computed using python</center>
-
-Closer to the poles the grid boxes tend to get smaller. For this reason the standardized anomalies are multiplied by an area weight. This weight is based on latitude radian values.
+Closer to the poles the grid boxes tend to get smaller. For this reason the anomalies are multiplied by an area weight. This weight is based on latitude radian values.
 
 $$ Cos(\phi \times \frac{\pi}{180}) $$
 
@@ -205,6 +194,38 @@ from here we find weighted anomalies by:
 $$ A_w = \frac{A}{\sigma} \times Cos(\phi \times \frac{\pi}{180}) $$
 
 The weighted anomalies are what are used to compute covariance and then EOFs.
+
+this is how to find the area weights in python 
+```python
+# find lattitude and Longitude values
+x = linspace(-180, 180, 360)
+y = linspace(-90, 90, 180)
+
+xx, yy = meshgrid(x, y)
+
+yy = yy.transpose()
+y_temp = yy.flatten()
+
+# area weight for lattitude values
+area_w = np.cos(y_temp*math.pi/180)
+
+# area weights for each depth depth
+area_weight = []
+for i in range(tot_depths):
+    # first area weight is just 5
+    if i == 0:
+        area_weight.append(np.sqrt(5 * area_w)) # first depth thickness is just 0-5m
+    else:
+        area_weight.append( np.sqrt((depths[i] - depths[i - 1]) * area_w))
+# Turning weights into one array
+area_weight = np.mat(area_weight)
+area_weight = area_weight.flatten()
+area_weight = area_weight.transpose()
+
+# Multiply weight with Anomalies
+weighted_A = np.empty((N,Y)) * np.nan
+weighted_A = np.multiply(anom , area_weight)
+```
 
 ## Compute Covariance, Eigenvectors, and Eigenvalues
 
@@ -239,11 +260,27 @@ The eigenvalues and eigenvectors are found using:
 eigvals, eigvecs = la.eig(cov)
 ```
 
+These eigenvalues and eigenvectors ARE NOT sorted. Its easy to sort eigenvalues low to higher values using a python function which keeps track of the correct indexing:
+```python
+# find correct index
+eig_index = np.argsort(eigvals)
+eig_index = np.flip(eig_index)
+
+# sort evals
+new_eigvals = eigvals[eig_index[:]]
+eigvals = new_eigvals
+
+# sort evecs
+new_eigvecs = eigvecs[:,eig_index]
+eigvecs = new_eigvecs 
+```
+
+
 The figure below shows both the variance percentage and cumulative variance percentage. Variance shows the amount of the original data each eigenvalue explains. The cumulative variance reflects the amount of the original data is explained at that eigenvalue and the values before. 
 
-![Scree]({{ site.url }}/assets/img/post1/scree_plot.png){: .center-image }
+![Scree]({{ site.url }}/assets/img/post1/Dec_screePlot.png){: .center-image }
 
-<center>Figure 10: Variance percentage and Cumulative variance percentage for Jan</center>
+<center>Figure 10: Variance percentage and Cumulative variance percentage for Dec</center>
 
 This scree plot shows the percentage variance of each mode and up to how much information cumulatively we will have at a specific mode. The latter will come in handy during the multivariate  regression in telling us how many modes we would want to use for a large percent of information. The percentage variance will tell us how important each mode is.
 
@@ -251,44 +288,68 @@ This scree plot shows the percentage variance of each mode and up to how much in
 EOFs are computed by finding the eigenvectors of the temporal covariance matrix, multiplying eigenvectors by the anomalies, and dividing the magnitude of the multiplication. 
 
 ```python
-EOF = np.empty((anom.shape[0],anom.shape[1]))
-for i in range(anom.shape[1]):
-    for j in range(anom.shape[0]): 
-        EOF[j,i] = weighted_A[j,:] * eigvecs[:,i]
-        
+ev = eigvecs.T
+EOFs = []
+for j in range(Y):
+    EOFs.append(np.matmul(weighted_A , ev[j].T))
+    
+EOF = np.array(EOFs)
+EOF = np.squeeze(EOF)
+EOF = EOF.T
+
 mag = np.zeros(Y)
 for i in range(Y):
     mag[i] = np.linalg.norm(new_EOF[:,i])
     EOF[:,i] = EOF[:,i]/mag[i]
+    
 ```
 
 Where new_EOF is just the EOF matrix without NaN values. As a way to check that these EOFs are valid the magnitude of each EOF mode should be 1.
 
 ```python
-# checking magnitude of EOF. Each should be 1
-for i in range (54):
-    EOF1 = np.mat(EOF[:,i])
-    nan_flag = np.isnan(EOF1)
-    EOF1_clean = EOF1[~nan_flag]
-    print(np.linalg.norm(EOF1_clean))
+# checking magnitude of EOF. If magnitude is not one error will be raised
+for col_i in range(54):
+    is_one = np.linalg.norm(new_EOF[:,col_i])
+    if not np.isclose(is_one, 1):
+        raise ValueError(f"EOF {col_i} is not one")
+```
+
+It is also important to check othogonality.
+
+```python
+# Check to make sure vectors are orthogonal
+n, m = new_EOF.shape
+for col_i in range(m):
+    for col_j in range(m):
+        if col_i < col_j:  # use strictly less than because we don't want to consider a column with itself, and the dot product is commutable so order doesn't matter
+            is_orthogonal = np.dot(new_EOF[:, col_i], new_EOF[:, col_j])
+            if not np.isclose(is_orthogonal, 0) and col_j != 53:
+                pprint(f"EOF Mode {col_i} and EOF Mode {col_j} are not orthogonal.")
+                pprint(np.dot(new_EOF[:, col_i], new_EOF[:, col_j]))
+```
+
+finally to find physical EOFs divide by the area weight 
+
+```python
+EOF = EOF/area_weight[:,0]
 ```
 
 These are the resulting EOFs computed from time covariance. 
 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_Mode1.gif){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/EOF_Dec_mode_1_depth_2000depthw.gif){: .center-image }
 
 <center>Figure 11: EOF mode 1 computed using time covariance </center>
 
-Surprisingly the first mode does not show the most prominent characteristic to be El Nino. This is what previous calculations done in 2D showed. The first mode has the most amount of percent variance being at around 35%. Meaning most variance is found in the first mode. We would expect then for El Nino to appear within this mode but instead we see equitorial upwelling. This is when deep ocean waters rise up and push surface waters outwards. The next mode starts to show the split between cold and warmer waters at the oceans  surface as expected from El Nino. 
+Surprisingly the first mode does not show the most prominent characteristic to be El Nino. This is what previous calculations done in 2D showed. The first mode has the most amount of percent variance being at around 30%. Meaning most variance is found in the first mode. We would expect then for El Nino to appear within this mode but instead we see equitorial upwelling. This is when deep ocean waters rise up and push surface waters outwards. The next mode starts to show the split between cold and warmer waters at the oceans  surface as expected from El Nino. 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_Mode2.gif){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/EOF_Dec_mode_2_depth_2000depthw.gif){: .center-image }
 
 <center>Figure 12: EOF mode 2 computed using time covariance </center>
 
 The last mode is consitent with previous calculations done in 2D. Those calculations show El Nino as the first mode, but here we see it as the third mode. 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_Mode3.gif){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/EOF_Dec_mode_3_depth_2000depthw.gif){: .center-image }
 
 <center>Figure 14: EOF mode 3 computed using time covariance </center>
 
