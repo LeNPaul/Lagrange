@@ -29,4 +29,4 @@ pagination:
 
 related_posts: 'Related posts:'
 
-# post_date_prefix: 'Written on'
+post_date_prefix: 'Written on'
