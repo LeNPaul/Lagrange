@@ -25,8 +25,8 @@ pagination:
   next_page: 'Newer'
   previous_page: 'Older'
 
-sharing_button_prompt: 'Feel free to share!'
+# sharing_button_prompt: 'Feel free to share!'
 
 related_posts: 'Related posts:'
 
-post_date_prefix: 'Written on'
+# post_date_prefix: 'Written on'
