@@ -97,7 +97,7 @@ Noetherian rings (all ideals finitely generated); Eg : $\mathbb{Z}$, $k[x]$. Als
 
 ---
 
-**Some problems from MMath** [Algebra-1](https://sites.google.com/view/ramdinmawia/mathematical/teaching/isi/algebraI2021?authuser=0) 
+**Some problems from MMath** [Algebra-1](https://sites.google.com/view/ramdinmawia/mathematical/teaching/isi/algebraI2021?authuser=0) **(by Prof. Mawia)** 
 
 **Q1**) Let $p$ be a prime number. Describe $\lbrace \text{ideals of } \mathbb{Z}[\frac{1}{p}] \rbrace .$
 Sol) Consider the ring homomorphism $\mathbb{Z}[x] \overset{\varphi}{\to} \mathbb{Q}$ sending $f \mapsto f(\frac{1}{p})$. This has image $\mathbb{Z}[\frac{1}{p}]$. Its kernel is given by 
