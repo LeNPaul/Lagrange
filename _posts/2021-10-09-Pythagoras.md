@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Pythagoras' Theorem"
+author: "Karthik"
+categories: journal
+tags: [documentation,sample]
+---
+
+[An old proof. "By finding scaled versions of the triangle within itself". Yet somewhat mysterious.]
+
+![gCP602.jpg](https://i1.lensdump.com/i/gCP602.jpg)
+
+So ${c = \left( \frac{b}{c} \right) b + \left( \frac{a}{c} \right) a. }$ 
