@@ -10,4 +10,4 @@ tags: [documentation,sample]
 
 ![gCP602.jpg](https://i1.lensdump.com/i/gCP602.jpg)
 
-So ${c = \left( \frac{b}{c} \right) b + \left( \frac{a}{c} \right) a. }$ 
+So ${c = ( \frac{b}{c} ) b + ( \frac{a}{c} ) a. }$ 
