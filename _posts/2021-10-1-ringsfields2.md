@@ -110,7 +110,7 @@ Let $f,g \in \mathbb{Z}[x]$ and $f$ primitive. If $g \in f\mathbb{Q}[x],$ then $
  *Pf*: Suppose $f = gh$ is a reduction in $\mathbb{Q}[x].$ Pulling out contents, $c _f f _0 = c _g g _0 c _h h _0,$ and equating primitive parts $f _0 = g _0 h _0.$ So $f = {\color{red}{c _f g _0}} {\color{purple}{h _0}}$ is a reduction in $\mathbb{Z}[x]$ with positive deg factors.   
  From the mod $p$ homom $\mathbb{Z}[x] \twoheadrightarrow (\mathbb{Z}/{p\mathbb{Z}})[x],$ we see $[a _n]x ^n = [c _f g _0][h _0]$ & $[a _n] \neq 0.$   
  Using unique factorisation in $(\mathbb{Z}/{p\mathbb{Z}})[x],$ we must have ${\lbrace [c _f g _0] = [b _1] x ^k ; [h _0] = [b _2] x ^l\rbrace}$ with $k,l \geq 0.$   
- In fact $k,l \gt 0$ (Because $l \leq \deg(g _0) \lt n.$ Similar for $k$).   
+ In fact $k,l \gt 0$ (Because $l \leq \deg(h _0) \lt n.$ Similar for $k$).   
  So constant terms of both $c _f g _0$ and $h _0$ are divisible by $p,$ giving $p ^2 \mid a _0,$ absurd. 
 
 
