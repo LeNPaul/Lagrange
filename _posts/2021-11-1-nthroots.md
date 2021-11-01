@@ -12,7 +12,8 @@ tags: [documentation,sample]
 **Pf**: [*Uniqueness*] For any reals $x, y \gt 0$ we have ${ x \lt y \iff x ^n \lt y ^n}.$   
 > Because ${ (y ^n - x ^n) = (y - x) \underbrace{(y ^{n-1} + y ^{n-2} x + \ldots + y x ^{n-2} + x ^{n-1})} _{\gt 0} }$ 
 
-So two reals ${0 \lt x _1 \lt x _2}$ with ${x _1 ^n = x _2 ^n = a}$ cant exist.   
+So two reals ${0 \lt x _1 \lt x _2}$ with ${x _1 ^n = x _2 ^n = a}$ cant exist.
+   
 [*Existence*] Set ${ S := \lbrace x \in \mathbb{R} _{\geq 0} : x ^n \lt a \rbrace   }$ contains $0,$ and is bounded above.   
 > If ${ a \in [1, \infty) }$: For any $x \in S,$  ${ x ^n \lt a \leq a ^n }$ giving ${ x \lt a }.$ So $a$ is an upper bound.   
 > If ${ a \in (0,1) }$: For any $x \in S,$ ${ x ^n \leq a \lt 1 ^n }$ giving $x \lt 1.$ So $1$ is an upper bound. 
