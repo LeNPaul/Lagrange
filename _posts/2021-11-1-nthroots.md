@@ -6,7 +6,7 @@ categories: journal
 tags: [documentation,sample]
 ---
 
-[Without intermediate value theorem] 
+[Without Intermediate Value Theorem. From Shilov's "Real and Complex Analysis"] 
 
 **Th**: Let $a \gt 0$ and $n \in \mathbb{Z} _{\gt 0}.$ There exists a unique real $x \gt 0$ with $x ^n = a.$   
 **Pf**: [*Uniqueness*] For any reals $x, y \gt 0$ we have ${ x \lt y \iff x ^n \lt y ^n}.$   
