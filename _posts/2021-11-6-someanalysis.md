@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Some Basic Analysis Proofs"
+title: "Some Analysis Proofs"
 author: "Karthik"
 categories: journal
 tags: [documentation,sample]
@@ -32,6 +32,8 @@ So $(s-t) ^n \gt a$ for ${ t \in (0, \min(1, \frac{s ^n - a}{(1+s) ^n - s ^n}) )
 So $s ^n = a.$ 
 
 ---
+
+[${ \lim g(f(x)) = g (\lim f(x)) }$] 
 
 **Th**: Consider ${ S \overset{f}{\to} T \overset{g}{\to} \mathbb{R} }$ with ${ S,T \subseteq \mathbb{R} }.$ Say $a$ is a limit point of $S$ and ${ \lim _{x \to a } f(x) }$ exists. Also suppose ${ \lim _{x \to a} f(x) \in T }$ and $g$ is continuous at $\lim _{x \to a} f(x).$   
 Then ${ \lim _{x \to a} g(f(x)) = g( \lim _{x \to a} f(x) ) }.$   
