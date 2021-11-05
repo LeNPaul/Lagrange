@@ -8,8 +8,8 @@ tags: [documentation,sample]
 
 [*Existence of nth roots, without intermediate value theorem. From Shilov's "Real and Complex Analysis"*]
 
-**Th**: Let $a \gt 0$ and $n \in \mathbb{Z} _{\gt 0}.$ There exists a unique real $x \gt 0$ with $x ^n = a.$   
-**Pf**: [*Uniqueness*] For any reals $x, y \gt 0$ we have ${ x \lt y \iff x ^n \lt y ^n}.$   
+${ \color{goldenrod}{\text{Th}} }$: Let $a \gt 0$ and $n \in \mathbb{Z} _{\gt 0}.$ There exists a unique real $x \gt 0$ with $x ^n = a.$   
+${ \color{goldenrod}{\text{Pf}} }$: [*Uniqueness*] For any reals $x, y \gt 0$ we have ${ x \lt y \iff x ^n \lt y ^n}.$   
 > Because ${ (y ^n - x ^n) = (y - x) \underbrace{(y ^{n-1} + y ^{n-2} x + \ldots + y x ^{n-2} + x ^{n-1})} _{\gt 0} }$ 
 
 So two reals ${0 \lt x _1 \lt x _2}$ with ${x _1 ^n = x _2 ^n = a}$ cant exist.
@@ -33,11 +33,11 @@ So $s ^n = a.$
 
 ---
 
-*[${ \lim g(f(x)) = g (\lim f(x)) }$]* 
+[*${ \lim g(f(x)) = g (\lim f(x)) }$*] 
 
-**Th**: Consider ${ S \overset{f}{\to} T \overset{g}{\to} \mathbb{R} }$ with ${ S,T \subseteq \mathbb{R} }.$ Say $a$ is a limit point of $S$ and ${ \lim _{x \to a } f(x) }$ exists. Also suppose ${ \lim _{x \to a} f(x) \in T }$ and $g$ is continuous at $\lim _{x \to a} f(x).$   
+${ \color{goldenrod}{\text{Th}} }$: Consider ${ S \overset{f}{\to} T \overset{g}{\to} \mathbb{R} }$ with ${ S,T \subseteq \mathbb{R} }.$ Say $a$ is a limit point of $S$ and ${ \lim _{x \to a } f(x) }$ exists. Also suppose ${ \lim _{x \to a} f(x) \in T }$ and $g$ is continuous at $\lim _{x \to a} f(x).$   
 Then ${ \lim _{x \to a} g(f(x)) = g( \lim _{x \to a} f(x) ) }.$   
-**Pf**: Set ${ \lim _{x \to a} f(x) = \ell }.$ Let ${ \epsilon \gt 0 }.$   
+${ \color{goldenrod}{\text{Pf}} }$: Set ${ \lim _{x \to a} f(x) = \ell }.$ Let ${ \epsilon \gt 0 }.$   
 There is a ${ \delta _1 \gt 0 }$ such that points ${ y \in T, \vert y - \ell \vert \lt \delta _1 }$ satisfy ${ \vert g(y) - g(\ell) \vert \lt \epsilon. }$   
 There is a ${\delta _2 \gt 0 }$ such that points ${ x \in S \setminus \lbrace a \rbrace, \vert x - a \vert \lt \delta _2 }$ satisfy ${ \vert f(x) - \ell \vert \lt \delta _1.}$   
 Now points ${ x \in S \setminus \lbrace a \rbrace, \vert x - a \vert \lt \delta _2 }$ satisfy ${ \vert g(f(x)) - g(\ell) \vert \lt \epsilon }.$   
