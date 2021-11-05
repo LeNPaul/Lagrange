@@ -6,7 +6,7 @@ categories: journal
 tags: [documentation,sample]
 ---
 
-**[Existence of nth roots, without intermediate value theorem. From Shilov's "Real and Complex Analysis"]** 
+*[Existence of nth roots, without intermediate value theorem. From Shilov's "Real and Complex Analysis"]* 
 
 **Th**: Let $a \gt 0$ and $n \in \mathbb{Z} _{\gt 0}.$ There exists a unique real $x \gt 0$ with $x ^n = a.$   
 **Pf**: [*Uniqueness*] For any reals $x, y \gt 0$ we have ${ x \lt y \iff x ^n \lt y ^n}.$   
@@ -33,7 +33,7 @@ So $s ^n = a.$
 
 ---
 
-**[${ \lim g(f(x)) = g (\lim f(x)) }$]** 
+*[${ \lim g(f(x)) = g (\lim f(x)) }$]* 
 
 **Th**: Consider ${ S \overset{f}{\to} T \overset{g}{\to} \mathbb{R} }$ with ${ S,T \subseteq \mathbb{R} }.$ Say $a$ is a limit point of $S$ and ${ \lim _{x \to a } f(x) }$ exists. Also suppose ${ \lim _{x \to a} f(x) \in T }$ and $g$ is continuous at $\lim _{x \to a} f(x).$   
 Then ${ \lim _{x \to a} g(f(x)) = g( \lim _{x \to a} f(x) ) }.$   
