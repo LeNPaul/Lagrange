@@ -6,7 +6,7 @@ categories: journal
 tags: [documentation,sample]
 ---
 
-*[Existence of nth roots, without intermediate value theorem. From Shilov's "Real and Complex Analysis"]* 
+[*Existence of nth roots, without intermediate value theorem. From Shilov's "Real and Complex Analysis"*]
 
 **Th**: Let $a \gt 0$ and $n \in \mathbb{Z} _{\gt 0}.$ There exists a unique real $x \gt 0$ with $x ^n = a.$   
 **Pf**: [*Uniqueness*] For any reals $x, y \gt 0$ we have ${ x \lt y \iff x ^n \lt y ^n}.$   
@@ -42,4 +42,8 @@ There is a ${ \delta _1 \gt 0 }$ such that points ${ y \in T, \vert y - \ell \ve
 There is a ${\delta _2 \gt 0 }$ such that points ${ x \in S \setminus \lbrace a \rbrace, \vert x - a \vert \lt \delta _2 }$ satisfy ${ \vert f(x) - \ell \vert \lt \delta _1.}$   
 Now points ${ x \in S \setminus \lbrace a \rbrace, \vert x - a \vert \lt \delta _2 }$ satisfy ${ \vert g(f(x)) - g(\ell) \vert \lt \epsilon }.$   
 So ${ \lim _{x \to a} g(f(x)) = g(\ell) },$ as needed. 
+
+---
+
+
 
