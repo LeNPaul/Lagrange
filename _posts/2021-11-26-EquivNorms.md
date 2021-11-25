@@ -25,5 +25,5 @@ We want constants ${ L', M' \gt 0, }$ such that ${ L'  \lVert x \rVert _{u} \leq
 So we can study ${ y \mapsto \lVert y \rVert }$ as a map  ${ (S _{u}, \lVert .. \rVert _{u}) \overset{\varphi}{\to} \mathbb{R} }.$   
 We already have an ${ M' \gt 0 }$ from direct considerations : ${ \lVert x \rVert }$ ${ \leq \sum _{1} ^{n} \vert x _j \vert \lVert e _j \rVert }$ ${ \leq \sqrt{\sum _{1} ^{n} \vert x _j \vert ^2}  {\sqrt{\sum _1 ^n \lVert e _j \rVert ^2} } }$ ${ = \lVert x \rVert _{u} M' }$ for all ${ x \in \mathbb{R} ^n }.$   
 This ensures ${ \varphi }$ is Lipschitz  continuous : ${ \vert \varphi(x) - \varphi(y) \vert }$ ${ = \vert \lVert x \rVert - \lVert y \rVert \vert }$ ${ \leq \lVert x - y \rVert }$ ${ \leq M' \lVert x - y \rVert _{u} .}$   
-As ${ \varphi }$ is continuous on a compact set, let ${ \varphi }$ attain its maximum and minimum at ${ y _{\text{max}} , y _{\text{mix}} \in S _{u} }$ respectively. Now ${ 0 \lt \lVert y _{\text{min}} \rVert \leq \lVert y \rVert  \leq \lVert y _{\text{max}} \rVert }$ for all ${ y \in S _{u} },$ as needed. 
+As ${ \varphi }$ is continuous on a compact set, let ${ \varphi }$ attain its maximum and minimum at ${ y _{\text{max}} , y _{\text{min}} \in S _{u} }$ respectively. Now ${ 0 \lt \lVert y _{\text{min}} \rVert \leq \lVert y \rVert  \leq \lVert y _{\text{max}} \rVert }$ for all ${ y \in S _{u} },$ as needed. 
 
