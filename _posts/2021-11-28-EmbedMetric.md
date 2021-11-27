@@ -18,4 +18,6 @@ Now the map ${ X \hookrightarrow \mathcal{B}(X, \mathbb{R}) }$ sending ${ x \map
 
 Each ${ \varphi(x) }$ is a Lipschitz function on ${ (X,d) },$ as ${ \vert \varphi(x) (t _1) - \varphi(x) (t _2) \vert }$ ${ = \vert (f _x - f _a)(t _1) - (f _x - f _a)(t _2) \vert }$ ${ \leq \vert d(x, t _1) - d(x,t _2) \vert + \vert d(a, t _1) - d(a,t _2) \vert  }$ ${ \leq 2 d(t _1, t _2) }.$ 
 
-So ${ \varphi }$ infact gives a distance preserving embedding ${ X \hookrightarrow \mathcal{BL}(X, \mathbb{R}) },$ into the space of bounded  lipschitz functions on ${ X }$ with sup norm. 
+So ${ \varphi }$ infact gives a distance preserving embedding ${ X \hookrightarrow \mathcal{BL}(X, \mathbb{R}) },$ into the space of bounded  lipschitz functions on ${ X }$ with sup norm.
+
+> This is called ["Kuratowski embedding"](https://en.m.wikipedia.org/wiki/Kuratowski_embedding). 
