@@ -14,7 +14,7 @@ Now the map ${ X \hookrightarrow \mathcal{B}(X, \mathbb{R}) }$ sending ${ x \map
 > Injective: Say ${ f _{x} - f _a = f _{y} - f _{a} }.$ Now ${ d(x,t) = d(y,t) }$ for all ${ t \in X },$ so ${ d(x,y) = 0 ,}$ ie ${ x=y }.$  
 > Distance-Preserving: Let ${ x, y \in X }.$ We need ${ d(x,y) = \lVert \varphi (x) - \varphi(y) \rVert _{\infty} },$ ie ${ d(x,y) = \sup _{t \in X} \vert d(x,t) - d(y,t) \vert }.$ As ${ \vert d(x,t) - d(y,t) \vert \leq d(x,y) }$ and equality holds when ${ t = y },$ done. 
 
-This is called ["Kuratowski embedding"](https://en.m.wikipedia.org/wiki/Kuratowski_embedding). 
+This is called [Kuratowski embedding](https://en.m.wikipedia.org/wiki/Kuratowski_embedding). 
 
 ---
 
