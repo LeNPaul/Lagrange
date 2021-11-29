@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Metric spaces vs subsets of normed spaces"
+title: "Metric spaces as subsets of normed spaces"
 author: "Karthik"
 categories: journal
 tags: [documentation,sample]
