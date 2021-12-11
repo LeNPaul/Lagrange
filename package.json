@@ -1,20 +1,23 @@
 {
-  "name": "anseljohn.github.io",
+  "name": "anseljohn",
   "version": "1.0.0",
-  "description": "",
+  "description": "John's portfolio website",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "dev": "next dev -H 0.0.0.0",
+      "build": "next build",
+      "prettier": "prettier -write .",
+      "lint": "next lint"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anseljohn/anseljohn.github.io.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "John Anselmo<jjohnanselmo@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/anseljohn/anseljohn.github.io/issues"
   },
