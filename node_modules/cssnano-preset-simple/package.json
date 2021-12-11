@@ -1,0 +1,54 @@
+{
+  "name": "cssnano-preset-simple",
+  "version": "3.0.0",
+  "description": "A simple cssnano preset",
+  "main": "dist/index.js",
+  "repository": "git@github.com:timer/cssnano-preset-simple.git",
+  "author": "Joe Haddad <timer150@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "prebuild": "rimraf dist/ && node patch.js",
+    "build": "ncc build src/index.js -o dist --minify --external postcss --external caniuse-lite --external caniuse-lite/dist/unpacker/feature --external caniuse-lite/dist/unpacker/region --external caniuse-lite/dist/unpacker/agents",
+    "test": "jest",
+    "prepublishOnly": "yarn build && yarn test",
+    "semantic-release": "semantic-release",
+    "commit": "git-cz"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.28.6",
+    "browserslist-config-google": "^1.5.0",
+    "cssnano-preset-default": "^5.1.3",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^4.3.8",
+    "jest": "^27.0.6",
+    "postcss": "^8.2.15",
+    "postcss-svgo": "file:./postcss-plugin-stub/",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "rimraf": "^3.0.0",
+    "semantic-release": "^17.3.7"
+  },
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001202"
+  },
+  "peerDependencies": {
+    "postcss": "^8.2.15"
+  },
+  "resolutions": {
+    "postcss-svgo": "file:./postcss-plugin-stub/"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
