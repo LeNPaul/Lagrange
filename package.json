@@ -7,10 +7,10 @@
     "lib": "lib"
   },
   "scripts": {
-      "dev": "next dev -H 0.0.0.0",
-      "build": "next build",
-      "prettier": "prettier -write .",
-      "lint": "next lint"
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "prettier": "prettier -write .",
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/anseljohn/anseljohn.github.io#readme",
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
