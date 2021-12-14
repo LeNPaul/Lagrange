@@ -19,7 +19,7 @@ Eg: ${ \mathbb{R} }$ is a completion of ${ \mathbb{Q} }.$
 
 ---
 
-**Th**: Let ${ (X,d) }$ be a metric space. It has a completion. Further any two completions of it are isomorphic.
+**Th**: Let ${ (X,d) }$ be a metric space. It has a completion. Further any two completions of it are isomorphic as metric spaces. 
    
 **Sketch**: [Existence] Consider the complete space ${ \mathcal{B}(X,\mathbb{R}) ,}$ of all bounded functions on set ${ X }$ with sup norm. Fix ${ a \in X }.$ We [have](https://bvenkatakarthik.github.io/EmbedMetric) the Kuratowski embedding  ${ (X, d) \overset{\varphi}{\hookrightarrow} ( \mathcal{B}(X, \mathbb{R}), d _{\text{sup}} ) }$ sending ${ x \mapsto (f _x - f _a) },$ where ${ f _p (q) := d(p,q) }.$ Now ${ (\overline{\varphi(X)} , d _{\text{sup}}) }$ is a valid completion of ${ (X,d) }.$  
   
