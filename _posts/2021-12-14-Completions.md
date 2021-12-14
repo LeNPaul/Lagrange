@@ -21,7 +21,7 @@ Eg: ${ \mathbb{R} }$ is a completion of ${ \mathbb{Q} }.$
 
 **Th**: Let ${ (X,d) }$ be a metric space. It has a completion. Further any two completions of it are isomorphic.
    
-**Pf**: [Existence] Consider the complete space ${ \mathcal{B}(X,\mathbb{R}) ,}$ of all bounded functions on set ${ X }$ with sup norm. Fix ${ a \in X }.$ We [have](https://bvenkatakarthik.github.io/EmbedMetric) the Kuratowski embedding  ${ (X, d) \overset{\varphi}{\hookrightarrow} ( \mathcal{B}(X, \mathbb{R}), d _{\text{sup}} ) }$ sending ${ x \mapsto (f _x - f _a) },$ where ${ f _p (q) := d(p,q) }.$ Now ${ (\overline{\varphi(X)} , d _{\text{sup}}) }$ is a valid completion of ${ (X,d) }.$  
+**Sketch**: [Existence] Consider the complete space ${ \mathcal{B}(X,\mathbb{R}) ,}$ of all bounded functions on set ${ X }$ with sup norm. Fix ${ a \in X }.$ We [have](https://bvenkatakarthik.github.io/EmbedMetric) the Kuratowski embedding  ${ (X, d) \overset{\varphi}{\hookrightarrow} ( \mathcal{B}(X, \mathbb{R}), d _{\text{sup}} ) }$ sending ${ x \mapsto (f _x - f _a) },$ where ${ f _p (q) := d(p,q) }.$ Now ${ (\overline{\varphi(X)} , d _{\text{sup}}) }$ is a valid completion of ${ (X,d) }.$  
   
 [Uniqueness] Suppose ${ (\hat{X}, \hat{d}), (\tilde{X}, \tilde{d}) }$ are two completions of ${ (X,d) }.$ We want an isomorphism ${ (\hat{X}, \hat{d}) \to (\tilde{X}, \tilde{d}) }.$   
 There are isomorphisms ${ (X, d) \overset{S}{\to} (S (X), \hat{d}) \subseteq (\hat{X}, \hat{d}) }$ and ${ (X, d) \overset{T}{\to} (T (X),  \tilde{d}) \subseteq (\tilde{X}, \tilde{d}) },$ with ${ \overline{S (X)} = \hat{X} }$ and ${ \overline{T (X)} = \tilde{X} }.$   
