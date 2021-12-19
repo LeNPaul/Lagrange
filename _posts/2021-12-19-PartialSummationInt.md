@@ -16,7 +16,9 @@ Defining ${ g _n (t) }$ to be ${ a _n f '(t) }$ when ${ x _n \leq t }$ and ${ 0 
 
 ---
 
-(?) Looks like one could replace ${ x _n \nearrow \infty }$ with ${ x _n \to \infty }$ and still make a statement like ${ ${ S _f (X) = S(X) f(X) - \int _{0} ^{X} S(t) f'(t) dt . }$ (The integral isnt an issue. As ${ x _n \to \infty },$ there is an ${ N }$ such that ${ x _n \gt x _1 }$ for all ${ n \geq N }.$ Taking ${ x _{\ell} := \min \lbrace x _1, \ldots, x _N \rbrace, }$ we see ${ S(t) }$ is ${ 0 }$ on ${ [0, x _{\ell}) }$).  
+**EDIT (20/12)** 
+
+(?) Looks like one could replace ${ x _n \nearrow \infty }$ with ${ x _n \to \infty }$
 
 **Repetition** 
 
