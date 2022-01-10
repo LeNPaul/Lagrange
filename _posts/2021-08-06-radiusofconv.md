@@ -18,7 +18,7 @@ If $ \ell &lt; 1 $, pick $ \epsilon &gt; 0 $ such that $ \ell + \epsilon &lt; 1 
 
 > Consider complex power series $ \sum_{n=0}^{\infty} a_n z^n $. Using above result and $ \limsup_{n \to \infty} \|a_n z^n\|^{\frac{1}{n}} = ( \limsup_{n \to \infty} \|a_n\|^{\frac{1}{n}} ) \|z\| $, we get the radius of convergence. 
 
-**Edit** 
+**Details** 
 
 Consider ${ \sum _{0} ^{n} a _n z ^n }$ with ${ a _n \in \mathbb{C} }.$ From above "root test", it converges absolutely when ${ \varlimsup (\vert a _n \vert ^{\frac{1}{n}} \vert z \vert) \lt 1 }$ and diverges when ${ 1 \lt \varlimsup (\vert a _n \vert ^{\frac{1}{n}} \vert z \vert) \leq \infty .}$ 
 
