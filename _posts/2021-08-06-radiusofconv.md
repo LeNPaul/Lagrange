@@ -26,4 +26,13 @@ So if ${ \varlimsup \vert a _n \vert ^{\frac{1}{n}} = \infty }$ it converges onl
 
 So taking ${ R := \frac{1}{\varlimsup \vert a _n \vert ^{\frac{1}{n}} } \in [0, \infty] }$ (with the conventions ${ \frac{1}{0} = \infty }$ and ${ \frac{1}{\infty} = 0 }$) we see ${ \sum _{0} ^{\infty} a _n z ^n }$ converges absolutely when ${ \vert z \vert \lt R }$ and diverges when ${ \vert z \vert \gt R }.$ 
 
+---
+
+[Limit points of ${ \vert a _n \vert ^{\frac{1}{n}} }$ and ${ \vert \frac{a _{n+1}}{a _n} \vert }$ are related. This helps study radius of convergence] 
+Let sequence ${ (x _n) \subseteq \mathbb{R} _{\gt 0}. }$ Now ${ \varliminf \frac{x _{n+1}}{x _n} }$ ${ \leq \varliminf  x _n ^{\frac{1}{n}} }$ ${ \leq \varlimsup  x _n ^{\frac{1}{n}}  }$ ${ \leq \varlimsup \frac{x _{n+1}}{x _n} }.$   
+**Pf**: We can first prove ${ \varlimsup  x _n ^{\frac{1}{n}}  }$ ${ \leq \varlimsup \frac{x _{n+1}}{x _n} }.$ If ${ L := \varlimsup \frac{x _{n+1}}{x _n} }$ is ${ \infty }$ its vacuous, so say ${ L \lt \infty }.$ Let ${ \epsilon \gt 0 }.$ There is an ${ N }$ such that ${ \frac{x _{n+1}}{x _n} \leq L + \epsilon }$ for ${ n \geq N }.$ Multiplying inequalities, ${ x _{n} \leq (L +\epsilon) ^{n-N} x _N }$ whenever ${ n \geq N}.$ That is, ${ x _n ^{\frac{1}{n}} \leq (L + \epsilon) ^{1-\frac{N}{n}} x _N ^{\frac{1}{n}} }$ whenever ${ n \geq N }.$ So ${ \varlimsup x _n ^{\frac{1}{n}} \leq \varlimsup (L + \epsilon) ^{1-\frac{N}{n}} x _N ^{\frac{1}{n}} }$ ${ = L + \epsilon }.$ As ${ \epsilon \gt 0 }$ was arbitrary, ${ \varlimsup x _n ^{\frac{1}{n}} \leq L }$ as needed.    
+We can similarly prove ${ \varliminf \frac{x _{n+1}}{x _n} \leq \varliminf x _n ^{\frac{1}{n}} }.$ If ${ \ell := \varliminf \frac{x _{n+1}}{x _n}  }$ is ${ 0 }$ its vacuous, so say ${ 0 \lt \ell }.$ Let ${ \epsilon \in (0, \ell) }.$ There is an ${ N }$ such that ${ \ell - \epsilon \leq \frac{x _{n+1}}{x _n} }$ for ${ n \geq N }.$ So ${ (\ell - \epsilon) ^{n - N} x _N \leq x _n }$ whenever ${ n \geq N }.$ That is, ${ (\ell - \epsilon) ^{1- \frac{N}{n} } x _N ^{\frac{1}{n}} \leq x _n ^{\frac{1}{n}} }$ whenever ${ n \geq N }.$ So ${ \ell - \epsilon \leq \varliminf x _n ^{\frac{1}{n}} }.$ As ${ \epsilon \in (0, \ell) }$ was arbitrary, ${ \ell \leq \varliminf x _n ^{\frac{1}{n}} }$ as needed.  
+
+
+
 
