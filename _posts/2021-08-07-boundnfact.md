@@ -18,3 +18,9 @@ Finally,
 $ n \log(n) - n + 1 $ $ \leq \log(1) + \ldots + \log(n)$ $ \leq \log(n) + (n \log(n) - n + 1). $   
 Taking exponential,   
 $ n^n e^{-n} e \leq n! \leq n^{n+1} e^{-n} e $.
+
+---
+
+Edit [Ok its pointless to avoid pictures] 
+
+![pic](https://imgur.com/a/4mVYUOu) 
