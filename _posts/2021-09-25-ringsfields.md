@@ -1,16 +1,18 @@
 ---
 layout: post
-title: "[Hanumanthu] Rings and Fields - I"
+title: "[NPTEL] Rings and Fields - I"
 author: "Karthik"
 categories: journal
 tags: [documentation,sample]
 ---
 
+Instructor: Prof. Krishna Hanumanthu 
+
 [Link to lectures](https://youtube.com/playlist?list=PLEAYkSg4uSQ3AaON5oCbS6ecwKsoopBN3)
 
-**ROUGH NOTES**
+**ROUGH NOTES (!)**
 
-**Lec-1**: Rings (Well, commutative rings with unity. So no to matrix rings). Eg : $\mathbb{Z}, \mathbb{Q}, \mathbb{Z}[i] := \lbrace x + iy : x,y \in \mathbb{Z} \rbrace$ are rings. $\frac{1}{2} \mathbb{Z}$ isn't, as it has $\frac{1}{2}$ but not $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$; Subrings (subgrps of $(R, +)$ closed under mult and *containing $1 _R$*)
+**Lec-1**: Rings (Commutative rings with unity. So no to matrix rings). Eg : $\mathbb{Z}, \mathbb{Q}, \mathbb{Z}[i] := \lbrace x + iy : x,y \in \mathbb{Z} \rbrace$ are rings. $\frac{1}{2} \mathbb{Z}$ isn't, as it has $\frac{1}{2}$ but not $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$; Subrings (subgrps of $(R, +)$ closed under mult and *containing $1 _R$*)
 
 **Lec-2**: Some definitions of rings don't require presence of unity (There for instance $2\mathbb{Z} \subseteq \mathbb{Z}$ is considered a subring. Not here though); For $n\in \mathbb{Z} _{\geq 0}$, $\mathbb{Z}/{n\mathbb{Z}}$ is a ring; $\mathscr{C}(\mathbb{R}) = \lbrace \text{continuous maps } f:\mathbb{R} \to \mathbb{R} \rbrace$ is a ring; Units (invertible elements, wrt multiplication); Fields (Rings where every nonzero elem is invertible) 
 
