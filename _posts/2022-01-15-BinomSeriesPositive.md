@@ -28,7 +28,7 @@ Now ${ a _j }$ ${ := \vert \binom{\alpha}{j} \vert }$ ${ \gt 0 }.$ Also ${ \frac
 **Cor**: Let ${ \alpha \gt 0 }.$ Then ${ (1+x) ^{\alpha} }$ ${ = 1 + \sum _{1} ^{\infty} \binom{\alpha}{j} x ^j }$ for ${ \vert x \vert \leq 1 }.$    
 > The series ${ \sum _{1} ^{\infty} \binom{\alpha}{j} x ^j }$ is continuous on ${ [-1,1] }.$ So ${ (1+1) ^{\alpha} }$ ${ = \lim _{x \to 1 ^{-}} (1+x) ^{\alpha} }$ ${ = \lim _{x \to 1 ^{-}} ( 1 + \sum _{1} ^{\infty} \binom{\alpha}{j}x ^j )  }$ ${ = 1+ \sum _{1} ^{\infty} \binom{\alpha}{j} },$ and similarly ${ 0 }$ ${ = 1+ \sum _{1} ^{\infty} \binom{\alpha}{j} (-1) ^j }.$ 
 
-**Cor** (Polynomials uniformly convergent to ${ \vert x \vert }$ on ${ [-1,1] }$)   
+**Cor** (Finding a sequence of polynomials converging uniformly to ${ \vert x \vert }$ on ${ [-1,1] }$)   
 > Idea: Write ${ \vert x \vert }$ ${ = \sqrt{1+(x ^2 -1)} }$ and use binomial expansion. 
 
 Polynomials ${ \sum _{0} ^{n} \binom{1/2}{j} x ^j  }$ converge uniformly to ${ \sqrt{1+x} }$ on ${ [-1,1] }.$   
