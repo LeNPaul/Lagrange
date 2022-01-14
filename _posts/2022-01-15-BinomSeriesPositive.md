@@ -14,7 +14,7 @@ Let ${ \alpha \in \mathbb{R} }.$ The [generalised binomial theorem](https://math
 
 If ${ \alpha \gt 0 },$ we can show ${ \sum _1 ^{\infty} \binom{\alpha}{j} x ^j }$ converges uniformly on ${ \vert x \vert \leq 1 }.$   
 
-We'll need (a part of) Kummer's Test
+We'll need (a part of) Kummer's Test   
 **Th**: Let sequence ${ (a _n) \subseteq \mathbb{R} _{\gt 0} }.$ Suppose we can find a sequence ${ (b _n) \subseteq \mathbb{R} _{\gt 0} }$ such that ${ \ell }$ ${ := \varliminf \left( \dfrac{a _n b _n - a _{n+1} b _{n+1}}{a _n} \right) }$ ${ \gt 0 }.$ Then ${ \sum _{1} ^{\infty} a _n  }$ converges.   
 **Pf**: Pick an ${ \epsilon }$ ${ \gt 0 }$ such that ${ \ell - \epsilon }$ ${ \gt 0 }.$ There is an ${ N _0 }$ such that ${ \frac{a _n b _n - a _{n+1} b _{n+1}}{a _n} }$ ${ \geq \ell - \epsilon }$ ${ (\gt 0) }$ for all ${ n \geq N _0 }.$   
 Note ${ a _n b _n - a _{n+1} b _{n+1} }$ ${ \geq 0 }$ for ${ n \geq N _0 }.$ So the sequence ${ (a _n b _n) }$ is  decreasing from ${ n = N _0}$ onwards, and hence converges to ${ \inf _{n} \lbrace a _n b _n \rbrace }.$   
