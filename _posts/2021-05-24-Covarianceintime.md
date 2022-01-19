@@ -9,53 +9,60 @@ image: EOF_Dec_mode_1_depth_2000depthw.gif
 
 
 ## Motivation
-Sea surface temperature (SST) is studied more often than deep sea temperatures. More recently there has been more interest in deep ocean temperatures, but there has been a limitation to research due to the lack of measurement in those areas. The objective of this NERTO research is to make a high-resolution reconstruction of deep ocean temperatures of depths up to 2,000 meters at ¼ degree spatial resolution and 5-day time resolution with 33 layers for 26 years.
+Earlier 2-dimensional oceanic reconstructions were often calculated for sea surface temperature (SST) due to the availability of data, and impor- tance of SST in the ocean’s direct influence on weather. Although the deep ocean temperature field has fewer observational data, the oceanic dynamics, such as equatorial upwelling, implies there is an existence of covariance among the temperatures of different layers. For this reason a 3- dimensional reconstruction with the inclusion of deep ocean temperatures is crucial. In order to optimize the reconstruction of the temperature field from surface to 2,000 meters depth, we have utilized temporal covariance, the NASA JPL ocean general circulation model (OGCM), and NOAA’s in situ observational data. Using machine learning, we can complete the 3-dimensional reconstruction at monthly time resolution with 26 layers. From this reconstruction we are able to quantitatively detect and visualize significant ocean dynamic features, such as the cold El Nin ̃o anomalies in deep ocean over the western Tropical Pacific, and equatorial upwelling.
 
 ## Background
 ### What is covariance?
-Covariance measures how much two variables change. Typically in climatology covariance is considered between stations, grid boxes, or grid points. Covariance between two stations i and j can be denoted as:
+Covariance measures how much two variables change. Typically in climatology covariance is considered between stations, grid boxes, or grid points. Covariance between two grid boxes i and j can be denoted as:
 
 $$ \sum _{ij}$$
 
-For N stations covariance would be an N by N matrix:
+For N grid boxes covariance would be an N by N matrix:
 
 $$ [\sum _{ij}]_{N\times N}$$
 
 Consider data X that consists of N stations and Y time steps:
+
 $$ X = [x_{it}]_{N\times Y}$$
 
 Covarance can then be computed by first computing anomalies:
+
 $$ A_{N \times Y} = [a_{it}]_{N\times Y} =  [x_{it} - \bar x_{i}]_{N\times Y}$$
 
 Where:
+
 $$\bar x_i = \frac1 Y \sum_{t=1} ^Y x_{it}$$
+
 and recall:
+
 $$ i = 1,2...N$$
 
 This is the mean of the data or more formally climatology.
 
-Covariance is computed by:
+Covariance is defined as:
+
 $$[\sum_{ij}]_{N\times N} = \frac1 Y A_{N\times Y} A_{Y\times N}^T$$
 
-for this case becuase the data set is so large the  covariance is computed in terms of time rather than in terms of space. Instead of computing the covariance for each station we are computing  the covariance for every year given a specific month. 
+Covariance in space can then be used to find empirical orthogonal functions using SVD. As you will see, because our data set is so large computing spatial covariance is not possible, and as an alternative temporal covariance is computed. Meaning, instead of computing the covariance between each grid box we are computing the covariance between the same grid box for different years given a specific month.
+
 
 $$[\sum_{tt'}]_{Y\times Y} = \frac1 N \sum_{i=1}^N a(t)a(t') = \frac1 N A_{Y\times N}^T A_{N\times Y}$$
 
-from this we can compute emperical orthogonal functions.
+from this we can also compute emperical orthogonal functions.
 
 ### What are Empirical Orthogonal functions?
-Emperical orthogonal function come from eigenvectors. Eigenvectors are vectors that point in the same direction as their corresponding matrix.
+Emperical orthogonal functions are eigenvectors. Eigenvectors are vectors that point in the same direction as their corresponding matrix.
 
-Consider the square covariance matrix $$[\sum_{tt'}]_{Y\times Y} $$ and some vector  w which runs parallel to $$[\sum_{tt'}]_{Y\times Y} $$ . There is a scalar or eigenvalue $$\lambda$$ which scales w such that:
+Consider the square covariance matrix $$[\sum_{ij}]_{N\times N}$$ and some vector  $$\vec{u}$$ which runs parallel to $$[\sum_{ij}]_{N\times N}$$. There is a scalar or eigenvalue $$\rho$$ which scales $$\vec{u}$$ such that:
 
-$$[\sum _{tt'}]_{Y\times Y}  \vec{v} = \lambda \vec{v}$$
+$$[\sum _{ij}]_{N\times N}  \vec{u} = \rho \vec{u}$$
  
 The first few eigenvectors of a large climate covariance matrix of climate data often represent some typical patterns of climate variability (Shen and Somerville 97). Usually EOFs are computed using singular value decomposition (SVD), but the method  used here is first finding covariance in time and then computing eigenvectors from that covariance matrix followed by multiplying the vectors to the anomaly matrix.
 
 ### Covariance in Time and EOFs 
 Consider some data $$x_{it}$$ whose anomalies are $$ A_{N\times Y}$$ their spatial covariance is then:
 
-$$ [C_{ij}]_{N\times N} = A_{N\times Y} A_{Y\times N}^T$$
+$$ [\sum _{ij}]_{N\times N} = A_{N\times Y} A_{Y\times N}^T$$
 
 and their covarience with respect to time is:
 
@@ -63,20 +70,20 @@ $$ [\sum_{tt'}]_{Y\times Y} = A_{Y\times N}^T A_{N\times Y}$$
 
 In space there is some vector $$\vec{v}$$ that points in the same direction as $$ [C_{ij}]_{N\times N}$$ such that
 
-$$ [C_{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
+$$ [\sum _{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
 
 In time there is some other vector $$\vec{v}$$ that points in the same direction as $$[\sum _{tt'}]_{Y\times Y}$$ such that:
 
 $$[\sum _{tt'}]_{Y\times Y}  \vec{v} = \lambda \vec{v}$$
 
-Meaning $$\vec{u}$$ are the eigenvectors of  $$[C_{ij}]_{N\times N}$$ with $$\rho$$ being it's eigenvalues, and $$\vec{v}$$ are the eigenvectors of  $$[\sum _{tt'}]_{Y\times Y}$$ with $$\lambda$$ being it's eigenvalues. 
+Meaning $$\vec{u}$$ are the eigenvectors of  $$[\sum _{ij}]_{N\times N}$$ with $$\rho$$ being it's eigenvalues, and $$\vec{v}$$ are the eigenvectors of  $$[\sum _{tt'}]_{Y\times Y}$$ with $$\lambda$$ being it's eigenvalues. 
 
 The problem we are trying to answer is how these things eigenvectors and eigenvalues relate? Above we defined covariance in time as
 $$[\sum_{tt'}]_{Y\times Y} = \frac1 N A_{Y\times N}^T A_{N\times Y} $$. We can ignore the  1/N as this will only scale the unique vector and not change its direction. Therefore:
 
 $$[\sum_{tt'}]_{Y\times Y} = A_{Y\times N}^T A_{N\times Y} $$
 
-plugging this into its eigen value problem:
+plugging this into its eigenvalue problem:
 
 $$A_{Y\times N}^T A_{N\times Y} \vec{v} = \lambda \vec{v}$$
 
@@ -84,16 +91,16 @@ Multiply both sides by A:
 
 $$A_{N\times Y} A_{Y\times N}^T A_{N\times Y} \vec{v} = \lambda A_{N\times Y}\vec{v}$$
 
-because $$[C_{ij}]_{N\times N} = A_{N\times Y} A_{Y\times N}^T$$ we can redefine the equation above as:
+because $$[\sum _{ij}]_{N\times N} = A_{N\times Y} A_{Y\times N}^T$$ we can redefine the equation above as:
 
-$$[C_{ij}]_{N\times N} A_{N\times Y} \vec{v} = \lambda A_{N\times Y}\vec{v}$$
+$$[\sum _{ij}]_{N\times N} A_{N\times Y} \vec{v} = \lambda A_{N\times Y}\vec{v}$$
 
 let $$\vec{w} = A_{N\times Y} \vec{v}$$ this gives:
 
-$$[C_{ij}]_{N\times N}\vec{w} = \lambda\vec{w}$$
+$$[\sum _{ij}]_{N\times N} \vec{w} = \lambda \vec{w}$$
 
 This is similar to:
-$$ [C_{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
+$$ [\sum _{ij}]_{N\times N} \vec{u} = \rho \vec{u}$$
 
 Comparing the two equations we can conclude: $$ \rho = \lambda$$ and $$ \vec{w} = A \vec{v}$$. $$ \vec{w}$$ does not equal to one so  it needs to be normalized. To do this  we divide it by its magnitude 
 
