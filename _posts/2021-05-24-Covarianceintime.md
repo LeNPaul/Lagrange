@@ -109,9 +109,9 @@ $$ EOF = \frac{A \vec{v}} {norm(A \vec{v})} $$
 ## The Data
 The data used in the reconstruction of ocean temperatures is from JPL’s non-Boussinesq ocean general circulation model (OGCM). This data was initially collected on a $$1/4^\circ$$ by $$1/4^\circ$$ grid with ocean temperatures (in $$ ^\circ c$$) of 33 depths (in m) taken for 54 years. The data  is taken every 10 days making this quite a large problem for computing EOFs. The total amount of bytes needed to be read is:
 
-$$1/4^\circ \times 1/4^\circ \times 32 \ layers \  $$
+$$1/4^\circ \times 1/4^\circ \times 32 \ layers \$$
 
-$$ = 1442 \times 698 \times 32 = 32,208,512\ entries$$
+$$= 1442 \times 698 \times 32 = 32,208,512\ entries$$
 
 
 there are 8 bytes for each dataum therefore there is:
@@ -122,7 +122,6 @@ The actual amount of bytes per entry is 274MB. There are 37 files for each year 
 
 $$ \frac{1\ file}{10\ days}\times \frac{365\ days}{year}  = \frac {37\ files}{years} \times 42 \ years = 1554 \ files$$
 
-The total amount of bytes is:
 
 The total amount of bytes is:
 $$ 1554 \ files \times 274MB = 425GB \times \ temperature \ and \ salinity $$
@@ -139,10 +138,10 @@ $$
 2,073,600\ entries \times 4Bytes \times 54 \ years \times  = 447 GB
 $$
 
-The actual size of a one month file is 450 GB which is much easier to work with on a personal computer. We use this larger resolution to verify the method outlined above. This is compared to another method in python that uses SVD and spatial covariance to compute EOFs. For more information on that method see https://ajdawson.github.io/eofs/latest/api/eofs.standard.html. 
+The actual size of a one month file is 450 GB which is much easier to work with on a personal computer. We use this larger resolution to verify the method outlined above. This is compared to another method in python that uses SVD and spatial covariance to compute EOFs. For more information on that method see [here.](https://ajdawson.github.io/eofs/latest/api/eofs.standard.html) 
 
 ## Computing Standard Deviation and Climatology
-Before computing EOFs climatology  and standard deviation are computed. These are computed for all 33 depths at once therefore each year has $$  N = 360 \times 180 \times 33 = 2,138,400 $$ data points. In python it’s simple to compute climatology(mean) and standard deviation:
+Before computing EOFs climatology  and standard deviation are computed. These are computed for all 32 depths at once therefore each year has $$  N = 360 \times 180 \times 33 = 2,073,600 $$ data points. In python it’s simple to compute climatology(mean) and standard deviation:
 
 ```python
 import warnings
@@ -164,7 +163,7 @@ Note the argument “axis = 1”  in each function call for the N by Y data tell
 
 ![StandardDev]({{ site.url }}/assets/img/post1/sdev_Dec_depth2000.gif){: .center-image }
 
-<center>Figure 3: Standard deviation computed using python</center>
+<center>Figure 2: Standard deviation computed using python</center>
 
 
 ## Compute Anomalies 
@@ -173,23 +172,15 @@ Computing anomalies from this point is simple. Merely subtract each data point w
 ```python 
 anom = data - clim
 ```
-![anomalies]({{ site.url }}/assets/css/img/greg_anom/Top Layer577_Reconstructed_Temp_Anomaly_Jan1998.png){: .center-image }
-
-<center>Figure 5: Anomalies of Jan 1998 top layer from Shen et al 2017</center>
 
 ![anomalies]({{ site.url }}/assets/img/post1/anom_jan1998_depth5.png){: .center-image }
 
-<center>Figure 6: Anomalies of Jan 1998 top layer computed using python</center>
-
-
-![anomalies]({{ site.url }}/assets/css/img/greg_anom/600m577_Reconstructed_Temp_Anomaly_Jan1998.png){: .center-image }
-
-<center>Figure 7: Anomalies of Jan 1998 600m Shen et al 2017</center>
+<center>Figure 3: Anomalies of Jan 1998 top layer computed using python</center>
 
 
 ![anomalies]({{ site.url }}/assets/img/post1/anom_jan1998_depth600.png){: .center-image }
 
-<center>Figure 8: Anomalies of Jan 1998 600m computed using python</center>
+<center>Figure 4: Anomalies of Jan 1998 600m computed using python</center>
 
 If we divide the anomalies by their respective standard deviation  then their standardized anomalies can be found:
 
@@ -210,7 +201,7 @@ The weighted anomalies are what are used to compute covariance and then EOFs.
 this is how to find the area weights in python 
 ```python
 # find lattitude and Longitude values
-x = linspace(-180, 180, 360)
+x = linspace(0, 360, 360)
 y = linspace(-90, 90, 180)
 
 xx, yy = meshgrid(x, y)
@@ -245,20 +236,26 @@ Because the data takes into account land, there are NaN values in the data. To g
 
 Finding how many rows have values:
 ```python
-na_rows = np.argwhere(np.isnan(anom) == False)
+na_rows = np.argwhere(np.isnan(weighted_A) == False)
+new_N = round(na_rows.shape[0]/54)
+```
+
+Because entire rows have NaN the indicies are repeated for every column (Year). We get rid of repeats to consolidate array which will give the row index without NaN:
+```python
 num_rows = []
 count = 0
-for i in range(1036304):
-    num_rows.append(na_rows[i*54,0])
+for i in range(new_N):
+    num_rows.append(na_rows[i*Y,0])
 numrows = np.array(num_rows)
 ```
 
-Inputing values into new matrix:
+Create matrix with only values
 ```python
-new_anom = np.empty((numrows.shape[0],Y))
-for i in range(numrows.shape[0]):
+new_anom = np.empty((new_N,Y)) * np.nan
+for i in range(new_N):
         new_anom[i,:] = weighted_A[numrows[i],:]
 new_anom = np.mat(new_anom)
+new_anom.shape
 ```
 
 Covariance is computed as explained above:
