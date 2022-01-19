@@ -131,15 +131,15 @@ $$= 425GB \times 2 = 850GB$$
 
 To model this data we start with a larger resolution and therefore a smaller amount of data. Consider instead computing EOFs for each month from 1950-2003 for 32 depths of the ocean. On a one degree by one degree grid this would mean:
 
-$$ 1 ^\circ \times 1^\circ \times 32 \ layers\ = 360 \times 180 \times 32 = 2,073,600\ Bytes\ of\ data\ per\ month$$
+$$ 1 ^\circ \times 1^\circ \times 32 \ layers\ = 360 \times 180 \times 32 = 2,073,600\ entries$$
 
 If there are 54 years needed to be modeled and there are 4 bytes per datum then:
 
 $$
-2MB \times 4B \times 54 \ years \times  = 5.5 GB
+2,073,600\ entries \times 4Bytes \times 54 \ years \times  = 447 GB
 $$
 
-The actual size of a one month file is 5.4 GB which is much easier to work with as a personal computer could read all of this data in at once, and perform the math needed to compute EOFs. 
+The actual size of a one month file is 450 GB which is much easier to work with on a personal computer. We use this larger resolution to verify the method outlined above. This is compared to another method in python that uses SVD and spatial covariance to compute EOFs. For more information on that method see https://ajdawson.github.io/eofs/latest/api/eofs.standard.html. 
 
 ## Computing Standard Deviation and Climatology
 Before computing EOFs climatology  and standard deviation are computed. These are computed for all 33 depths at once therefore each year has $$  N = 360 \times 180 \times 33 = 2,138,400 $$ data points. In python it’s simple to compute climatology(mean) and standard deviation:
