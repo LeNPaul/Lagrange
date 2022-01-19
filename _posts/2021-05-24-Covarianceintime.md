@@ -4,7 +4,7 @@ title: "Computing EOFs Using Covariance in Time"
 author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
-image: EOF_Dec_mode_1_depth_2000depthw.gif
+image: phys_EOF1_Dec_depth_5500.gif
 ---
 
 
@@ -110,8 +110,7 @@ $$ EOF = \frac{A \vec{v}} {norm(A \vec{v})} $$
 The data used in the reconstruction of ocean temperatures is from JPL’s non-Boussinesq ocean general circulation model (OGCM). This data was initially collected on a $$1/4^\circ$$ by $$1/4^\circ$$ grid with ocean temperatures (in $$ ^\circ c$$) of 33 depths (in m) taken for 54 years. The data  is taken every 10 days making this quite a large problem for computing EOFs. The total amount of bytes needed to be read is:
 
 $$1/4^\circ \times 1/4^\circ \times 32 \ layers \$$
-
-$$= 1442 \times 698 \times 32 = 32,208,512\ entries$$
+$$ = 1442 \times 698 \times 32 = 32,208,512\ entries $$
 
 
 there are 8 bytes for each dataum therefore there is:
@@ -346,21 +345,16 @@ EOF = EOF/area_weight[:,0]
 These are the resulting EOFs computed from time covariance. 
 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_Dec_mode_1_depth_2000depthw.gif){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/phys_EOF1_Dec_depth_5500.gif){: .center-image }
 
 <center>Figure 11: EOF mode 1 computed using time covariance </center>
 
 Surprisingly the first mode does not show the most prominent characteristic to be El Nino. This is what previous calculations done in 2D showed. The first mode has the most amount of percent variance being at around 30%. Meaning most variance is found in the first mode. We would expect then for El Nino to appear within this mode but instead we see equitorial upwelling. This is when deep ocean waters rise up and push surface waters outwards. The next mode starts to show the split between cold and warmer waters at the oceans  surface as expected from El Nino. 
 
-![EOF]({{ site.url }}/assets/img/post1/EOF_Dec_mode_2_depth_2000depthw.gif){: .center-image }
+![EOF]({{ site.url }}/assets/img/post1/phys_EOF2_Dec_depth_5500.gif){: .center-image }
 
 <center>Figure 12: EOF mode 2 computed using time covariance </center>
 
-The last mode is consitent with previous calculations done in 2D. Those calculations show El Nino as the first mode, but here we see it as the third mode. 
-
-![EOF]({{ site.url }}/assets/img/post1/EOF_Dec_mode_3_depth_2000depthw.gif){: .center-image }
-
-<center>Figure 14: EOF mode 3 computed using time covariance </center>
 
 
 
