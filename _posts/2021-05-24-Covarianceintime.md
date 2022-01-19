@@ -109,8 +109,7 @@ $$ EOF = \frac{A \vec{v}} {norm(A \vec{v})} $$
 ## The Data
 The data used in the reconstruction of ocean temperatures is from JPL’s non-Boussinesq ocean general circulation model (OGCM). This data was initially collected on a $$1/4^\circ$$ by $$1/4^\circ$$ grid with ocean temperatures (in $$ ^\circ c$$) of 33 depths (in m) taken for 54 years. The data  is taken every 10 days making this quite a large problem for computing EOFs. The total amount of bytes needed to be read is:
 
-$$1/4^\circ \times 1/4^\circ \times 32 \ layers \$$
-$$ = 1442 \times 698 \times 32 = 32,208,512\ entries $$
+$$1/4^\circ \times 1/4^\circ \times 32 \ layers = 1442 \times 698 \times 32 = 32,208,512\ entries $$
 
 
 there are 8 bytes for each dataum therefore there is:
