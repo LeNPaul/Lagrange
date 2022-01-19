@@ -6,7 +6,7 @@ categories: journal
 tags: [documentation,sample]
 ---
 
-[Ref: [S. G. Johnson's proof](https://math.mit.edu/~stevenj/18.335/norm-equivalence.pdf)] 
+[Ref: [Prof S. G. Johnson's proof](https://math.mit.edu/~stevenj/18.335/norm-equivalence.pdf)] 
 
 Let ${ V }$ be an ${ \mathbb{R}- }$vector space with basis ${ \mathcal{B} = (v _1, \ldots, v _n) },$ and let ${ \lVert \ldots \rVert _{1}, \lVert \ldots \rVert _{2} }$ be two norms on it. Turns out these norms are equivalent. 
 
