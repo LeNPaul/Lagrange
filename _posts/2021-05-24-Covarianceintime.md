@@ -107,31 +107,36 @@ Comparing the two equations we can conclude: $$ \rho = \lambda$$ and $$ \vec{w} 
 $$ EOF = \frac{A \vec{v}} {norm(A \vec{v})} $$
 
 ## The Data
-The data used in the reconstruction of ocean temperatures is from JPL’s non-Boussinesq ocean general circulation model (OGCM). This data was initially collected on a $$1/4^\circ$$ by $$1/4^\circ$$ grid with ocean temperatures (in $$ ^\circ c$$) of multiple depths (in m) taken for 26 years. The data  is taken every 5 days making this quite a large problem for computing EOFs. The total amount of bytes needed to be read is:
+The data used in the reconstruction of ocean temperatures is from JPL’s non-Boussinesq ocean general circulation model (OGCM). This data was initially collected on a $$1/4^\circ$$ by $$1/4^\circ$$ grid with ocean temperatures (in $$ ^\circ c$$) of 33 depths (in m) taken for 54 years. The data  is taken every 10 days making this quite a large problem for computing EOFs. The total amount of bytes needed to be read is:
 
-$$1/4^\circ \times 1/4^\circ \times 33 \ layers \  \times 5 \ days$$
+$$1/4^\circ \times 1/4^\circ \times 32 \ layers \  $$
 
-$$ = 1442 \times 698 \times 33 = 33,215,028 \ entries$$
+$$ = 1442 \times 698 \times 32 = 32,208,512\ entries$$
+
 
 there are 8 bytes for each dataum therefore there is:
 
-$$ 8 \times 33,215,028 = 265MB \ per\ entry$$
+$$ 8 \ bytes \times 32,208,521  \ entries = 257MB \ per\ file$$
 
-The actual amount of bytes per entry is 274MB. There are 73 files for each year as each file represents a 5 day block and this is done for 26 years so there are 1901 files:
+The actual amount of bytes per entry is 274MB. There are 37 files for each year as each file represents a 10 day block  with the last on representing 5 days, and this is done for 42 years so there are 1998 files:
 
-$$ \frac{365\ days}{year} \times \frac{1\ file}{5\ days} = \frac {73\ files}{years} \times 26 \ years = 1901 \ files$$
+$$ \frac{1\ file}{10\ days}\times \frac{365\ days}{year}  = \frac {37\ files}{years} \times 42 \ years = 1554 \ files$$
+
 The total amount of bytes is:
 
-$$ 1901 \ files \times 274MB = 521GB \times \ temperature \ and \ salinity = 521 \times 2 = 1.04TB \times 3 = 3TB$$
+The total amount of bytes is:
+$$ 1554 \ files \times 274MB = 425GB \times \ temperature \ and \ salinity $$
+$$= 425GB \times 2 = 850GB$$
 
-To model this data we start with a larger resolution and therefore a smaller amount of data. Consider instead computing EOFs for each month from 1955-2003 for 33 depths of the ocean. On a one degree by one degree grid this would mean:
 
-$$ 1 ^\circ \times 1^\circ \times 33 \ layers\ = 360 \times 180 \times 33 = 2,138,400\ Bytes\ of\ data\ per\ month$$
+To model this data we start with a larger resolution and therefore a smaller amount of data. Consider instead computing EOFs for each month from 1950-2003 for 32 depths of the ocean. On a one degree by one degree grid this would mean:
+
+$$ 1 ^\circ \times 1^\circ \times 32 \ layers\ = 360 \times 180 \times 32 = 2,073,600\ Bytes\ of\ data\ per\ month$$
 
 If there are 54 years needed to be modeled and there are 4 bytes per datum then:
 
 $$
-2MB \times 4B \times 54 \ years \times 12 \ months = 5.5 GB
+2MB \times 4B \times 54 \ years \times  = 5.5 GB
 $$
 
 The actual size of a one month file is 5.4 GB which is much easier to work with as a personal computer could read all of this data in at once, and perform the math needed to compute EOFs. 
