@@ -9,7 +9,7 @@ tags: [documentation,sample]
 Let ${ f \in \mathcal{C}[a,b] }.$   
 Weierstrass approximation theorem says there is a sequence of polynomials uniformly converging to ${ f }$ on ${ [a,b] }.$ That is, for every ${ \epsilon \gt 0 }$ there is a polynomial ${ P }$ with ${ \max _{x \in [a,b]} \vert f (x) - P(x) \vert }$ ${ \lt \epsilon }.$ 
   
-The proof below is originally due to Lebesgue. Some sources for the proof are books [1, Sec 9.1], [2, Th 5.61] and survey [3, pg 27]. 
+The proof below is originally due to Lebesgue. Some sources are books [1, Sec 9.1], [2, Th 5.61] and survey [3, pg 27]. 
 
 ---
 
@@ -45,7 +45,7 @@ Now ${ \ell(t) }$ ${ = g _{n+1} (t) }$ ${ = \ell(x _0) + \sum _{0} ^{n} (m _{j+1
 ---
 
 **Refs**: 
-[1] M. Haase, *Functional analysis : An elementary introduction* 
+[1] M. Haase, *Functional analysis : An elementary introduction*   
 [2] J. C. Burkill, *A second course in Mathematical Analysis*   
 [3] A. Pinkus, Weierstrass and Approximation Theory, *J. Approx. Theory* 
 
