@@ -9,7 +9,12 @@ tags: [documentation,sample]
 Let ${ f \in \mathcal{C}[a,b] }.$   
 Weierstrass approximation theorem says there is a sequence of polynomials uniformly converging to ${ f }$ on ${ [a,b] }.$ That is, for every ${ \epsilon \gt 0 }$ there is a polynomial ${ P }$ with ${ \max _{x \in [a,b]} \vert f (x) - P(x) \vert }$ ${ \lt \epsilon }.$ 
   
-The proof below is originally due to Lebesgue. Some sources are books [1, Sec 9.1], [2, Th 5.61] and survey [3, pg 27]. 
+The proof below is originally due to Lebesgue. Some sources are books [1, Sec 9.1], [2, Th 5.61] and survey [3, pg 27].   
+**Refs**: [1] M. Haase, *Functional analysis : An elementary introduction*   
+[2] J. C. Burkill, *A second course in Mathematical Analysis*   
+[3] A. Pinkus, Weierstrass and Approximation Theory, *J. Approx. Theory* 
+
+
 
 ---
 
@@ -42,12 +47,7 @@ Now ${ \ell(t) }$ ${ = g _{n+1} (t) }$ ${ = \ell(x _0) + \sum _{0} ^{n} (m _{j+1
 > As ${ {\color{green}{t}} }$ varies in ${ [-M, M] },$ we have ${ \frac{t}{M} \in [-1,1] }$ and ${ {\color{purple}{(\frac{t}{M}) ^2 -1}} }$ ${ \in [ -1, 0] }.$ So ${ \left\vert \sqrt{1+ ({\color{purple}{(\frac{t}{M}) ^2 -1}} ) }- \sum _{0} ^{n} \binom{1/2}{j} ({\color{purple}{(\frac{t}{M}) ^2 -1}} ) ^j \right\vert }$ ${ \leq \max _{x \in [-1,0]} \vert \sqrt{1+x} - \sum _{0} ^{n} \binom{1/2}{j} x ^j \vert }$ whenever ${ {\color{green}{t}} \in [-M, M] }.$   
 > That is, ${ \max _{t \in [-M, M]} \left\vert  \frac{\vert t \vert}{M} - \sum _{0} ^{n} \binom{1/2}{j} ((\frac{t}{M}) ^2 -1) ^j \right\vert  }$ ${ \leq \max _{x \in [-1,0]} \vert \sqrt{1+x} - \sum _{0} ^{n} \binom{1/2}{j} x ^j \vert },$ and hence ${ \max _{t \in [-M, M]} \left\vert  \vert t \vert  - M \sum _{0} ^{n} \binom{1/2}{j} ((\frac{t}{M}) ^2 -1) ^j \right\vert  }$ ${  \leq M \max _{x \in [-1,0]} \vert \sqrt{1+x} - \sum _{0} ^{n} \binom{1/2}{j} x ^j \vert }$ ${ \to 0 }$ as ${ n \to \infty }.$
 
----
 
-**Refs**: 
-[1] M. Haase, *Functional analysis : An elementary introduction*   
-[2] J. C. Burkill, *A second course in Mathematical Analysis*   
-[3] A. Pinkus, Weierstrass and Approximation Theory, *J. Approx. Theory* 
 
 
 
