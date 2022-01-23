@@ -40,7 +40,7 @@ Continuing with such adjustments, we get a function ${ g _n (t) }$ ${ := \ell(x 
 Finally as ${ g _n (t) }$ is ${ \ell(x _n) + m _n (t - x _n) }$ on  ${ [x _n, \infty) },$ the adjusted function ${ g _{n+1} (t) }$ ${ := g _n (t) - m _n (t - x _n) ^+ }$ agrees with ${ \ell(t) }$ on ${ \mathbb{R} }.$   
 The process is visual: 
 
-![](https://i2.lensdump.com/i/rdchwA.jpg) 
+![](https://i.postimg.cc/c6qHH4xZ/Weierstrass-21-1-22.jpg)
 
 Now ${ \ell(t) }$ ${ = g _{n+1} (t) }$ ${ = \ell(x _0) + \sum _{0} ^{n} (m _{j+1} - m _j) (t - x _j) ^+ }.$ So to show ${ \ell }$ is nice, it suffices to show ${ t \mapsto t ^+ := \frac{1}{2} (t + \vert t \vert) }$ is nice. This is true since ${ \vert t \vert }$ is a nice function.   
 > Let ${ M \gt 0 }.$ [We know](https://bvenkatakarthik.github.io/BinomSeriesPositive)  polynomials ${ \sum _{0} ^{n} \binom{1/2}{j} x ^j }$ converge uniformly to ${ \sqrt{1+x} }$ on ${ [-1,1] }.$   
