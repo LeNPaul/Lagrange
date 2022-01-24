@@ -12,7 +12,7 @@ Weierstrass approximation theorem says there is a sequence of polynomials unifor
 The proof below is originally due to Lebesgue. Some sources are books [1, Sec 9.1], [2, Th 5.61] and survey [3, pg 27].   
 **Refs**: [1] M. Haase, *Functional analysis : An elementary introduction*   
 [2] J. C. Burkill, *A second course in Mathematical Analysis*   
-[3] A. Pinkus, Weierstrass and Approximation Theory, *J. Approx. Theory* 
+[3] A. Pinkus, *Weierstrass and Approximation Theory*, J. Approx. Theory
 
 
 
