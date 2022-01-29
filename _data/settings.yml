@@ -4,16 +4,16 @@ disqus:
   #disqus_shortname: 'https-lenpaul-github-io-lagrange'
 
 # If you are not using Google Analytics, please change 'google-ID' to an empty string
-#google-ID: 'UA-112060364-1'
+google-ID: ''
 
 menu:
 - {name: 'About',   url: 'about.html'}
-- {name: 'Writing', url: 'writing.html'}
+- {name: 'Posts', url: 'posts.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
 - {icon: 'github',     link: 'https://www.github.com/pvphan'}
-- {icon: 'twitter',    link: 'https://twitter.com/pvphan'}
+- {icon: 'twitter',    link: 'https://twitter.com/PaulVinhPhan'}
 - {icon: 'linkedin',   link: 'http://www.linkedin.com/in/PaulVinhPhan/'}
 - {icon: 'envelope',   link: 'mailto:pvphan90@gmail.com'}
 
