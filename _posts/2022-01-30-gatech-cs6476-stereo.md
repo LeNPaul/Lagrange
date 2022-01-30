@@ -44,7 +44,7 @@ Determining the matching cost of a rectified stereo pair of images $I_b$ and $I_
     - Use a kernel (or window) to filter over the image and "sum" the values within the window to be stored in a new image, the "sum squared difference"
     - Store the "sum squared difference" image as the $d$-th layer of $C$
 
-The disparity map can then be calculated by $argmin_{d} C(i,j,d)$. There is no following cost aggregation step, nor any disparity refinement in this case.
+The disparity map can then be calculated by $\underset{d}{\operatorname{argmin}} C(i,j,d)$. There is no following cost aggregation step, nor any disparity refinement in this case.
 
 ### 2.2 Census Transform (CT)
 
@@ -59,15 +59,15 @@ Additionally, it has strong performance near object borders compared to simpler 
 After calculating the representative bitstrings of each pixel in $I_b$ and $I_m$, given as $\bar{I}_b$ and $\bar{I}_m$ respectively, populating the 3D cost matrix $C$ is done with the following steps:
 
 - Allocate a 3D matrix $C$ of size ($width$, $height$, $maxdisp+1$), with $maxdisp$ being the max disparity value to search for matches up to.
-- For each proposed disparity, $d = 0$ to $maxdisp$:
-    - Shift the match census image
-      $\bar{I}_{m}$ by $d$ pixels, let this be called $\bar{I}_{m,d}$
 
+- For each proposed disparity, $d = 0$ to $maxdisp$:
+    - Shift the match census image: $\bar{I}_{m}$ by $d$ pixels
+    - Let this be called $\bar{I}_{m,d}$
     - Calculate the Hamming distance between the bitstring values at each pixel:
     - $C[i,j,d] = Hamming(\bar{I}_{m,d}(i,j), \bar{I}_b(i,j))$
 
 Where the Hamming distance is the count of the number of positions where the bitstrings differ.
-From my experimentation, the disparity map that results from simply calling $argmin_{d} C(i,j,d)$ when using Census Transform results in poor accuracy.
+From my experimentation, the disparity map that results from simply calling $\underset{d}{\operatorname{argmin}} C(i,j,d)$ when using Census Transform results in poor accuracy.
 Pairing this matching cost matrix $C$ with SGM, however, leads to quite good results (as covered in [Section 3](#3-results)).
 
 ### 2.3 Semi-Global Matching (SGM)
@@ -103,7 +103,7 @@ $$
 S(\textbf{p}, d) = \sum\limits_{\textbf{r}} L_{\textbf{r}} (\textbf{p}, d)
 $$
 
-The disparity map is then calculated by $argmin_{d} S(i,j,d)$, where additional refinement to the disparity map may follow.
+The disparity map is then calculated by $\underset{d}{\operatorname{argmin}} S(i,j,d)$, where additional refinement to the disparity map may follow.
 
 
 ### 2.4 CT-SGM
@@ -120,7 +120,7 @@ Some other key differences between my implementation and the original SGM:
 - Original SGM aggregates over 16 paths, while my implementation supports only 4 paths (up, down, left, right) or 8 paths (includes diagonals).
 
 A summary of the steps in my CT-SGM algorithm are expressed below:
-$$CT(I_b, I_m) => C_{CT} => S_{SGM} => argmin_{d}S_{SGM} => D\prime => medianblur(D\prime) => D$$
+$$CT(I_b, I_m) => C_{CT} => S_{SGM} => \underset{d}{\operatorname{argmin}}S_{SGM} => D\prime => medianblur(D\prime) => D$$
 
 
 ## 3. Results
