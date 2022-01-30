@@ -3,10 +3,12 @@ layout: post
 title: "Stereo Matching with Semi-Global Matching (SGM)"
 author: "Paul Vinh Phan"
 categories: journal
+image: kodakstereo.jpg
 tags: [stereo,matching,sgm]
 ---
 
-(Note: This report was written as part of a computer vision course I took in 2017. I figured I'd post it here to share.)
+(Note: This report was written as part of a computer vision course I took in 2017. I figured I'd post it here to share.
+Image above from [Wikipedia](https://en.wikipedia.org/wiki/Kodak_Stereo_Camera))
 
 Presented below are the results and discussion of my implementation of a simple Sum Squared Difference and advance energy minimization stereo algorithm (Census Transform with Semi-Global Matching), observing performance with respect to accuracy and runtime, and comparing their results against two state of the art stereo algorithms: ELAS and SGBM.
 
