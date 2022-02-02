@@ -9,7 +9,7 @@ tags: [documentation,sample]
 
 (Ref: Stromberg's "Classical Real Analysis")
 
-Let ${ \alpha \in \mathbb{R} }.$ The [generalised binomial theorem](https://math.stackexchange.com/questions/135894/generalised-binomial-theorem-intuition) says ${ (1+x) ^{\alpha} }$ ${ = 1+ \sum _{1} ^{\infty} \binom{\alpha}{j} x ^j }$ for ${ \vert x \vert \lt 1 }.$   
+Let ${ \alpha \in \mathbb{R} }.$ The [generalised binomial theorem](https://math.stackexchange.com/questions/135894/generalised-binomial-theorem-intuition) says ${ (1+x) ^{\alpha} }$ ${ = \sum _{0} ^{\infty} \binom{\alpha}{j} x ^j }$ for ${ \vert x \vert \lt 1 }.$   
 > Also, radius of convergence of ${ \sum _{1} ^{\infty} \binom{\alpha}{j} x ^j }$ is ${ \infty }$ when ${ \alpha \in \mathbb{Z} _{\geq 0} }$ (because all but finitely many coeffs are ${ 0 }$) and ${ 1 }$ when ${ \alpha \in \mathbb{R} \setminus \mathbb{Z} _{\geq 0} }$ (because ${ \vert \binom{\alpha}{j+1} / \binom{\alpha}{j} \vert }$ ${ = \vert \frac{ \alpha - j }{ j+1 } \vert }$ ${ \to 1 }$ as ${ j \to \infty }$). 
 
 If ${ \alpha \gt 0 },$ we can show ${ \sum _1 ^{\infty} \binom{\alpha}{j} x ^j }$ converges uniformly on ${ \vert x \vert \leq 1 }.$   
@@ -24,8 +24,8 @@ So the partial sums of ${ \sum _{1} ^{\infty} a _n }$ are bounded above, and hen
 **Pf**: By Weierstrass M-test, it suffices to show ${ \sum _{1} ^{\infty} \vert \binom{\alpha}{j} \vert }$ converges. When ${ \alpha }$ is a positive integer this holds trivially, so suppose ${ \alpha }$ is positive but not an integer.   
 Now ${ a _j }$ ${ := \vert \binom{\alpha}{j} \vert }$ ${ \gt 0 }.$ Also ${ \frac{a _{j+1}}{a _j} }$ ${ = \vert \frac{\alpha - j}{j+1} \vert }$ ${ = \frac{j-\alpha}{j+1} }$ for all ${ j \geq \alpha }.$ Now ${ \left( \frac{j a _j - (j+1) a _{j+1} }{a _j} \right) }$ ${ = \alpha }$ ${ (\gt 0) }$  for all ${ j \geq \alpha }.$ So ${ \sum _{1} ^{\infty} a _j }$ converges by Kummer's test. 
 
-**Cor**: Let ${ \alpha \gt 0 }.$ Then ${ (1+x) ^{\alpha} }$ ${ = 1 + \sum _{1} ^{\infty} \binom{\alpha}{j} x ^j }$ for ${ \vert x \vert \leq 1 }.$    
-> The series ${ \sum _{1} ^{\infty} \binom{\alpha}{j} x ^j }$ is continuous on ${ [-1,1] }.$ So ${ (1+1) ^{\alpha} }$ ${ = \lim _{x \to 1 ^{-}} (1+x) ^{\alpha} }$ ${ = \lim _{x \to 1 ^{-}} ( 1 + \sum _{1} ^{\infty} \binom{\alpha}{j}x ^j )  }$ ${ = 1+ \sum _{1} ^{\infty} \binom{\alpha}{j} },$ and similarly ${ 0 }$ ${ = 1+ \sum _{1} ^{\infty} \binom{\alpha}{j} (-1) ^j }.$ 
+**Cor**: Let ${ \alpha \gt 0 }.$ Then ${ (1+x) ^{\alpha} }$ ${ = \sum _{0} ^{\infty} \binom{\alpha}{j} x ^j }$ for ${ \vert x \vert \leq 1 }.$    
+> By uniform convergence, the series ${ \sum _{0} ^{\infty} \binom{\alpha}{j} x ^j }$ is continuous on ${ [-1,1] }.$ So ${ (1+1) ^{\alpha} }$ ${ = \lim _{x \to 1 ^{-}} (1+x) ^{\alpha} }$ ${ = \lim _{x \to 1 ^{-}} ( \sum _{0} ^{\infty} \binom{\alpha}{j}x ^j )  }$ ${ = \sum _{0} ^{\infty} \binom{\alpha}{j} },$ and similarly ${ 0 }$ ${ = \sum _{0} ^{\infty} \binom{\alpha}{j} (-1) ^j }.$ 
 
 **Cor** (Finding a sequence of polynomials converging uniformly to ${ \vert x \vert }$ on ${ [-1,1] }$)   
 > Idea: Write ${ \vert x \vert }$ ${ = \sqrt{1+(x ^2 -1)} }$ and use binomial expansion. 
