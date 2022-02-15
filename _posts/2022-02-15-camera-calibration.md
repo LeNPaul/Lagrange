@@ -31,10 +31,10 @@ You'll find all the code I used for this here: [github.com/pvphan/camera-calibra
 
 It's easy enough to call a library to do camera calibration without understanding fully what it does.
 The steps are:
-1. Collect a set of images using the camera you want to calibrate.
-2. Extract the 2D calibration target points from each image (in image pixel coordinates).
-3. Specify the 3D arangement of these target points (in target 3D coordinates).
-4. Call your solver (e.g. cv2.calibrateCamera)
+1. Collect a set of **images** using the camera you want to calibrate.
+2. Extract the **2D** calibration target points from each image (in image pixel coordinates).
+3. Specify the **3D** arangement of these target points (in target 3D coordinates).
+4. Call your **solver**, e.g. cv2.calibrateCamera (which defaults to using Zhang's method).
 
 So why go through the effort of reimplementing this algorithm from scratch?
 
@@ -42,18 +42,26 @@ Personally, my reasons are:
 - To fill the cracks in my knowledge in what information about the scene is truely required for an accurate calibration.
 - As an exercise to deepen my linear algebra and optimization understanding.
 
-As such, I've decided to focus just on step 4 above. If that's good enough for you too, read on!
+As such, I've decided to focus just on step 4 above in implementing the solver.
+If that's good enough for you too, read on!
 
 
 ## Overview
 
-Since about 1990, the most popular method for calibrating a camera is the Zhang method invented by Zhenyou Zhang.
+Currently, the most popular method for calibrating a camera has been the **Zhang method** invented by Zhengyou Zhang in 1998 ([A Flexible New Technique for Camera Calibration]()).
 It's popularity is due to how easy and inexpensive it is compared to older methods.
 Older methods typically have stricter requirements such as a precisely made 3D calibration target or a sysem to precisely move the camera.
 In contrast, Zhang's method requires only a 2D calibration target and only loose requirements on how the camera or target moves.
 This target could be printed on any normal desktop printer and taped to something reasonably flat such as a clipboard or cardboard box and still provide very accurate results.
 
 We will assume the 2D target points have already been extracted and have known association with the 3D target points (in the target's coordinate system).
+
+The steps to Zhang's method are:
+1. Use the 2D-3D point associations to **compute the homography** from target to camera for **each of view**.
+2. Use the homographies to compute an initial guess for the **intrinsic parameter** matrix.
+3. Using the above, compute an initial guess for the **distortion parameters**.
+4. Using the above, compute an estimated **camera pose** in target coordinates for **each view**.
+5. Using the above, **refine** the camera poses, intrinsic parameters, and distortion parameters using **nonlinear optimization** to minimize reprojection error.
 
 
 ## The math
@@ -73,8 +81,7 @@ What my code does
 ## Conclusion
 
 Here, I implemented Zhang's camera calibration method mostly from scratch.
-This grounds general camera calibration process into the clever application of a few mathematical techniques (SVD, Levenberg-Marquardt).
-The full pipeline of these techniques was a bit daunting taken altogether, but after implementing it piece by piece I found the Zhang method to be elegant in it's clever use of just a couple powerful techniques.
+The full pipeline of these techniques was a bit daunting to me taken altogether, but after implementing it piece by piece I found the Zhang method to be elegant in it's clever use of SVD and Levenberg-Marquardt.
 
 I hope this post has helped some people become more comfortable with these linear algebra and optimization techniques and demystified Zhang's method a little bit.
 Thanks for reading!
