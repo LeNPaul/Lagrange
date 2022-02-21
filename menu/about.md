@@ -6,11 +6,11 @@ permalink: /about
 
 ![at my desk](assets/img/pfpstereo.jpg)
 
-Hi, I'm Vinh, an engineer working in agricultural robotics.
+I'm Vinh, an engineer working in agricultural robotics.
 I mostly work in computer vision and robotics, but I still love tinkering with hardware.
 
 
-I was a co-founder at Traptic doing robotic strawberry harvest, which is now a part of Bowery Farming.
+I co-founded [Traptic](https://www.traptic.com/) doing outdoor robotic strawberry harvest, which is now part of [Bowery Farming](https://boweryfarming.com/) (indoor, vertical farming).
 I did my BS in Aerospace Engineering at the University of California, San Diego and my MS in Computer Science from Georgia Tech specializing in Computational Perception & Robotics.
 
 
