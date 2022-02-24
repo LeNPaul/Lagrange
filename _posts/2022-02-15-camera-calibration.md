@@ -47,12 +47,14 @@ This means that anyone with a desktop printer and a little time can accurately c
 For the remainder of this post, we will assume the 2D target points have already been extracted from the images and have known association with the 3D target points (in the target's coordinate system).
 Such functionality is typically handled by a library (e.g. [ChAruco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
 
-The following steps for Zhang's method are:
+The general strategy of Zhang's method is to impose naïve assumptions as constraints to get an **initial guess** of parameter values with singular value decomposition (SVD), then release those constraints and **refine** those guesses with non-linear least squares optimization.
+
+The ordering of steps for Zhang's method are:
 1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
-2. Use the homographies to compute an initial guess for the **intrinsic parameter** matrix.
-3. Using the above, compute an initial guess for the **distortion parameters**.
-4. Using the above, compute an estimated **camera pose** (per-view) in target coordinates.
-5. Using the above, **refine** the camera poses, intrinsic parameters, and distortion parameters using **nonlinear optimization** to minimize projection error.
+2. Use the homographies to compute an initial *guess* for the **intrinsic matrix**.
+3. Using the above, compute an initial *guess* for the **distortion parameters**.
+4. Using the above, compute an initial *guess* **camera pose** (per-view) in target coordinates.
+5. Using the above, **refine** the guess camera poses, intrinsic parameters, and distortion parameters using **nonlinear optimization** to minimize projection error.
 
 
 ## Camera parameters
@@ -113,7 +115,7 @@ The minimal set of math 'bag of tricks' to know, and a simple description of wha
 
 ## Numerical toolbelt
 
-To implement Zhang's method, we'll need two numerical methods in our toolbelt:
+So we'll need those two numerical methods in our toolbelt:
 
 ### 1. Singular Value Decomposition (SVD)
 
