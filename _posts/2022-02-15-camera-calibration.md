@@ -46,11 +46,12 @@ $$
 - $\textbf{W}$ -- the per-view set of transforms from target to camera (list of N 4x4 matrices)
     - $\textbf{W} = [W_1, W_2, ..., W_N]$, where $W_i$ is the transform from 'world' (the calibration target's coordinates) to 'camera' for the $i$-th view.
     - Written in homogenous form: $W_i = $
+    - TODO: use column-wise line, call them r_x, ..., t_x, ...
 $$
 \begin{pmatrix}
-R_{11} & R_{12} & R_{13} & t_1\\
-R_{21} & R_{22} & R_{23} & t_2\\
-R_{31} & R_{32} & R_{33} & t_3\\
+R_{11} & R_{12} & R_{13} & t_x\\
+R_{21} & R_{22} & R_{23} & t_y\\
+R_{31} & R_{32} & R_{33} & t_z\\
 0 & 0 & 0 & 1\\
 \end{pmatrix}
 $$
@@ -80,7 +81,7 @@ In contrast, Zhang's method requires only a 2D calibration target and only loose
 This means that anyone with a desktop printer and a little time could now accurately calibrate their camera!
 
 For the remainder, we will assume the 2D target points have already been extracted and have known association with the 3D target points (in the target's coordinate system).
-Such functionality is typically handled by a library such as [ChAruco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html) (part of OpenCV) or [AprilTag](https://github.com/AprilRobotics/apriltag) and is beyond the scope of this post.
+Such functionality is typically handled by a library such as [ChAruco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html) (part of OpenCV) or [AprilTag](https://april.eecs.umich.edu/software/apriltag) and is beyond the scope of this post.
 
 The following steps for Zhang's method are:
 1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
