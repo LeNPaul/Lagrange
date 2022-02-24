@@ -24,8 +24,9 @@ $$
 $$
     - $\alpha$ -- focal length x
     - $\beta$ -- focal length y
-    - $c_x$ -- x coordinate of camera center (or 'principal point')
-    - $c_y$ -- y coordinate of camera center (or 'principal point')
+    - $\gamma$ -- the skew ratio
+    - $c_x$ -- x coordinate of principal point (optical center)
+    - $c_y$ -- y coordinate of principal point (optical center)
 - $\textbf{k}$ -- the distortion vector,
     - for the radial-tangential model:
 $$
@@ -39,7 +40,7 @@ $$
 k_1 & k_2 & k_3 & k_4
 \end{pmatrix}
 $$
-    - $k_i$ vaules correspond to radial distortion and $p_i$ values correspond to tangential distortion
+    - $k_i$ values correspond to radial distortion and $p_i$ values correspond to tangential distortion
 - $\textbf{W}$ -- the per-view set of transforms from target to camera (list of N 4x4 matrices)
     - $\textbf{W} = [W_1, W_2, ..., W_N]$, where $W_i$ is the transform from 'world' (the calibration target) to 'camera' for the $i$-th view.
     - Written in homogenous form: $W_i = $
