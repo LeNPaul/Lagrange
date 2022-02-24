@@ -19,14 +19,14 @@ Camera calibration is the process of computing the **camera parameters**: $A$, $
 
 A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target, varying the camera pose and/or board pose for each view for a total of N views.
 
-So, **given N images of a known calibration target, compute the camera parameters: $A$, $\textbf{k}$, and $\textbf{W}$.**
+So, **given N images of a known calibration target, compute the camera parameters: $A$, $\textbf{k}$, and $\textbf{W}$.** And with these parameters, we can **reason spatially** about the world from images!
 
 {:centeralign: style="text-align: center;"}
 ![Figure 1](assets/img/pict_calib_mini2.gif)
 {: centeralign }
 
 {:centeralign: style="text-align: center;"}
-Multiple views of a checkerboard calibration target, from [vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/).
+A calibration dataset and its visualization, from [vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/).
 {: centeralign }
 
 
@@ -113,20 +113,23 @@ The minimal set of math 'bag of tricks' to know, and a simple description of wha
 
 ## Numerical toolbelt
 
-To implement Zhang's method, we'll need two numerical methods in our math toolbelt:
+To implement Zhang's method, we'll need two numerical methods in our toolbelt:
 
 ### 1. Singular Value Decomposition (SVD)
+
+TODO
 
 
 ### 2. Non-linear optimization using the Levenberg-Marquardt (LM) algorithm
 
+TODO
 Non-linear optimization is the task of computing a set of parameters which minimizes a non-linear value function.
 LM is a technique for nonlinear optimization based on the Gauss-Newton method.
 It's tweak to it's weighting which works well in practice (more on this here).
 
 
 ## The implementation
-What my code does
+TODO: What my code does
 
 The gif above shows the projection of expected target points (magenta) vs the measured target points (green) as the camera parameters are iteratively improved throughout the calibration process using a synthetic dataset.
 
