@@ -8,6 +8,8 @@ tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 ---
 
 
+My 'from scratch' implementation of Zhang's method is linked here: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration)
+
 ## What is camera calibration?
 
 A camera captures light from a 3D scene and projects it onto a 2D sensor which stores the sensor state as a 2D image.
@@ -22,8 +24,8 @@ $$
 0 & 0 & 1
 \end{pmatrix}
 $$
-    - $\alpha$ -- focal length x
-    - $\beta$ -- focal length y
+    - $\alpha$ -- focal length in the camera x direction
+    - $\beta$ -- focal length in the camera y direction
     - $\gamma$ -- the skew ratio
     - $c_x$ -- x coordinate of principal point (optical center)
     - $c_y$ -- y coordinate of principal point (optical center)
@@ -42,7 +44,7 @@ k_1 & k_2 & k_3 & k_4
 $$
     - $k_i$ values correspond to radial distortion and $p_i$ values correspond to tangential distortion
 - $\textbf{W}$ -- the per-view set of transforms from target to camera (list of N 4x4 matrices)
-    - $\textbf{W} = [W_1, W_2, ..., W_N]$, where $W_i$ is the transform from 'world' (the calibration target) to 'camera' for the $i$-th view.
+    - $\textbf{W} = [W_1, W_2, ..., W_N]$, where $W_i$ is the transform from 'world' (the calibration target's coordinates) to 'camera' for the $i$-th view.
     - Written in homogenous form: $W_i = $
 $$
 \begin{pmatrix}
@@ -52,30 +54,35 @@ R_{31} & R_{32} & R_{33} & t_3\\
 0 & 0 & 0 & 1\\
 \end{pmatrix}
 $$
-    - Note on convention: $W_i = {}^cM_{w,i}$ which is the $i$-th **transform** from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. Here, $M$ simply denotes a 4x4 homogeneous rigid body transformation.
+    - Notes on convention:
+        - $W_i = {}^cM_{w,i}$ is the $i$-th **transform** from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
+        - Example of the above convention: ${}^cP = {}^cM_{w} \cdot {}^wP$, with $P \in \mathbb{R^3}$ and ${}^cM_{w} \in SE(3)$
+            - ${}^cP$ -- point $P$ in camera coordinates
+            - ${}^wP$ -- point $P$ in world coordinates
+            - $\mathbb{R^3}$ -- the space of real, 3 dimensional numbers
 
-A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target, changing the camera pose or board pose for each view.
-While calibrating the *intrinsic parameters*, we'll also consider the *extrinsic parameters* which are simply the rigid body transforms from the calibration target to the camera coordinate frame for each view.
+A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target, changing the camera pose or board pose for each view for a total of N views.
 
-The problem of camera calibration is: "Given N images of a known calibration target, compute $A$, $\textbf{k}$, and $\textbf{W}$."
+So, **"Given N images of a known calibration target, compute $A$, $\textbf{k}$, and $\textbf{W}$."**
 
 
 ## Why from scratch?
 
-I had used [cv2.calibrateCamera()](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga3207604e4b1a1758aa66acb6ed5aa65d) many times without understanding why it sometimes failed or gave poor results.
-It was also a good exercise to deepen my linear algebra and optimization understanding.
-
-My 'from scratch' implementation of Zhang's method is linked here: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration)
+I have used [cv2.calibrateCamera()](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga3207604e4b1a1758aa66acb6ed5aa65d) many times without understanding why it sometimes failed or gave poor results.
+Writing the code myself was also a good exercise to deepen my linear algebra and optimization understanding.
 
 
 ## What is 'Zhang's method'?
 
-Currently, the most popular method for calibrating a camera is **Zhang's method** invented by [Zhengyou Zhang (1998), A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf)).
+Currently, the most popular method for calibrating a camera is **Zhang's method** invented in [A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf) by Zhengyou Zhang (1998).
 Older methods typically required a precisely made 3D calibration target or a mechanical system to precisely move the camera.
 In contrast, Zhang's method requires only a 2D calibration target and only loose requirements on how the camera or target moves.
-This meant that anyone with a desktop printer and a little time could now accurately calibrate their camera!
+This means that anyone with a desktop printer and a little time could now accurately calibrate their camera!
 
-We will assume the 2D target points have already been extracted and have known association with the 3D target points (in the target's coordinate system). The following steps for Zhang's method are:
+For the remainder, we will assume the 2D target points have already been extracted and have known association with the 3D target points (in the target's coordinate system).
+Such functionality is typically handled by a library such as [ChAruco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html) (part of OpenCV) or [AprilTag](https://github.com/AprilRobotics/apriltag) and is beyond the scope of this post.
+
+The following steps for Zhang's method are:
 1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
 2. Use the homographies to compute an initial guess for the **intrinsic parameter** matrix.
 3. Using the above, compute an initial guess for the **distortion parameters**.
@@ -107,7 +114,7 @@ The gif above shows the reprojection of expected target points (magenta) vs the 
 The more closely the magenta and green points match, the more accurate the calibration parameters are.
 
 
-## Conclusion
+## Final remarks
 
 Here, I implemented Zhang's camera calibration method mostly from scratch.
 The full pipeline of these techniques was a bit daunting to me taken altogether, but after implementing it piece by piece I found the Zhang method to be elegant in it's clever use of SVD and Levenberg-Marquardt.
