@@ -4,19 +4,19 @@ title: About
 permalink: /about
 ---
 
-![at my desk](assets/img/pfpstereo.jpg)
+![in the field](assets/img/vinhlewis.jpg)
 
-I'm Vinh, an engineer working in agricultural robotics.
-I mostly work in computer vision and robotics, but I still love tinkering with hardware.
+I'm Vinh, an engineer working in computer vision and robotics.
+My background is originally in hardware and I still love to tinker.
+That's me on the left, and my friend [Lewis](https://twitter.com/lewisdotai) on the right.
 
 
-I co-founded [Traptic](https://www.traptic.com/) doing outdoor robotic strawberry harvest, which is now part of [Bowery Farming](https://boweryfarming.com/) (indoor, vertical farming).
-I did my BS in Aerospace Engineering at the University of California, San Diego and my MS in Computer Science from Georgia Tech specializing in Computational Perception & Robotics.
+I did my BS in Aerospace Engineering at the [UCSD](https://ucsd.edu/) and my MS in Computer Science from [Georgia Tech](https://www.gatech.edu/) specializing in Computational Perception & Robotics.
+After working in commercial aerospace for about 5 years, I co-founded [Traptic](https://www.traptic.com/) with Lewis doing outdoor robotic strawberry harvest.
+I now work at [Bowery](https://boweryfarming.com/) (indoor, vertical farming) following the [acquisition](https://techcrunch.com/2022/02/16/following-acquisition-by-bowery-traptics-strawberry-picking-robotics-move-into-vertical-farming/).
 
 
 I plan to post here as a way to solidify my understanding and as a record to look back on later.
+If you need to get in touch, I can be reached at "pvphan90 at gmail dot com".
 Hopefully you find something useful here!
 
-
-About this web site: it is a fork of the [Lagrange](https://github.com/lenpaul/lagrange) Jekyll theme which is hosted on GitHub pages.
-A huge thanks to the original author, [Paul Le](https://github.com/LeNPaul)!
