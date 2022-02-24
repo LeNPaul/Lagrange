@@ -26,7 +26,7 @@ $$
 $$
     - $\alpha$ -- focal length in the camera x direction
     - $\beta$ -- focal length in the camera y direction
-    - $\gamma$ -- the skew ratio
+    - $\gamma$ -- the skew ratio, typically 0
     - $c_x$ -- x coordinate of principal point (optical center)
     - $c_y$ -- y coordinate of principal point (optical center)
 - $\textbf{k}$ -- the distortion vector,
@@ -44,32 +44,32 @@ k_1 & k_2 & k_3 & k_4
 $$
     - $k_i$ values correspond to radial distortion and $p_i$ values correspond to tangential distortion
 - $\textbf{W}$ -- the per-view set of transforms from target to camera (list of N 4x4 matrices)
-    - $\textbf{W} = [W_1, W_2, ..., W_N]$, where $W_i$ is the transform from 'world' (the calibration target's coordinates) to 'camera' for the $i$-th view.
-    - Written in homogenous form: $W_i = $
-    - TODO: use column-wise line, call them r_x, ..., t_x, ...
+    - $\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$, where ${}^cM_{w,i}$ is the $i$-th 4x4 homogeneous **transform** from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
+    - Written in homogenous form: ${}^cM_{w} = $
 $$
 \begin{pmatrix}
-R_{11} & R_{12} & R_{13} & t_x\\
-R_{21} & R_{22} & R_{23} & t_y\\
-R_{31} & R_{32} & R_{33} & t_z\\
+|     & |     & |     & t_x\\
+r_{x} & r_{y} & r_{z} & t_y\\
+|     & |     & |     & t_z\\
 0 & 0 & 0 & 1\\
 \end{pmatrix}
 $$
-    - Notes on convention:
-        - $W_i = {}^cM_{w,i}$ is the $i$-th **transform** from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
-        - Example of the above convention: ${}^cP = {}^cM_{w} \cdot {}^wP$, with $P \in \mathbb{R^3}$ and ${}^cM_{w} \in SE(3)$
-            - ${}^cP$ -- point $P$ in camera coordinates
-            - ${}^wP$ -- point $P$ in world coordinates
-            - $\mathbb{R^3}$ -- the space of real, 3 dimensional numbers
+        - $t_x, t_y, t_z$ are the world coordinate system's origin given in the camera coordinates.
+        - $r_x$ is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates, etc.
+    - Example of single 3D point coordinate transformation: ${}^cP = {}^cM_{w} \cdot {}^wP$, with $P \in \mathbb{R^3}$ and ${}^cM_{w} \in SE(3)$
+        - ${}^cP$ -- point $P$ in camera coordinates
+        - ${}^wP$ -- point $P$ in world coordinates
+        - $\mathbb{R^3}$ -- the space of real, 3 dimensional numbers
 
 A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target, changing the camera pose or board pose for each view for a total of N views.
 
-So, **"Given N images of a known calibration target, compute $A$, $\textbf{k}$, and $\textbf{W}$."**
+So, **given N images of a known calibration target, compute $A$, $\textbf{k}$, and $\textbf{W}$.**
 
 
 ## Why from scratch?
 
 I have used [cv2.calibrateCamera()](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga3207604e4b1a1758aa66acb6ed5aa65d) many times without understanding why it sometimes failed or gave poor results.
+Having a better understanding of the fundamentals will make it more obvious when something is out of place.
 Writing the code myself was also a good exercise to deepen my linear algebra and optimization understanding.
 
 
@@ -80,15 +80,15 @@ Older methods typically required a precisely made 3D calibration target or a mec
 In contrast, Zhang's method requires only a 2D calibration target and only loose requirements on how the camera or target moves.
 This means that anyone with a desktop printer and a little time could now accurately calibrate their camera!
 
-For the remainder, we will assume the 2D target points have already been extracted and have known association with the 3D target points (in the target's coordinate system).
-Such functionality is typically handled by a library such as [ChAruco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html) (part of OpenCV) or [AprilTag](https://april.eecs.umich.edu/software/apriltag) and is beyond the scope of this post.
+For the remainder of this post, we will assume the 2D target points have already been extracted and have known association with the 3D target points (in the target's coordinate system).
+Such functionality is typically handled by a library such as [ChAruco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html) (included in OpenCV) or [AprilTag](https://april.eecs.umich.edu/software/apriltag) and is beyond the scope of this post.
 
 The following steps for Zhang's method are:
 1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
 2. Use the homographies to compute an initial guess for the **intrinsic parameter** matrix.
 3. Using the above, compute an initial guess for the **distortion parameters**.
 4. Using the above, compute an estimated **camera pose** (per-view) in target coordinates.
-5. Using the above, **refine** the camera poses, intrinsic parameters, and distortion parameters using **nonlinear optimization** to minimize reprojection error.
+5. Using the above, **refine** the camera poses, intrinsic parameters, and distortion parameters using **nonlinear optimization** to minimize projection error.
 
 
 ## The math
@@ -110,7 +110,7 @@ LM is based on the Gauss-Newton method but with a tweak to it's weighting which 
 ## The implementation
 What my code does
 
-The gif above shows the reprojection of expected target points (magenta) vs the measured target points (green) as the camera parameters are iteratively improved throughout the calibration process using a synthetic dataset.
+The gif above shows the projection of expected target points (magenta) vs the measured target points (green) as the camera parameters are iteratively improved throughout the calibration process using a synthetic dataset.
 
 The more closely the magenta and green points match, the more accurate the calibration parameters are.
 
