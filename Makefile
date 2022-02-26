@@ -3,8 +3,8 @@ REPO_PATH:=$(dir $(abspath $(firstword $(MAKEFILE_LIST))))
 IMAGE_TAG=pvphan/blog:latest
 RUN_FLAGS = --rm \
 	--network=host \
+	--volume=${REPO_PATH}:/pvphan.github.io \
 	${IMAGE_TAG}
-
 
 serve: image
 	docker run ${RUN_FLAGS} \
