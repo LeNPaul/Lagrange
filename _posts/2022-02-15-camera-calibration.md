@@ -107,15 +107,13 @@ $$
 x & y & z & 1
 \end{pmatrix}
 ^\top$$
-        - $${}^cP$$ -- homogeneous point $P$ in camera coordinates
+        - $${}^cP$$ -- homogeneous point $$P$$ in camera coordinates
         - $$\mathbb{R^3}$$ -- the space of real, 3 dimensional numbers
-
-The minimal set of math 'bag of tricks' to know, and a simple description of what they do and why it's reasonable to expect they will work.
 
 
 ## Numerical toolbelt
 
-So we'll need those two numerical methods in our toolbelt:
+We'll need those two numerical methods in our toolbelt:
 
 ### 1. Singular Value Decomposition (SVD)
 
