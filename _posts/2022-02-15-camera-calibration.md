@@ -88,7 +88,7 @@ k_1 & k_2 & k_3 & k_4
 $$
     - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion
 - $$\textbf{W}$$ -- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
-    - $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th 4x4 homogeneous rigid-body **transform** (i.e. in the group $$SE(3)$$) from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
+    - $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
     - Written in homogeneous form: $${}^cM_{w} = $$
 $$
 \begin{pmatrix}
@@ -109,6 +109,7 @@ x & y & z & 1
 ^\top$$
         - $${}^cP$$ -- homogeneous point $$P$$ in camera coordinates
         - $$\mathbb{R^3}$$ -- the space of real, 3 dimensional numbers
+        - $$SE(3)$$ -- the space of 3D rigid body transformations
 
 
 ## Numerical toolbelt
