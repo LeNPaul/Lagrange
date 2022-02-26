@@ -15,11 +15,11 @@ My 'from scratch' implementation of Zhang's camera calibration: [github.com/pvph
 A camera captures light from a 3D scene and projects it onto a 2D sensor which stores the sensor state as a 2D image.
 In other words, a **2D point** in the image is equivalent to a **3D ray** in the scene.
 A camera is **calibrated** if we know the *camera parameters* which define the mapping between the 2D image point / 3D ray spaces.
-Camera calibration is the process of computing the **camera parameters**: $A$, $\textbf{k}$, and $\textbf{W}$ (defined in [$\S$Camera parameters](#camera-parameters)).
+Camera calibration is the process of computing the **camera parameters**: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$ (defined in [$$\S$$Camera parameters](#camera-parameters)).
 
 A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target, varying the camera pose and/or board pose for each view for a total of N views.
 
-So, **given N images of a known calibration target, compute the camera parameters: $A$, $\textbf{k}$, and $\textbf{W}$.** And with these parameters, we can **reason spatially** about the world from images!
+So, **given N images of a known calibration target, compute the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$.** And with these parameters, we can **reason spatially** about the world from images!
 
 {:centeralign: style="text-align: center;"}
 ![Figure 1](assets/img/pict_calib_mini2.gif)
@@ -60,7 +60,7 @@ The ordering of steps for Zhang's method are:
 ## Camera parameters
 
 A more full definition of the calibration parameters is provided below. The variable naming convention follows fairly closely to the Zhang paper.
-- $A$ -- the **intrinsic matrix**,
+- $$A$$ -- the **intrinsic matrix**,
 $$
 \begin{pmatrix}
 \alpha & \gamma & u_0\\
@@ -68,12 +68,12 @@ $$
 0 & 0 & 1\\
 \end{pmatrix}
 $$
-    - $\alpha$ -- focal length in the camera x direction
-    - $\beta$ -- focal length in the camera y direction
-    - $\gamma$ -- the skew ratio, typically 0
-    - $u_0$ -- u coordinate of optical center in image coordinates
-    - $v_0$ -- v coordinate of optical center in image coordinates
-- $\textbf{k}$ -- the **distortion vector**,
+    - $$\alpha$$ -- focal length in the camera x direction
+    - $$\beta$$ -- focal length in the camera y direction
+    - $$\gamma$$ -- the skew ratio, typically 0
+    - $$u_0$$ -- u coordinate of optical center in image coordinates
+    - $$v_0$$ -- v coordinate of optical center in image coordinates
+- $$\textbf{k}$$ -- the **distortion vector**,
     - for the radial-tangential model:
 $$
 \begin{pmatrix}
@@ -86,10 +86,10 @@ $$
 k_1 & k_2 & k_3 & k_4
 \end{pmatrix}
 $$
-    - $k_i$ values correspond to radial distortion and $p_i$ values correspond to tangential distortion
-- $\textbf{W}$ -- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
-    - $\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$, where ${}^cM_{w,i}$ is the $i$-th 4x4 homogeneous rigid-body **transform** (i.e. in the group $SE(3)$) from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
-    - Written in homogeneous form: ${}^cM_{w} = $
+    - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion
+- $$\textbf{W}$$ -- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
+    - $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th 4x4 homogeneous rigid-body **transform** (i.e. in the group $$SE(3)$$) from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
+    - Written in homogeneous form: $${}^cM_{w} = $$
 $$
 \begin{pmatrix}
 |     & |     & |     & t_x\\
@@ -98,17 +98,17 @@ r_{x} & r_{y} & r_{z} & t_y\\
 0 & 0 & 0 & 1\\
 \end{pmatrix}
 $$
-        - $t_x, t_y, t_z$ are the world coordinate system's origin given in the camera coordinates
-        - $r_x$ (3x1 column vector) is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates ($r_y$, $r_z$ follow this pattern)
-    - Example of transforming a single, homogeneous 3D point: ${}^cP = {}^cM_{w} \cdot {}^wP$, with $P \in \mathbb{R^3}$ and ${}^cM_{w} \in SE(3)$
-        - ${}^wP$ -- homogeneous point $P$ in world coordinates, e.g.
-$
+        - $$t_x, t_y, t_z$$ are the world coordinate system's origin given in the camera coordinates
+        - $$r_x$$ (3x1 column vector) is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates ($$r_y$$, $$r_z$$ follow this pattern)
+    - Example of transforming a single, homogeneous 3D point: $${}^cP = {}^cM_{w} \cdot {}^wP$$, with $$P \in \mathbb{R^3}$$ and $${}^cM_{w} \in SE(3)$$
+        - $${}^wP$$ -- homogeneous point $$P$$ in world coordinates, e.g.
+$$
 \begin{pmatrix}
 x & y & z & 1
 \end{pmatrix}
-^\top$
-        - ${}^cP$ -- homogeneous point $P$ in camera coordinates
-        - $\mathbb{R^3}$ -- the space of real, 3 dimensional numbers
+^\top$$
+        - $${}^cP$$ -- homogeneous point $P$ in camera coordinates
+        - $$\mathbb{R^3}$$ -- the space of real, 3 dimensional numbers
 
 The minimal set of math 'bag of tricks' to know, and a simple description of what they do and why it's reasonable to expect they will work.
 
