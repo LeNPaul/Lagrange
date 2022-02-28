@@ -8,17 +8,17 @@ author : Noor
 
 ## New year, new adventures, new challenges
 
-So, this year started with a lot of firsts for me : Relocating to a different city and living abroad, Living on my own and visitng Germany. I wanted a change of places and faces and it happened that I got accepted in a program in Munich for building digital products -> [Digital Product School](https://digitalproductschool.io/) (DPS). and since I was on a break after the last startup that I worked for discontinued the product we were working on for business decisions, I wanted to explore more before going for a new career decision. After gaining much experience in the work place from my former team and also realizing a little bit what I might enjoy for a career path and since I didn't want to apply for new full-time jobs yet, I decided to go for the Digital Product School in Munich and explore Germany's tech ecosystem besides what I was actually here for, which is learning about the full process of building a digital product. and here I am in Munich with new plans and goals for this upcoming 3 months.
+So, this year started with a lot of firsts for me : Relocating to a different city and living and living on my own for the firs time, and visitng Germany. I wanted a change of places and faces and it happened that I got accepted in a program in Munich for building digital products -> [Digital Product School](https://digitalproductschool.io/) (DPS). and since I was on a break after the last startup that I worked for discontinued the product we were working on for business decisions, I wanted to explore more before going for a new career decision. After gaining much experience in the work place from my former team and also realizing a little bit what I might enjoy for a career path and since I didn't want to apply for new full-time jobs yet, I decided to go for the Digital Product School in Munich and explore Germany's tech ecosystem besides what I was actually here for, which is learning about the full process of building a digital product. and here I am in Munich with new plans and goals for this upcoming 3 months.
 
 
-Moving to Germany, I had some stuff in plan on a personal level and also career-wise.
+When it came to moving to Germany, I had some stuff in plan on a personal level and also career-wise.
 
 # Goals
 
 * Personal Level : 
 
 
-    Since I didn't have a gap after graduating from college and starting my first job, I was drained and didn't take care of myself physically and mentally, also I almost didn't practice any hobbies except some sketching and trials with woodworking. And as we put resolutions for the new year and as I felt I would go to a new environment I should take some oaths regarding myself which were 
+    Since I didn't have a gap after graduating from college and starting my first job, I was drained and didn't take care of myself physically and mentally, also I almost didn't practice any hobbies except some sketching and trials with woodworking. And as we put resolutions for the new year and as I felt I would go to a new environment I should take some up some goals regarding myself which were 
 
     * Fixing my Sleeping Pattern, not entirely because I know it's hard for a person like me who's a night owl, but at least get enough hours of sleep that won't turn me into a zombie and also force myself to spend most of my active hours in the morning because everything closes in Munich by 8 P.M.
 
@@ -30,11 +30,11 @@ Moving to Germany, I had some stuff in plan on a personal level and also career-
 
     * Document more. Since I always skipped some stuff while travelling or having new experiences. I was too lazy to take enough photos or videos to document an event or experience and sometimes I regret it because you can easily miss out on details and forget after a while. Our memory is not reliable.
 
-    * Stay away as much as I could from social media and immerse myself in the moment.
+    * Staying away as much as I could from social media and immerse myself in the moment.
 
     * I already wanted to travel and visit different countries. Germany was just one country on my list.
 
-    * Most importantly, stop worrying about next steps, just go with the flow and make the most of it.
+    * Most importantly, stop worrying about next steps, just go with the flow and make the most out of it.
     
 
     since these were goals, it means I didn't practice them well enough before and I set it as a new challenge for myself, and to be honest, staying alone and also in a city which is not too loud and active as Munich has served my purpose.
