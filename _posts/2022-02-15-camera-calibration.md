@@ -123,8 +123,7 @@ TODO
 
 ### 2. Non-linear optimization using the Levenberg-Marquardt (LM) algorithm
 
-TODO
-Non-linear optimization is the task of computing a set of parameters which minimizes a non-linear value function.
+Non-linear optimization is the task of computing a set of parameters which **minimizes a non-linear value function**.
 LM is a technique for nonlinear optimization based on the Gauss-Newton method.
 It's tweak to it's weighting which works well in practice (more on this here).
 
