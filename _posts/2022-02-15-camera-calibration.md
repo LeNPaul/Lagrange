@@ -7,7 +7,7 @@ image: reprojection.gif
 tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 ---
 
-Above, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' calibration parameters (iterative).
+Above, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters (iterative).
 My 'from scratch' implementation of Zhang's camera calibration: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
 
 ## What is camera calibration?
@@ -17,16 +17,16 @@ In other words, a **2D point** in the image is equivalent to a **3D ray** in the
 A camera is **calibrated** if we know the *camera parameters* which define the mapping between the 2D image point / 3D ray spaces.
 Camera calibration is the process of computing the **camera parameters**: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$ (defined in [$$\S$$Camera parameters](#camera-parameters)).
 
-A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target, varying the camera pose and/or board pose for each view for a total of N views.
+A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target and varying the board pose with respect to the camera for each view (for a total of N views).
 
-So, given N images of a known calibration target, compute the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$. And with these parameters, we can **reason spatially** about the world from images!
+So, given N images of a known calibration target, camera calibration computes the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$. And with these parameters, we can **reason spatially** about the world from images!
 
 {:centeralign: style="text-align: center;"}
 
 ![Figure 1](assets/img/pict_calib_mini2.gif)
 {: centeralign }
 
-A calibration dataset and its visualization, from [vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/).
+Fig. 1: A calibration dataset and its visualization, from [vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/).
 {: centeralign }
 
 
@@ -54,12 +54,12 @@ The ordering of steps for Zhang's method are:
 2. Use the homographies to compute an initial *guess* for the **intrinsic matrix**.
 3. Using the above, compute an initial *guess* for the **distortion parameters**.
 4. Using the above, compute an initial *guess* **camera pose** (per-view) in target coordinates.
-5. Using the above, **refine** the guess camera poses, intrinsic parameters, and distortion parameters using **nonlinear optimization** to minimize projection error.
+5. Using the above, **refine** the guess camera poses ($$\textbf{W}$$), intrinsic parameters ($$A$$), and distortion parameters ($$\textbf{k}$$) using **nonlinear optimization** to minimize projection error.
 
 
 ## Camera parameters
 
-A more full definition of the calibration parameters is provided below. The variable naming convention follows fairly closely to the Zhang paper.
+A more full definition of the camera parameters is provided below. The variable naming convention follows fairly closely to the Zhang paper.
 - $$A$$ -- the **intrinsic matrix**,
 $$
 \begin{pmatrix}
@@ -68,8 +68,8 @@ $$
 0 & 0 & 1\\
 \end{pmatrix}
 $$
-    - $$\alpha$$ -- focal length in the camera x direction
-    - $$\beta$$ -- focal length in the camera y direction
+    - $$\alpha$$ -- focal length (TODO) in the camera x direction
+    - $$\beta$$ -- focal length (TODO) in the camera y direction
     - $$\gamma$$ -- the skew ratio, typically 0
     - $$u_0$$ -- u coordinate of optical center in image coordinates
     - $$v_0$$ -- v coordinate of optical center in image coordinates
@@ -100,39 +100,69 @@ r_{x} & r_{y} & r_{z} & t_y\\
 $$
         - $$t_x, t_y, t_z$$ are the world coordinate system's origin given in the camera coordinates
         - $$r_x$$ (3x1 column vector) is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates ($$r_y$$, $$r_z$$ follow this pattern)
-    - Example of transforming a single, homogeneous 3D point: $${}^cP = {}^cM_{w} \cdot {}^wP$$, with $$P \in \mathbb{R^3}$$ and $${}^cM_{w} \in SE(3)$$
-        - $${}^wP$$ -- homogeneous point $$P$$ in world coordinates, e.g.
+    - Notational example of transforming a single, homogeneous 3D point: \
+$${}^cP = {}^cM_{w} \cdot {}^wP$$, with $$P \in \mathbb{R^3}$$ and $${}^cM_{w} \in SE(3)$$
+        - $${}^cP$$ -- homogeneous point $$P$$ in camera coordinates,
 $$
 \begin{pmatrix}
-x & y & z & 1
+x_c & y_c & z_c & 1
 \end{pmatrix}
 ^\top$$
-        - $${}^cP$$ -- homogeneous point $$P$$ in camera coordinates
+        - $${}^wP$$ -- homogeneous point $$P$$ in world coordinates,
+$$
+\begin{pmatrix}
+x_w & y_w & z_w & 1
+\end{pmatrix}
+^\top$$
         - $$\mathbb{R^3}$$ -- the space of real, 3 dimensional numbers
         - $$SE(3)$$ -- the space of 3D rigid body transformations
 
 
 ## Numerical toolbelt
 
-We'll need those two numerical methods in our toolbelt.
+We'll need some numerical methods in our toolbelt, two of the major ones are overviewed below.
 I'll not go into great detail about these methods, but I'll leave links to explore them further.
 
 ### 1. Singular Value Decomposition (SVD)
 
 SVD decomposes a matrix $M$ ($m$,$n$) to three matrices $U$ ($m$,$m$), $\Sigma$ ($m$,$n$), and $V^\top$ ($n$,$n$).
-It will be our method of solving homogeneous linear systems of the form $M \cdot x = 0$.
 
 $$M = U \cdot \Sigma \cdot V^\top$$
+
+This has many uses, but specifically it will be our method of **solving homogeneous linear systems** of the form
+
+$$M \cdot x = 0$$
+
+A solution for the value of $x$ for this linear system is the smallest eigenvector of $V^\top$.
+Using numpy, it looks like this:
+
+```python
+# M * x = 0, where M (m,n) is known and we want to solve for x (n,1)
+U, S, V_T = np.linalg.svd(M)
+x = V_T[-1]
+```
+
+Additional links:
+- [(Wikipedia) More applications of the SVD](https://en.wikipedia.org/wiki/Singular_value_decomposition#Applications_of_the_SVD)
+- [(blog) Explanation of SVD by Greg Gunderson](https://gregorygundersen.com/blog/2018/12/10/svd/)
 
 ![Figure 2](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Singular_value_decomposition_visualisation.svg/206px-Singular_value_decomposition_visualisation.svg.png)
 {: centeralign }
 
+Fig. 2: Visualization of SVD from Wikipedia.
+{: centeralign }
 
-### 2. Non-linear optimization using the Levenberg-Marquardt (LM) algorithm
+
+### 2. Non-linear least squares optimization (Levenberg-Marquardt)
 
 Non-linear optimization is the task of computing a set of parameters which **minimizes a non-linear value function**.
-LM is a technique for nonlinear optimization based on the Gauss-Newton method.
-It's tweak to it's weighting which works well in practice (more on this here).
+TODO
+
+![Figure 3](https://i.stack.imgur.com/gdJ3v.gif)
+{: centeralign }
+
+Fig. 3: Visualization of Gauss-Newton optimization.
+{: centeralign }
 
 
 ## The implementation
