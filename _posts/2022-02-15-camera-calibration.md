@@ -176,12 +176,7 @@ Fig. 3: Visualization of Gauss-Newton optimization.
 {: centeralign }
 
 
-## The implementation
-TODO: What my code does
-
-The gif above shows the projection of expected target points (magenta) vs the measured target points (green) as the camera parameters are iteratively improved throughout the calibration process using a synthetic dataset.
-
-The more closely the magenta and green points match, the more accurate the calibration parameters are.
+## The implementation, step by step
 
 
 ## Final remarks
