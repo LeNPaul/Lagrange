@@ -36,6 +36,17 @@ I have used [cv2.calibrateCamera()](https://docs.opencv.org/4.x/d9/d0c/group__ca
 Having a better understanding of the fundamentals will make it more obvious to me if something about the setup is ill-posed.
 Writing the code myself was also a good exercise to deepen my linear algebra and optimization understanding.
 
+## Note on 2D target points
+
+For the remainder of this post, we will assume the 2D target points have already been extracted from the images and have known association with the 3D target points (in the target's coordinate system).
+Such functionality is typically handled by a library (e.g. [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
+
+![](https://docs.opencv.org/3.4/charucodefinition.png)
+{: centeralign }
+
+Definition of a ChArUco board, from [OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html).
+{: centeralign }
+
 
 ## What is 'Zhang's method'?
 
@@ -43,9 +54,6 @@ Currently, the most popular method for calibrating a camera is **Zhang's method*
 Older methods typically required a precisely made 3D calibration target or a mechanical system to precisely move the camera.
 In contrast, Zhang's method requires only a 2D calibration target and only loose requirements on how the camera or target moves.
 This means that anyone with a desktop printer and a little time can accurately calibrate their camera!
-
-For the remainder of this post, we will assume the 2D target points have already been extracted from the images and have known association with the 3D target points (in the target's coordinate system).
-Such functionality is typically handled by a library (e.g. [ChAruco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
 
 The general strategy of Zhang's method is to impose naïve assumptions as constraints to get an **initial guess** of parameter values with singular value decomposition (SVD), then release those constraints and **refine** those guesses with non-linear least squares optimization.
 
@@ -123,6 +131,9 @@ x_w & y_w & z_w & 1
 We'll need some numerical methods in our toolbelt, two of the major ones are overviewed below.
 I'll not go into great detail about these methods, but I'll leave links to explore them further.
 
+![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
+{: centeralign }
+
 ### 1. Singular Value Decomposition (SVD)
 
 SVD decomposes a matrix $M$ ($m$,$n$) to three matrices $U$ ($m$,$m$), $\Sigma$ ($m$,$n$), and $V^\top$ ($n$,$n$).
@@ -134,11 +145,11 @@ This has many uses, but specifically it will be our method of **solving homogene
 $$M \cdot x = 0$$
 
 A solution for the value of $x$ for this linear system is the smallest eigenvector of $V^\top$.
-Using numpy, it looks like this:
+Using numpy, solving looks like this:
 
 ```python
 # M * x = 0, where M (m,n) is known and we want to solve for x (n,1)
-U, S, V_T = np.linalg.svd(M)
+U, Σ, V_T = np.linalg.svd(M)
 x = V_T[-1]
 ```
 
@@ -178,6 +189,6 @@ The more closely the magenta and green points match, the more accurate the calib
 We discussed an implemention of Zhang's camera calibration method mostly from scratch.
 Though initially daunting, I found implementing each step piece by piece made the whole process more digestible.
 
-I hope this post has helped some other people become more comfortable with SVD and LM, and demystified Zhang's method a little bit.
+I hope this post has helped some other people become more comfortable with SVD and LM, and demystified `cv2.calibrateCamera()` a little bit.
 Thanks for reading!
 
