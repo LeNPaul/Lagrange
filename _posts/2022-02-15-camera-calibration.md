@@ -19,13 +19,13 @@ Camera calibration is the process of computing the **camera parameters**: $$A$$,
 
 A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target, varying the camera pose and/or board pose for each view for a total of N views.
 
-So, **given N images of a known calibration target, compute the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$.** And with these parameters, we can **reason spatially** about the world from images!
+So, given N images of a known calibration target, compute the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$. And with these parameters, we can **reason spatially** about the world from images!
 
 {:centeralign: style="text-align: center;"}
+
 ![Figure 1](assets/img/pict_calib_mini2.gif)
 {: centeralign }
 
-{:centeralign: style="text-align: center;"}
 A calibration dataset and its visualization, from [vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/).
 {: centeralign }
 
@@ -114,11 +114,18 @@ x & y & z & 1
 
 ## Numerical toolbelt
 
-We'll need those two numerical methods in our toolbelt:
+We'll need those two numerical methods in our toolbelt.
+I'll not go into great detail about these methods, but I'll leave links to explore them further.
 
 ### 1. Singular Value Decomposition (SVD)
 
-TODO
+SVD decomposes a matrix $M$ ($m$,$n$) to three matrices $U$ ($m$,$m$), $\Sigma$ ($m$,$n$), and $V^\top$ ($n$,$n$).
+It will be our method of solving homogeneous linear systems of the form $M \cdot x = 0$.
+
+$$M = U \cdot \Sigma \cdot V^\top$$
+
+![Figure 2](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Singular_value_decomposition_visualisation.svg/206px-Singular_value_decomposition_visualisation.svg.png)
+{: centeralign }
 
 
 ### 2. Non-linear optimization using the Levenberg-Marquardt (LM) algorithm
