@@ -36,15 +36,15 @@ I have used [cv2.calibrateCamera()](https://docs.opencv.org/4.x/d9/d0c/group__ca
 Having a better understanding of the fundamentals will make it more obvious to me if something about the setup is ill-posed.
 Writing the code myself was also a good exercise to deepen my linear algebra and optimization understanding.
 
-## Note on 2D target points
+## Aside: detecting target points in 2D image
 
-For the remainder of this post, we will assume the 2D target points have already been extracted from the images and have known association with the 3D target points (in the target's coordinate system).
+For the remainder of this post, we will assume the 2D target points have already been detected (i.e. pixel coordinates) in the images and have known association with the 3D target points (in the target's coordinate system).
 Such functionality is typically handled by a library (e.g. [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
 
 ![](https://docs.opencv.org/3.4/charucodefinition.png)
 {: centeralign }
 
-Definition of a ChArUco board, from [OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html).
+The corners of the larger checkerboard are the points which are detected, image from [OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html).
 {: centeralign }
 
 
@@ -124,6 +124,28 @@ x_w & y_w & z_w & 1
 ^\top$$
         - $$\mathbb{R^3}$$ -- the space of real, 3 dimensional numbers
         - $$SE(3)$$ -- the space of 3D rigid body transformations
+
+
+## Projection error: the 'goodness' of a calibration
+
+In order to compute camera parameters which are useful for spatial reasoning, we need to define what makes a set of parameters better than another set.
+This is typically done by computing **sum-squared projection error**, $$E$$.
+- From each image, we have the detected marker points. Each marker point is a single **2D measurement**, which we will denote as $$z_{ij}$$ for the $$j$$-th measured point of the $$i$$-th image.
+- From each detection in each image, we also have the **corresponding 3D point** in target coordinates (known by construction), which we will denote as $$X_{ij}$$.
+- With a set of calibration parameters ($$A$$, $$\textbf{k}$$, $${}^cM_{w,i}$$), we can then project where that 3D point should appear in the 2D image -- a single **2D prediction**, which we will express as $$P(A, \textbf{k}, {}^cM_{w,i}, X_{ij})$$.
+- The difference between the 2D prediction and 2D measurement is the **projection error** for a single point.
+
+Considering the full dataset, we can compute the sum-squared projection error by computing the Euclidean distance between each (*measurement*, *prediction*) pair for all $n$ images and all $m$ points in those images:
+
+$$
+E = \sum\limits_{i}^{n} \sum\limits_{j}^{m} || z_{ij} - P(A, \textbf{k}, {}^cM_{w,i}, X_{ij}) ||^2
+$$
+
+The projection function can be fully expressed as:
+
+$$
+P(A, \textbf{k}, {}^cM_{w,i}, X_{ij}) = A \cdot \Pi \cdot {}^cM_{w,i} \cdot X_{ij}
+$$
 
 
 ## Numerical toolbelt
