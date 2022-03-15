@@ -3,14 +3,18 @@ layout: post
 title: "Camera calibration from scratch"
 author: "Paul Vinh Phan"
 categories: journal
-image: reprojection.gif
+image: pict_calib_mini2.gif
 tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 ---
 
-Above, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters (iterative).
+A calibration dataset and its visualization, from [vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/).
+
 My 'from scratch' implementation of Zhang's camera calibration: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
 
+
 ## What is camera calibration?
+
+TODO: create a novel gif to communicate the essence of camera calibration
 
 A camera captures light from a 3D scene and projects it onto a 2D sensor which stores the sensor state as a 2D image.
 In other words, a **2D point** in the image is equivalent to a **3D ray** in the scene.
@@ -19,15 +23,9 @@ Camera calibration is the process of computing the **camera parameters**: $$A$$,
 
 A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target and varying the board pose with respect to the camera for each view (for a total of N views).
 
-So, given N images of a known calibration target, camera calibration computes the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$. And with these parameters, we can **reason spatially** about the world from images!
+So, given N images of a known calibration target, camera calibration computes the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$. And with these parameters, we can **reason spatially** about the world from images! We'll see exactly how later in this post.
 
 {:centeralign: style="text-align: center;"}
-
-![Figure 1](assets/img/pict_calib_mini2.gif)
-{: centeralign }
-
-Fig. 1: A calibration dataset and its visualization, from [vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/).
-{: centeralign }
 
 
 ## Why from scratch?
@@ -96,35 +94,7 @@ k_1 & k_2 & k_3 & k_4
 $$
     - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion
 - $$\textbf{W}$$ -- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
-    - $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
-    - Written in homogeneous form: $${}^cM_{w} = $$
-$$
-\begin{pmatrix}
-|     & |     & |     & t_x\\
-r_{x} & r_{y} & r_{z} & t_y\\
-|     & |     & |     & t_z\\
-0 & 0 & 0 & 1\\
-\end{pmatrix}
-$$
-        - $$t_x, t_y, t_z$$ are the world coordinate system's origin given in the camera coordinates
-        - $$r_x$$ (3x1 column vector) is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates ($$r_y$$, $$r_z$$ follow this pattern)
-    - Notational example of transforming a single, homogeneous 3D point: \
-$${}^cP = {}^cM_{w} \cdot {}^wP$$, with $$P \in \mathbb{R^3}$$ and $${}^cM_{w} \in SE(3)$$
-        - $${}^cP$$ -- homogeneous point $$P$$ in camera coordinates,
-$$
-\begin{pmatrix}
-x_c & y_c & z_c & 1
-\end{pmatrix}
-^\top$$
-        - $${}^wP$$ -- homogeneous point $$P$$ in world coordinates,
-$$
-\begin{pmatrix}
-x_w & y_w & z_w & 1
-\end{pmatrix}
-^\top$$
-        - $$\mathbb{R^3}$$ -- the space of real, 3 dimensional numbers
-        - $$SE(3)$$ -- the space of 3D rigid body transformations
-
+    - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for a more intuitive but more verbose convention).
 
 ## Projection error: the 'goodness' of a calibration
 
@@ -141,12 +111,21 @@ $$
 E = \sum\limits_{i}^{n} \sum\limits_{j}^{m} || z_{ij} - P(A, \textbf{k}, {}^cM_{w,i}, X_{ij}) ||^2
 $$
 
-The projection function can be fully expressed as:
+The projection function can be expressed as:
 
 $$
-P(A, \textbf{k}, {}^cM_{w,i}, X_{ij}) = A \cdot \Pi \cdot {}^cM_{w,i} \cdot X_{ij}
+P(A, \textbf{k}, {}^cM_{w,i}, X_{ij}) = A \cdot distort(\textbf{k}, x_{ij})
 $$
 
+$$
+x_{ij} = \Pi \cdot {}^cM_{w,i} \cdot X_{ij}
+$$
+
+Below, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters.
+This gif plays through the iterative refinement of the camera parameters (step #5 of Zhang's method).
+
+![](assets/img/reprojection.gif)
+{: centeralign }
 
 ## Numerical toolbelt
 
@@ -179,10 +158,10 @@ Additional links:
 - [(Wikipedia) More applications of the SVD](https://en.wikipedia.org/wiki/Singular_value_decomposition#Applications_of_the_SVD)
 - [(blog) Explanation of SVD by Greg Gunderson](https://gregorygundersen.com/blog/2018/12/10/svd/)
 
-![Figure 2](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Singular_value_decomposition_visualisation.svg/206px-Singular_value_decomposition_visualisation.svg.png)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Singular_value_decomposition_visualisation.svg/206px-Singular_value_decomposition_visualisation.svg.png)
 {: centeralign }
 
-Fig. 2: Visualization of SVD from Wikipedia.
+Visualization of SVD from Wikipedia.
 {: centeralign }
 
 
@@ -191,10 +170,10 @@ Fig. 2: Visualization of SVD from Wikipedia.
 Non-linear optimization is the task of computing a set of parameters which **minimizes a non-linear value function**.
 TODO
 
-![Figure 3](https://i.stack.imgur.com/gdJ3v.gif)
+![](https://i.stack.imgur.com/gdJ3v.gif)
 {: centeralign }
 
-Fig. 3: Visualization of Gauss-Newton optimization.
+Visualization of Gauss-Newton optimization.
 {: centeralign }
 
 
@@ -209,3 +188,36 @@ Though initially daunting, I found implementing each step piece by piece made th
 I hope this post has helped some other people become more comfortable with SVD and LM, and demystified `cv2.calibrateCamera()` a little bit.
 Thanks for reading!
 
+
+## Appendix
+
+- Recall we defined $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
+    - This can also be written in what I've been told is the 'Craig convention': $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
+
+    - Each transform expressed in homogeneous form: $${}^cM_{w} = $$
+$$
+\begin{pmatrix}
+|     & |     & |     & t_x\\
+r_{x} & r_{y} & r_{z} & t_y\\
+|     & |     & |     & t_z\\
+0 & 0 & 0 & 1\\
+\end{pmatrix}
+$$
+        - $$t_x, t_y, t_z$$ are the world coordinate system's origin given in the camera coordinates
+        - $$r_x$$ (3x1 column vector) is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates ($$r_y$$, $$r_z$$ follow this pattern)
+    - Notational example of transforming a single, homogeneous 3D point: \
+$${}^cP = {}^cM_{w} \cdot {}^wP$$, with $$P \in \mathbb{R^3}$$ and $${}^cM_{w} \in SE(3)$$
+        - $${}^cP$$ -- homogeneous point $$P$$ in camera coordinates,
+$$
+\begin{pmatrix}
+x_c & y_c & z_c & 1
+\end{pmatrix}
+^\top$$
+        - $${}^wP$$ -- homogeneous point $$P$$ in world coordinates,
+$$
+\begin{pmatrix}
+x_w & y_w & z_w & 1
+\end{pmatrix}
+^\top$$
+        - $$\mathbb{R^3}$$ -- the space of real, 3 dimensional numbers
+        - $$SE(3)$$ -- $$S$$pecial $$E$$uclidean group 3, the space of 3D rigid-body transformations
