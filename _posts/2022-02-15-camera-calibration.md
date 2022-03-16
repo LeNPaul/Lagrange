@@ -32,9 +32,11 @@ So, given N images of a known calibration target, camera calibration computes th
 
 I have used [cv2.calibrateCamera()](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga3207604e4b1a1758aa66acb6ed5aa65d) many times without understanding why it sometimes fails or gives poor results.
 Having a better understanding of the fundamentals will make it more obvious to me if something about the setup is ill-posed.
-Writing the code myself was also a good exercise to deepen my linear algebra and optimization understanding.
+By starting with a bare environment, each library function call is a explicit.
+It's then easier to answer the question: "Do I understand what this function is doing?".
 
-## Aside: detecting target points in 2D image
+
+## Aside: detecting target points in 2D images
 
 For the remainder of this post, we will assume the 2D target points have already been detected (i.e. pixel coordinates) in the images and have known association with the 3D target points (in the target's coordinate system).
 Such functionality is typically handled by a library (e.g. [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
@@ -96,14 +98,15 @@ $$
 - $$\textbf{W}$$ -- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
     - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for a more intuitive but more verbose convention).
 
-## Projection error: the 'goodness' of a calibration
+## Projection error: the metric of calibration 'goodness'
 
 In order to compute camera parameters which are useful for spatial reasoning, we need to define what makes a set of parameters better than another set.
 This is typically done by computing **sum-squared projection error**, $$E$$.
+The lower that error metric is, the more closely our camera parameters fit the measurements from the input images.
 - From each image, we have the detected marker points. Each marker point is a single **2D measurement**, which we will denote as $$z_{ij}$$ for the $$j$$-th measured point of the $$i$$-th image.
-- From each detection in each image, we also have the **corresponding 3D point** in target coordinates (known by construction), which we will denote as $$X_{ij}$$.
-- With a set of calibration parameters ($$A$$, $$\textbf{k}$$, $${}^cM_{w,i}$$), we can then project where that 3D point should appear in the 2D image -- a single **2D prediction**, which we will express as $$P(A, \textbf{k}, {}^cM_{w,i}, X_{ij})$$.
-- The difference between the 2D prediction and 2D measurement is the **projection error** for a single point.
+- From each measurement $$z_{ij}$$, we also have the **corresponding 3D point** in target coordinates (known by construction), which we will denote as $$X_{ij}$$.
+- With a set of calibration parameters ($$A$$, $$\textbf{k}$$, $${}^cM_{w,i}$$), we can then project where that 3D point should appear in the 2D image -- a single **2D prediction**, which we will express as the projection fuction, $$P(A, \textbf{k}, {}^cM_{w,i}, X_{ij})$$.
+- The Euclidean distance between the 2D prediction and 2D measurement is the **projection error** for a single point.
 
 Considering the full dataset, we can compute the sum-squared projection error by computing the Euclidean distance between each (*measurement*, *prediction*) pair for all $n$ images and all $m$ points in those images:
 
@@ -114,7 +117,7 @@ $$
 The projection function can be expressed as:
 
 $$
-P(A, \textbf{k}, {}^cM_{w,i}, X_{ij}) = A \cdot distort(\textbf{k}, x_{ij})
+P(A, \textbf{k}, {}^cM_{w,i}, X_{ij}) = A \cdot distort(x_{ij}, \textbf{k})
 $$
 
 $$
@@ -132,18 +135,19 @@ This gif plays through the iterative refinement of the camera parameters (step #
 We'll need some numerical methods in our toolbelt, two of the major ones are overviewed below.
 I'll not go into great detail about these methods, but I'll leave links to explore them further.
 
-![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
-{: centeralign }
-
 ### 1. Singular Value Decomposition (SVD)
 
-SVD decomposes a matrix $M$ ($m$,$n$) to three matrices $U$ ($m$,$m$), $\Sigma$ ($m$,$n$), and $V^\top$ ($n$,$n$).
+SVD decomposes a matrix $M$ ($m$,$n$) to three matrices $U$ ($m$,$m$), $\Sigma$ ($m$,$n$), and $V^\top$ ($n$,$n$), such that $$M = U \cdot \Sigma \cdot V^\top$$.
+The properties of the resulting three matrices are like that of Eigenvalue and Eigenvector decomposition.
 
-$$M = U \cdot \Sigma \cdot V^\top$$
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Singular_value_decomposition_visualisation.svg/206px-Singular_value_decomposition_visualisation.svg.png)
+{: centeralign }
 
-This has many uses, but specifically it will be our method of **solving homogeneous linear systems** of the form
+Visualization of SVD from Wikipedia.
+{: centeralign }
 
-$$M \cdot x = 0$$
+The properties of this decomposition has many uses, one of which is **solving homogeneous linear systems** of the form
+$$M \cdot x = 0$$.
 
 A solution for the value of $x$ for this linear system is the smallest eigenvector of $V^\top$.
 Using numpy, solving looks like this:
@@ -158,10 +162,7 @@ Additional links:
 - [(Wikipedia) More applications of the SVD](https://en.wikipedia.org/wiki/Singular_value_decomposition#Applications_of_the_SVD)
 - [(blog) Explanation of SVD by Greg Gunderson](https://gregorygundersen.com/blog/2018/12/10/svd/)
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Singular_value_decomposition_visualisation.svg/206px-Singular_value_decomposition_visualisation.svg.png)
-{: centeralign }
-
-Visualization of SVD from Wikipedia.
+![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
 {: centeralign }
 
 
