@@ -9,7 +9,7 @@ tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 {:centeralign: style="text-align: center;"}
 
 Below is an overview of the theory behind Zhang's camera calibration method.
-For more specifics on implementation, I've written a mostly 'from scratch' version in Python: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
+For those interested in implementation, here's my Python version: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
 
 
 ## What is camera calibration?
@@ -47,8 +47,8 @@ $$
 0 & 0 & 1\\
 \end{pmatrix}
 $$
-    - $$\alpha$$ -- focal length (TODO) in the camera x direction
-    - $$\beta$$ -- focal length (TODO) in the camera y direction
+    - $$\alpha$$ -- focal length in the camera x direction
+    - $$\beta$$ -- focal length in the camera y direction
     - $$\gamma$$ -- the skew ratio, typically 0
     - $$u_0$$ -- u coordinate of optical center in image coordinates
     - $$v_0$$ -- v coordinate of optical center in image coordinates
@@ -110,19 +110,25 @@ This is typically done by computing **sum-squared projection error**, $$E$$.
 The lower that error metric is, the more closely our camera parameters fit the measurements from the input images.
 - From each image, we have the detected marker points. Each marker point is a single **2D measurement**, which we will denote as $$z_{ij}$$ for the $$j$$-th measured point of the $$i$$-th image.
 - From each measurement $$z_{ij}$$, we also have the **corresponding 3D point** in target coordinates (known by construction), which we will denote as $$X_{ij}$$.
-- With a set of calibration parameters ($$A$$, $$\textbf{k}$$, $${}^cM_{w,i}$$), we can then project where that 3D point should appear in the 2D image -- a single **2D prediction**, which we will express as the projection fuction, $$P(A, \textbf{k}, {}^cM_{w,i}, X_{ij})$$.
+- With a set of calibration parameters ($$A$$, $$\textbf{k}$$, $${}^cM_{w,i}$$), we can then project where that 3D point should appear in the 2D image -- a single **2D prediction**, which we will express as the distorted-projected point, $$\tilde{x}_{ij}$$.
 - The Euclidean distance between the 2D prediction and 2D measurement is the **projection error** for a single point.
 
 Considering the full dataset, we can compute the sum-squared projection error by computing the Euclidean distance between each (*measurement*, *prediction*) pair for all $n$ images and all $m$ points in those images:
 
 $$
-E = \sum\limits_{i}^{n} \sum\limits_{j}^{m} || z_{ij} - P(A, \textbf{k}, {}^cM_{w,i}, X_{ij}) ||^2
+E = \sum\limits_{i}^{n} \sum\limits_{j}^{m} || z_{ij} - \tilde{x}_{ij} ||^2
 $$
+
+![](assets/img/projectionerror.png)
+{: centeralign }
+
+Illustration of projection error for a single measurement ($$z_{ij}$$) and prediction ($$\tilde{x}_{ij}$$) pair.
+{: centeralign }
 
 The projection function can be expressed as:
 
 $$
-P(A, \textbf{k}, {}^cM_{w,i}, X_{ij}) = A \cdot distort(x_{ij}, \textbf{k})
+\tilde{x}_{ij} = A \cdot distort(x_{ij}, \textbf{k})
 $$
 
 $$
