@@ -1,73 +1,44 @@
 ---
 layout: post
-title: "Camera calibration from scratch"
+title: "Camera calibration overview"
 author: "Paul Vinh Phan"
 categories: journal
-image: pict_calib_mini2.gif
 tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 ---
 
-A calibration dataset and its visualization, from [vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/).
+{:centeralign: style="text-align: center;"}
 
-My 'from scratch' implementation of Zhang's camera calibration: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
+Below is an overview of the theory behind Zhang's camera calibration method.
+For more specifics on implementation, I've written a mostly 'from scratch' version in Python: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
 
 
 ## What is camera calibration?
 
-TODO: create a novel gif to communicate the essence of camera calibration
-
 A camera captures light from a 3D scene and projects it onto a 2D sensor which stores the sensor state as a 2D image.
 In other words, a **2D point** in the image is equivalent to a **3D ray** in the scene.
-A camera is **calibrated** if we know the *camera parameters* which define the mapping between the 2D image point / 3D ray spaces.
-Camera calibration is the process of computing the **camera parameters**: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$ (defined in [$$\S$$Camera parameters](#camera-parameters)).
+A camera is **calibrated** if we know the *camera parameters* which define the mapping between these spaces.
+The 'pinhole camera model' is and idealized way to illustrate this, though it does not factor in lens distortion.
 
-A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target and varying the board pose with respect to the camera for each view (for a total of N views).
-
-So, given N images of a known calibration target, camera calibration computes the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$. And with these parameters, we can **reason spatially** about the world from images! We'll see exactly how later in this post.
-
-{:centeralign: style="text-align: center;"}
-
-
-## Why from scratch?
-
-I have used [cv2.calibrateCamera()](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga3207604e4b1a1758aa66acb6ed5aa65d) many times without understanding why it sometimes fails or gives poor results.
-Having a better understanding of the fundamentals will make it more obvious to me if something about the setup is ill-posed.
-By starting with a bare environment, each library function call is a explicit.
-It's then easier to answer the question: "Do I understand what this function is doing?".
-
-
-## Aside: detecting target points in 2D images
-
-For the remainder of this post, we will assume the 2D target points have already been detected (i.e. pixel coordinates) in the images and have known association with the 3D target points (in the target's coordinate system).
-Such functionality is typically handled by a library (e.g. [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
-
-![](https://docs.opencv.org/3.4/charucodefinition.png)
+![](https://docs.opencv.org/4.x/pinhole_camera_model.png)
+{: centeralign }
+Illustration of the 'pinhole camera model' ([OpenCV 'calib3d' documentation](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#details))
 {: centeralign }
 
-The corners of the larger checkerboard are the points which are detected, image from [OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html).
+Camera calibration is the process of computing the **camera parameters**: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$ which are further discussed in the [$$\S$$Camera parameters](#camera-parameters) section.
+A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target and varying the board pose with respect to the camera for each view.
+
+So, given multiple images of a known calibration target, camera calibration computes the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$.
+And with these parameters, we can **reason spatially** about the world from images!
+
+![](assets/img/pict_calib_mini2.gif)
 {: centeralign }
 
-
-## What is 'Zhang's method'?
-
-Currently, the most popular method for calibrating a camera is **Zhang's method** invented in [A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf) by Zhengyou Zhang (1998).
-Older methods typically required a precisely made 3D calibration target or a mechanical system to precisely move the camera.
-In contrast, Zhang's method requires only a 2D calibration target and only loose requirements on how the camera or target moves.
-This means that anyone with a desktop printer and a little time can accurately calibrate their camera!
-
-The general strategy of Zhang's method is to impose naïve assumptions as constraints to get an **initial guess** of parameter values with singular value decomposition (SVD), then release those constraints and **refine** those guesses with non-linear least squares optimization.
-
-The ordering of steps for Zhang's method are:
-1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
-2. Use the homographies to compute an initial *guess* for the **intrinsic matrix**.
-3. Using the above, compute an initial *guess* for the **distortion parameters**.
-4. Using the above, compute an initial *guess* **camera pose** (per-view) in target coordinates.
-5. Using the above, **refine** the guess camera poses ($$\textbf{W}$$), intrinsic parameters ($$A$$), and distortion parameters ($$\textbf{k}$$) using **nonlinear optimization** to minimize projection error.
+A calibration dataset and its visualization ([vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/))
+{: centeralign }
 
 
 ## Camera parameters
 
-A more full definition of the camera parameters is provided below. The variable naming convention follows fairly closely to the Zhang paper.
 - $$A$$ -- the **intrinsic matrix**,
 $$
 \begin{pmatrix}
@@ -96,7 +67,41 @@ k_1 & k_2 & k_3 & k_4
 $$
     - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion
 - $$\textbf{W}$$ -- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
-    - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for a more intuitive but more verbose convention).
+    - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
+
+
+## Aside: detecting target points in 2D images
+
+For the remainder of this post, we will assume the 2D target points (i.e. pixel coordinates) have already been detected in the images and have known association with the 3D target points in the target's coordinate system.
+Such functionality is typically handled by a library (e.g. [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
+
+
+![](https://docs.opencv.org/3.4/charucodefinition.png)
+{: centeralign }
+
+The corners of the larger checkerboard are the points which are detected ([OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html))
+{: centeralign }
+
+
+## What is 'Zhang's method'?
+
+Currently, the most popular method for calibrating a camera is **Zhang's method** published in [A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf) by Zhengyou Zhang (1998).
+Older methods typically required a precisely made 3D calibration target or a mechanical system to precisely move the camera.
+In contrast, Zhang's method requires only a 2D calibration target and only loose requirements on how the camera or target moves.
+This means that anyone with a desktop printer and a little time can accurately calibrate their camera!
+
+The general strategy of Zhang's method is to impose naïve assumptions as constraints to get an **initial guess** of parameter values with singular value decomposition (SVD), then release those constraints and **refine** those guesses with non-linear least squares optimization.
+
+The ordering of steps for Zhang's method are:
+1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
+2. Use the homographies to compute an *initial guess* for the **intrinsic matrix**, $$A_{init}$$.
+3. Using the above, compute an *initial guess* for the **distortion parameters**, $$\textbf{k}_{init}$$.
+4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\textbf{W}_{init}$$.
+5. Initialize **nonlinear optimization** with the *initial guesses* above to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
+
+![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
+{: centeralign }
+
 
 ## Projection error: the metric of calibration 'goodness'
 
@@ -146,7 +151,7 @@ The properties of the resulting three matrices are like that of Eigenvalue and E
 Visualization of SVD from Wikipedia.
 {: centeralign }
 
-The properties of this decomposition has many uses, one of which is **solving homogeneous linear systems** of the form
+The properties of this decomposition have many uses, one of which is **solving homogeneous linear systems** of the form
 $$M \cdot x = 0$$.
 
 A solution for the value of $x$ for this linear system is the smallest eigenvector of $V^\top$.
@@ -161,9 +166,6 @@ x = V_T[-1]
 Additional links:
 - [(Wikipedia) More applications of the SVD](https://en.wikipedia.org/wiki/Singular_value_decomposition#Applications_of_the_SVD)
 - [(blog) Explanation of SVD by Greg Gunderson](https://gregorygundersen.com/blog/2018/12/10/svd/)
-
-![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
-{: centeralign }
 
 
 ### 2. Non-linear least squares optimization (Levenberg-Marquardt)
