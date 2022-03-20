@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Camera calibration overview"
+title: "Primer on camera calibration"
 author: "Paul Vinh Phan"
 categories: journal
 tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
@@ -8,38 +8,142 @@ tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 
 {:centeralign: style="text-align: center;"}
 
-Below is an overview of the theory behind Zhang's camera calibration method.
-For those interested in implementation, here's my Python version: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
+Below is an overview of the theory behind camera calibration, specifically Zhang's method.
+My hope is that the ordering of concepts here will help new readers feel 'at home' more quickly when navigating calibration literature.
+
+For a deep dive into Zhang's method, I highly recommend this [tutorial paper by Burger](https://www.researchgate.net/profile/Wilhelm-Burger/publication/303233579_Zhang's_Camera_Calibration_Algorithm_In-Depth_Tutorial_and_Implementation/links/5eaad8c9a6fdcc70509c3c9b/Zhangs-Camera-Calibration-Algorithm-In-Depth-Tutorial-and-Implementation.pdf).
+For those interested in a 'from scratch' Python implementation: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
+
+
+![](assets/img/pict_calib_mini2.gif)
+{: centeralign }
+A calibration dataset and its 'camera centric' board pose visualization ([vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/))
+{: centeralign }
 
 
 ## What is camera calibration?
 
-A camera captures light from a 3D scene and projects it onto a 2D sensor which stores the sensor state as a 2D image.
+A camera captures light from a 3D world and projects it onto a 2D sensor which stores the sensor state as a 2D image.
 In other words, a **2D point** in the image is equivalent to a **3D ray** in the scene.
 A camera is **calibrated** if we know the *camera parameters* which define the mapping between these spaces.
-The 'pinhole camera model' is and idealized way to illustrate this, though it does not factor in lens distortion.
 
-![](https://docs.opencv.org/4.x/pinhole_camera_model.png)
-{: centeralign }
-Illustration of the 'pinhole camera model' ([OpenCV 'calib3d' documentation](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#details))
-{: centeralign }
-
-Camera calibration is the process of computing the **camera parameters**: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$ which are further discussed in the [$$\S$$Camera parameters](#camera-parameters) section.
+Camera calibration is the process of computing the **camera parameters**: $$\textbf{A}$$, $$\textbf{k}$$, and $$\mathcal{W}$$ which are further discussed in the [$$\S$$Camera parameters](#camera-parameters) section.
 A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target and varying the board pose with respect to the camera for each view.
 
-So, given multiple images of a known calibration target, camera calibration computes the camera parameters: $$A$$, $$\textbf{k}$$, and $$\textbf{W}$$.
+So, given multiple images of a known calibration target, camera calibration computes the camera parameters: $$\textbf{A}$$, $$\textbf{k}$$, and $$\mathcal{W}$$.
 And with these parameters, we can **reason spatially** about the world from images!
 
-![](assets/img/pict_calib_mini2.gif)
-{: centeralign }
 
-A calibration dataset and its visualization ([vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/))
-{: centeralign }
+## Projection: from 3D world point to 2D image point
+
+The projection of a 3D point in the world to a 2D point in an image goes through a journey of **four transformations**, corresponding almost one-to-one with calibration parameters $$\textbf{A}$$, $$\textbf{k}$$, and $$\mathcal{W}$$ we are solving for.
+
+A couple quick notes on convention followed here and which I've seen commonly elsewhere:
+- Lower case variables (like $$x, y, u, v, k_1$$) scalar variables.
+- Upper case variables (like $$A, X$$) typically denote matrices or 3D points.
+- Bold variables (like $$\textbf{x}, \textbf{u}, \textbf{k}$$) are typically a vector of the type denoted by their case.
+- Calligraphic variables (like $$\mathcal{W}$$) typically denote a vector of the type based on it's casing.
+
+### 1) 3D world coordinates to 3D camera coordinates
+
+This is a simple one for those already familiar with 3D coordinate transformations.
+We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{ij}$$.
+Here (and following), $$i$$ refers to which *image* a variable corresponds to, and $$j$$ refers to the *instance* within that image.
+
+$$
+\begin{equation}
+{}^cX_{ij} = W_i \cdot {}^wX_{ij}
+\tag{1.a}\label{eq:1.a}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\begin{pmatrix}
+x_c\\
+y_c\\
+z_c\\
+1\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+|     & |     & |     & t_x\\
+r_{x} & r_{y} & r_{z} & t_y\\
+|     & |     & |     & t_z\\
+0 & 0 & 0 & 1\\
+\end{pmatrix}
+\begin{pmatrix}
+x_w\\
+y_w\\
+z_w\\
+1\\
+\end{pmatrix}
+\tag{1.b}\label{eq:1.b}
+\end{equation}
+$$
+
+- $${}^cX_{ij}$$ --- the $$j$$-th 3D point in **camera** coordinates from the $$i$$-th image in homogeneous coordinates
+- $$W_i$$ --- the transform from world coordinates to camera coordinates for the $$i$$-th image
+- $${}^wX_{ij}$$ --- the $$j$$-th 3D point in **world** coordinates from the $$i$$-th image in homogeneous coordinates
+
+
+### 2) 3D camera coordinates to 2D normalized image point
+
+We will now go take the 3D coordinates in the cameras frame and project them into the normalized image plane.
+This is essentially dividing each 3D point by it's $$z$$ component, or intersecting the ray of that point into the $$z = 1$$ plane.
+Notation will start to get a bit blurry, but try to bear with it as this is pretty close to the common literature.
+
+$$
+\begin{equation}
+s \cdot x_{ij} = \Pi \cdot {}^cX_{ij}
+\tag{2.a}\label{eq:2.a}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+s
+\begin{pmatrix}
+x\\
+y\\
+1\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+\end{pmatrix}
+\begin{pmatrix}
+x_c\\
+y_c\\
+z_c\\
+1\\
+\end{pmatrix}
+\tag{2.b}\label{eq:2.b}
+\end{equation}
+$$
+
+- $$s$$ --- an unknown scaling factor, resulting in the loss of the $$z$$ dimension
+- $$\textbf{x}_{ij}$$ --- the projected coordinate of the point in the normalized image
+    - $$x$$ --- the x component of the normalized 2D point
+    - $$y$$ --- the y component of the normalized 2D point
+- $$\Pi$$ --- the 'standard projection matrix' which reduces the dimensionality
+
+
+### 3) 2D normalized point to 2D distorted-normalized point
+
+This step accounts for lens distortion by applying a non-linear warping function in normalized image coordinates.
+I chose to awkwardly call the resulting point a 'distorted-normalized' point since it's still in the normalized space, but has had a distortion applied to it.
+
+- $$\tilde{x}_{ij} = A \cdot distort(x_{ij}, \textbf{k})$$ ---
+
+Now that we've introduced how each of these parameters contributes to the projection of a 3D world point to a 2D image point, we can more fully define them.
 
 
 ## Camera parameters
 
-- $$A$$ -- the **intrinsic matrix**,
+- $$\textbf{A}$$ --- the **intrinsic matrix**,
 $$
 \begin{pmatrix}
 \alpha & \gamma & u_0\\
@@ -47,12 +151,12 @@ $$
 0 & 0 & 1\\
 \end{pmatrix}
 $$
-    - $$\alpha$$ -- focal length in the camera x direction
-    - $$\beta$$ -- focal length in the camera y direction
-    - $$\gamma$$ -- the skew ratio, typically 0
-    - $$u_0$$ -- u coordinate of optical center in image coordinates
-    - $$v_0$$ -- v coordinate of optical center in image coordinates
-- $$\textbf{k}$$ -- the **distortion vector**,
+    - $$\alpha$$ --- focal length in the camera x direction
+    - $$\beta$$ --- focal length in the camera y direction
+    - $$\gamma$$ --- the skew ratio, typically 0
+    - $$u_0$$ --- u coordinate of optical center in image coordinates
+    - $$v_0$$ --- v coordinate of optical center in image coordinates
+- $$\textbf{k}$$ --- the **distortion vector**,
     - for the radial-tangential model:
 $$
 \begin{pmatrix}
@@ -66,8 +170,8 @@ k_1 & k_2 & k_3 & k_4
 \end{pmatrix}
 $$
     - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion
-- $$\textbf{W}$$ -- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
-    - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
+- $$\mathcal{W}$$ --- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
+    - $$\mathcal{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
 
 
 ## Aside: detecting target points in 2D images
@@ -78,28 +182,7 @@ Such functionality is typically handled by a library (e.g. [ChArUco](https://doc
 
 ![](https://docs.opencv.org/3.4/charucodefinition.png)
 {: centeralign }
-
 The corners of the larger checkerboard are the points which are detected ([OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html))
-{: centeralign }
-
-
-## Projection: from 3D scene point to 2D image point
-
-For the idealized 'pinhole camera model', projection from 3D space to the 2D image is a linear operation.
-The projection function can be expressed as:
-
-$$
-\tilde{x}_{ij} = A \cdot distort(x_{ij}, \textbf{k})
-$$
-
-$$
-x_{ij} = \Pi \cdot {}^cM_{w,i} \cdot X_{ij}
-$$
-
-![](assets/img/projectionerror.png)
-{: centeralign }
-
-Illustration of projection error for a single measurement ($$z_{ij}$$) and prediction ($$\tilde{x}_{ij}$$) pair.
 {: centeralign }
 
 
@@ -116,8 +199,8 @@ The ordering of steps for Zhang's method are:
 1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
 2. Use the homographies to compute an *initial guess* for the **intrinsic matrix**, $$A_{init}$$.
 3. Using the above, compute an *initial guess* for the **distortion parameters**, $$\textbf{k}_{init}$$.
-4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\textbf{W}_{init}$$.
-5. Initialize **nonlinear optimization** with the *initial guesses* above to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
+4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\mathcal{W}_{init}$$.
+5. Initialize **non-linear optimization** with the *initial guesses* above to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\mathcal{W}_{final}$$.
 
 ![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
 {: centeralign }
@@ -130,8 +213,14 @@ This is typically done by computing **sum-squared projection error**, $$E$$.
 The lower that error metric is, the more closely our camera parameters fit the measurements from the input images.
 - From each image, we have the detected marker points. Each marker point is a single **2D measurement**, which we will denote as $$z_{ij}$$ for the $$j$$-th measured point of the $$i$$-th image.
 - From each measurement $$z_{ij}$$, we also have the **corresponding 3D point** in target coordinates (known by construction), which we will denote as $$X_{ij}$$.
-- With a set of calibration parameters ($$A$$, $$\textbf{k}$$, $${}^cM_{w,i}$$), we can then project where that 3D point should appear in the 2D image -- a single **2D prediction**, which we will express as the distorted-projected point, $$\tilde{x}_{ij}$$.
+- With a set of calibration parameters ($$\textbf{A}$$, $$\textbf{k}$$, $${}^cM_{w,i}$$), we can then project where that 3D point should appear in the 2D image --- a single **2D prediction**, which we will express as the distorted-projected point, $$\tilde{x}_{ij}$$.
 - The Euclidean distance between the 2D prediction and 2D measurement is the **projection error** for a single point.
+
+![](assets/img/projectionerror.png)
+{: centeralign }
+Illustration of projection error for a single measurement ($$z_{ij}$$) and prediction ($$\tilde{x}_{ij}$$) pair.
+{: centeralign }
+
 
 Considering the full dataset, we can compute the sum-squared projection error by computing the Euclidean distance between each (*measurement*, *prediction*) pair for all $n$ images and all $m$ points in those images:
 
@@ -157,7 +246,6 @@ The properties of the resulting three matrices are like that of Eigenvalue and E
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Singular_value_decomposition_visualisation.svg/206px-Singular_value_decomposition_visualisation.svg.png)
 {: centeralign }
-
 Visualization of SVD from Wikipedia.
 {: centeralign }
 
@@ -204,8 +292,8 @@ Thanks for reading!
 
 ## Appendix
 
-- Recall we defined $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
-    - This can also be written in what I've been told is the 'Craig convention': $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
+- Recall we defined $$\mathcal{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
+    - This can also be written in what I've been told is the 'Craig convention': $$\mathcal{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
 
     - Each transform expressed in homogeneous form: $${}^cM_{w} = $$
 $$
@@ -220,17 +308,17 @@ $$
         - $$r_x$$ (3x1 column vector) is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates ($$r_y$$, $$r_z$$ follow this pattern)
     - Notational example of transforming a single, homogeneous 3D point: \
 $${}^cP = {}^cM_{w} \cdot {}^wP$$, with $$P \in \mathbb{R^3}$$ and $${}^cM_{w} \in SE(3)$$
-        - $${}^cP$$ -- homogeneous point $$P$$ in camera coordinates,
+        - $${}^cP$$ --- homogeneous point $$P$$ in camera coordinates,
 $$
 \begin{pmatrix}
 x_c & y_c & z_c & 1
 \end{pmatrix}
 ^\top$$
-        - $${}^wP$$ -- homogeneous point $$P$$ in world coordinates,
+        - $${}^wP$$ --- homogeneous point $$P$$ in world coordinates,
 $$
 \begin{pmatrix}
 x_w & y_w & z_w & 1
 \end{pmatrix}
 ^\top$$
-        - $$\mathbb{R^3}$$ -- the space of real, 3 dimensional numbers
-        - $$SE(3)$$ -- $$S$$pecial $$E$$uclidean group 3, the space of 3D rigid-body transformations
+        - $$\mathbb{R^3}$$ --- the space of real, 3 dimensional numbers
+        - $$SE(3)$$ --- $$S$$pecial $$E$$uclidean group 3, the space of 3D rigid-body transformations
