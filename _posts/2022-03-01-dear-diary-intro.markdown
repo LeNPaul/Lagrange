@@ -36,13 +36,13 @@ The upcoming is just me admiring the shop's setup and how they are displaying th
 
 <div class="row">
   <div class="column">
-    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9017.jpg" alt="store window" style="width:40%">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9017.jpg" alt="store window" style="width:60%">
   </div>
   <div class="column">
-    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9010.jpg" alt="store from the inside" style="width:20%">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9010.jpg" alt="store from the inside" style="width:60%">
   </div>
   <div class="column">
-    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9009.jpg" alt="store's window from inside" style="width:20%">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9009.jpg" alt="store's window from inside" style="width:60%">
   </div>
 </div>
 
