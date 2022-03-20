@@ -83,6 +83,26 @@ The corners of the larger checkerboard are the points which are detected ([OpenC
 {: centeralign }
 
 
+## Projection: from 3D scene point to 2D image point
+
+For the idealized 'pinhole camera model', projection from 3D space to the 2D image is a linear operation.
+The projection function can be expressed as:
+
+$$
+\tilde{x}_{ij} = A \cdot distort(x_{ij}, \textbf{k})
+$$
+
+$$
+x_{ij} = \Pi \cdot {}^cM_{w,i} \cdot X_{ij}
+$$
+
+![](assets/img/projectionerror.png)
+{: centeralign }
+
+Illustration of projection error for a single measurement ($$z_{ij}$$) and prediction ($$\tilde{x}_{ij}$$) pair.
+{: centeralign }
+
+
 ## What is 'Zhang's method'?
 
 Currently, the most popular method for calibrating a camera is **Zhang's method** published in [A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf) by Zhengyou Zhang (1998).
@@ -117,22 +137,6 @@ Considering the full dataset, we can compute the sum-squared projection error by
 
 $$
 E = \sum\limits_{i}^{n} \sum\limits_{j}^{m} || z_{ij} - \tilde{x}_{ij} ||^2
-$$
-
-![](assets/img/projectionerror.png)
-{: centeralign }
-
-Illustration of projection error for a single measurement ($$z_{ij}$$) and prediction ($$\tilde{x}_{ij}$$) pair.
-{: centeralign }
-
-The projection function can be expressed as:
-
-$$
-\tilde{x}_{ij} = A \cdot distort(x_{ij}, \textbf{k})
-$$
-
-$$
-x_{ij} = \Pi \cdot {}^cM_{w,i} \cdot X_{ij}
 $$
 
 Below, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters.
