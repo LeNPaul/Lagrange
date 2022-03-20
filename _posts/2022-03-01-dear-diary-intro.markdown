@@ -33,10 +33,43 @@ I then went for a run, it was my first after an accident I had in my ankle and w
 
 The upcoming is just me admiring the shop's setup and how they are displaying the stuff. I picked a few things that I wanted to try and got back and tried them out. I enjoy the act of going into a grocery store or shop that sells stuff I haven't tried before and then one gets into reviewer mode. I think I would've appreciated a job as a food connoisseur, being able to experience new things all the time and get into the details of how it feels/tastes to you and how it was made then structure your thoughts and observations about it, that would've been the best, if only I could handle spicy food, becuase here's a whole spectrum of dishes that I will miss on -.-
 
-///Photos of the candy.
 
+<div class="row">
+  <div class="column">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9017.jpg" alt="store window" style="width:40%">
+  </div>
+  <div class="column">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9010.jpg" alt="store from the inside" style="width:20%">
+  </div>
+  <div class="column">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9009.jpg" alt="store's window from inside" style="width:20%">
+  </div>
+</div>
 
-I then went grocery shopping for the week and went out to meet my friend and did some shopping that ended up with a burger at Five guys.
+<!-- <div class="row">
+  <div class="column">
+    <img src="img_snow.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="img_forest.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
 
+<div class="row">
+  <div class="column">
+    <img src="img_snow.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="img_forest.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div> -->
+
+After that came the grocery shopping for the week followed by meeting my friend and doing some shopping together that ended with a burger at Five Guys.
 
 
