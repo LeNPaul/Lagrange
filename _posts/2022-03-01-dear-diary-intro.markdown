@@ -31,7 +31,9 @@ it was about why Asia loves cooking with spam gaining this popularity and also h
 
 I then went for a run, it was my first after an accident I had in my ankle and wasn't able to practice any sports or run. It went fine, but I also realized how much of a potato I am when it comes to fitness. On my way back though, I was taking some of those decisions that I know I will probably not commit to, but I did it anyways, one of these decisions is to get back to cutting sugar, I did it for a few months at the end of last year and it went on until the beginning of Feb, but then I lost control or more like I didn't give a shit anymore. and as your fit determined friend walks down the road she stumbles upon a cute shop's window, so I approached to check what do they sell? it's candy! they should rename the attraction law as the repulsion law in my case, because I wouldn't enter a shop like this one and ignore the fact that I need to try some of the weird candy I found inside, specially that their brand is all about selling eccentric candy from different places in the world, so at this point, I decided to just push my no sugar goal to the next month and be realistic.
 
-The upcoming is just me admiring the shop's setup and how they are displaying the stuff. I picked a few things that I wanted to try and got back and tried them out. I enjoy the act of going into a grocery store or shop that sells stuff I haven't tried before and then one gets into reviewer mode. I think I would've appreciated a job as a food connoisseur, being able to experience new things all the time and get into the details of how it feels/tastes to you and how it was made then structure your thoughts and observations about it, that would've been the best, if only I could handle spicy food, becuase here's a whole spectrum of dishes that I will miss on -.-
+The upcoming is just me admiring the shop's setup and how they are displaying the candy. They had these suitcases filled with candy from different parts of the world sorted in separate sections, I picked a few things that I wanted to try and got back and tried them out. I enjoy the act of going into a grocery store or shop that sells stuff I haven't tried before and then one gets into reviewer mode. I think I would've appreciated a job as a food connoisseur, being able to experience new things all the time and get into the details of how it feels/tastes to you and how it was made then structure your thoughts and observations about it, that would've been the best, if only I could handle spicy food, becuase here's a whole spectrum of dishes that I will miss on....
+
+
 
 
 <div class="row">
@@ -46,29 +48,44 @@ The upcoming is just me admiring the shop's setup and how they are displaying th
   </div>
 </div>
 
-<!-- <div class="row">
+<div class="row">
   <div class="column">
-    <img src="img_snow.jpg" alt="Snow" style="width:100%">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9015.jpg" alt="japanese candy" style="width:50%">
   </div>
   <div class="column">
-    <img src="img_forest.jpg" alt="Forest" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9016.jpg" style="width:50%">
   </div>
 </div>
 
 <div class="row">
   <div class="column">
-    <img src="img_snow.jpg" alt="Snow" style="width:100%">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9019.jpg" alt="Candy bag from outside" style="width:50%">
   </div>
   <div class="column">
-    <img src="img_forest.jpg" alt="Forest" style="width:100%">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9018.jpg" alt="Candy bag from inside with stuff purchased" style="width:50%">
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9030.jpg" alt="trying out an east european marshmellow-like candy that was too sweet and fluffy" style="width:25%">
   </div>
   <div class="column">
-    <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9033.jpg" alt="twizzlers strips in lemon, apple and cherries" style="width:25%">
   </div>
-</div> -->
+  <div class="column">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9025.jpg" alt="small milky way chocolate star" style="width:25%">
+  </div>
+    <div class="column">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9026.jpg" alt="sour candy in the form of cubes" style="width:25%">
+  </div>
+</div>
+
+This candy that looks like a marshmallow-like bun, was an east european vanilla flavoured candy that's stuffed with something that tasted like apple past/jam, it was too sweet for my taste, but its texture was nice in the mouth, was soft and fluffy. The sour candy was my favourite, it was berry-flavoured, it came in three colors (3 flavours) that show up when you take a bite (they were red, blue and purple) and those twizzler strips of intertwined lemon, apple and cherry were nice, tasted a bit artificial but not in a sad way I might say, plus, I have a thing for braided jelly candy. The smol milky way chocolate stars were dope, but it wasn't something new to my taste buds, it's basically Mars/Milkyway chooclate, it didn't even taste much like a milky way, maybe only its external chocolate coating that tasted like it.
+
+After getting back from my morning walk and passing by this store, I did some chores while listening to some podcasts, one of them was about handling trauma in relationships and traumatic responses in general, it was eye-opening, not for what it was discussing, but how it defined it, sometimes giving things the right name or category helps in a way and provide you with an idea on how to view these behaviours in a different light.
+
+It was mentioned in the podcast,
 
 After that came the grocery shopping for the week followed by meeting my friend and doing some shopping together that ended with a burger at Five Guys.
 
