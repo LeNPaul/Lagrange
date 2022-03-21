@@ -77,11 +77,11 @@ The upcoming is just me admiring the shop's setup and how they are displaying th
     <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9025.jpg" alt="small milky way chocolate star" style="width:25%">
   </div>
     <div class="column">
-    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9026.jpg" alt="sour candy in the form of cubes" style="width:25%">
+    <img src="assets/img/PostsImages/DearDiaryIntro/IMG_9026.jpg" alt="sour candy in the form of cubes" style="width:20%">
   </div>
 </div>
 
-This candy that looks like a marshmallow-like bun, was an east european vanilla flavoured candy that's stuffed with something that tasted like apple past/jam, it was too sweet for my taste, but its texture was nice in the mouth, was soft and fluffy. The sour candy was my favourite, it was berry-flavoured, it came in three colors (3 flavours) that show up when you take a bite (they were red, blue and purple) and those twizzler strips of intertwined lemon, apple and cherry were nice, tasted a bit artificial but not in a sad way I might say, plus, I have a thing for braided jelly candy. The smol milky way chocolate stars were dope, but it wasn't something new to my taste buds, it's basically Mars/Milkyway chooclate, it didn't even taste much like a milky way, maybe only its external chocolate coating that tasted like it.
+This marshmallow-like bun, was an east european vanilla flavoured candy that's stuffed with something that tasted like apple paste/jam, it was too sweet for my taste, but its texture was nice in the mouth, was soft and fluffy. The sour candy was my favourite, it was berry-flavoured, it came in three colors (3 flavours) that show up when you take a bite (they were red, blue and purple) and those twizzler strips of intertwined lemon, apple and cherry were nice, tasted a bit artificial but not in a sad way I might say, plus, I have a thing for braided jelly candy. The smol milky way chocolate stars were dope, but it wasn't something new to my taste buds, it's basically Mars/Milkyway chooclate, it didn't even taste much like a milky way, maybe only its external chocolate coating.
 
 After getting back from my morning walk and passing by this store, I did some chores while listening to some podcasts, one of them was about handling trauma in relationships and traumatic responses in general, it was eye-opening, not for what it was discussing, but how it defined it, sometimes giving things the right name or category helps in a way and provide you with an idea on how to view these behaviours in a different light.
 
