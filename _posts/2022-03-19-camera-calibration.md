@@ -27,22 +27,27 @@ A camera captures light from a 3D world and projects it onto a 2D sensor which s
 In other words, a **2D point** in the image is equivalent to a **3D ray** in the scene.
 A camera is **calibrated** if we know the *camera parameters* which define the mapping between these spaces.
 
-Camera calibration is the process of computing the **camera parameters**: $$\textbf{A}$$, $$\textbf{k}$$, and $$\mathcal{W}$$ which are further discussed in the [$$\S$$Camera parameters](#camera-parameters) section.
+Camera calibration is the process of computing the **camera parameters**: $$\textbf{A}$$, $$\textbf{k}$$, and $$\textbf{W}$$.
+These are further discussed in the [$$\S$$camera parameters](#camera-parameters) section, for now we will just name them:
+- $$\textbf{A}$$ --- the **intrinsic matrix**
+- $$\textbf{k}$$ --- the **distortion vector**
+- $$\textbf{W}$$ --- the **per-view set of transformations** (also called **extrinsic** parameters)
+
 A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target and varying the board pose with respect to the camera for each view.
 
-So, given multiple images of a known calibration target, camera calibration computes the camera parameters: $$\textbf{A}$$, $$\textbf{k}$$, and $$\mathcal{W}$$.
+So, given multiple images of a known calibration target, camera calibration computes the camera parameters: $$\textbf{A}$$, $$\textbf{k}$$, and $$\textbf{W}$$.
 And with these parameters, we can **reason spatially** about the world from images!
 
 
 ## Projection: from 3D world point to 2D image point
 
-The projection of a 3D point in the world to a 2D point in an image goes through a journey of **four transformations**, corresponding almost one-to-one with calibration parameters $$\textbf{A}$$, $$\textbf{k}$$, and $$\mathcal{W}$$ we are solving for.
+The journey of a 3D world point to a 2D image point is a series of **four transformations**, corresponding almost one-to-one with calibration parameters $$\textbf{A}$$, $$\textbf{k}$$, and $$\textbf{W}$$ we are solving for.
 
 A couple quick notes on convention followed here and which I've seen commonly elsewhere:
-- Lower case variables (like $$x, y, u, v, k_1$$) scalar variables.
-- Upper case variables (like $$A, X$$) typically denote matrices or 3D points.
-- Bold variables (like $$\textbf{x}, \textbf{u}, \textbf{k}$$) are typically a vector of the type denoted by their case.
-- Calligraphic variables (like $$\mathcal{W}$$) typically denote a vector of the type based on it's casing.
+- Unbold, lowercase variables (like $$x, y, u, v, k_1$$) are scalar variables.
+- Bold, lowercase variables (like $$\textbf{x}, \textbf{u}, \textbf{k}$$) are vectors.
+- Bold, uppercase variables (like $$\textbf{X}, \textbf{A}$$) are matrices.
+- Calligraphic variables (like $$\textbf{W}$$) typically denote a vector of the type based on it's casing.
 
 ### 1) 3D world coordinates to 3D camera coordinates
 
@@ -170,8 +175,8 @@ k_1 & k_2 & k_3 & k_4
 \end{pmatrix}
 $$
     - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion
-- $$\mathcal{W}$$ --- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
-    - $$\mathcal{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
+- $$\textbf{W}$$ --- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
+    - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
 
 
 ## Aside: detecting target points in 2D images
@@ -199,8 +204,8 @@ The ordering of steps for Zhang's method are:
 1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
 2. Use the homographies to compute an *initial guess* for the **intrinsic matrix**, $$A_{init}$$.
 3. Using the above, compute an *initial guess* for the **distortion parameters**, $$\textbf{k}_{init}$$.
-4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\mathcal{W}_{init}$$.
-5. Initialize **non-linear optimization** with the *initial guesses* above to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\mathcal{W}_{final}$$.
+4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\textbf{W}_{init}$$.
+5. Initialize **non-linear optimization** with the *initial guesses* above to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
 
 ![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
 {: centeralign }
@@ -292,8 +297,8 @@ Thanks for reading!
 
 ## Appendix
 
-- Recall we defined $$\mathcal{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
-    - This can also be written in what I've been told is the 'Craig convention': $$\mathcal{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
+- Recall we defined $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
+    - This can also be written in what I've been told is the 'Craig convention': $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
 
     - Each transform expressed in homogeneous form: $${}^cM_{w} = $$
 $$
