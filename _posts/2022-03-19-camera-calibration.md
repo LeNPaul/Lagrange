@@ -3,17 +3,21 @@ layout: post
 title: "Primer on camera calibration"
 author: "Paul Vinh Phan"
 categories: journal
+image: reprojection.gif
 tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 ---
 
 {:centeralign: style="text-align: center;"}
 
-Below is an overview of the theory behind camera calibration, specifically Zhang's method.
-My hope is that the ordering of concepts here will help new readers feel 'at home' more quickly when navigating calibration literature.
+# Intro
+
+Below is an primer of the theory behind camera calibration, specifically Zhang's method.
+My hope is that the ordering of concepts here will help new readers feel at home more quickly when navigating calibration literature.
 
 For a deep dive into Zhang's method, I highly recommend this [tutorial paper by Burger](https://www.researchgate.net/profile/Wilhelm-Burger/publication/303233579_Zhang's_Camera_Calibration_Algorithm_In-Depth_Tutorial_and_Implementation/links/5eaad8c9a6fdcc70509c3c9b/Zhangs-Camera-Calibration-Algorithm-In-Depth-Tutorial-and-Implementation.pdf).
 For those interested in a 'from scratch' Python implementation: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
 
+Here's an image which helps paint a picture of the information considered in camera calibration:
 
 ![](assets/img/pict_calib_mini2.gif)
 {: centeralign }
@@ -21,17 +25,14 @@ A calibration dataset and its 'camera centric' board pose visualization ([vision
 {: centeralign }
 
 
-## What is camera calibration?
+# What is camera calibration?
 
 A camera captures light from a 3D world and projects it onto a 2D sensor which stores the sensor state as a 2D image.
 In other words, a **2D point** in the image is equivalent to a **3D ray** in the scene.
 A camera is **calibrated** if we know the *camera parameters* which define the mapping between these spaces.
 
 Camera calibration is the process of computing the **camera parameters**: $$\textbf{A}$$, $$\textbf{k}$$, and $$\textbf{W}$$.
-These are further discussed in the [$$\S$$camera parameters](#camera-parameters) section, for now we will just name them:
-- $$\textbf{A}$$ --- the **intrinsic matrix**
-- $$\textbf{k}$$ --- the **distortion vector**
-- $$\textbf{W}$$ --- the **per-view set of transformations** (also called **extrinsic** parameters)
+These are further discussed just below in the [$$\S$$camera parameters](#camera-parameters) section.
 
 A camera calibration **dataset** is gathered by capturing multiple images of a known physical calibration target and varying the board pose with respect to the camera for each view.
 
@@ -39,17 +40,48 @@ So, given multiple images of a known calibration target, camera calibration comp
 And with these parameters, we can **reason spatially** about the world from images!
 
 
-## Projection: from 3D world point to 2D image point
+# Camera parameters
 
-The journey of a 3D world point to a 2D image point is a series of **four transformations**, corresponding almost one-to-one with calibration parameters $$\textbf{A}$$, $$\textbf{k}$$, and $$\textbf{W}$$ we are solving for.
+You'll have to bear with these largely unmotivated definitions for a moment.
+I wanted them laid out plainly here in one spot, and their use will be explained in the next section on [$$\S$$projection](#projection-from-3d-world-point-to-2d-image-point).
 
-A couple quick notes on convention followed here and which I've seen commonly elsewhere:
-- Unbold, lowercase variables (like $$x, y, u, v, k_1$$) are scalar variables.
-- Bold, lowercase variables (like $$\textbf{x}, \textbf{u}, \textbf{k}$$) are vectors.
-- Bold, uppercase variables (like $$\textbf{X}, \textbf{A}$$) are matrices.
-- Calligraphic variables (like $$\textbf{W}$$) typically denote a vector of the type based on it's casing.
+- $$\textbf{A}$$ --- the **intrinsic matrix**,
+$$
+\begin{pmatrix}
+\alpha & \gamma & u_0\\
+0 & \beta & v_0\\
+0 & 0 & 1\\
+\end{pmatrix}
+$$
+    - $$\alpha$$ --- focal length in the camera x direction
+    - $$\beta$$ --- focal length in the camera y direction
+    - $$\gamma$$ --- the skew ratio, typically 0
+    - $$u_0$$ --- u coordinate of optical center in image coordinates
+    - $$v_0$$ --- v coordinate of optical center in image coordinates
+- $$\textbf{k}$$ --- the **distortion vector**,
+    - for the radial-tangential model:
+$$
+\begin{pmatrix}
+k_1 & k_2 & p_1 & p_2 & k_3
+\end{pmatrix}
+$$
+    - for the fisheye model:
+$$
+\begin{pmatrix}
+k_1 & k_2 & k_3 & k_4
+\end{pmatrix}
+$$
+    - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion
+- $$\textbf{W}$$ --- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
+    - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
 
-### 1) 3D world coordinates to 3D camera coordinates
+
+# Projection: from 3D world point to 2D image point
+
+The journey of a 3D world point to a 2D image point is a series of **four transformations**, corresponding almost one-to-one with the calibration parameters $$\textbf{A}$$, $$\textbf{k}$$, and $$\textbf{W}$$ we are solving for.
+Each step has an equation in it's compact form (X.a) and in more verbose form (X.b).
+
+## 1) 3D world point to 3D camera point (use $$\textbf{W}$$)
 
 This is a simple one for those already familiar with 3D coordinate transformations.
 We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{ij}$$.
@@ -87,16 +119,15 @@ z_w\\
 \end{equation}
 $$
 
-- $${}^cX_{ij}$$ --- the $$j$$-th 3D point in **camera** coordinates from the $$i$$-th image in homogeneous coordinates
+- $${}^cX_{ij}$$ --- the $$j$$-th 3D point in **camera** coordinates from the $$i$$-th image, given in homogeneous coordinates
 - $$W_i$$ --- the transform from world coordinates to camera coordinates for the $$i$$-th image
-- $${}^wX_{ij}$$ --- the $$j$$-th 3D point in **world** coordinates from the $$i$$-th image in homogeneous coordinates
+- $${}^wX_{ij}$$ --- the $$j$$-th 3D point in **world** coordinates from the $$i$$-th image, given in homogeneous coordinates
 
 
-### 2) 3D camera coordinates to 2D normalized image point
+## 2) 3D camera coordinates to 2D normalized image point
 
-We will now go take the 3D coordinates in the cameras frame and project them into the normalized image plane.
-This is essentially dividing each 3D point by it's $$z$$ component, or intersecting the ray of that point into the $$z = 1$$ plane.
-Notation will start to get a bit blurry, but try to bear with it as this is pretty close to the common literature.
+Next we'll project the 3D coordinate in the cameras frame into the **normalized image plane**.
+This is done by intersecting the ray from optical center to that 3D point with the $$z = 1$$ plane.
 
 $$
 \begin{equation}
@@ -129,57 +160,22 @@ z_c\\
 \end{equation}
 $$
 
-- $$s$$ --- an unknown scaling factor, resulting in the loss of the $$z$$ dimension
-- $$\textbf{x}_{ij}$$ --- the projected coordinate of the point in the normalized image
+- $$s$$ --- a point-specific scaling factor, resulting in the loss of the $$z$$ dimension
+- $$x_{ij}$$ --- the projected coordinate of the point in the normalized image
     - $$x$$ --- the x component of the normalized 2D point
     - $$y$$ --- the y component of the normalized 2D point
 - $$\Pi$$ --- the 'standard projection matrix' which reduces the dimensionality
 
 
-### 3) 2D normalized point to 2D distorted-normalized point
+## 3) 2D normalized point to 2D distorted-normalized point (use $$\textbf{k}$$)
 
 This step accounts for lens distortion by applying a non-linear warping function in normalized image coordinates.
 I chose to awkwardly call the resulting point a 'distorted-normalized' point since it's still in the normalized space, but has had a distortion applied to it.
 
-- $$\tilde{x}_{ij} = A \cdot distort(x_{ij}, \textbf{k})$$ :white_check_mark: ---
-
-Now that we've introduced how each of these parameters contributes to the projection of a 3D world point to a 2D image point, we can more fully define them.
+- $$\tilde{x}_{ij} = A \cdot distort(x_{ij}, \textbf{k})$$
 
 
-## Camera parameters
-
-- $$\textbf{A}$$ --- the **intrinsic matrix**,
-$$
-\begin{pmatrix}
-\alpha & \gamma & u_0\\
-0 & \beta & v_0\\
-0 & 0 & 1\\
-\end{pmatrix}
-$$
-    - $$\alpha$$ --- focal length in the camera x direction
-    - $$\beta$$ --- focal length in the camera y direction
-    - $$\gamma$$ --- the skew ratio, typically 0
-    - $$u_0$$ --- u coordinate of optical center in image coordinates
-    - $$v_0$$ --- v coordinate of optical center in image coordinates
-- $$\textbf{k}$$ --- the **distortion vector**,
-    - for the radial-tangential model:
-$$
-\begin{pmatrix}
-k_1 & k_2 & p_1 & p_2 & k_3
-\end{pmatrix}
-$$
-    - for the fisheye model:
-$$
-\begin{pmatrix}
-k_1 & k_2 & k_3 & k_4
-\end{pmatrix}
-$$
-    - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion
-- $$\textbf{W}$$ --- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
-    - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
-
-
-## Aside: detecting target points in 2D images
+# Aside: detecting target points in 2D images
 
 For the remainder of this post, we will assume the 2D target points (i.e. pixel coordinates) have already been detected in the images and have known association with the 3D target points in the target's coordinate system.
 Such functionality is typically handled by a library (e.g. [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
@@ -191,7 +187,7 @@ The corners of the larger checkerboard are the points which are detected ([OpenC
 {: centeralign }
 
 
-## What is 'Zhang's method'?
+# What is 'Zhang's method'?
 
 Currently, the most popular method for calibrating a camera is **Zhang's method** published in [A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf) by Zhengyou Zhang (1998).
 Older methods typically required a precisely made 3D calibration target or a mechanical system to precisely move the camera.
@@ -211,7 +207,7 @@ The ordering of steps for Zhang's method are:
 {: centeralign }
 
 
-## Projection error: the metric of calibration 'goodness'
+# Projection error: the metric of calibration 'goodness'
 
 In order to compute camera parameters which are useful for spatial reasoning, we need to define what makes a set of parameters better than another set.
 This is typically done by computing **sum-squared projection error**, $$E$$.
@@ -239,12 +235,12 @@ This gif plays through the iterative refinement of the camera parameters (step #
 ![](assets/img/reprojection.gif)
 {: centeralign }
 
-## Numerical toolbelt
+# Numerical toolbelt
 
 We'll need some numerical methods in our toolbelt, two of the major ones are overviewed below.
 I'll not go into great detail about these methods, but I'll leave links to explore them further.
 
-### 1. Singular Value Decomposition (SVD)
+## 1. Singular Value Decomposition (SVD)
 
 SVD decomposes a matrix $M$ ($m$,$n$) to three matrices $U$ ($m$,$m$), $\Sigma$ ($m$,$n$), and $V^\top$ ($n$,$n$), such that $$M = U \cdot \Sigma \cdot V^\top$$.
 The properties of the resulting three matrices are like that of Eigenvalue and Eigenvector decomposition.
@@ -271,7 +267,7 @@ Additional links:
 - [(blog) Explanation of SVD by Greg Gunderson](https://gregorygundersen.com/blog/2018/12/10/svd/)
 
 
-### 2. Non-linear least squares optimization (Levenberg-Marquardt)
+## 2. Non-linear least squares optimization (Levenberg-Marquardt)
 
 Non-linear optimization is the task of computing a set of parameters which **minimizes a non-linear value function**.
 TODO
@@ -283,19 +279,16 @@ Visualization of Gauss-Newton optimization.
 {: centeralign }
 
 
-## The implementation, step by step
+# Final remarks
 
+In my experience, camera calibration can be daunting due to assumed knowledge in several areas (camera projection models, linear algebra, optimization) and how those areas intersect.
+We walked through a common camera projection model and then stepped through Zhang's method, introducing numerical methods as needed.
 
-## Final remarks
-
-We discussed an implemention of Zhang's camera calibration method mostly from scratch.
-Though initially daunting, I found implementing each step piece by piece made the whole process more digestible.
-
-I hope this post has helped some other people become more comfortable with SVD and LM, and demystified `cv2.calibrateCamera()` a little bit.
+I hope this post has demystified `cv2.calibrateCamera()` a little bit.
 Thanks for reading!
 
 
-## Appendix
+# Appendix
 
 - Recall we defined $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
     - This can also be written in what I've been told is the 'Craig convention': $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
