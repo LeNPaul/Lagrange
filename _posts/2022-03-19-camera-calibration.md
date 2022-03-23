@@ -81,7 +81,7 @@ $$
 The journey of a 3D world point to a 2D image point is a series of **four transformations**, corresponding almost one-to-one with the calibration parameters $$\textbf{A}$$, $$\textbf{k}$$, and $$\textbf{W}$$ we are solving for.
 Each step has an equation in it's compact form (X.a) and in more verbose form (X.b).
 
-## 1) 3D world point to 3D camera point (use $$\textbf{W}$$)
+### 1) Use $$\textbf{W}$$: 3D world point to 3D camera point
 
 This is a simple one for those already familiar with 3D coordinate transformations.
 We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{ij}$$.
@@ -124,7 +124,7 @@ $$
 - $${}^wX_{ij}$$ --- the $$j$$-th 3D point in **world** coordinates from the $$i$$-th image, given in homogeneous coordinates
 
 
-## 2) 3D camera coordinates to 2D normalized image point
+### 2) Use $$\Pi$$: 3D camera coordinates to 2D normalized image point
 
 Next we'll project the 3D coordinate in the cameras frame into the **normalized image plane**.
 This is done by intersecting the ray from optical center to that 3D point with the $$z = 1$$ plane.
@@ -167,12 +167,14 @@ $$
 - $$\Pi$$ --- the 'standard projection matrix' which reduces the dimensionality
 
 
-## 3) 2D normalized point to 2D distorted-normalized point (use $$\textbf{k}$$)
+### 3) Use $$\textbf{k}$$: 2D normalized point to 2D distorted-normalized point
 
 This step accounts for lens distortion by applying a non-linear warping function in normalized image coordinates.
 I chose to awkwardly call the resulting point a 'distorted-normalized' point since it's still in the normalized space, but has had a distortion applied to it.
 
 - $$\tilde{x}_{ij} = A \cdot distort(x_{ij}, \textbf{k})$$
+
+### 4) Use $$\textbf{A}$$: 2D distorted-normalized point to 2D image point
 
 
 # Aside: detecting target points in 2D images
