@@ -233,8 +233,8 @@ $$
 - $$r$$ --- the radial distance the 2D normalized point is from the optical center $$(0, 0)$$
 - $$d_{radi}, d_{tang,x}, d_{tang,y}$$ --- the radial, tangential (x), and tangential (y) effects on the final distorted-normalized point
 
-The $$distort$$ function here is dependent upon the selected lens distortion model.
-To use a more common model, above we've considered only the **radial-tangential** distortion model (also called the *Plumb Bob* or *Brown-Conrady* model [(source: calib.io)](https://calib.io/blogs/knowledge-base/camera-models).
+The $$distort(\cdot)$$ function here is dependent upon the selected lens distortion model.
+Here we use the popular **radial-tangential** distortion model (also called the *Plumb Bob* or *Brown-Conrady* model [(source: calib.io)](https://calib.io/blogs/knowledge-base/camera-models)).
 This model has 5 parameters: $$k_1, k_2, k_3$$ for handling radial distortion effects, and $$p_1, p_2$$ for handling tangential distortion effects.
 These parameters are typically ordered $$k_1, k_2, p_1, p_2, k_3$$ which I'd assume is descending order of impact in general.
 
@@ -260,7 +260,7 @@ The corners of the larger checkerboard are the points which are detected ([OpenC
 # What is 'Zhang's method'?
 
 Currently, the most popular method for calibrating a camera is **Zhang's method** published in [A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf) by Zhengyou Zhang (1998).
-Older methods typically required a precisely made 3D calibration target or a mechanical system to precisely move the camera.
+Older methods typically required a precisely made 3D calibration target or a mechanical system to precisely move the camera or target.
 In contrast, Zhang's method requires only a 2D calibration target and only loose requirements on how the camera or target moves.
 This means that anyone with a desktop printer and a little time can accurately calibrate their camera!
 
