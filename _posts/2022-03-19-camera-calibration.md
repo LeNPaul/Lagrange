@@ -161,10 +161,26 @@ z_c\\
 $$
 
 - $$s$$ --- a point-specific scaling factor, resulting in the loss of the $$z$$ dimension
-- $$x_{ij}$$ --- the projected coordinate of the point in the normalized image
+- $$x_{ij}$$ --- the 2D projected coordinate of the point in the normalized image
     - $$x$$ --- the x component of the normalized 2D point
     - $$y$$ --- the y component of the normalized 2D point
 - $$\Pi$$ --- the 'standard projection matrix' which reduces the dimensionality
+
+In other literature, it's common to express the projection of a 3D point in camera onto the normalized image plane by simply dividing the point in camera coordinates by it's $$z$$ component and drop the 4th dimension.
+
+$$
+\begin{pmatrix}
+x\\
+y\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+x_c/z_c\\
+y_c/z_c\\
+\end{pmatrix}
+$$
+
+Though this is a simpler definition, it's not as easy to compose in a larger linear operation.
 
 
 ### 3) Use $$\textbf{k}$$: 2D normalized point to 2D distorted-normalized point
@@ -172,7 +188,56 @@ $$
 This step accounts for lens distortion by applying a non-linear warping function in normalized image coordinates.
 I chose to awkwardly call the resulting point a 'distorted-normalized' point since it's still in the normalized space, but has had a distortion applied to it.
 
-- $$\tilde{x}_{ij} = A \cdot distort(x_{ij}, \textbf{k})$$
+$$
+\begin{equation}
+\tilde{x}_{ij} = distort(x_{ij}, \textbf{k})
+\tag{3.a}\label{eq:3.a}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\begin{pmatrix}
+\tilde{x}_d\\
+\tilde{y}_d\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+d_{radi} x + d_{tang,x}\\
+d_{radi} y + d_{tang,y}\\
+\end{pmatrix}
+\tag{3.b}\label{eq:3.b}
+\end{equation}
+$$
+
+$$
+d_{radi} = (1 + k_1 r^2 + k_2 r^4 + k_3 r^6)
+$$
+
+$$
+d_{tang,x} = 2 p_1 x y + p_2 (r^2 + 2 x^2)
+$$
+
+$$
+d_{tang,y} = p_1 (r^2 + 2 y^2) + 2 p_2 x y
+$$
+
+$$
+r = \sqrt{x^2 + y^2}
+$$
+
+- $$\tilde{x}_{ij}$$ --- the 2D distorted-normalized point
+    - $$\tilde{x}_d$$ --- the distorted-normalized point, x component
+    - $$\tilde{y}_d$$ --- the distorted-normalized point, y component
+- $$\textbf{k}$$ --- the distortion vector, $$(k_1, k_2, p_1, p_2, k_3)$$
+- $$r$$ --- the radial distance the 2D normalized point is from the optical center $$(0, 0)$$
+- $$d_{radi}, d_{tang,x}, d_{tang,y}$$ --- the radial, tangential (x), and tangential (y) effects on the final distorted-normalized point
+
+The $$distort$$ function here is dependent upon the selected lens distortion model.
+To use a more common model, above we've considered only the **radial-tangential** distortion model (also called the *Plumb Bob* or *Brown-Conrady* model [(source: calib.io)](https://calib.io/blogs/knowledge-base/camera-models).
+This model has 5 parameters: $$k_1, k_2, k_3$$ for handling radial distortion effects, and $$p_1, p_2$$ for handling tangential distortion effects.
+These parameters are typically ordered $$k_1, k_2, p_1, p_2, k_3$$ which I'd assume is descending order of impact in general.
+
 
 ### 4) Use $$\textbf{A}$$: 2D distorted-normalized point to 2D image point
 
@@ -186,6 +251,9 @@ Such functionality is typically handled by a library (e.g. [ChArUco](https://doc
 ![](https://docs.opencv.org/3.4/charucodefinition.png)
 {: centeralign }
 The corners of the larger checkerboard are the points which are detected ([OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html))
+{: centeralign }
+
+![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
 {: centeralign }
 
 
@@ -204,9 +272,6 @@ The ordering of steps for Zhang's method are:
 3. Using the above, compute an *initial guess* for the **distortion parameters**, $$\textbf{k}_{init}$$.
 4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\textbf{W}_{init}$$.
 5. Initialize **non-linear optimization** with the *initial guesses* above to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
-
-![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
-{: centeralign }
 
 
 # Projection error: the metric of calibration 'goodness'
