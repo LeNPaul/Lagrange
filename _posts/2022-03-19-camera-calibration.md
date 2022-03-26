@@ -295,7 +295,7 @@ So accessing a value of $$u, v$$ would be done via `value = image[v, u]`.
 
 ## All together!
 
-Combining the abover four steps, we can express projection more compactly as a function of inputs and calibration parameters:
+Combining the abover four steps, we can express **projection more compactly** as a function of inputs and calibration parameters:
 
 $$
 \begin{equation}
@@ -318,9 +318,14 @@ u_{ij}
 \end{equation}
 $$
 
+We've now defined a basis for **predicting** where a point will be in our image provided we have a known target point $${}^wX_{ij}$$ and an estimate of the calibration parameters $$\textbf{A}, \textbf{k}, W_i$$.
+
+But how do we **measure** (or **detect**) the 2D point detections in our images?
+
+
 # Aside: detecting target points in 2D images
 
-For the remainder of this post, we will assume the 2D target points (i.e. pixel coordinates) have already been detected in the images and have known association with the 3D target points in the target's coordinate system.
+For the remainder of this post, we will assume the 2D target points (in pixel coordinates) have already been detected in the images and have known association with the 3D target points in the target's coordinate system.
 Such functionality is typically handled by a library (e.g. [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
 
 
@@ -328,6 +333,8 @@ Such functionality is typically handled by a library (e.g. [ChArUco](https://doc
 {: centeralign }
 The corners of the larger checkerboard are the points which are detected ([OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html))
 {: centeralign }
+
+And with that, we're ready to talk about Zhang's method!
 
 ![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
 {: centeralign }
@@ -347,7 +354,7 @@ The ordering of steps for Zhang's method are:
 2. Use the homographies to compute an *initial guess* for the **intrinsic matrix**, $$A_{init}$$.
 3. Using the above, compute an *initial guess* for the **distortion parameters**, $$\textbf{k}_{init}$$.
 4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\textbf{W}_{init}$$.
-5. Initialize **non-linear optimization** with the *initial guesses* above to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
+5. Initialize **non-linear optimization** with the *initial guesses* above and then **iterate** to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
 
 
 # Projection error: the metric of calibration 'goodness'
@@ -355,9 +362,9 @@ The ordering of steps for Zhang's method are:
 In order to compute camera parameters which are useful for spatial reasoning, we need to define what makes a set of parameters better than another set.
 This is typically done by computing **sum-squared projection error**, $$E$$.
 The lower that error metric is, the more closely our camera parameters fit the measurements from the input images.
-- From each image, we have the detected marker points. Each marker point is a single **2D measurement**, which we will denote as $$z_{ij}$$ for the $$j$$-th measured point of the $$i$$-th image.
-- From each measurement $$z_{ij}$$, we also have the **corresponding 3D point** in target coordinates (known by construction), which we will denote as $$X_{ij}$$.
-- With a set of calibration parameters ($$\textbf{A}$$, $$\textbf{k}$$, $${}^cM_{w,i}$$), we can then project where that 3D point should appear in the 2D image --- a single **2D prediction**, which we will express as the image point, $$u_{ij}$$.
+- From each image, we have the detected marker points. Each marker point is a single **2D measurement**, which we denote as $$z_{ij}$$ for the $$j$$-th measured point of the $$i$$-th image.
+- From each measurement $$z_{ij}$$, we also have the **corresponding 3D point** in target coordinates $${}^wX_{ij}$$ (known by construction).
+- With a set of calibration parameters ($$\textbf{A}$$, $$\textbf{k}$$, $$W_i$$), we can then project where that 3D point should appear in the 2D image --- a single **2D prediction**, which we express as the image point, $$u_{ij}$$.
 - The Euclidean distance between the 2D prediction and 2D measurement is the **projection error** for a single point.
 
 ![](assets/img/projectionerror.png)
