@@ -81,7 +81,14 @@ $$
 The journey of a 3D world point to a 2D image point is a series of **four transformations**, corresponding almost one-to-one with the calibration parameters $$\textbf{A}$$, $$\textbf{k}$$, and $$\textbf{W}$$ we are solving for.
 Each step has an equation in it's compact form (X.a) and in more verbose form (X.b).
 
-### 1) Use $$\textbf{W}$$: 3D world point to 3D camera point
+A quick summary of the journey:
+1. Rigidly transform 3D points in world coordinates to 3D camera coordinates with $$\textbf{W}$$.
+2. Project these 3D points into the cameras 2D 'normalized plane' ($$z = 1$$).
+3. Distort the normalized 2D points by the distortion model and parameters $$\textbf{k}$$.
+4. Project the distorted-normalized points into the 2D image coordinates with the intrinsic matrix $$\textbf{A}$$.
+
+
+## 1) Use $$\textbf{W}$$: 3D world point to 3D camera point
 
 This is a simple one for those already familiar with 3D coordinate transformations.
 We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{ij}$$.
@@ -124,7 +131,7 @@ $$
 - $${}^wX_{ij}$$ --- the $$j$$-th 3D point in **world** coordinates from the $$i$$-th image, given in homogeneous coordinates
 
 
-### 2) Use $$\Pi$$: 3D camera coordinates to 2D normalized image point
+## 2) Use $$\Pi$$: 3D camera coordinates to 2D normalized image point
 
 Next we'll project the 3D coordinate in the cameras frame into the **normalized image plane**.
 This is done by intersecting the ray from optical center to that 3D point with the $$z = 1$$ plane.
@@ -183,7 +190,7 @@ $$
 Though this is a simpler definition, it's not as easy to compose in a larger linear operation.
 
 
-### 3) Use $$\textbf{k}$$: 2D normalized point to 2D distorted-normalized point
+## 3) Use $$\textbf{k}$$: 2D normalized point to 2D distorted-normalized point
 
 This step accounts for lens distortion by applying a non-linear warping function in normalized image coordinates.
 I chose to awkwardly call the resulting point a 'distorted-normalized' point since it's still in the normalized space, but has had a distortion applied to it.
@@ -239,7 +246,48 @@ This model has 5 parameters: $$k_1, k_2, k_3$$ for handling radial distortion ef
 These parameters are typically ordered $$k_1, k_2, p_1, p_2, k_3$$ which I'd assume is descending order of impact in general.
 
 
-### 4) Use $$\textbf{A}$$: 2D distorted-normalized point to 2D image point
+## 4) Use $$\textbf{A}$$: 2D distorted-normalized point to 2D image point
+
+At last, we can project the distorted rays of light into our image plane.
+These coordinates are in units of pixels, with the origin starting in the top-left of the image.
+The value $$u$$ increases from left-to-right, and $$v$$ increases from top-to-bottom of the image.
+
+$$
+\begin{equation}
+u_{ij} = \textbf{A} \cdot \tilde{x}_{ij}
+\tag{4.a}\label{eq:4.a}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\begin{pmatrix}
+u\\
+v\\
+1\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\alpha & \gamma & u_0\\
+0 & \beta & v_0\\
+0 & 0 & 1\\
+\end{pmatrix}
+\begin{pmatrix}
+\tilde{x}_d\\
+\tilde{y}_d\\
+1\\
+\end{pmatrix}
+\tag{4.b}\label{eq:4.b}
+\end{equation}
+$$
+
+- $$u_{ij}$$ --- the 2D image point
+    - $$u$$ --- the horizontal component of the image point
+    - $$v$$ --- the vertical component of the image point
+
+The rest of the variables have been previously described in the  [$$\S$$camera parameters](#camera-parameters) section and won't be repeated here.
+Beware that some linear algebra libraries (e.g. `numpy`) index in 'row, column' order.
+So accessing a value of $$u, v$$ would be done via `value = image[v, u]`.
 
 
 # Aside: detecting target points in 2D images
@@ -357,11 +405,18 @@ Thanks for reading!
 
 # Appendix
 
-- Recall we defined $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
-    - This can also be written in what I've been told is the 'Craig convention': $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
 
-    - Each transform expressed in homogeneous form: $${}^cM_{w} = $$
+### Rigid-body transformations
+
+Recall we defined $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
+
+This can also be written in what I've been told is the 'Craig convention': $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
+
+Each transform expressed in homogeneous form:
+
 $$
+{}^cM_{w}
+=
 \begin{pmatrix}
 |     & |     & |     & t_x\\
 r_{x} & r_{y} & r_{z} & t_y\\
@@ -369,21 +424,26 @@ r_{x} & r_{y} & r_{z} & t_y\\
 0 & 0 & 0 & 1\\
 \end{pmatrix}
 $$
-        - $$t_x, t_y, t_z$$ are the world coordinate system's origin given in the camera coordinates
-        - $$r_x$$ (3x1 column vector) is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates ($$r_y$$, $$r_z$$ follow this pattern)
-    - Notational example of transforming a single, homogeneous 3D point: \
+
+- $$t_x, t_y, t_z$$ are the world coordinate system's origin given in the camera coordinates
+- $$r_x$$ (3x1 column vector) is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates ($$r_y$$, $$r_z$$ follow this pattern)
+
+Notational example of transforming a single, homogeneous 3D point: \
 $${}^cP = {}^cM_{w} \cdot {}^wP$$, with $$P \in \mathbb{R^3}$$ and $${}^cM_{w} \in SE(3)$$
-        - $${}^cP$$ --- homogeneous point $$P$$ in camera coordinates,
+
+- $${}^cP$$ --- homogeneous point $$P$$ in camera coordinates,
 $$
 \begin{pmatrix}
 x_c & y_c & z_c & 1
 \end{pmatrix}
 ^\top$$
-        - $${}^wP$$ --- homogeneous point $$P$$ in world coordinates,
+
+- $${}^wP$$ --- homogeneous point $$P$$ in world coordinates,
 $$
 \begin{pmatrix}
 x_w & y_w & z_w & 1
 \end{pmatrix}
 ^\top$$
-        - $$\mathbb{R^3}$$ --- the space of real, 3 dimensional numbers
-        - $$SE(3)$$ --- $$S$$pecial $$E$$uclidean group 3, the space of 3D rigid-body transformations
+
+- $$\mathbb{R^3}$$ --- the space of real, 3 dimensional numbers
+- $$SE(3)$$ --- $$S$$pecial $$E$$uclidean group 3, the space of 3D rigid-body transformations
