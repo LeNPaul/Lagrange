@@ -87,8 +87,10 @@ A quick summary of the journey:
 3. Distort the normalized 2D points by the distortion model and parameters $$\textbf{k}$$.
 4. Project the distorted-normalized points into the 2D image coordinates with the intrinsic matrix $$\textbf{A}$$.
 
+We'll call each step Proj.\<N\> to disambiguate with the steps of Zhang's method later on.
 
-## 1) Use $$\textbf{W}$$: 3D world point to 3D camera point
+
+## Proj.1) Use $$\textbf{W}$$: 3D world point to 3D camera point
 
 This is a simple one for those already familiar with 3D coordinate transformations.
 We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{ij}$$.
@@ -131,27 +133,27 @@ $$
 - $${}^wX_{ij}$$ --- the $$j$$-th 3D point in **world** coordinates from the $$i$$-th image, given in homogeneous coordinates
 
 
-## 2) Use $$\Pi$$: 3D camera coordinates to 2D normalized image point
+## Proj.2) Use $$\Pi$$: 3D camera coordinates to 2D normalized image point
 
 Next we'll project the 3D coordinate in the cameras frame into the **normalized image plane**.
 This is done by intersecting the ray from optical center to that 3D point with the $$z = 1$$ plane.
 
 $$
 \begin{equation}
-s \cdot x_{ij} = \Pi \cdot {}^cX_{ij}
+x_{ij} = hom^{-1}(\Pi \cdot {}^cX_{ij})
 \tag{2.a}\label{eq:2.a}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-s
 \begin{pmatrix}
 x\\
 y\\
-1\\
 \end{pmatrix}
 =
+hom^{-1}
+\begin{pmatrix}
 \begin{pmatrix}
 1 & 0 & 0 & 0\\
 0 & 1 & 0 & 0\\
@@ -163,14 +165,15 @@ y_c\\
 z_c\\
 1\\
 \end{pmatrix}
+\end{pmatrix}
 \tag{2.b}\label{eq:2.b}
 \end{equation}
 $$
 
-- $$s$$ --- a point-specific scaling factor, resulting in the loss of the $$z$$ dimension
 - $$x_{ij}$$ --- the 2D projected coordinate of the point in the normalized image
     - $$x$$ --- the x component of the normalized 2D point
     - $$y$$ --- the y component of the normalized 2D point
+- $$hom^{-1}(\cdot)$$ --- the function which maps a homogeneous coordinate to its unhomogeneous equivalent point (divide the vector by its last value, then drop the trailing 1)
 - $$\Pi$$ --- the 'standard projection matrix' which reduces the dimensionality
 
 In other literature, it's common to express the projection of a 3D point in camera onto the normalized image plane by simply dividing the point in camera coordinates by it's $$z$$ component and drop the 4th dimension.
@@ -187,10 +190,9 @@ y_c/z_c\\
 \end{pmatrix}
 $$
 
-Though this is a simpler definition, it's not as easy to compose in a larger linear operation.
+However, I prefer the matrix multiplication and $$hom^{-1}(\cdot)$$ presented previously for continuity of equations.
 
-
-## 3) Use $$\textbf{k}$$: 2D normalized point to 2D distorted-normalized point
+## Proj.3) Use $$\textbf{k}$$: 2D normalized point to 2D distorted-normalized point
 
 This step accounts for lens distortion by applying a non-linear warping function in normalized image coordinates.
 I chose to awkwardly call the resulting point a 'distorted-normalized' point since it's still in the normalized space, but has had a distortion applied to it.
@@ -242,11 +244,9 @@ $$
 
 The $$distort(\cdot)$$ function here is dependent upon the selected lens distortion model.
 Here we use the popular **radial-tangential** distortion model (also called the *Plumb Bob* or *Brown-Conrady* model [(source: calib.io)](https://calib.io/blogs/knowledge-base/camera-models)).
-This model has 5 parameters: $$k_1, k_2, k_3$$ for handling radial distortion effects, and $$p_1, p_2$$ for handling tangential distortion effects.
-These parameters are typically ordered $$k_1, k_2, p_1, p_2, k_3$$ which I'd assume is descending order of impact in general.
 
 
-## 4) Use $$\textbf{A}$$: 2D distorted-normalized point to 2D image point
+## Proj.4) Use $$\textbf{A}$$: 2D distorted-normalized point to 2D image point
 
 At last, we can project the distorted rays of light into our image plane.
 These coordinates are in units of pixels, with the origin starting in the top-left of the image.
@@ -254,7 +254,7 @@ The value $$u$$ increases from left-to-right, and $$v$$ increases from top-to-bo
 
 $$
 \begin{equation}
-u_{ij} = \textbf{A} \cdot \tilde{x}_{ij}
+u_{ij} = hom^{-1}(\textbf{A} \cdot hom(\tilde{x}_{ij}))
 \tag{4.a}\label{eq:4.a}
 \end{equation}
 $$
@@ -264,9 +264,10 @@ $$
 \begin{pmatrix}
 u\\
 v\\
-1\\
 \end{pmatrix}
 =
+hom^{-1}
+\begin{pmatrix}
 \begin{pmatrix}
 \alpha & \gamma & u_0\\
 0 & \beta & v_0\\
@@ -277,6 +278,7 @@ v\\
 \tilde{y}_d\\
 1\\
 \end{pmatrix}
+\end{pmatrix}
 \tag{4.b}\label{eq:4.b}
 \end{equation}
 $$
@@ -284,11 +286,37 @@ $$
 - $$u_{ij}$$ --- the 2D image point
     - $$u$$ --- the horizontal component of the image point
     - $$v$$ --- the vertical component of the image point
+- $$hom(\cdot)$$ --- the function which maps an unhomogeneous point to it's homogeneous equivalent (for a 2D point, append a 1 to the end of the vector)
 
 The rest of the variables have been previously described in the  [$$\S$$camera parameters](#camera-parameters) section and won't be repeated here.
 Beware that some linear algebra libraries (e.g. `numpy`) index in 'row, column' order.
 So accessing a value of $$u, v$$ would be done via `value = image[v, u]`.
 
+
+## All together!
+
+Combining the abover four steps, we can express projection more compactly as a function of inputs and calibration parameters:
+
+$$
+\begin{equation}
+u_{ij}
+=
+\underbrace{hom^{-1}
+(
+    \textbf{A}
+    \cdot
+    hom(
+        \underbrace{distort(
+            \underbrace{hom^{-1}(
+                \Pi \cdot \underbrace{W_i \cdot {}^wX_{ij}}_\textrm{Proj.1: ${}^cX_{ij}$}
+            )}_\textrm{Proj.2: $x_{ij}$},
+            \textbf{k}
+        )}_\textrm{Proj.3: $\tilde{x}_{ij}$}
+    )
+)}_\textrm{Proj.4: $u_{ij}$}
+\tag{5}\label{eq:5}
+\end{equation}
+$$
 
 # Aside: detecting target points in 2D images
 
