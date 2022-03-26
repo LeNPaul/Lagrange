@@ -15,7 +15,7 @@ Below is an primer of the theory behind camera calibration, specifically Zhang's
 My hope is that the ordering of concepts here will help new readers feel at home more quickly when navigating calibration literature.
 
 For a deep dive into Zhang's method, I highly recommend this [tutorial paper by Burger](https://www.researchgate.net/profile/Wilhelm-Burger/publication/303233579_Zhang's_Camera_Calibration_Algorithm_In-Depth_Tutorial_and_Implementation/links/5eaad8c9a6fdcc70509c3c9b/Zhangs-Camera-Calibration-Algorithm-In-Depth-Tutorial-and-Implementation.pdf).
-For those interested in a 'from scratch' Python implementation: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
+I've also written a heavily commented Python implementation: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
 
 Here's an image which helps paint a picture of the information considered in camera calibration:
 
@@ -320,7 +320,7 @@ $$
 
 We've now defined a basis for **predicting** where a point will be in our image provided we have a known target point $${}^wX_{ij}$$ and an estimate of the calibration parameters $$\textbf{A}, \textbf{k}, W_i$$.
 
-But how do we **measure** (or **detect**) the 2D point detections in our images?
+But how do we **measure** (or **detect**) the 2D image points?
 
 
 # Aside: detecting target points in 2D images
@@ -328,6 +328,7 @@ But how do we **measure** (or **detect**) the 2D point detections in our images?
 For the remainder of this post, we will assume the 2D target points (in pixel coordinates) have already been detected in the images and have known association with the 3D target points in the target's coordinate system.
 Such functionality is typically handled by a library (e.g. [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html), [AprilTag](https://april.eecs.umich.edu/software/apriltag)) and is beyond the scope of this post.
 
+Such libraries typically detect strong corners made unique by specific neighboring patterns, or detect circle centers which have a unique distribution of small vs large circles.
 
 ![](https://docs.opencv.org/3.4/charucodefinition.png)
 {: centeralign }
@@ -356,18 +357,16 @@ Illustration of projection error for a single measurement ($$z_{ij}$$) and predi
 {: centeralign }
 
 
-Considering the full dataset, we can compute the sum-squared projection error by computing the Euclidean distance between each (*measurement*, *prediction*) pair for all $n$ images and all $m$ points in those images:
+Considering the full dataset, we can compute the sum-squared projection error by computing the Euclidean distance (also called the L2-norm, denoted
+$$|| \cdot ||^2$$
+) between each *measurement*-*prediction* pair for all $n$ images and all $m$ points in those images:
 
 $$
+\begin{equation}
 E = \sum\limits_{i}^{n} \sum\limits_{j}^{m} || z_{ij} - u_{ij} ||^2
+\tag{6}\label{eq:6}
+\end{equation}
 $$
-
-Below, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters.
-This gif plays through the iterative refinement of the camera parameters (step #5 of Zhang's method).
-(Generation of this gif is part of the github repo linked at the top of this post.)
-
-![](assets/img/reprojection.gif)
-{: centeralign }
 
 
 # What is 'Zhang's method'?
@@ -388,6 +387,8 @@ The ordering of steps for Zhang's method are:
 
 
 # The steps of Zhang's method
+
+Below I'll outline the strategy for each of the steps of Zhang's method.
 
 ## Zhang.1) Compute the per-view homographies
 
@@ -427,6 +428,13 @@ def estimateHomography(Xa: np.ndarray, Xb: np.ndarray):
 ## Zhang.4) Compute initial extrinsic parameters, W
 
 ## Zhang.5) Refine A, k, W using non-linear optimization
+
+Below, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters.
+This gif plays through the iterative refinement of the camera parameters (step #5 of Zhang's method).
+(Generation of this gif is part of the github repo linked at the top of this post.)
+
+![](assets/img/reprojection.gif)
+{: centeralign }
 
 
 # Final remarks
