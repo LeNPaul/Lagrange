@@ -334,27 +334,10 @@ Such functionality is typically handled by a library (e.g. [ChArUco](https://doc
 The corners of the larger checkerboard are the points which are detected ([OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html))
 {: centeralign }
 
-And with that, we're ready to talk about Zhang's method!
+And with that, we're ready to talk about **projection error**!
 
 ![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
 {: centeralign }
-
-
-# What is 'Zhang's method'?
-
-Currently, the most popular method for calibrating a camera is **Zhang's method** published in [A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf) by Zhengyou Zhang (1998).
-Older methods typically required a precisely made 3D calibration target or a mechanical system to precisely move the camera or target.
-In contrast, Zhang's method requires only a 2D calibration target and only loose requirements on how the camera or target moves.
-This means that anyone with a desktop printer and a little time can accurately calibrate their camera!
-
-The general strategy of Zhang's method is to impose naïve assumptions as constraints to get an **initial guess** of parameter values with singular value decomposition (SVD), then release those constraints and **refine** those guesses with non-linear least squares optimization.
-
-The ordering of steps for Zhang's method are:
-1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
-2. Use the homographies to compute an *initial guess* for the **intrinsic matrix**, $$A_{init}$$.
-3. Using the above, compute an *initial guess* for the **distortion parameters**, $$\textbf{k}_{init}$$.
-4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\textbf{W}_{init}$$.
-5. Initialize **non-linear optimization** with the *initial guesses* above and then **iterate** to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
 
 
 # Projection error: the metric of calibration 'goodness'
@@ -381,52 +364,69 @@ $$
 
 Below, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters.
 This gif plays through the iterative refinement of the camera parameters (step #5 of Zhang's method).
+(Generation of this gif is part of the github repo linked at the top of this post.)
 
 ![](assets/img/reprojection.gif)
 {: centeralign }
 
-# Numerical toolbelt
 
-We'll need some numerical methods in our toolbelt, two of the major ones are overviewed below.
-I'll not go into great detail about these methods, but I'll leave links to explore them further.
+# What is 'Zhang's method'?
 
-## 1. Singular Value Decomposition (SVD)
+Currently, the most popular method for calibrating a camera is **Zhang's method** published in [A Flexible New Technique for Camera Calibration](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf) by Zhengyou Zhang (1998).
+Older methods typically required a precisely made 3D calibration target or a mechanical system to precisely move the camera or target.
+In contrast, Zhang's method requires only a 2D calibration target and only loose requirements on how the camera or target moves.
+This means that anyone with a desktop printer and a little time can accurately calibrate their camera!
 
-SVD decomposes a matrix $M$ ($m$,$n$) to three matrices $U$ ($m$,$m$), $\Sigma$ ($m$,$n$), and $V^\top$ ($n$,$n$), such that $$M = U \cdot \Sigma \cdot V^\top$$.
-The properties of the resulting three matrices are like that of Eigenvalue and Eigenvector decomposition.
+The general strategy of Zhang's method is to impose naïve assumptions as constraints to get an **initial guess** of parameter values with singular value decomposition (SVD), then release those constraints and **refine** those guesses with non-linear least squares optimization.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Singular_value_decomposition_visualisation.svg/206px-Singular_value_decomposition_visualisation.svg.png)
-{: centeralign }
-Visualization of SVD from Wikipedia.
-{: centeralign }
+The ordering of steps for Zhang's method are:
+1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
+2. Use the homographies to compute an *initial guess* for the **intrinsic matrix**, $$A_{init}$$.
+3. Using the above, compute an *initial guess* for the **distortion parameters**, $$\textbf{k}_{init}$$.
+4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\textbf{W}_{init}$$.
+5. Initialize **non-linear optimization** with the *initial guesses* above and then **iterate** to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
 
-The properties of this decomposition have many uses, one of which is **solving homogeneous linear systems** of the form
-$$M \cdot x = 0$$.
 
-A solution for the value of $x$ for this linear system is the smallest eigenvector of $V^\top$.
-Using numpy, solving looks like this:
+# The steps of Zhang's method
+
+## Zhang.1) Compute the per-view homographies
 
 ```python
-# M * x = 0, where M (m,n) is known and we want to solve for x (n,1)
-U, Σ, V_T = np.linalg.svd(M)
-x = V_T[-1]
+def estimateHomography(Xa: np.ndarray, Xb: np.ndarray):
+    """
+    Estimate homography using DLT
+    Inputs:
+        Xa -- 2D points in sensor
+        Xb -- 2D model points
+    Output:
+        aHb -- homography matrix which relates Xa and Xb
+    Rearrange into the formulation:
+        M * h = 0
+    M represents the model and sensor point correspondences
+    h is a vector representation of the homography aHb we are trying to find:
+        h = (h11, h12, h13, h21, h22, h23, h31, h32, h33).T
+    """
+    N = Xa.shape[0]
+    M = np.zeros((2*N, 9))
+    for i in range(N):
+        ui, vi = Xa[i][:2]
+        Xi, Yi = Xb[i][:2]
+        M[2*i,:]   = (-Xi, -Yi, -1,   0,   0,  0, ui * Xi, ui * Yi, ui)
+        M[2*i+1,:] = (  0,   0,  0, -Xi, -Yi, -1, vi * Xi, vi * Yi, vi)
+    U, S, V_T = np.linalg.svd(M)
+    h = V_T[-1]
+    Hp = h.reshape(3,3)
+    aHb = Hp / Hp[2,2]
+    return aHb
 ```
 
-Additional links:
-- [(Wikipedia) More applications of the SVD](https://en.wikipedia.org/wiki/Singular_value_decomposition#Applications_of_the_SVD)
-- [(blog) Explanation of SVD by Greg Gunderson](https://gregorygundersen.com/blog/2018/12/10/svd/)
+## Zhang.2) Compute initial intrinsic matrix, A
 
+## Zhang.3) Compute initial distortion vector, k
 
-## 2. Non-linear least squares optimization (Levenberg-Marquardt)
+## Zhang.4) Compute initial extrinsic parameters, W
 
-Non-linear optimization is the task of computing a set of parameters which **minimizes a non-linear value function**.
-TODO
-
-![](https://i.stack.imgur.com/gdJ3v.gif)
-{: centeralign }
-
-Visualization of Gauss-Newton optimization.
-{: centeralign }
+## Zhang.5) Refine A, k, W using non-linear optimization
 
 
 # Final remarks
@@ -482,3 +482,47 @@ x_w & y_w & z_w & 1
 
 - $$\mathbb{R^3}$$ --- the space of real, 3 dimensional numbers
 - $$SE(3)$$ --- $$S$$pecial $$E$$uclidean group 3, the space of 3D rigid-body transformations
+
+
+### Singular Value Decomposition (SVD)
+
+SVD decomposes a matrix $M$ ($m$,$n$) to three matrices $U$ ($m$,$m$), $\Sigma$ ($m$,$n$), and $V^\top$ ($n$,$n$), such that $$M = U \cdot \Sigma \cdot V^\top$$.
+The properties of the resulting three matrices are like that of Eigenvalue and Eigenvector decomposition.
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Singular_value_decomposition_visualisation.svg/206px-Singular_value_decomposition_visualisation.svg.png)
+{: centeralign }
+Visualization of SVD from Wikipedia.
+{: centeralign }
+
+The properties of this decomposition have many uses, one of which is **solving homogeneous linear systems** of the form
+$$M \cdot x = 0$$.
+
+A solution for the value of $x$ for this linear system is the smallest eigenvector of $V^\top$.
+Using numpy, solving looks like this:
+
+```python
+# M * x = 0, where M (m,n) is known and we want to solve for x (n,1)
+U, Σ, V_T = np.linalg.svd(M)
+x = V_T[-1]
+```
+
+Additional links:
+- [(Wikipedia) More applications of the SVD](https://en.wikipedia.org/wiki/Singular_value_decomposition#Applications_of_the_SVD)
+- [(blog) Explanation of SVD by Greg Gunderson](https://gregorygundersen.com/blog/2018/12/10/svd/)
+
+
+### Non-linear least squares optimization (Levenberg-Marquardt)
+
+Non-linear optimization is the task of computing a set of parameters which **minimizes a non-linear value function**.
+This is a huge topic of its own that I'm not quite ready to articulate.
+Maybe I'll do a post in the future and update this one with a link.
+
+![](https://i.stack.imgur.com/gdJ3v.gif)
+{: centeralign }
+
+Visualization of Gauss-Newton optimization.
+{: centeralign }
+
+Additional links:
+- [Algorithms for Optimization (Kochenderfer & Wheeler)](https://mitpress.mit.edu/books/algorithms-optimization) (yay, Tim!)
+
