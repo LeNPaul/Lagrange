@@ -7,6 +7,10 @@ image: reprojection.gif
 tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 ---
 
+Table of Contents:
+* TOC
+{:toc}
+
 {:centeralign: style="text-align: center;"}
 
 # Intro
@@ -254,7 +258,7 @@ Here we use the popular **radial-tangential** distortion model (also called the 
 {: centeralign }
 
 At last, we can project the distorted rays of light into our image plane.
-These coordinates are in units of pixels, with the origin starting in the top-left of the image.
+Points in image coordinates $$u_{ij}$$ are in units of pixels, with the origin starting in the top-left of the image.
 The value $$u$$ increases from left-to-right, and $$v$$ increases from top-to-bottom of the image.
 
 $$
@@ -291,6 +295,7 @@ $$
 - $$u_{ij}$$ --- the 2D image point
     - $$u$$ --- the horizontal component of the image point
     - $$v$$ --- the vertical component of the image point
+- $$\textbf{A}$$ --- the **intrinsic matrix**
 - $$hom(\cdot)$$ --- the function which maps an unhomogeneous point to it's homogeneous equivalent (for a 2D point, append a 1 to the end of the vector)
 
 The rest of the variables have been previously described in the  [$$\S$$camera parameters](#camera-parameters) section and won't be repeated here.
@@ -300,7 +305,7 @@ So accessing a value of $$u, v$$ would be done via `value = image[v, u]`.
 
 ## All together!
 
-Combining the abover four steps, we can express **projection more compactly** as a function of inputs and calibration parameters:
+Combining the above four steps, we can express projection more compactly as a function of inputs and calibration parameters:
 
 $$
 \begin{equation}
@@ -323,9 +328,9 @@ u_{ij}
 \end{equation}
 $$
 
-We've now defined a basis for **predicting** where a point will be in our image provided we have a known target point $${}^wX_{ij}$$ and an estimate of the calibration parameters $$\textbf{A}, \textbf{k}, W_i$$.
+We've now defined a basis for **predicting** where a point will be in our image provided we have a known target point $${}^wX_{ij}$$ and values for the calibration parameters $$\textbf{A}, \textbf{k}, W_i$$.
 
-But how do we **measure** (or **detect**) the 2D image points?
+But how do we **measure** (or **detect**) the 2D points from the `.png`s or `.jpeg`s in our dataset?
 
 
 # Aside: detecting target points in 2D images
