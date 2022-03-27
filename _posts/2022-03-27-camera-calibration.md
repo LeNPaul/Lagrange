@@ -93,12 +93,12 @@ We'll call each step Proj.\<N\> to disambiguate with the steps of Zhang's method
 {: centeralign }
 
 This is a simple one for those already familiar with 3D coordinate transformations.
-We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{ij}$$.
+We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{j}$$.
 Here (and following), $$i$$ refers to which *image* a variable corresponds to, and $$j$$ refers to the point *instance* within that image.
 
 $$
 \begin{equation}
-{}^cX_{ij} = W_i \cdot {}^wX_{ij}
+{}^cX_{ij} = W_i \cdot {}^wX_{j}
 \tag{1.a}\label{eq:1.a}
 \end{equation}
 $$
@@ -111,6 +111,7 @@ y_c\\
 z_c\\
 1\\
 \end{pmatrix}
+_{ij}
 =
 \begin{pmatrix}
 |     & |     & |     & t_x\\
@@ -118,19 +119,21 @@ r_{x} & r_{y} & r_{z} & t_y\\
 |     & |     & |     & t_z\\
 0 & 0 & 0 & 1\\
 \end{pmatrix}
+_{i}
 \begin{pmatrix}
 x_w\\
 y_w\\
 z_w\\
 1\\
 \end{pmatrix}
+_{j}
 \tag{1.b}\label{eq:1.b}
 \end{equation}
 $$
 
 - $${}^cX_{ij}$$ --- the $$j$$-th 3D point in **camera** coordinates from the $$i$$-th image, given in homogeneous coordinates
 - $$W_i$$ --- the transform from world coordinates to camera coordinates for the $$i$$-th image
-- $${}^wX_{ij}$$ --- the $$j$$-th 3D point in **world** coordinates from the $$i$$-th image, given in homogeneous coordinates
+- $${}^wX_{j}$$ --- the $$j$$-th 3D point in **world** coordinates, given in homogeneous coordinates
 
 
 ## Proj.2) Use $$\Pi$$: 3D camera coordinates to 2D normalized image point
@@ -154,6 +157,7 @@ $$
 x\\
 y\\
 \end{pmatrix}
+_{ij}
 =
 hom^{-1}
 \begin{pmatrix}
@@ -168,6 +172,7 @@ y_c\\
 z_c\\
 1\\
 \end{pmatrix}
+_{ij}
 \end{pmatrix}
 \tag{2.b}\label{eq:2.b}
 \end{equation}
@@ -213,14 +218,16 @@ $$
 $$
 \begin{equation}
 \begin{pmatrix}
-\tilde{x}_d\\
-\tilde{y}_d\\
+\tilde{x}\\
+\tilde{y}\\
 \end{pmatrix}
+_{ij}
 =
 \begin{pmatrix}
 d_{radi} x + d_{tang,x}\\
 d_{radi} y + d_{tang,y}\\
 \end{pmatrix}
+_{ij}
 \tag{3.b}\label{eq:3.b}
 \end{equation}
 $$
@@ -242,8 +249,8 @@ r = \sqrt{x^2 + y^2}
 $$
 
 - $$\tilde{x}_{ij}$$ --- the 2D distorted-normalized point
-    - $$\tilde{x}_d$$ --- the distorted-normalized point, x component
-    - $$\tilde{y}_d$$ --- the distorted-normalized point, y component
+    - $$\tilde{x}$$ --- the distorted-normalized point, x component
+    - $$\tilde{y}$$ --- the distorted-normalized point, y component
 - $$\textbf{k}$$ --- the distortion vector, $$(k_1, k_2, p_1, p_2, k_3)$$
 - $$r$$ --- the radial distance the 2D normalized point is from the optical center $$(0, 0)$$
 - $$d_{radi}, d_{tang,x}, d_{tang,y}$$ --- the radial, tangential (x), and tangential (y) effects on the final distorted-normalized point
@@ -274,6 +281,7 @@ $$
 u\\
 v\\
 \end{pmatrix}
+_{ij}
 =
 hom^{-1}
 \begin{pmatrix}
@@ -283,10 +291,11 @@ hom^{-1}
 0 & 0 & 1\\
 \end{pmatrix}
 \begin{pmatrix}
-\tilde{x}_d\\
-\tilde{y}_d\\
+\tilde{x}\\
+\tilde{y}\\
 1\\
 \end{pmatrix}
+_{ij}
 \end{pmatrix}
 \tag{4.b}\label{eq:4.b}
 \end{equation}
@@ -318,7 +327,7 @@ u_{ij}
     hom(
         \underbrace{distort(
             \underbrace{hom^{-1}(
-                \Pi \cdot \underbrace{W_i \cdot {}^wX_{ij}}_\textrm{Proj.1: ${}^cX_{ij}$}
+                \Pi \cdot \underbrace{W_i \cdot {}^wX_{j}}_\textrm{Proj.1: ${}^cX_{ij}$}
             )}_\textrm{Proj.2: $x_{ij}$},
             \textbf{k}
         )}_\textrm{Proj.3: $\tilde{x}_{ij}$}
@@ -328,7 +337,7 @@ u_{ij}
 \end{equation}
 $$
 
-We've now defined a basis for **predicting** where a point will be in our image provided we have a known target point $${}^wX_{ij}$$ and values for the calibration parameters $$\textbf{A}, \textbf{k}, W_i$$.
+We've now defined a basis for **predicting** where a point will be in our image provided we have a known target point $${}^wX_{j}$$ and values for the calibration parameters $$\textbf{A}, \textbf{k}, W_i$$.
 
 But how do we **measure** (or **detect**) the 2D points from the `.png`s or `.jpeg`s in our dataset?
 
@@ -357,7 +366,7 @@ In order to compute camera parameters which are useful for spatial reasoning, we
 This is typically done by computing **sum-squared projection error**, $$E$$.
 The lower that error metric is, the more closely our camera parameters fit the measurements from the input images.
 - From each image, we have the detected marker points. Each marker point is a single **2D measurement**, which we denote as $$z_{ij}$$ for the $$j$$-th measured point of the $$i$$-th image.
-- From each measurement $$z_{ij}$$, we also have the **corresponding 3D point** in target coordinates $${}^wX_{ij}$$ (known by construction).
+- From each measurement $$z_{ij}$$, we also have the **corresponding 3D point** in target coordinates $${}^wX_{j}$$ (known by construction).
 - With a set of calibration parameters ($$\textbf{A}$$, $$\textbf{k}$$, $$W_i$$), we can then project where that 3D point should appear in the 2D image --- a single **2D prediction**, which we express as the image point, $$u_{ij}$$.
 - The Euclidean distance between the 2D prediction and 2D measurement is the **projection error** for a single point.
 
@@ -396,7 +405,7 @@ hom^{-1}
     hom(
         distort(
             hom^{-1}(
-                \Pi \cdot W_i \cdot {}^wX_{ij}
+                \Pi \cdot W_i \cdot {}^wX_{j}
             ),
             \textbf{k}
         )
@@ -418,18 +427,117 @@ This means that anyone with a desktop printer and a little time can accurately c
 The general strategy of Zhang's method is to impose naïve assumptions as constraints to get an **initial guess** of parameter values with singular value decomposition (SVD), then release those constraints and **refine** those guesses with non-linear least squares optimization.
 
 The ordering of steps for Zhang's method are:
-1. Use the 2D-3D point associations to **compute the homography** (per-view) from target to camera.
-2. Use the homographies to compute an *initial guess* for the **intrinsic matrix**, $$A_{init}$$.
-3. Using the above, compute an *initial guess* for the **distortion parameters**, $$\textbf{k}_{init}$$.
-4. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\textbf{W}_{init}$$.
-5. Initialize **non-linear optimization** with the *initial guesses* above and then **iterate** to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
+1. Use the 2D-3D point associations to compute an *initial guess* for the **intrinsic matrix**, $$A_{init}$$.
+2. Using the above, compute an *initial guess* for the **distortion parameters**, $$\textbf{k}_{init}$$.
+3. Using the above, compute an *initial guess* **camera pose** (per-view) in target coordinates, $$\textbf{W}_{init}$$.
+4. Initialize **non-linear optimization** with the *initial guesses* above and then **iterate** to minimize **projection error**, producing $$A_{final}$$, $$\textbf{k}_{final}$$, and $$\textbf{W}_{final}$$.
 
 
 # The steps of Zhang's method
 
-Below I'll outline the strategy for each of the steps of Zhang's method.
+## Zhang.1) Compute initial intrinsic matrix, A
 
-## Zhang.1) Compute the per-view homographies
+First, we need to use the 2D-3D point associations to compute the homographies $$\textbf{H} = [H_1, H_2, ..., H_n]$$, for each of the $$n$$ views in the dataset.
+
+Next we employ two tricks: **Assume there is no distortion** in the camera (7.a), and we define the world coordinate system so that it's $$z = 0$$ plane is the **plane of the calibration target**.
+This allows us to drop the $$z$$ term of the 3D world points (7.b).
+
+Trick #1 simplifies our projection equation (5) to a distortion-less "pinhole" camera model:
+
+$$
+\begin{equation}
+s \cdot u_{ij}
+=
+\textbf{A}
+\cdot
+\Pi \cdot W_i \cdot {}^wX_{j}
+\tag{7.a}\label{eq:7.a}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+s
+\begin{pmatrix}
+u\\
+v\\
+1\\
+\end{pmatrix}
+_{ij}
+=
+\textbf{A}
+\cdot
+\begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+\end{pmatrix}
+\begin{pmatrix}
+|     & |     & |     & t_x\\
+r_{x} & r_{y} & r_{z} & t_y\\
+|     & |     & |     & t_z\\
+0 & 0 & 0 & 1\\
+\end{pmatrix}
+_{i}
+\begin{pmatrix}
+x_w\\
+y_w\\
+0\\
+1\\
+\end{pmatrix}
+_{j}
+\tag{7.b}\label{eq:7.b}
+\end{equation}
+$$
+
+And after expanding, trick #2 allows us to drop some dimensions from this expression:
+
+$$
+s
+\begin{pmatrix}
+u\\
+v\\
+1\\
+\end{pmatrix}
+_{ij}
+=
+\textbf{A}
+\cdot
+\begin{pmatrix}
+|     & |     & t_x\\
+r_{x} & r_{y} & t_y\\
+|     & |     & t_z\\
+\end{pmatrix}
+_{i}
+\begin{pmatrix}
+x_w\\
+y_w\\
+1\\
+\end{pmatrix}
+_{j}
+$$
+
+$$
+\begin{equation}
+\begin{pmatrix}
+u\\
+v\\
+1\\
+\end{pmatrix}
+_{ij}
+=
+H_i
+\begin{pmatrix}
+x_w\\
+y_w\\
+1\\
+\end{pmatrix}
+_j
+\tag{8}\label{eq:8}
+\end{equation}
+$$
+
+3. Normalize the input datasets
 
 ```python
 def estimateHomography(Xa: np.ndarray, Xb: np.ndarray):
@@ -460,13 +568,13 @@ def estimateHomography(Xa: np.ndarray, Xb: np.ndarray):
     return aHb
 ```
 
-## Zhang.2) Compute initial intrinsic matrix, A
+## Zhang.2) Compute initial distortion vector, k
 
-## Zhang.3) Compute initial distortion vector, k
 
-## Zhang.4) Compute initial extrinsic parameters, W
+## Zhang.3) Compute initial extrinsic parameters, W
 
-## Zhang.5) Refine A, k, W using non-linear optimization
+
+## Zhang.4) Refine A, k, W using non-linear optimization
 
 Below, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters.
 This gif plays through the iterative refinement of the camera parameters (step #5 of Zhang's method).
