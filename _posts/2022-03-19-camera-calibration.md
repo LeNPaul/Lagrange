@@ -58,22 +58,15 @@ $$
     - $$\gamma$$ --- the skew ratio, typically 0
     - $$u_0$$ --- u coordinate of optical center in image coordinates
     - $$v_0$$ --- v coordinate of optical center in image coordinates
-- $$\textbf{k}$$ --- the **distortion vector**,
-    - for the radial-tangential model:
+- $$\textbf{k}$$ --- the **distortion vector**:
 $$
 \begin{pmatrix}
 k_1 & k_2 & p_1 & p_2 & k_3
 \end{pmatrix}
 $$
-    - for the fisheye model:
-$$
-\begin{pmatrix}
-k_1 & k_2 & k_3 & k_4
-\end{pmatrix}
-$$
-    - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion
+    - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion (for the so-call *radial-tangential* distortion model)
 - $$\textbf{W}$$ --- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
-    - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
+    - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
 
 
 # Projection: from 3D world point to 2D image point
@@ -91,6 +84,9 @@ We'll call each step Proj.\<N\> to disambiguate with the steps of Zhang's method
 
 
 ## Proj.1) Use $$\textbf{W}$$: 3D world point to 3D camera point
+
+![](assets/img/2022-03-27-camera-calibration/worldtocameratransform.png)
+{: centeralign }
 
 This is a simple one for those already familiar with 3D coordinate transformations.
 We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{ij}$$.
@@ -134,6 +130,9 @@ $$
 
 
 ## Proj.2) Use $$\Pi$$: 3D camera coordinates to 2D normalized image point
+
+![](assets/img/2022-03-27-camera-calibration/standardprojection.png)
+{: centeralign }
 
 Next we'll project the 3D coordinate in the cameras frame into the **normalized image plane**.
 This is done by intersecting the ray from optical center to that 3D point with the $$z = 1$$ plane.
@@ -194,6 +193,9 @@ However, I prefer the matrix multiplication and $$hom^{-1}(\cdot)$$ presented pr
 
 ## Proj.3) Use $$\textbf{k}$$: 2D normalized point to 2D distorted-normalized point
 
+![](assets/img/2022-03-27-camera-calibration/distortioneffect.png)
+{: centeralign }
+
 This step accounts for lens distortion by applying a non-linear warping function in normalized image coordinates.
 I chose to awkwardly call the resulting point a 'distorted-normalized' point since it's still in the normalized space, but has had a distortion applied to it.
 
@@ -247,6 +249,9 @@ Here we use the popular **radial-tangential** distortion model (also called the 
 
 
 ## Proj.4) Use $$\textbf{A}$$: 2D distorted-normalized point to 2D image point
+
+![](assets/img/2022-03-27-camera-calibration/projectiontoimage.png)
+{: centeralign }
 
 At last, we can project the distorted rays of light into our image plane.
 These coordinates are in units of pixels, with the origin starting in the top-left of the image.
@@ -351,20 +356,49 @@ The lower that error metric is, the more closely our camera parameters fit the m
 - With a set of calibration parameters ($$\textbf{A}$$, $$\textbf{k}$$, $$W_i$$), we can then project where that 3D point should appear in the 2D image --- a single **2D prediction**, which we express as the image point, $$u_{ij}$$.
 - The Euclidean distance between the 2D prediction and 2D measurement is the **projection error** for a single point.
 
-![](assets/img/projectionerror.png)
+![](assets/img/2022-03-27-camera-calibration/projectionerror.png)
 {: centeralign }
 Illustration of projection error for a single measurement ($$z_{ij}$$) and prediction ($$u_{ij}$$).
 {: centeralign }
 
 
-Considering the full dataset, we can compute the sum-squared projection error by computing the Euclidean distance (also called the L2-norm, denoted
-$$|| \cdot ||^2$$
+Considering the full dataset, we can compute the sum-squared projection error by computing the Euclidean distance (also called the [L2-norm](https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm), denoted
+$$|| \cdot ||$$
 ) between each *measurement*-*prediction* pair for all $n$ images and all $m$ points in those images:
 
 $$
 \begin{equation}
 E = \sum\limits_{i}^{n} \sum\limits_{j}^{m} || z_{ij} - u_{ij} ||^2
-\tag{6}\label{eq:6}
+\tag{6.a}\label{eq:6.a}
+\end{equation}
+$$
+
+Substituting the definition of predicted position $$u_{ij}$$ from (5):
+
+$$
+\begin{equation}
+E
+=
+\sum\limits_{i}^{n} \sum\limits_{j}^{m}
+
+||
+z_{ij}
+-
+hom^{-1}
+(
+    \textbf{A}
+    \cdot
+    hom(
+        distort(
+            hom^{-1}(
+                \Pi \cdot W_i \cdot {}^wX_{ij}
+            ),
+            \textbf{k}
+        )
+    )
+)
+||^2
+\tag{6.b}\label{eq:6.b}
 \end{equation}
 $$
 
@@ -451,9 +485,9 @@ Thanks for reading!
 
 ### Rigid-body transformations
 
-Recall we defined $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
+Recall we defined $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates.
 
-This can also be written in what I've been told is the 'Craig convention': $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
+This can also be written in what I've been told is the 'Craig convention': $$\textbf{W} = [{}^cM_{w,1}, {}^cM_{w,2}, ..., {}^cM_{w,N}]$$, where $${}^cM_{w,i}$$ is the $$i$$-th **rigid-body transform** from  *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates
 
 Each transform expressed in homogeneous form:
 
@@ -468,8 +502,8 @@ r_{x} & r_{y} & r_{z} & t_y\\
 \end{pmatrix}
 $$
 
-- $$t_x, t_y, t_z$$ are the world coordinate system's origin given in the camera coordinates
-- $$r_x$$ (3x1 column vector) is the normalized direction vector of the world coordinate system's x-axis given in camera coordinates ($$r_y$$, $$r_z$$ follow this pattern)
+- $$t_x, t_y, t_z$$ are the world coordinate system's **origin** given *in the camera's coordinates*
+- $$r_x$$ (3x1 column vector) is the **normalized direction vector** of the world coordinate system's x-axis given *in the camera's coordinates* ($$r_y$$, $$r_z$$ follow this pattern)
 
 Notational example of transforming a single, homogeneous 3D point: \
 $${}^cP = {}^cM_{w} \cdot {}^wP$$, with $$P \in \mathbb{R^3}$$ and $${}^cM_{w} \in SE(3)$$
