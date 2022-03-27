@@ -11,13 +11,13 @@ tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 
 # Intro
 
-Below is an primer of the theory behind camera calibration, specifically Zhang's method.
+Below is a primer on the theory behind camera calibration, specifically Zhang's method.
 My hope is that the ordering of concepts here will help new readers feel at home more quickly when navigating calibration literature.
 
 For a deep dive into Zhang's method, I highly recommend this [tutorial paper by Burger](https://www.researchgate.net/profile/Wilhelm-Burger/publication/303233579_Zhang's_Camera_Calibration_Algorithm_In-Depth_Tutorial_and_Implementation/links/5eaad8c9a6fdcc70509c3c9b/Zhangs-Camera-Calibration-Algorithm-In-Depth-Tutorial-and-Implementation.pdf).
 I've also written a heavily commented Python implementation: [github.com/pvphan/camera-calibration](https://github.com/pvphan/camera-calibration).
 
-Here's an image which helps paint a picture of the information considered in camera calibration:
+And here's an image which helps paint a picture of the information considered in camera calibration:
 
 ![](assets/img/pict_calib_mini2.gif)
 {: centeralign }
@@ -94,7 +94,7 @@ We'll call each step Proj.\<N\> to disambiguate with the steps of Zhang's method
 
 This is a simple one for those already familiar with 3D coordinate transformations.
 We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{ij}$$.
-Here (and following), $$i$$ refers to which *image* a variable corresponds to, and $$j$$ refers to the *instance* within that image.
+Here (and following), $$i$$ refers to which *image* a variable corresponds to, and $$j$$ refers to the point *instance* within that image.
 
 $$
 \begin{equation}
