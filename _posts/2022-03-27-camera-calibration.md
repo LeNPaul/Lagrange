@@ -435,6 +435,9 @@ The ordering of steps for Zhang's method are:
 
 # The steps of Zhang's method
 
+Below, we'll be changing between vector/matrix formulations of equations and their scalar value forms.
+Though less compact, it's crucial so that we can shape our problem into ones that can be solved with powerful techniques like SVD or non-linear least squares optimization.
+
 ## Zhang.1) Compute initial intrinsic matrix, A
 
 First, we need to use the 2D-3D point associations to compute the homographies $$\textbf{H} = [H_1, H_2, ..., H_n]$$, for each of the $$n$$ views in the dataset.
@@ -575,6 +578,19 @@ def estimateHomography(Xa: np.ndarray, Xb: np.ndarray):
 
 
 ## Zhang.4) Refine A, k, W using non-linear optimization
+
+Until now, we've been estimating $$\textbf{A}, \textbf{k}, \textbf{W}$$ to get a good initialization point for our optimization.
+In non-linear optimization, it's often impossible to arrive at a good solution unless the initialization point for the variables was at least somewhat reasonable.
+
+1. Express the projection equation symbolically (e.g. `sympy`).
+1. Take the partial derivatives of the projection expression with respect to the calibration parameters.
+1. Arrange these partial derivative expressions into the Jacobian matrix $$J$$ for the projection expression.
+
+Now we are ready to run our non-linear optimization algorithm. Levenberg-Marquardt is a popular choice as it works well in practice.
+
+1. Start by setting the *current* calibration parameters $$\textbf{P}_{curr}$$ to the initial guess values computed in Zhang.1 - Zhang.3.
+1. Use $$\textbf{P}_{curr}$$ to project the input world points $${}w^X_{ij}$$ to thier image coordinates $$\textbf{y}$$
+1. Evaluate the Jacbobian $$J$$ for all input points at the *current* calibration parameter values.
 
 Below, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters.
 This gif plays through the iterative refinement of the camera parameters (step #5 of Zhang's method).
