@@ -419,3 +419,15 @@ hom^{-1}
 \end{equation}
 $$
 
+Now we've got a way to compute how closely our calibration parameters and measurements match.
+But how do we compute these calibration parameters?
+Should we just guess?
+
+
+# Up next...
+
+In part 2 of this post we'll get into Zhang's method, currently the most popular way to calibrate cameras due to it's accessibility and accuracy.
+It requires only a planar calibration target which can be made with any desktop printer.
+
+Part 2 will be linked here after it's been posted! Thanks so much for reading.
+
