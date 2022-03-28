@@ -3,15 +3,18 @@ layout: post
 title: "Primer on camera calibration"
 author: "Paul Vinh Phan"
 categories: journal
-image: reprojection.gif
+image: thedraughtsmanofthelute.jpeg
 tags: [camera,calibration,intrinsic,extrinsic,optimization,levenberg-marquardt]
 ---
+
+{:centeralign: style="text-align: center;"}
+
+The Draughtsmen of the Lute by Albrecht Dürer ([The Met](https://www.metmuseum.org/art/collection/search/387741)).
+{: centeralign }
 
 Table of Contents:
 * TOC
 {:toc}
-
-{:centeralign: style="text-align: center;"}
 
 # Intro
 
@@ -25,7 +28,7 @@ And here's an image which helps paint a picture of the information considered in
 
 ![](assets/img/pict_calib_mini2.gif)
 {: centeralign }
-A calibration dataset and its 'camera centric' board pose visualization ([vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/))
+A calibration dataset and its 'camera centric' board pose visualization ([vision.caltech.edu](http://www.vision.caltech.edu/bouguetj/calib_doc/)).
 {: centeralign }
 
 
@@ -93,12 +96,12 @@ We'll call each step Proj.\<N\> to disambiguate with the steps of Zhang's method
 {: centeralign }
 
 This is a simple one for those already familiar with 3D coordinate transformations.
-We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{j}$$.
+We begin with a 3D point in **world** coordinates, expressed as $${}^wX_{ij}$$.
 Here (and following), $$i$$ refers to which *image* a variable corresponds to, and $$j$$ refers to the point *instance* within that image.
 
 $$
 \begin{equation}
-{}^cX_{ij} = W_i \cdot {}^wX_{j}
+{}^cX_{ij} = W_i \cdot {}^wX_{ij}
 \tag{1.a}\label{eq:1.a}
 \end{equation}
 $$
@@ -126,14 +129,14 @@ y_w\\
 z_w\\
 1\\
 \end{pmatrix}
-_{j}
+_{ij}
 \tag{1.b}\label{eq:1.b}
 \end{equation}
 $$
 
 - $${}^cX_{ij}$$ --- the $$j$$-th 3D point in **camera** coordinates from the $$i$$-th image, given in homogeneous coordinates
 - $$W_i$$ --- the transform from world coordinates to camera coordinates for the $$i$$-th image
-- $${}^wX_{j}$$ --- the $$j$$-th 3D point in **world** coordinates, given in homogeneous coordinates
+- $${}^wX_{ij}$$ --- the $$j$$-th 3D point in **world** coordinates, given in homogeneous coordinates
 
 
 ## Proj.2) Use $$\Pi$$: 3D camera coordinates to 2D normalized image point
@@ -327,7 +330,7 @@ u_{ij}
     hom(
         \underbrace{distort(
             \underbrace{hom^{-1}(
-                \Pi \cdot \underbrace{W_i \cdot {}^wX_{j}}_\textrm{Proj.1: ${}^cX_{ij}$}
+                \Pi \cdot \underbrace{W_i \cdot {}^wX_{ij}}_\textrm{Proj.1: ${}^cX_{ij}$}
             )}_\textrm{Proj.2: $x_{ij}$},
             \textbf{k}
         )}_\textrm{Proj.3: $\tilde{x}_{ij}$}
@@ -337,7 +340,7 @@ u_{ij}
 \end{equation}
 $$
 
-We've now defined a basis for **predicting** where a point will be in our image provided we have a known target point $${}^wX_{j}$$ and values for the calibration parameters $$\textbf{A}, \textbf{k}, W_i$$.
+We've now defined a basis for **predicting** where a point will be in our image provided we have a known target point $${}^wX_{ij}$$ and values for the calibration parameters $$\textbf{A}, \textbf{k}, W_i$$.
 
 But how do we **measure** (or **detect**) the 2D points from the `.png`s or `.jpeg`s in our dataset?
 
@@ -351,7 +354,7 @@ Such libraries typically detect strong corners made unique by specific neighbori
 
 ![](https://docs.opencv.org/3.4/charucodefinition.png)
 {: centeralign }
-The corners of the larger checkerboard are the points which are detected ([OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html))
+The corners of the larger checkerboard are the points which are detected ([OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html)).
 {: centeralign }
 
 And with that, we're ready to talk about **projection error**!
@@ -366,7 +369,7 @@ In order to compute camera parameters which are useful for spatial reasoning, we
 This is typically done by computing **sum-squared projection error**, $$E$$.
 The lower that error metric is, the more closely our camera parameters fit the measurements from the input images.
 - From each image, we have the detected marker points. Each marker point is a single **2D measurement**, which we denote as $$z_{ij}$$ for the $$j$$-th measured point of the $$i$$-th image.
-- From each measurement $$z_{ij}$$, we also have the **corresponding 3D point** in target coordinates $${}^wX_{j}$$ (known by construction).
+- From each measurement $$z_{ij}$$, we also have the **corresponding 3D point** in target coordinates $${}^wX_{ij}$$ (known by construction).
 - With a set of calibration parameters ($$\textbf{A}$$, $$\textbf{k}$$, $$W_i$$), we can then project where that 3D point should appear in the 2D image --- a single **2D prediction**, which we express as the image point, $$u_{ij}$$.
 - The Euclidean distance between the 2D prediction and 2D measurement is the **projection error** for a single point.
 
@@ -405,7 +408,7 @@ hom^{-1}
     hom(
         distort(
             hom^{-1}(
-                \Pi \cdot W_i \cdot {}^wX_{j}
+                \Pi \cdot W_i \cdot {}^wX_{ij}
             ),
             \textbf{k}
         )
@@ -436,16 +439,18 @@ The ordering of steps for Zhang's method are:
 # The steps of Zhang's method
 
 Below, we'll be changing between vector/matrix formulations of equations and their scalar value forms.
-Though less compact, it's crucial so that we can shape our problem into ones that can be solved with powerful techniques like SVD or non-linear least squares optimization.
+Though less compact, it's crucial so that we can rewrite the equations into ones that can be solved with powerful techniques like SVD or non-linear least squares optimization.
 
 ## Zhang.1) Compute initial intrinsic matrix, A
 
 First, we need to use the 2D-3D point associations to compute the homographies $$\textbf{H} = [H_1, H_2, ..., H_n]$$, for each of the $$n$$ views in the dataset.
 
-Next we employ two tricks: **Assume there is no distortion** in the camera (7.a), and we define the world coordinate system so that it's $$z = 0$$ plane is the **plane of the calibration target**.
+To do this we employ two tricks:
+- Trick #1: Assume there is **no distortion** in the camera (7.a). This is of course not true, but it will let us compute approximate values.
+- Trick #2: We define the world coordinate system so that it's $$z = 0$$ plane is the **plane of the calibration target**.
 This allows us to drop the $$z$$ term of the 3D world points (7.b).
 
-Trick #1 simplifies our projection equation (5) to a distortion-less "pinhole" camera model:
+Trick #1 simplifies our projection equation (5) to a distortion-less [**pinhole camera model**](https://hedivision.github.io/Pinhole.html):
 
 $$
 \begin{equation}
@@ -453,10 +458,12 @@ s \cdot u_{ij}
 =
 \textbf{A}
 \cdot
-\Pi \cdot W_i \cdot {}^wX_{j}
+\Pi \cdot W_i \cdot {}^wX_{ij}
 \tag{7.a}\label{eq:7.a}
 \end{equation}
 $$
+
+And after expanding, trick #2 allows us to drop some dimensions from this expression:
 
 $$
 \begin{equation}
@@ -488,15 +495,14 @@ y_w\\
 0\\
 1\\
 \end{pmatrix}
-_{j}
+_{ij}
 \tag{7.b}\label{eq:7.b}
 \end{equation}
 $$
 
-And after expanding, trick #2 allows us to drop some dimensions from this expression:
-
 $$
 s
+\begin{equation}
 \begin{pmatrix}
 u\\
 v\\
@@ -504,24 +510,31 @@ v\\
 \end{pmatrix}
 _{ij}
 =
-\textbf{A}
-\cdot
-\begin{pmatrix}
-|     & |     & t_x\\
-r_{x} & r_{y} & t_y\\
-|     & |     & t_z\\
-\end{pmatrix}
-_{i}
+\underbrace{
+    \textbf{A}
+    \cdot
+    \begin{pmatrix}
+    |     & |     & t_x\\
+    r_{x} & r_{y} & t_y\\
+    |     & |     & t_z\\
+    \end{pmatrix}
+    _{i}
+}_{H_i}
 \begin{pmatrix}
 x_w\\
 y_w\\
 1\\
 \end{pmatrix}
-_{j}
+_{ij}
+\tag{8}\label{eq:8}
+\end{equation}
 $$
+
+We've now arrived at an expression for our homography $$H_i$$ which relates a 2D point on the target plane to a 2D point on our image plane for the $$i$$-th view:
 
 $$
 \begin{equation}
+s
 \begin{pmatrix}
 u\\
 v\\
@@ -536,7 +549,7 @@ y_w\\
 1\\
 \end{pmatrix}
 _j
-\tag{8}\label{eq:8}
+\tag{9}\label{eq:9}
 \end{equation}
 $$
 
@@ -589,7 +602,7 @@ In non-linear optimization, it's often impossible to arrive at a good solution u
 Now we are ready to run our non-linear optimization algorithm. Levenberg-Marquardt is a popular choice as it works well in practice.
 
 1. Start by setting the *current* calibration parameters $$\textbf{P}_{curr}$$ to the initial guess values computed in Zhang.1 - Zhang.3.
-1. Use $$\textbf{P}_{curr}$$ to project the input world points $${}w^X_{ij}$$ to thier image coordinates $$\textbf{y}$$
+1. Use $$\textbf{P}_{curr}$$ to project the input world points $${}^wX_{ij}$$ to thier image coordinates $$u_{ij}$$
 1. Evaluate the Jacbobian $$J$$ for all input points at the *current* calibration parameter values.
 
 Below, green crosses are the measured 2D marker points and magenta crosses are the projection of the associated 3D points using the 'current' camera parameters.
