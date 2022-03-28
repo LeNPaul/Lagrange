@@ -6,4 +6,3 @@ WORKDIR /tmp
 RUN bundle install
 
 WORKDIR /pvphan.github.io
-COPY ./ /pvphan.github.io

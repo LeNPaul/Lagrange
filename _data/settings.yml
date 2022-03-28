@@ -1,13 +1,11 @@
 # Change 'comments' to true for Disqus comments
 disqus:
   comments: false
-  #disqus_shortname: 'https-lenpaul-github-io-lagrange'
 
-# If you are not using Google Analytics, please change 'google-ID' to an empty string
 google-ID: ''
 
 menu:
-- {name: 'About',   url: 'about.html'}
+- {name: 'About', url: 'about.html'}
 - {name: 'Posts', url: 'posts.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
@@ -20,9 +18,5 @@ social:
 pagination:
   next_page: 'Newer'
   previous_page: 'Older'
-
-sharing_button_prompt: 'Feel free to share!'
-
-related_posts: 'You may also enjoy:'
 
 post_date_prefix: 'Written on'
