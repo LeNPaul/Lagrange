@@ -298,3 +298,33 @@ Visualization of Gauss-Newton optimization.
 Additional links:
 - [Algorithms for Optimization (Kochenderfer & Wheeler)](https://mitpress.mit.edu/books/algorithms-optimization) (yay, Tim!)
 
+
+Substituting the definition of predicted position $$u_{ij}$$ from (5):
+
+$$
+\begin{equation}
+E
+=
+\sum\limits_{i}^{n} \sum\limits_{j}^{m}
+
+||
+z_{ij}
+-
+hom^{-1}
+(
+    \textbf{A}
+    \cdot
+    hom(
+        distort(
+            hom^{-1}(
+                \Pi \cdot W_i \cdot {}^wX_{ij}
+            ),
+            \textbf{k}
+        )
+    )
+)
+||^2
+\tag{6.b}\label{eq:6.b}
+\end{equation}
+$$
+

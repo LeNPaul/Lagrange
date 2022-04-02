@@ -65,6 +65,7 @@ $$
     - $$\gamma$$ --- the skew ratio, typically 0
     - $$u_0$$ --- u coordinate of optical center in image coordinates
     - $$v_0$$ --- v coordinate of optical center in image coordinates
+    - In other literature, the intrinsic matrix $$\textbf{A}$$ is often denoted $$\textbf{K}$$, $$\alpha$$ as $$f_x$$, $$\beta$$ as $$f_y$$, etc
 - $$\textbf{k}$$ --- the **distortion vector**:
 $$
 \begin{pmatrix}
@@ -72,8 +73,9 @@ k_1 & k_2 & p_1 & p_2 & k_3
 \end{pmatrix}
 $$
     - $$k_i$$ values correspond to radial distortion and $$p_i$$ values correspond to tangential distortion (for the so-call *radial-tangential* distortion model)
-- $$\textbf{W}$$ --- the **per-view set of transforms** (also called **extrinsic** parameters) from target to camera, which is a list of N 4x4 matrices
+- $$\textbf{W}$$ --- the **per-view set of transforms** (also called **extrinsic** parameters) from world to camera, which is a list of N 4x4 matrices
     - $$\textbf{W} = [W_1, W_2, ..., W_n]$$, where $$W_i$$ is the $$i$$-th **rigid-body transform** from *world* to *camera*, which is also the **pose** of the *world* in *camera* coordinates. (See the [$$\S$$Appendix](#appendix) for more discussion on convention).
+    - Here, and in other literature, the coordinate frame of the *calibration board* is called the *world* coordinate frame. All of these coordinate frames are equivalent in this post: **world** $$=$$ **target** $=$ **calibration board**.
 
 
 # Projection: from 3D world point to 2D image point
@@ -201,7 +203,7 @@ y_c/z_c\\
 \end{pmatrix}
 $$
 
-However, I prefer the matrix multiplication and $$hom^{-1}(\cdot)$$ presented previously for continuity of equations.
+But I prefer the matrix multiplication and $$hom^{-1}(\cdot)$$ presented previously for continuity of equations.
 
 ## Proj.3) Use $$\textbf{k}$$: 2D normalized point to 2D distorted-normalized point
 
@@ -359,9 +361,6 @@ The corners of the larger checkerboard are the points which are detected ([OpenC
 
 And with that, we're ready to talk about **projection error**!
 
-![](https://media1.giphy.com/media/NsIwMll0rhfgpdQlzn/giphy.gif)
-{: centeralign }
-
 
 # Projection error: the metric of calibration 'goodness'
 
@@ -386,36 +385,16 @@ $$|| \cdot ||$$
 $$
 \begin{equation}
 E = \sum\limits_{i}^{n} \sum\limits_{j}^{m} || z_{ij} - u_{ij} ||^2
-\tag{6.a}\label{eq:6.a}
+\tag{6}\label{eq:6}
 \end{equation}
 $$
 
-Substituting the definition of predicted position $$u_{ij}$$ from (5):
+Where the Euclidean distance between vectors $$\textbf{p}$$ and $$\textbf{q}$$ is a scalar value defined as:
 
 $$
 \begin{equation}
-E
-=
-\sum\limits_{i}^{n} \sum\limits_{j}^{m}
-
-||
-z_{ij}
--
-hom^{-1}
-(
-    \textbf{A}
-    \cdot
-    hom(
-        distort(
-            hom^{-1}(
-                \Pi \cdot W_i \cdot {}^wX_{ij}
-            ),
-            \textbf{k}
-        )
-    )
-)
-||^2
-\tag{6.b}\label{eq:6.b}
+|| \textbf{p} - \textbf{q} || = \sqrt{\sum\limits_{k}^{l} (p_k - q_k)^2}
+\tag{7}\label{eq:7}
 \end{equation}
 $$
 
@@ -429,5 +408,6 @@ Should we just guess?
 In part 2 of this post we'll get into Zhang's method, currently the most popular way to calibrate cameras due to it's accessibility and accuracy.
 It requires only a planar calibration target which can be made with any desktop printer.
 
-Part 2 will be linked here after it's been posted! Thanks so much for reading.
+Special thanks to my co-worker [@RajRavi](https://www.linkedin.com/in/rajashree-ravi/) for feedback on this post.
+Part 2 will be linked here after it's been posted, thanks so much for reading!
 
