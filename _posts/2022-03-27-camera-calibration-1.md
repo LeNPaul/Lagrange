@@ -359,12 +359,12 @@ Such libraries typically detect strong corners made unique by specific neighbori
 The corners of the larger checkerboard are the points which are detected ([OpenCV.org](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html)).
 {: centeralign }
 
-And with that, we're ready to talk about **projection error**!
+And with that, we're ready to talk about **projection error** (sometimes called **reprojection error**).
 
 
-# Projection error: the metric of calibration 'goodness'
+# (Re)projection error: the metric of calibration 'goodness'
 
-In order to compute camera parameters which are useful for spatial reasoning, we need to define what makes a set of parameters better than another set.
+In order to compute camera parameters which are useful for spatial reasoning, we need to define what makes one set of parameters better than another set.
 This is typically done by computing **sum-squared projection error**, $$E$$.
 The lower that error metric is, the more closely our camera parameters fit the measurements from the input images.
 - From each image, we have the detected marker points. Each marker point is a single **2D measurement**, which we denote as $$z_{ij}$$ for the $$j$$-th measured point of the $$i$$-th image.
@@ -389,23 +389,22 @@ E = \sum\limits_{i}^{n} \sum\limits_{j}^{m} || z_{ij} - u_{ij} ||^2
 \end{equation}
 $$
 
-Where the Euclidean distance between vectors $$\textbf{p}$$ and $$\textbf{q}$$ is a scalar value defined as:
+Where the Euclidean distance between vectors $$p$$ and $$q$$ (each of length $$l$$) is a scalar value defined as:
 
 $$
 \begin{equation}
-|| \textbf{p} - \textbf{q} || = \sqrt{\sum\limits_{k}^{l} (p_k - q_k)^2}
+|| p - q || = \sqrt{\sum\limits_{k}^{l} (p_k - q_k)^2}
 \tag{7}\label{eq:7}
 \end{equation}
 $$
 
-Now we've got a way to compute how closely our calibration parameters and measurements match.
-But how do we compute these calibration parameters?
-Should we just guess?
+Now we have a way to compute how closely our calibration parameters and measurements **match** --- the 'goodness' of the calibration.
+But *how do we get values* for these calibration parameters?
 
 
 # Up next...
 
-In part 2 of this post we'll get into Zhang's method, currently the most popular way to calibrate cameras due to it's accessibility and accuracy.
+In part 2 of this post we'll get into **Zhang's method**, currently the most popular way to calibrate cameras due to it's **accessibility** and **accuracy**.
 It requires only a planar calibration target which can be made with any desktop printer.
 
 Special thanks to my co-worker [@RajRavi](https://www.linkedin.com/in/rajashree-ravi/) for feedback on this post.
