@@ -109,9 +109,6 @@ On my way, I passed by the Isar river and reached to Marienplatz through Tal str
   </div>
     <div class="column">
   </div>
-  <div class="column">
-    <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/selfie_with_dome.jpg" alt="selfie with hofgarten dome" width="250">
-  </div>
     <div class="column">
     <img src="/assets/img/PostsImages/MyFirstSunsetInGermany/hofgarten2.jpg" alt="hofgarten" width="500">
   </div>
