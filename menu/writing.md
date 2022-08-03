@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Climate research logs
+title: Climate Research Code Tutorials
 ---
 <ul class="posts">
   {% for post in site.posts %}
