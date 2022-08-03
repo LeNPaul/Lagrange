@@ -1,21 +1,22 @@
 ---
 layout: post
-title: "Code for plotting each figure in Three-Dimensional Empirical Orthogonal Functions Computed From An Ocean General Circulation Model:  
-Mode Visualization and equatorial Upwelling"
+title: "Code for plotting each figures"
 author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
 ---
+### This is the code to plot each figure from Three-Dimensional Empirical Orthogonal Functions Computed From An Ocean General Circulation Model:  
+Mode Visualization and equatorial Upwelling
 
-# Things to keep in mind:
+#### Things to keep in mind:
 - You may need to download Basemap before importing it bellow 
         - you can do this by using pip. Copy and paste the line below in terminal
                 pip install basemap
 
-- There is no need to download the data files as the files are downloaded directly from github
-        - you can run this notebook on its own
+- There is no need to download the data files as the files are downloaded directly from my [github]{https://github.com/dlafarga/calc_3D_EOFs} meaning you can run the notebook on its own.
 - As long as you run this first section you can run every other section out of order
 
+ You can download this code [here.]{https://github.com/dlafarga/calc_3D_EOFs}
 ```python
 # Code to plot all figures 
 
