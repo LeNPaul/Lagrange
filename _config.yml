@@ -20,7 +20,7 @@ permalink:           none
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           'Climate Research Log'
+title:		           'Climate Research Code Tutorials'
 author:              'Dani Lafarga'
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
