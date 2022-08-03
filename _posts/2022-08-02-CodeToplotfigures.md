@@ -13,8 +13,8 @@ Mode Visualization and equatorial Upwelling
         - you can do this by using pip. Copy and paste the line below in terminal
                 pip install basemap
 
-- There is no need to download the data files as the files are downloaded directly from my [github](https://github.com/dlafarga/calc_3D_EOFs) meaning you can run the notebook on its own.
-- As long as you run this first section you can run every other section out of order
+- There is no need to download the data files as the files are downloaded directly from my [github](https://github.com/dlafarga/calc_3D_EOFs) meaning you can run the notebook/code on its own.
+- As long as you run this first section you can run every other figure section out of order
 
  You can download this code [here.](https://github.com/dlafarga/calc_3D_EOFs)
 ```python
