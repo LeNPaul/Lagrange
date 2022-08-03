@@ -7,7 +7,7 @@ categories: journal
 tags: [documentation,sample]
 ---
 
-Things to keep in mind:
+# Things to keep in mind:
 - You may need to download Basemap before importing it bellow 
         - you can do this by using pip. Copy and paste the line below in terminal
                 pip install basemap
