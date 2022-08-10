@@ -4,6 +4,7 @@ title: "Code for plotting each figures"
 author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
+image: Jan_clim.png
 ---
 ### This is the code to plot each figure from Three-Dimensional Empirical Orthogonal Functions Computed From An Ocean General Circulation Model:  
 Mode Visualization and equatorial Upwelling
