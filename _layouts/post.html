@@ -6,7 +6,7 @@ layout: default
   {{ page.title }}
 </h1>
 {% if page.image %}
-  <img src="{{ site.github.url }}/assets/img/{{ page.image }}">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.image }}">
 {% endif %}
 <article>
   {{ content }}
