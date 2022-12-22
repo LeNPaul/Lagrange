@@ -1,19 +1,30 @@
 ---
 layout: page
-title: Welcome to Lagrange!
+title: About Tyler Sengia
 permalink: /about
+tags: [about]
 ---
 
-Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
+# About Me
+👋 Hi, I'm Tyler Sengia.  
 
-### Getting Started
+I'm a software engineer that enjoys writing code for humans.  
 
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
+I've been programming since a very young age, and in 2022 I graduated from Penn State with a degree in Computer Engineering.  
 
-### Example Content
+You will find that my computer interests vary widely.
 
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
+## Software Engineering Profile
+### Languages
+C/C++, Python 3, Java, Bash, SQL  
 
-### Questions?
+### Libraries I've used
+Web: ReactJS, Vue2, Axios, Google Blockly    
+Python: matplotlib, flask, sql-alchemy, marshmallow  
+C++: OpenCV, Google Protocol Buffers, cJSON, ZMQ   
 
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+### Tools
+Linux, CMake, Zephyr OS, AWS, Docker, GitLab, Uptime Kuma  
+
+### Editors
+I am a personal fan of Vim, but I don't mind VS Code or Nano.
