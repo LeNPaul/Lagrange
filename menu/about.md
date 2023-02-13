@@ -3,10 +3,10 @@ layout: page
 title: About me and this site 
 ---
 
-![me]({{ site.url }}/menu/lighthouse.jpg){: .image-left } 
+![me]({{ site.url }}/menu/lighthouse.jpg){:width="50%" .image-left} 
 Hello, my name is Dani Lafarga! I am a computational science Ph.D. student at San Diego State University and the University of California Irvine. I am currently a part of the Climate Informatics laboratory at SDSU and have invested most of my time on climate research. My spare time is filled with creativity from working at music festivals to modeling, and dancing.
 
-![me]({{ site.url }}/menu/gloving.jpg){: width="50%" .image-right}
+![me]({{ site.url }}/menu/gloving.jpg){:width="50%" .center-image}
 
 This website serves as a tutorial for the code used in the paper Three-Dimensional Empirical Orthogonal Functions Computed From An Ocean General Circulation Model: Mode Visualization and equatorial Upwelling. You can browse through the different [logs](https://dlafarga.github.io/menu/writing.html) to find each code that produces 3D EOFs and the figures of that paper.  
 
