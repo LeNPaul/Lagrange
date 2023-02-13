@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Code for plotting figures in 3D EOF paper"
+title: "Code for Plotting Figures in 3D EOF Paper"
 author: "Dani Lafarga"
 categories: journal
 tags: [documentation,sample]
