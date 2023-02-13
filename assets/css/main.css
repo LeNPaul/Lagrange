@@ -69,6 +69,11 @@ img {
     display: block;
 }
 
+.image-left {
+  float: left;
+  margin-right: 1em;
+}
+
 blockquote {
   margin: 10px 20px 10px;
   padding: 0px 15px;
