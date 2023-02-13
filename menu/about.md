@@ -3,11 +3,10 @@ layout: page
 title: About me and this site 
 ---
 
-![me]({{ site.url }}/menu/lighthouse.jpg){: .center-image }
+<img src="{{ site.url }}/menu/lighthouse.jpg" alt= “” width="50%" height="50%e">
 
 Hello, my name is Dani Lafarga! I am a computational science Ph.D. student at San Diego State University and the University of California Irvine. I am currently a part of the Climate Informatics laboratory at SDSU and have invested most of my time on climate research. My spare time is filled with creativity from working at music festivals to modeling, and dancing.
 
-![me]({{ site.url }}/menu/fire.jpg){: style="float:right"}
 
 ![me]({{ site.url }}/menu/gloving.jpg){: style="float:left"}
 
