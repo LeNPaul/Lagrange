@@ -71,13 +71,12 @@ img {
 
 .image-left {
   float: left;
-  margin-right: 0.5em;;
+  margin-right: 0.7em;
 }
 
 .image-right{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: .07em;
   float: right;
 }
 
