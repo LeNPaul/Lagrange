@@ -3,7 +3,7 @@ layout: page
 title: About me and this site 
 ---
 
-<img src="dlafarga.github.io/menu/lighthouse.jpg" width="50%" height="50%">
+<img src="https://github.com/dlafarga/dlafarga.github.io/blob/5a3edc8ef9c597eb4dd16159e868082107651008/menu/lighthouse.jpg" width="50%" height="50%">
 
 Hello, my name is Dani Lafarga! I am a computational science Ph.D. student at San Diego State University and the University of California Irvine. I am currently a part of the Climate Informatics laboratory at SDSU and have invested most of my time on climate research. My spare time is filled with creativity from working at music festivals to modeling, and dancing.
 
