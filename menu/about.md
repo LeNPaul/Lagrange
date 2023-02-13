@@ -12,7 +12,8 @@ Hello, my name is Dani Lafarga! I am a computational science Ph.D. student at Sa
 <br>
 <br>
 <br>
-
+<br>
+<br>
 
 My spare time is where I tend to explore my creativity. If I am not working at a music festival you can find me dancing with lights or fire, modeling, painting, or making music. 
 ![me]({{ site.url }}/menu/gloving.jpg){:width="50%" .image-right} 
