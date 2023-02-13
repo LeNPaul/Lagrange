@@ -75,8 +75,8 @@ img {
 }
 
 .image-right{
-  margin-left: .07em;
   float: right;
+  margin: 0 0 0 15px;
 }
 
 blockquote {
