@@ -24,10 +24,6 @@ pagination:
 
 sharing_button_prompt: 'Share:'
 
-hide_post_share: true
-
 related_posts: 'Related:'
-
-hide_related_posts: true
 
 post_date_prefix: 'Written:'
