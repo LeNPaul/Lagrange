@@ -15,7 +15,7 @@ social:
 - {icon: 'linkedin',   link: 'https://www.linkedin.com/in/cmuld3r'}
 - {icon: 'envelope',   link: 'mailto:cmuld3r@gmail.com'}
 - {icon: 'rss-square', link: '/feed.xml'}
-- {icon: 'rss-square', link: '/rss-feed.xml'}
+# - {icon: 'rss-square', link: '/rss-feed.xml'}
 
 # Customize site text
 pagination:
