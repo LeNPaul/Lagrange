@@ -8,7 +8,7 @@ google-ID: 'G-REB11ND6TN'
 
 menu:
 - {name: 'About',   url: 'about.html'}
-- {name: 'Archive', url: 'archive.html'}
+- {name: 'Posts', url: 'posts.html'}
 - {name: 'Contact', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
