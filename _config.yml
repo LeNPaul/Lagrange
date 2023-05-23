@@ -25,5 +25,8 @@ description:	       "Search for Community"
 author:              "The Mulders"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
-#feed:
+#  feed:
 #  path: rss-feed.xml
+
+# Site settings
+hide_related_post: true
