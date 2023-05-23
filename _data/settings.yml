@@ -7,6 +7,7 @@ disqus:
 google-ID: 'G-REB11ND6TN'
 
 menu:
+- {name: 'Archive',   url: 'archive.html'}
 - {name: 'About',   url: 'about.html'}
 - {name: 'Contact', url: 'contact.html'}
 
