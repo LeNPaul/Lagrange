@@ -9,8 +9,7 @@ image:
 
 Our family has set on a journey while taking a break from work and the busy schedules, a journey with a little less predictability, more unknown and at the same time marvelous and full of wonder nature and overall good experiences during which we would explore our weaknesses and also strengthen our relationships and bodies and maybe find the common unity with people, nature and people in nature.
 
-We are Nikolai, Leopold, Iryna and Chris and we are on our family and personal journey.
-What brought us to this journey must be a combination of our background, some recent life events and current circumstances that allowed us to take a break from work and schedules.
+We are Nikolai, Leopold, Iryna and Chris and we are on our family and personal journey. What brought us to this journey must be a combination of our background, some recent life events and current circumstances that allowed us to take a break from work and schedules.
 
 I grew up in a family of hard-working people who dedicated their lives for their children. My childhood was highly influenced by nature and the always working papa and mama which I think shaped the person I became. I remember going to "datcha" (plot of land for gardening) with my mama and while she worked I was allowed to wonder in the pine forest where the moss ground, single birches and swampy grounds made it feel like the enchanted forest. I looked for mushrooms, played with tiny frogs and turtles and also helped my mama, but she was always understanding of me being a child and would allow me to play as much as possible and so I did with nothing but nature. 
 
