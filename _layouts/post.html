@@ -8,12 +8,12 @@ layout: default
 {% if page.image %}
   <img src="{{ site.github.url }}/assets/img/{{ page.image }}">
 {% endif %}
-<article>
-  {{ content }}
-</article>
 {% if site.hide_post_date != true %}
   {% include post-date.html %}
 {% endif %}
+<article>
+  {{ content }}
+</article>
 <!--- {% if site.hide_post_share != true %}
   {% include social-sharing.html %}
 {% endif %}
