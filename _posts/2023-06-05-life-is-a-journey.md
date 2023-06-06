@@ -7,7 +7,7 @@ tags: [iryna]
 image: 2023-06-05-sawtooth.jpeg
 ---
 
-Our family has set on a journey while taking a break from work and the busy schedules, a journey with a little less predictability, more unknown and at the same time marvelous and full of wonder nature and overall good experiences during which we would explore our weaknesses and also strengthen our relationships and bodies and maybe find the common unity with people, nature and people in nature.
+Our family has set out on a journey while taking a break from work and busy schedules, a journey with a little less predictability, more unknown and at the same time marvelous and full of wonder nature and overall good experiences during which we would explore our weaknesses and also strengthen our relationships and bodies and maybe find the common unity with people, nature and people in nature.
 
 We are Nikolai, Leopold, Iryna and Chris and we are on our family and personal journey. What brought us to this journey must be a combination of our background, some recent life events and current circumstances that allowed us to take a break from work and schedules.
 
