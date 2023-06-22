@@ -16,3 +16,5 @@ Hiking was a fun part of the trip, at least for me. One hike was particularly sc
 We finished our trip by visiting two eco-villages in British Columbia. The cob mastery is always beyond beautiful. Who would want to live in a conventional house built with toxic materials with a huge environmental footprint and negative health effects plus all those corners after seeing a house built with earth, where the clay actually purifies air and the walls are smooth and can be shaped in any desirable ways. One day I would like to build and live in one... with some help of course! My grandparents and all the other people in their village used to help each other build their natural houses with cob and reeds. They were fully waterproof, warm in winter and cool in summer and every house was unique. Cob is just great!
 
 To finish the trip which happened to be on Father's day, we just had to get donuts and not just any donuts! We got organic, vegan, gluten free donuts. That always makes me feel good whenever I eat things I shouldn't 😊 They were delicious!
+
+[Photos]([https://photos.app.goo.gl/DbziavddvJeuGbj4A])
