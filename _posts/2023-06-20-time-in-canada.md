@@ -17,4 +17,4 @@ We finished our trip by visiting two eco-villages in British Columbia. The cob m
 
 To finish the trip which happened to be on Father's day, we just had to get donuts and not just any donuts! We got organic, vegan, gluten free donuts. That always makes me feel good whenever I eat things I shouldn't 😊 They were delicious!
 
-[Photos]([https://photos.app.goo.gl/DbziavddvJeuGbj4A])
+[Photos](https://photos.app.goo.gl/DbziavddvJeuGbj4A)
