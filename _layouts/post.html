@@ -8,18 +8,12 @@ layout: default
 {% if page.image %}
   <img src="{{ site.github.url }}/assets/img/{{ page.image }}">
 {% endif %}
-<article>
-  {{ content }}
-</article>
 {% if site.hide_post_date != true %}
   {% include post-date.html %}
 {% endif %}
-<!--- {% if site.hide_post_share != true %}
-  {% include social-sharing.html %}
-{% endif %}
-{% if site.hide_related_posts != true %}
-  {% include related-posts.html %}
-{% endif %} --->
+<article>
+  {{ content }}
+</article>
 {% if site.data.settings.disqus.comments %}
   {% include disqus.html %}
 {% endif %}
