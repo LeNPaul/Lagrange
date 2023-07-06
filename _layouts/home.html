@@ -13,7 +13,8 @@ layout: default
         {{ post.author }}
       {% else %}
         {{ site.author }}
-      {% endif %} on <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date | date_to_string }} - <i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</span>
+      {% endif %}
+      <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date | date_to_string }} - <i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</span>
     </h2>
     {% if post.image %}
       <div class="thumbnail-container">
