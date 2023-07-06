@@ -14,8 +14,7 @@ We are a mixed Ukrainian-American family of four based in the Pacific Northwest 
 + Respect and appreciation of the natural world
 + Value of connection, sharing and community
 
-The dream is to discover or help build a community ([ecovillage](https://en.wikipedia.org/wiki/Ecovillage)) that resonates with our values and aspirations — where we can contribute our skills, learn from others, and build a regenerative future for generations to come. We want to inform and inspire you in sharing our pursuit of **_common unity_**.
-
+The dream is to discover or help build a community ([ecovillage](https://en.wikipedia.org/wiki/Ecovillage)) that resonates with our values and aspirations — where we can contribute our skills, learn from others, and build a regenerative future for generations to come. We want to inform and inspire you in sharing our pursuit of **common unity**.
 
 
 ### Resources
