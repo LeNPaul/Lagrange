@@ -4,7 +4,7 @@ title: About
 permalink: /about
 ---
 
-**_Common unity_** _is a play on words that suggests the idea of a shared or collective sense of unity. It emphasizes the power of finding common ground, building connections, and fostering a sense of belonging among individuals. In a broader context, it refers to the concept of communal living or collective action, where people come together to support each other, share resources, and work towards common objectives. It embodies the idea that by embracing our shared humanity and working in unity, we can create a stronger and more inclusive world._
+_"Common unity" is a play on words that suggests the idea of a shared or collective sense of unity. It emphasizes the power of finding common ground, building connections, and fostering a sense of belonging among individuals. In a broader context, it refers to the concept of communal living or collective action, where people come together to support each other, share resources, and work towards common objectives. It embodies the idea that by embracing our shared humanity and working in unity, we can create a stronger and more inclusive world._
 
 
 ![Family photo in the garden](/assets/img/family.jpg "Family photo")
@@ -17,7 +17,7 @@ We are a mixed Ukrainian-American family of four based in the Pacific Northwest 
 + Respect and appreciation of the natural world
 + Value of connection, sharing and community
 
-The dream is to discover or help build a community ([ecovillage](https://en.wikipedia.org/wiki/Ecovillage)) that resonates with our values and aspirations — where we can contribute our skills, learn from others, and build a regenerative future for generations to come. We want to inform and inspire you in sharing our pursuit of **common unity**.
+The dream is to discover or help build a community ([ecovillage](https://en.wikipedia.org/wiki/Ecovillage)) that resonates with our values and aspirations — where we can contribute our skills, learn from others, and build a regenerative future for generations to come. We want to inform and inspire you in sharing our pursuit of _common unity_.
 
 
 ## Resources
