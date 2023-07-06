@@ -6,6 +6,7 @@ permalink: /about
 
 ![Family photo in the garden](/assets/img/family.jpg "Family photo")
 
+
 ### About Us
 
 We are a mixed Ukrainian-American family of four based in the Pacific Northwest (US), united by the opportunity and desire to explore a new path in living our shared values:
@@ -14,6 +15,7 @@ We are a mixed Ukrainian-American family of four based in the Pacific Northwest 
 + Value of connection, sharing and community
 
 The dream is to discover or help build a community ([ecovillage](https://en.wikipedia.org/wiki/Ecovillage)) that resonates with our values and aspirations — where we can contribute our skills, learn from others, and build a regenerative future for generations to come. We want to inform and inspire you in sharing our pursuit of **_common unity_**.
+
 
 
 ### Resources
