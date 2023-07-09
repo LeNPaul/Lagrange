@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fences, Furniture, and the First Flight"
+title: "Fences, Furniture, and our First Flight"
 author: "Chris"
 categories: community, travel, europe
 tags: [chris]
