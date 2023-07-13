@@ -55,6 +55,6 @@ At least that's the plan, for now. Our first flight is this week! 🚀
 
 You can read a bit more in the new [About](/about.html) page, but I think this rural church lawn sign I saw sums it up nicely - *BUILD A LONGER TABLE, NOT A TALLER FENCE*.
 
-The current model isn't working for us and many others. For more on the community movement in the US, here's a good [Time Magazine piece](https://time.com/intentional-communities/). While we may end up right where we are and starting from scratch, the plan is to learn and experience while traveling Europe. It's also a chance for our family to try out [worldschooling](https://www.time4learning.com/homeschooling-styles/worldschooling.html#:~:text=Worldschooling%20is%20an%20educational%20movement,(ren)'s%20education.).
+The current model isn't working for the planet, for our family, and for many others. For more on the community movement in the US, here's a good [Time Magazine piece](https://time.com/intentional-communities/). While we may end up right where we are and starting from scratch, the plan is to learn and experience while traveling Europe. It's also a chance for our family to try out [worldschooling](https://www.time4learning.com/homeschooling-styles/worldschooling.html#:~:text=Worldschooling%20is%20an%20educational%20movement,(ren)'s%20education.).
 
 We'll let you know what we find out along the way and how long of a table we're gonna need.
