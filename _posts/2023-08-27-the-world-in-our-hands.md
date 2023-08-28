@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The World in our Hands"
+title: "The World In Our Hands"
 author: "Chris"
 categories: community, travel, europe, germany, denmark, sweden, ukraine
 tags: [chris]
