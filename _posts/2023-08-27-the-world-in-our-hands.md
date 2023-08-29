@@ -13,7 +13,7 @@ Apologies for the delay in updates since the start of the trip, it's been quite 
    - [European Ecovillage Gathering](https://ecovillagegathering.org/)
    - [Nature Community](https://nature.community/)
 
-Our gathering experience is hard to put into words but to try and convey what it was like, here's a [video from GEN Europe](https://youtu.be/syxFDTvYHDI?si=JtYmoQYqODTFtrDG). It was incredible to see our kids at home in community, disappearing for hours at a time, gaining confidence and friends from around the world. The 4 day themes were As we expected, the connections and knowledge gained refined our plans for the rest of the trip.
+Our gathering experience is hard to put into words but to try and share, here's a [video from GEN Europe](https://youtu.be/syxFDTvYHDI?si=JtYmoQYqODTFtrDG). Overall, it was energizing and informative, inspiring and fulfilling. For the kids, they seemed at home in community, disappearing for hours at a time, gaining confidence and friends from around the world. As expected, the connections and knowledge gained have already refined our plans for the rest of the trip.
 
 
 ## Denmark
