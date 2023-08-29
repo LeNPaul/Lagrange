@@ -15,16 +15,11 @@ We arrived in Munich jet-lagged and were warmly welcomed by our incredibly hospi
    - [GEN European Ecovillage Gathering](https://ecovillagegathering.org/)
 The GEN (Global Ecovillage Network) Europe gathering took place this year at [Nature Community](https://nature.community/). Our gathering experience is hard to put into words but to try and share, here's a [video from GEN Europe](https://youtu.be/syxFDTvYHDI?si=JtYmoQYqODTFtrDG). Overall, it was energizing and informative, inspiring and fulfilling. For the kids, they seemed at home in community, disappearing for hours at a time, gaining confidence and friends from around the world. As hoped, the connections and knowledge gained have already refined our plans for the rest of the trip.
 
-
-
-
 ## Denmark
    - Copenhagen
-     
-
+     Copenhagen was the "smallest" big city we've ever visited. There seemed to be more bikes than cars, with an extensive bike path network, including in more rural areas. It's a bike paradise - bike paths, protected bike lanes, bike traffic signals... who wouldn't want to bike in a place like that? Copenhagen had lots of charm, including some of the best plant-based treats we've ever had (fleurbolle, chocolate croissants, and danishes... which they call 'Vienna bread'). The only unpleasant thing was all the smoking in public places, which seemed to be excessive for what we're used to experiencing. The best part was the kindness, consideration, patience and good nature of the Danes we met. Two of the communities we visited were thanks to the personal connections made at the gathering.
    - [Dyssekilde](http://www.dyssekilde.dk/uk)
-
-
+   Dyssekilde, also called the 'organic village' is a community of about 200 people and less than 100 houses which started about 30 years ago on a potato field. It's now a unique collection of eco and natural homes, gardens and play areas throughout, and some local enterprises (bakery, store, restaurant, etc). Along with eco buildings, they have green infrastructure including an approved willow greywater treatment system and windmill. The coastal location is near the sandy beaches of the North Sea with refreshingly cold water that Danes seem to enjoy. Some of us especially enjoyed seeing wheat fields full of corn flowers and poppies, and wildflowers planted alongside fields.
    - [Avnø Oasis](https://avno-oasis.dk/)
 
 
