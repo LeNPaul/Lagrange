@@ -20,12 +20,16 @@ Apologies for the delay in updates since the start of the trip, it's been quite 
    - [Hallingelille](https://www.hallingelille.dk) - similar in concept to Dyssekilde as a car-free, planned neighborhood with individual eco homes and shared land, common house, garden, pond, and playground. They also started decades ago with an open field and planted a larger part of their land as a native forest. We enjoyed the fresh produce from the garden and pleasant stay in the common house. Our boys were excited to care for the pet horses who live next to the community.
 ## Sweden
    - Malmo
-     
+     Arriving in Malmo, there were a few obvious differences from previous cities -    
 
    - Stockholm
 
+   
+   - [Understenshojden ecovillage](https://understenshojden.se/om-understenshojden/about-understensvagen/) - 
 
-   - [Ängsbacka](https://www.angsbacka.com)
+   - [Angsbacka](https://www.angsbacka.com) - 
+
+   - [Sunnemo ecovillage](https://sunnemoecovillage.wixsite.com/sunnemoecovillage?lang=en) - 
      
 
 [Photos](https://photos.app.goo.gl/r6qWZUxnkX384m5fA)
