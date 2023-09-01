@@ -19,15 +19,9 @@ Apologies for the delay in updates since the start of the trip, it's been quite 
    - [Avnø Oasis](https://avno-oasis.dk/) - the most closely connected community we have been to so far with 10-20 people sharing 3 meals a day and living in multi-story former dormitory buildings. It felt like a big family with incredible facilities and potential. Like many Danish ecovillages, the community is hosting a Ukrainian refugee family with a 1 year old who was born there. It was beautiful to see how everyone in the group treated the baby as a family member and how much positivity she added to daily life. As guests, we helped out in the kitchen and got some experience cooking for groups. Their kitchen follows the macrobiotic diet and is strictly organic although low in fruit, so we supplemented with wild cherry plums in the area. We also noted the use of vinegar in kitchen for sanitizing which they said is approved in Denmark for commercial kitchens. Our boys thrived in the close-knit community.
    - [Hallingelille](https://www.hallingelille.dk) - similar in concept to Dyssekilde as a car-free, planned neighborhood with individual eco homes and shared land, common house, garden, pond, and playground. They also started decades ago with an open field and planted a larger part of their land as a native forest. We enjoyed the fresh produce from the garden and pleasant stay in the common house. Our boys were excited to care for the pet horses who live next to the community.
 ## Sweden
-   - Malmo
-     Arriving in Malmo, there were a few obvious differences from previous cities -    
-
-   - Stockholm
-
-   
-   - [Understenshojden ecovillage](https://understenshojden.se/om-understenshojden/about-understensvagen/) - 
-
-   - [Angsbacka](https://www.angsbacka.com) - 
+   - Malmö - our first stop in Sweden was a [veganic permaculture farm](https://www.biocyclic-vegan.org/partners/processors-and-traders/villands-vanga-vegantradgard/) where we heard once again how the use of animals in closed loop permaculture design is not feasible - [more info on veganic farming](https://online.eou.edu/resources/article/veganic-farming-importance-of-sustainable-agriculture/). We also learned to use public transportation to avoid hefty tolls across bridges. Arriving in Malmö, there were a few obvious differences from previous cities - more cars, more diversity, and mobile/card payment required everywhere, and as anticipated, the most delicious vegan desserts.
+   - Stockholm - We stayed in a variety of places - an apartment and 2 campgrounds. One had a cozy communal kitches, sauna, swimming lake, trails, and all kinds of activities. The other campground was more basic but still had a shared kitchen. We took public transit into the city to explore old town including the Royal Palace, Vasa Museum, Medieval Museum, and unforgettable Viking Walking Tour. We also made many stops at the all-you-can-eat vegan buffet at Herman's. Stockholm was busy but beautiful and livable with great transit, clean air and water. While in the area, we stopped by [Understenshojden ecovillage](https://understenshojden.se/om-understenshojden/about-understensvagen/). Some of us were really hoping to see moose, which are plentiful in the area. Sweden has an abundance of forests, parks, and other natural areas, and Stockholm kept this trend. Denmark seemed different in this sense with an apparent lack of wilderness.
+   - [Ängsbacka](https://www.angsbacka.com) - 
 
    - [Sunnemo ecovillage](https://sunnemoecovillage.wixsite.com/sunnemoecovillage?lang=en) - 
      
