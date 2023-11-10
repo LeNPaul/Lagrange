@@ -14,7 +14,7 @@ menu:
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
 - {icon: 'github',     link: 'https://github.com/noorhashem'}
-- {icon: 'twitter',    link: 'https://twitter.com/kintsu9i'}
+- {icon: 'twitter',    link: ''}
 - {icon: 'envelope',   link: 'mailto:nour.hashem95@gmail.com'}
 - {icon: 'rss-square', link: '/feed.xml'}
 # - {icon: 'rss-square', link: '/rss-feed.xml'}
