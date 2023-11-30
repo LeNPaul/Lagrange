@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Handwritten stuff"
+title: "Handwritten notes"
 author: "Karthik"
 categories: journal
 tags: [documentation,sample]
