@@ -4,7 +4,8 @@ disqus:
   disqus_shortname: 'https-lenpaul-github-io-lagrange'
 
 # If you are not using Google Analytics, please change 'google-ID' to an empty string
-google-ID: 'UA-112060364-1'
+#google-ID: 'UA-112060364-1'
+google-ID: ''
 
 menu:
 - {name: 'About',   url: 'about.html'}
@@ -13,11 +14,11 @@ menu:
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
-- {icon: 'github',     link: 'https://www.github.com/lenpaul'}
-- {icon: 'twitter',    link: 'https://twitter.com/paululele'}
-- {icon: 'linkedin',   link: 'http://www.linkedin.com/in/lenpaul/'}
-- {icon: 'envelope',   link: 'mailto:l.nguyen.paul@gmail.com'}
-- {icon: 'rss-square', link: '/feed.xml'}
+- {icon: 'github',     link: 'https://www.github.com/henryjchang'}
+#- {icon: 'twitter',    link: 'https://twitter.com/paululele'}
+- {icon: 'linkedin',   link: 'http://www.linkedin.com/in/henry-chang-02b77358/'}
+- {icon: 'envelope',   link: 'mailto:chang.henryj@gmail.com'}
+# - {icon: 'rss-square', link: '/feed.xml'}
 # - {icon: 'rss-square', link: '/rss-feed.xml'}
 
 # Customize site text
