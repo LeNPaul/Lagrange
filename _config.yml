@@ -21,7 +21,7 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'Welcome to Henry's blog!'
-description:	       'Work in progress'
+description:	       'A work in progress'
 author:              'Henry Chang'
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
