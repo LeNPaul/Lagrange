@@ -20,7 +20,7 @@ permalink:           /:title
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           'Welcome to Henry's blog!'
+title:		           "Welcome to Henry's blog!"
 description:	       'A work in progress'
 author:              'Henry Chang'
 
