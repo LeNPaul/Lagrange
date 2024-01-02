@@ -82,6 +82,48 @@ However, we’ll probably want to use the fast.ai mid-level framework or simply 
 
 It’s demonstrated that it’s usually not necessary to train a deep learning model from scratch, depending on the application. Instead, we can easily fine-tune a pre-existing model, drastically reducing the amount of data and compute needed for training. This is called transfer learning and is done by removing the last output layers (the head) of the original model and replacing it with a new head for the desired application. If dealing with a text application, a pretrained language model should be finetuned, and if dealing with a vision application, a pretrained vision model should be finetuned. Ideally the base/foundation model is trained on a similar enough corpus to your dataset. Since most of the early layers of a neural network learn features that are generally applicable, we don’t want to modify those layers too much - we leave their weights frozen. It’s also simpler and faster to finetune a model like this. The only weights that need to be modified would be those of the last layer (that we replaced and whose weights we re-initialized). Of course if there is a larger difference between the dataset used for pre-training and the dataset we care about, the weights belonging to earlier layers would also be modified via discriminative learning rates. A simple starting point would be to set the learning rate of the last layer and linearly decrease the learning rate for each layer moving toward the front in the architecture. 
 
+# Tricks for Achieving Better Training Results
+Most of these techniques were discussed in the context of image classification, but are concepts general to other learning tasks as well.
+
+### Data Augmentation
+To help a model generalize and have higher accuracy, augmented data can be added to the dataset. For vision tasks, images can be cropped, padded, rotated, flipped, squished, and have changes in brightness. Chaining together multiple transformations can lead to unwanted artifacts, since some pixel values may need to be filled in; it’s better to do all the transformations in one pass then fill in pixel values. It’s good practice to presize to a larger image first.
+
+One more advanced technique, [mixup](https://arxiv.org/abs/1710.09412), is to take a linear combination of images and the same linear combination of their labels. This technique reduces a model’s sensitivity to adversarial examples and can provide much higher accuracy, especially when you don’t have much data and don’t have a pre-trained model to fine-tune on. Note this technique takes more epochs to get good results.
+
+### Test Time Augmentation
+Similarly, at test-time, an image can be transformed in multiple ways and a prediction can be made for each transformed image. To come up with a final prediction, predictions can be averaged or combined in a different way to achieve more robust results.
+
+### Learning Rate Finder
+Guessing good learning rates can be painstakingly slow. Consider using a [learning rate finder](https://arxiv.org/abs/1506.01186) to get a learning rate vs loss plot to help choose the optimal learning rate. The finder iterates through learning rates and does small runs on batches and plots the loss. One is implemented as part of the fast.ai API, as well as in [PyTorch Lightning](https://pytorch-lightning.readthedocs.io/en/1.4.9/advanced/lr_finder.html).
+
+### Discriminative Learning Rates
+In transfer learning, we tend to want to leave the parameters of the early layers the same and change the later layers more. The early layers contain more general information such as detecting edges and shapes whereas the later layers contain information more specific to the dataset. We can use smaller learning rates for the early layers and larger learning rates for the later layers.
+
+### Weight Freezing
+In transfer learning, when we fine-tune a model, we “freeze” the parameters of each layer up to the new head. After an epoch or so, we unfreeze the weights and can use discriminative learning rates.
+Progessive Resizing
+When training a model, we can start with a small image size during initial training and progressively increase the image size as training progresses. This approach can help with faster initial convergence, with better memory efficiency and avoiding overfitting. By beginning with smaller images, basic features can still be learned and larger batch sizes can be used. This technique is introduced [here](https://colab.research.google.com/github/fastai/fastbook/blob/master/07_sizing_and_tta.ipynb).
+
+### Ensembling
+There are multiple ways to put together an ensemble of models to achieve better performance. Two concepts are bagging and boosting. 
+
+Bagging (short for bootstrap aggregation) reduces variance and helps to avoid overfitting by training a set of smaller models on data sampled with replacement from the same dataset. We take the mean of the predictions of each model.
+
+Boosting is a technique for taking a series of weak learners and summing their outputs to form a strong learner. Each successive weak learner is trained on the residual of the previous weak learner.
+
+### Label Smoothing
+This regularization technique helps the model be less confident in its predictions and be less prone to overfit. It modifies the labels such that instead of a one-hot encoding, we have some small $\frac{\epsilon}{N}$ for each incorrect label and and $1 - \epsilon + \frac{\epsilon}{N}$ for the correct label. So instead of always having a nonzero gradient toward an unreachable value of 1 (after sigmoid or softmax), it can settle at the smoothed target. This helps to keep the weights small leading up to the final activations. This technique was introduced in this [paper](https://arxiv.org/abs/1710.09412).
+
+### Weight Decay
+Weight decay is another regularization technique by adding an additional cost to the loss function. It’s simply placing a cost weight on the square of the parameters, keeping the weights and biases small.
+
+### Dropout
+Dropout is a regularization technique to help a model generalize and not be too reliant on any single neuron. During training, a random subset of parameters are set to zero, or “dropped out”, so that the model must be able to predict the same label from different subsets of features. This can also be seen as a kind of ensembling technique. During test time, no neurons are dropped out, and the weights are scaled down by the proportion of neurons that had been dropped out during the training phase.  
+
+### Gradient Accumulation
+If we’re dealing with large models such that we can’t iterate with a large enough batch size, instead of getting a more expensive GPU, we can leverage gradient accumulation. Instead of updating the model parameters after every batch, we can accumulate the gradients for some specified number of batches before updating the parameters. Notice that we don’t want to zero the gradients until after the parameters have been updated. Gradient accumulation allows us to reduce the amount of memory used without any loss of training stability. See [here](https://www.kaggle.com/code/jhoward/scaling-up-road-to-the-top-part-3 ) for an example.
+
+
 # Practical Tips
 
 When trying to train the best model, it’s recommended to focus on 1) Creating an effective validation dataset, 2) iterating quickly to find changes that achieve better results on the validation set. 
