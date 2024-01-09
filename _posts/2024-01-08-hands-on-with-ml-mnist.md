@@ -1424,7 +1424,7 @@ test_dataloader = DataLoader(test_dataset, batch_size=len(test_dataset), shuffle
 
 Now we can start trying to create a model to classify the images as digits. Our first model takes a non-ML approach in favor of a straightforward elementwise pixel to pixel comparison per image. We compare a sample image to a mean image for each digit. The mean image is computed by averaging over the training examples per digit.
 
-##### Calculate mean image per digit
+First we calculate the mean image per digit.
 
 
 ```python
@@ -1452,7 +1452,7 @@ plt.show()
     
 
 
-##### Make predictions
+Next, we can make predictions based on pixel-wise comparisons.
 
 
 ```python
@@ -1473,8 +1473,7 @@ for batch in test_dataloader:
   labels = torch.cat((labels, ls), dim = 0)
 ```
 
-##### Get prediction accuracy and confusion matrix
-
+Lets see our prediction accuracy for this baseline:
 
 ```python
 accuracy = torch.sum(torch.eq(labels, preds)) / len(labels)
@@ -1483,7 +1482,7 @@ print(accuracy)
 
     tensor(0.6673)
 
-
+Lets also see the confusion matrix. It's interesting that if guessing incorrectly, it's likely to be guessing the digit 1, which makes some sense!
 
 ```python
 from sklearn.metrics import confusion_matrix
