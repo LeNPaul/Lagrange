@@ -7,17 +7,22 @@ tags: [deeplearning]
 image: mnist/mnist_22_0.png
 ---
 
-One of the most commonly used datasets in ML research has been the MNIST dataset. It's a small dataset containing 60,000 28x28 greyscale images of handwritten digits and their labels, with 10 distinct classes for the digits from 0-9. It's often used as a "Hello World" example for machine learning. In this notebook, we'll use it as such.
 
-We go from doing some exploratory data analysis, through fully-connected models, up to training our first CNN model and achieving >99% classification accuracy on the dataset. Along the way, we write our own Learner class from scratch and use it to group together model, loss, optimizer, training and validation datasets.
+
+One of the most commonly used datasets in ML research has been the MNIST dataset. It's a small dataset containing 60,000 28x28 greyscale images of handwritten digits and their labels, with 10 distinct classes for the digits from 0-9. It's often used as a "Hello World" example for machine learning. 
+
+In this post, we go from doing some exploratory data analysis, through fully-connected models, up to training our first CNN model and achieving >99% classification accuracy on the dataset. Along the way, we write our own Learner class from scratch and use it to group together model, loss, optimizer, training and validation datasets.
 
 This work was inspired by [this notebook](https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb) from the Fast.ai course, Practical Deep Learning for Coders.
 
+You can choose to follow along directly in Colab, or read the summary below.
+<a target="_blank" href="https://colab.research.google.com/github/henryjchang/dl-notebooks/blob/main/mnist.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 ### Import torchvision MNIST
 
-We download the MNIST dataset from torchvision. As part of the download, we can specify any transformations to make to the data inputs or to the data labels. Here, we only transform the data inputs. To be able to properly do machine learning with images, we need to turn them from PIL images to PyTorch Tensors. We download two copies of the dataset, one with 2D tensors, and one with each image flattened into 1D tensors. We also leave the test set alone and split a validation set out of the training set for evaluation during training.
-
-
+We download the MNIST dataset from torchvision. As part of the download, we can specify any transformations to make to the data inputs or to the data labels. Here, we only transform the data inputs. To be able to properly do machine learning with images, we need to turn them from PIL images to PyTorch Tensors. 
 ```python
 import torchvision.transforms as T
 from torchvision.datasets import MNIST
@@ -26,177 +31,23 @@ import torch
 
 train_dataset = MNIST(root='mnist', train=True, download=True, transform=T.ToTensor())
 test_dataset = MNIST(root='mnist', train=False, download=True, transform=T.ToTensor())
-
-train_dataset_flattened = MNIST(root='mnist/flattened/', train=True, download=True,
-    transform=T.Compose([T.ToTensor(), T.Lambda(torch.flatten)]))
-test_dataset_flattened = MNIST(root='mnist/flattened/', train=False, download=True,
-    transform=T.Compose([T.ToTensor(), T.Lambda(torch.flatten)]))
 ```
-
-    Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
-    Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to mnist/MNIST/raw/train-images-idx3-ubyte.gz
-
-
-    100%|█████████████████████████████████████████████████████████████████████████████████| 9912422/9912422 [00:00<00:00, 25632184.75it/s]
-
-
-    Extracting mnist/MNIST/raw/train-images-idx3-ubyte.gz to mnist/MNIST/raw
-    
-    Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
-    Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to mnist/MNIST/raw/train-labels-idx1-ubyte.gz
-
-
-    100%|██████████████████████████████████████████████████████████████████████████████████████| 28881/28881 [00:00<00:00, 6581673.12it/s]
-
-    Extracting mnist/MNIST/raw/train-labels-idx1-ubyte.gz to mnist/MNIST/raw
-    
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to mnist/MNIST/raw/t10k-images-idx3-ubyte.gz
-
-
-    
-    100%|█████████████████████████████████████████████████████████████████████████████████| 1648877/1648877 [00:00<00:00, 18821466.49it/s]
-
-
-    Extracting mnist/MNIST/raw/t10k-images-idx3-ubyte.gz to mnist/MNIST/raw
-    
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to mnist/MNIST/raw/t10k-labels-idx1-ubyte.gz
-
-
-    100%|████████████████████████████████████████████████████████████████████████████████████████| 4542/4542 [00:00<00:00, 4522917.56it/s]
-
-
-    Extracting mnist/MNIST/raw/t10k-labels-idx1-ubyte.gz to mnist/MNIST/raw
-    
-    Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
-    Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to mnist/flattened/MNIST/raw/train-images-idx3-ubyte.gz
-
-
-    100%|█████████████████████████████████████████████████████████████████████████████████| 9912422/9912422 [00:00<00:00, 22345901.24it/s]
-
-
-    Extracting mnist/flattened/MNIST/raw/train-images-idx3-ubyte.gz to mnist/flattened/MNIST/raw
-    
-    Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
-    Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to mnist/flattened/MNIST/raw/train-labels-idx1-ubyte.gz
-
-
-    100%|█████████████████████████████████████████████████████████████████████████████████████| 28881/28881 [00:00<00:00, 11176941.67it/s]
-
-
-    Extracting mnist/flattened/MNIST/raw/train-labels-idx1-ubyte.gz to mnist/flattened/MNIST/raw
-    
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to mnist/flattened/MNIST/raw/t10k-images-idx3-ubyte.gz
-
-
-    100%|█████████████████████████████████████████████████████████████████████████████████| 1648877/1648877 [00:00<00:00, 21217189.37it/s]
-
-
-    Extracting mnist/flattened/MNIST/raw/t10k-images-idx3-ubyte.gz to mnist/flattened/MNIST/raw
-    
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to mnist/flattened/MNIST/raw/t10k-labels-idx1-ubyte.gz
-
-
-    100%|████████████████████████████████████████████████████████████████████████████████████████| 4542/4542 [00:00<00:00, 6022930.37it/s]
-
-
-    Extracting mnist/flattened/MNIST/raw/t10k-labels-idx1-ubyte.gz to mnist/flattened/MNIST/raw
-    
 
 
 ### A first look at the data
 
+Each image is a 3D tensor with a single channel (first dimension) and height and width of 28. We can get the image and label of the *i*th sample of the dataset like so:
+
 
 ```python
-len(train_dataset)
+int i = 0
+image = train_dataset[i][0]
+label = train_dataset[i][1]
 ```
 
 
 
-
-    60000
-
-
-
-
-```python
-len(test_dataset)
-```
-
-
-
-
-    10000
-
-
-
-We can get information about the *i*th element of the dataset like so:
-
-
-```python
-i = 0
-```
-
-Each image is a 3D tensor with a single channel (first dimension) and height and width of 28.
-
-
-```python
-train_dataset[i][0].shape
-```
-
-
-
-
-    torch.Size([1, 28, 28])
-
-
-
-We can get the label of the *i*th image of the training dataset like so:
-
-
-```python
-train_dataset[i][1]
-```
-
-
-
-
-    5
-
-
-
-Similarly, we can get the label of the *i*th image of the test dataset:
-
-
-```python
-test_dataset[i][1]
-```
-
-
-
-
-    7
-
-
-
-In our flattened version of the dataset, each image has been flattened to be a 1D tensor.
-
-
-```python
-train_dataset_flattened[i][0].shape
-```
-
-
-
-
-    torch.Size([784])
-
-
-
-Let's take a look at the pixel values of the first training example. It's good practice to normalize input data to make the optimization landscape smoother so that it takes fewer iterations to converge to a good minimum. Notice all the values have already been normalized to be between 0 and 1, with 1 corresponding with "black" and 0 with "white."
+It's good practice to normalize input data to make the optimization landscape smoother so that it takes fewer iterations to converge to a good minimum. With pandas DataFrames, we can easily notice all the values have already been normalized to be between 0 and 1, with 1 corresponding with "black" and 0 with "white."
 
 
 ```python
@@ -1524,49 +1375,11 @@ df.style.set_properties(**{'font-size':'5pt'}) \
 </table>
 
 
-
-
-Lets see how many examples of each digit the training set contains.
-
-
-```python
-digit_indices = {y: [] for y in range(10)}
-[digit_indices[y].append(i) for i, (x, y) in enumerate(train_dataset)]
-
-for i in range(10):
-  print(i, 'has', len(digit_indices[i]), 'samples')
-```
-
-    0 has 5923 samples
-    1 has 6742 samples
-    2 has 5958 samples
-    3 has 6131 samples
-    4 has 5842 samples
-    5 has 5421 samples
-    6 has 5918 samples
-    7 has 6265 samples
-    8 has 5851 samples
-    9 has 5949 samples
-
-
-Lets see an example of each digit.
-
-
-```python
-import matplotlib.pyplot as plt
-
-for i in range(10):
-  plt.subplot(2, 5, i + 1)
-  plt.imshow(torch.squeeze(train_dataset[digit_indices[i][0]][0]), cmap=plt.get_cmap('gray'))
-plt.show()
-```
-
-
-<img src="/assets/img/mnist/mnist_22_0.png">
+We can also check the distribution of the dataset, and see that it's approximately uniform across number of samples of each digit.
 
 
 ### Create a validation dataset
-
+It's important to carefully split out a validation set from the training set to use to see how well the model generalizes to unseen data during training.
 
 ```python
 import numpy as np
@@ -1576,15 +1389,10 @@ num_samples = len(train_dataset)
 split_idx = int(np.floor((1 - validation_frac) * num_samples))
 train_idx = np.arange(split_idx)
 valid_idx = np.arange(split_idx, num_samples)
-```
 
-
-```python
 train_data = Subset(train_dataset, train_idx)
 valid_data = Subset(train_dataset, valid_idx)
 
-train_data_flat = Subset(train_dataset_flattened, train_idx)
-valid_data_flat = Subset(train_dataset_flattened, valid_idx)
 ```
 
 ### Load Datasets into DataLoaders
@@ -1614,9 +1422,9 @@ test_dataloader = DataLoader(test_dataset, batch_size=len(test_dataset), shuffle
 
 ### Pixel Similarity baseline model
 
-Our first model takes a non-ML approach in favor of a straightforward elementwise pixel to pixel comparison per image. We compare a sample image to a mean image for each digit. The mean image is computed by averaging over the training examples per digit.
+Now we can start trying to create a model to classify the images as digits. Our first model takes a non-ML approach in favor of a straightforward elementwise pixel to pixel comparison per image. We compare a sample image to a mean image for each digit. The mean image is computed by averaging over the training examples per digit.
 
-##### calculate mean image per digit
+##### Calculate mean image per digit
 
 
 ```python
@@ -1628,17 +1436,11 @@ for i in range(10):
     torch.stack([sample[0] for sample in Subset(train_dataset, list(filter(lambda x: x < split_idx, digit_indices[i])))])
   valid_data_by_digit[i] = \
     torch.stack([sample[0] for sample in Subset(train_dataset, list(filter(lambda x: x >= split_idx, digit_indices[i])))])
-```
 
-
-```python
 digit_means = {y: torch.Tensor() for y in range(10)}
 for i in range(10):
   digit_means[i] = train_data_by_digit[i].mean(axis=0)
-```
 
-
-```python
 for i in range(10):
   plt.subplot(2, 5, i + 1)
   plt.imshow(torch.squeeze(digit_means[i]), cmap=plt.get_cmap('gray'))
@@ -1650,7 +1452,7 @@ plt.show()
     
 
 
-##### make predictions
+##### Make predictions
 
 
 ```python
@@ -1662,10 +1464,7 @@ def predict(sample):
 
 def predict_batch(samples):
   return torch.tensor([predict(torch.squeeze(sample)) for sample in samples])
-```
 
-
-```python
 preds = torch.empty(0)
 labels = torch.empty(0)
 for batch in test_dataloader:
@@ -1696,45 +1495,30 @@ df_cm = pd.DataFrame(cf_matrix / np.sum(cf_matrix, axis=1)[:, None], index = [i 
 
 plt.figure(figsize = (10,10))
 sn.heatmap(df_cm, annot=True)
+plt.show()
 ```
-
-
-
-
-    <Axes: >
 
 
 
 
 <img src="/assets/img/mnist/mnist_40_1.png">
     
-
+I'm surprised by how good this baseline already is, without any ML (>60% classification accuracy), but we can definitely do better.
 
 ### Learner class from scratch
 
-7 step process:
-1) Initialize params
-2) Calculate predictions
-3) Calculate the loss
-4) Calculate the gradients
-5) Step the parameters
-6) Repeat the process
-7) Stop
+There is a 7 step process for iterating on model weights:
 
+1. Initialize params
+2. Calculate predictions
+3. Calculate the loss
+4. Calculate the gradients
+5. Step the parameters
+6. Repeat the process
+7. Stop
 
+Lets implement a class that does this.
 
-```python
-class DataLoaders:
-  def __init__(self, train_dataloader, valid_dataloader):
-    self.train_dataloader = train_dataloader
-    self.valid_dataloader = valid_dataloader
-
-  def train_dl(self):
-    return self.train_dataloader
-
-  def valid_dl(self):
-    return self.valid_dataloader
-```
 
 
 ```python
@@ -1786,17 +1570,29 @@ class Learner:
           break
 ```
 
+We also create a class to group together training and validation datasets that our Learner needs.
+
+```python
+class DataLoaders:
+  def __init__(self, train_dataloader, valid_dataloader):
+    self.train_dataloader = train_dataloader
+    self.valid_dataloader = valid_dataloader
+
+  def train_dl(self):
+    return self.train_dataloader
+
+  def valid_dl(self):
+    return self.valid_dataloader
+```
+
 ### Train a linear model
 
-Now that we have a Learner class, we can train a linear model for sanity checking and to get another baseline. We still need a few concrete components in order to train: an architecture, an optimizer, and a loss function. We also add in a metric to be more human-friendly. Additionally, with a Linear model, we need to work with flattened data. We use the flattened dataset that was prepared above.
-
+Now that we have a Learner class, we can train a linear model for sanity checking and to get another baseline. We still need a few concrete components in order to train: an architecture, an optimizer, and a loss function. Additionally, with a Linear model, we need to work with flattened data. We use the flattened dataset that was prepared in the colab notebook, but not shown here.
 
 ```python
 bs = 64
 lr = 1e-1
 ```
-
-
 ```python
 train_dataloader = DataLoader(train_data_flat, batch_size=bs, shuffle=True, drop_last=True)
 valid_dataloader = DataLoader(valid_data_flat, batch_size=len(valid_data), shuffle=True)
@@ -1805,47 +1601,26 @@ test_dataloader = DataLoader(test_dataset_flattened, batch_size=len(test_dataset
 dls = DataLoaders(train_dataloader, valid_dataloader)
 ```
 
-
-```python
-next(iter(train_dataloader))
-```
-
-
-
-
-    [tensor([[0., 0., 0.,  ..., 0., 0., 0.],
-             [0., 0., 0.,  ..., 0., 0., 0.],
-             [0., 0., 0.,  ..., 0., 0., 0.],
-             ...,
-             [0., 0., 0.,  ..., 0., 0., 0.],
-             [0., 0., 0.,  ..., 0., 0., 0.],
-             [0., 0., 0.,  ..., 0., 0., 0.]]),
-     tensor([6, 4, 7, 5, 5, 4, 3, 0, 6, 5, 4, 8, 4, 2, 8, 1, 8, 3, 4, 5, 0, 8, 6, 2,
-             9, 7, 8, 2, 3, 3, 1, 3, 0, 8, 8, 4, 3, 3, 0, 7, 5, 0, 6, 8, 0, 0, 6, 6,
-             7, 9, 2, 1, 7, 3, 0, 3, 6, 7, 1, 9, 5, 3, 1, 0])]
-
-
-
-
-```python
-model = torch.nn.Linear(28*28,10)
-optimizer = torch.optim.SGD(model.parameters(), lr=lr)
-loss_func = torch.nn.CrossEntropyLoss()
-```
-
+This is the metric we'll use to see how well each model is able to classify digits.
 
 ```python
 def digit_accuracy(preds, labels):
   return (torch.argmax(preds, axis=1) == labels).float().mean()
 ```
 
+We'll use this same loss function for all our models.
 
 ```python
-learner = Learner(dls, model, optimizer, loss_func, digit_accuracy)
+loss_func = torch.nn.CrossEntropyLoss()
 ```
 
-
+Now let's construct our model and optimizer, then feed all of them to a `Learner`.
 ```python
+model = torch.nn.Linear(28*28,10)
+optimizer = torch.optim.SGD(model.parameters(), lr=lr)
+
+learner = Learner(dls, model, optimizer, loss_func, digit_accuracy)
+
 learner.fit(1)
 ```
 
@@ -1855,6 +1630,7 @@ learner.fit(1)
     metric:  tensor(0.9063)
 
 
+Let's see the test accuracy.
 
 ```python
 test_feats, test_labels = next(iter(test_dataloader))
@@ -1864,6 +1640,7 @@ print("test accuracy: ", digit_accuracy(preds, test_labels))
 
     test accuracy:  tensor(0.9065)
 
+Cool, looks like our linear model has learned something about handwritten digits and has a big improvement over the pixel-wise comparison baseline. But a linear model can only learn so much; a nonlinear model has more wiggle room (pun-intended) to fit the data.
 
 ### Train a feed-forward network model
 
@@ -1876,11 +1653,9 @@ ffn_model = torch.nn.Sequential(torch.nn.Linear(28*28, 64),
 
 lr = 1e-1
 ffn_optimizer = torch.optim.SGD(ffn_model.parameters(), lr=lr)
-```
 
-
-```python
 learner = Learner(dls, ffn_model, ffn_optimizer, loss_func, digit_accuracy)
+
 learner.fit(10)
 ```
 
@@ -1951,9 +1726,9 @@ def conv(ni, nf, stride=2, ks=3):
 
 ```python
 simple_cnn_model = nn.Sequential(
-        conv(1 ,8, ks=5),        #14x14
+        conv(1,8, ks=5),        #14x14
         nn.ReLU(),
-        conv(8 ,16),             #7x7
+        conv(8,16),             #7x7
         nn.ReLU(),
         conv(16,32),             #4x4
         nn.ReLU(),
@@ -1979,7 +1754,7 @@ dls = DataLoaders(train_dataloader, valid_dataloader)
 
 
 ```python
-learner = Learner(dls, simple_cnn_model, simple_cnn_optimizer, torch.nn.CrossEntropyLoss(), digit_accuracy)
+learner = Learner(dls, simple_cnn_model, simple_cnn_optimizer, loss_func, digit_accuracy)
 learner.fit(3)
 ```
 
@@ -2003,18 +1778,14 @@ Uh oh...the model doesn't train very well...we're going to need a few tricks.
 
 #### Learning rate scheduling: 1cycle training
 
-*   1cycle lr training allows us to stably use a much higher learning rate than other techniques
-
+1cycle LR training allows us to stably use a much higher learning rate than if we had kept a static learning rate through the entire training process. It updates the learning rate after every batch, annealing from some low learning rate up to a maximum learning rate, then back down to a rate much lower than the initial rate.
 
 
 
 ```python
 scheduler = torch.optim.lr_scheduler.OneCycleLR(simple_cnn_optimizer, max_lr=0.06, steps_per_epoch=len(train_dataloader), epochs=10)
-```
 
-
-```python
-learner = Learner(dls, simple_cnn_model, simple_cnn_optimizer, torch.nn.CrossEntropyLoss(), digit_accuracy, scheduler)
+learner = Learner(dls, simple_cnn_model, simple_cnn_optimizer, loss_func, digit_accuracy, scheduler)
 learner.fit(10)
 ```
 
@@ -2060,7 +1831,7 @@ learner.fit(10)
     metric:  tensor(0.9846)
 
 
-
+And evaluating on the test set:
 ```python
 test_feats, test_labels = next(iter(test_dataloader))
 preds = simple_cnn_model(test_feats)
@@ -2069,8 +1840,12 @@ print("test accuracy: ", digit_accuracy(preds, test_labels))
 
     test accuracy:  tensor(0.9862)
 
+We're close to our goal of >99% accuracy, but our metrics show we're plateauing. Let's add another technique in the mix to try to make better use of our neural capacity.
 
-#### Batch Norm should also allow us to use a much higher learning rate. Whereas a learning rate scheduler warms up to a higher learning rate, with batch norm we can just start off with a high learning rate. We can also acheive even higher accuracy in fewer iterations.
+#### Batch Normalization
+Batch normalization was invented to address "internal covariate shift," and although the issue being solved is debatable, there's no doubt that batch normalization makes training a CNN much easier. This normalization technique finds a mean and variance for activations in a minibatch, reducing the number of activations that are too large or too small (the exploding/vanishing gradient problem).
+
+Whereas a learning rate scheduler warms up to a higher learning rate, with batch norm we can just start off with a high learning rate. We can also acheive even higher accuracy in fewer iterations. 
 
 
 ```python
@@ -2163,4 +1938,4 @@ plt.show()
 
 <img src="/assets/img/mnist/mnist_74_0.png">
     
-
+Awesome! Looks like we're able to recognize handwritten digits pretty well. On to something more challenging...
