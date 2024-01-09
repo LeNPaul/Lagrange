@@ -1560,10 +1560,7 @@ for i in range(10):
 plt.show()
 ```
 
-
-    
-![png](mnist/mnist_22_0.png)
-    
+<img src="/assets/img/mnist/mnist_22_0.png">
 
 
 ### Create a validation dataset
@@ -1647,8 +1644,7 @@ plt.show()
 ```
 
 
-    
-![png](mnist/mnist_34_0.png)
+<img src="/assets/img/mnist/mnist_34_0.png">
     
 
 
@@ -1708,9 +1704,7 @@ sn.heatmap(df_cm, annot=True)
 
 
 
-    
-![png](mnist/mnist_40_1.png)
-    
+<img src="/assets/img/mnist/mnist_40_1.png">
 
 
 ### Learner class from scratch
@@ -2164,7 +2158,5 @@ plt.show()
 ```
 
 
-    
-![png](mnist/mnist_74_0.png)
-    
+<img src="/assets/img/mnist/mnist_74_0.png">
 
