@@ -1473,7 +1473,7 @@ for batch in test_dataloader:
   labels = torch.cat((labels, ls), dim = 0)
 ```
 
-##### results and confusion matrix
+##### Get prediction accuracy and confusion matrix
 
 
 ```python
