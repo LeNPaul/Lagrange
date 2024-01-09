@@ -1,3 +1,12 @@
+---
+layout: post
+title: "Getting Hands On With Machine Learning: MNIST"
+author: "Henry Chang"
+categories: journal
+tags: [deeplearning]
+image: mnist/mnist_22_0.png
+---
+
 One of the most commonly used datasets in ML research has been the MNIST dataset. It's a small dataset containing 60,000 28x28 greyscale images of handwritten digits and their labels, with 10 distinct classes for the digits from 0-9. It's often used as a "Hello World" example for machine learning. In this notebook, we'll use it as such.
 
 We go from doing some exploratory data analysis, through fully-connected models, up to training our first CNN model and achieving >99% classification accuracy on the dataset. Along the way, we write our own Learner class from scratch and use it to group together model, loss, optimizer, training and validation datasets.
@@ -1553,7 +1562,7 @@ plt.show()
 
 
     
-![png](mnist_files/mnist_22_0.png)
+![png](mnist/mnist_22_0.png)
     
 
 
@@ -1639,7 +1648,7 @@ plt.show()
 
 
     
-![png](mnist_files/mnist_34_0.png)
+![png](mnist/mnist_34_0.png)
     
 
 
@@ -1700,7 +1709,7 @@ sn.heatmap(df_cm, annot=True)
 
 
     
-![png](mnist_files/mnist_40_1.png)
+![png](mnist/mnist_40_1.png)
     
 
 
@@ -2156,6 +2165,6 @@ plt.show()
 
 
     
-![png](mnist_files/mnist_74_0.png)
+![png](mnist/mnist_74_0.png)
     
 
