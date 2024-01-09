@@ -2,7 +2,8 @@ To turn a Jupyter notebook into a blog post, follow https://jaketae.github.io/bl
 
 The steps are:
 
-1) Run the cells of the notebook and save a checkpoint that includes cell output.
+1) Run the cells of the notebook and save a checkpoint that includes cell output via
+   `python3 -m jupyter lab notebook.ipynb`
 2) Convert from .ipynb to .md using this command:
    `jupyter nbconvert --to markdown notebook.ipynb`
 3) Manually add [YAML front matter](https://jekyllrb.com/docs/front-matter/).
