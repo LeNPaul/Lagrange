@@ -3,6 +3,7 @@ layout: post
 title:  "Results of the TU Delft Research Data Storage survey"
 date:   2019-05-21 00:00:00 +0000
 author: Susan Branchett
+image: 2019-05-21_survey_header.png
 ---
 **Survey results presented at the Second Data Champions meeting.**
 
