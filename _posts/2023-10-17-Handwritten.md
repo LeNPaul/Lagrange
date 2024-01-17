@@ -10,4 +10,3 @@ Some old handwritten notes from Vinberg's "Course in Algebra": https://drive.goo
 
 (App: Drawboard on Surface Pro) 
 
-A Wordpress blog for picture heavy posts: puzzlesnabstraction.wordpress.com
