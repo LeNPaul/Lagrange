@@ -7,6 +7,6 @@ The steps are:
 2) Convert from .ipynb to .md using this command:
    `jupyter nbconvert --to markdown notebook.ipynb`
 3) Manually add [YAML front matter](https://jekyllrb.com/docs/front-matter/).
-4) Change image links to follow this format (with spaces removed): < img src="/assets/img/some_file_name.png" >
+4) Change image links to follow this format (with spaces next to bracksts removed): < img src="/assets/img/some_file_name.png" >
 5) Move generated `md` file to `_posts`
 6) Move generated images to `assets/img/`
