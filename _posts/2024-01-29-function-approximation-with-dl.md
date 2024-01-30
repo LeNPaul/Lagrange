@@ -4,7 +4,7 @@ title: "Function Approximation with Deep Learning"
 author: "Henry Chang"
 categories: journal
 tags: [deeplearning]
-image: Function_Approximation_with_DL_files/Function_Approximation_with_DL_36_0.png
+image: Function_Approximation_with_DL_files/Function_Approximation_with_DL_53_0.png
 ---
 
 
