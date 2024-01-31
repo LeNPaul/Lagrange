@@ -105,11 +105,11 @@ We set up the problem as follows with mean squared error loss (MSE):
 $f(w) = xw_0 + w_1$
 
 
-$ w* = argmin a|| Xw - y ||_2^2$
+$w* = \underset{w}{\text{argmin}} || Xw - y ||_2^2$
 
 where $X \in ℝ^{Nx2}, w \in ℝ^2, y \in ℝ^N$. Note the second column of $X$ is a column of ones to be multiplied by the second weight element (the bias term).
 
-$ L= \frac{1}{N} \sum_{i=1}^N( X_iw - y_i )^2$
+$L= \frac{1}{N} \sum_{i=1}^N( X_iw - y_i )^2$
 
 We need the gradients in order to do gradient descent:
 
@@ -318,13 +318,13 @@ We set up the problem as follows with mean squared error loss (MSE):
 $f(w) = x^3w_0 + x^2w_1 + xw_2 + w_3$
 
 
-$ w* = argmin || Xw - y ||_2^2$
+$w* = \underset{w}{\text{argmin}} || Xw - y ||_2^2$
 
 where $X \in ℝ^{Nx4}, w \in ℝ^4, y \in ℝ^N$.
 
 Notice the problem formulation is exactly the same as before. The difference is that the terms in each row of $X$ are $x_i^k$ for $k \in {3,2,1,0}$ instead of $k \in {1,0}$.
 
-$ L= \frac{1}{N} \sum_{i=1}^N( X_iw - y_i )^2$
+$L= \frac{1}{N} \sum_{i=1}^N( X_iw - y_i )^2$
 
 We need the gradients in order to do gradient descent:
 
