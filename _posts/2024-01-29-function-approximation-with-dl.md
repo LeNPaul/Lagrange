@@ -105,7 +105,7 @@ We set up the problem as follows with mean squared error loss (MSE):
 $f(w) = xw_0 + w_1$
 
 
-$ w* = \underset{w}{\operatorname{argmin}} || Xw - y ||_2^2$
+$ w* = \arg \min_w || Xw - y ||_2^2$
 
 where $X \in ℝ^{Nx2}, w \in ℝ^2, y \in ℝ^N$. Note the second column of $X$ is a column of ones to be multiplied by the second weight element (the bias term).
 
@@ -318,7 +318,7 @@ We set up the problem as follows with mean squared error loss (MSE):
 $f(w) = x^3w_0 + x^2w_1 + xw_2 + w_3$
 
 
-$ w* = \underset{w}{\operatorname{argmin}} || Xw - y ||_2^2$
+$ w* = \arg \min_w || Xw - y ||_2^2$
 
 where $X \in ℝ^{Nx4}, w \in ℝ^4, y \in ℝ^N$.
 
