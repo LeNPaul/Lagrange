@@ -849,11 +849,9 @@ Here is some useful reading to get an understanding of how `torch.as_strided()` 
 
 The key thing to understand is the underlying representation of tensors is that the tensors do not take on their shapes in memory. Rather, they live in 1D contiguous arrays (or non-contiguous if the tensor was created by striding over a continuous array).
 
-First we'll implement some simple matrix operations to get warmed up to `torch.as_strided`. Then we'll build up to the full `conv2d` and `maxpool2d`. This follows [ARENA 3.0 material](https://arena3-chapter0-fundamentals.streamlit.app/[0.2]_CNNs_&_ResNets) very closely.
+Here's some simple matrix operations to get used to `torch.as_strided`. 
 
-##### Warm-up: Matrix operations
-
-###### trace
+##### trace
 
 Let's assume this matrix lives in contiguous memory.
 
@@ -868,7 +866,7 @@ def as_strided_trace(mat: Float[Tensor, "i j"]) -> Float[Tensor, ""]:
   return mat.as_strided((1, len), (1, len + 1)).sum(1)
 ```
 
-###### matrix-vector multiplication
+##### matrix-vector multiplication
 
 
 ```python
@@ -879,7 +877,7 @@ def as_strided_mv(mat: Float[Tensor, "i j"], vec: Float[Tensor, "j"]) -> Float[T
   return (mat * vec.as_strided(mat.shape, (0,vec.stride()[0]))).sum(1)
 ```
 
-###### matrix-matrix multiplication
+##### matrix-matrix multiplication
 
 
 ```python
@@ -895,119 +893,10 @@ def as_strided_mm(matA: Float[Tensor, "i j"], matB: Float[Tensor, "j k"]) -> Flo
   return (A*B).sum(1)
 ```
 
-#### Building up to full conv2d and maxpool2d
 
-###### extra-minimal conv1d
+#### conv2d
 
-Here we'll implement `conv1d` with `padding=0` and `stride=1`, and with batch size, number of input features, and number of outputs features all equal to 1.
-
-
-```python
-def conv1d_minimal_simple(x: Float[Tensor, "w"], weights: Float[Tensor, "kw"]) -> Float[Tensor, "ow"]:
-    '''
-    Like torch's conv1d using bias=False and all other keyword arguments left at their default values.
-
-    Simplifications: batch = input channels = output channels = 1.
-
-    x: shape (width,)
-    weights: shape (kernel_width,)
-
-    Returns: shape (output_width,)
-    '''
-    input_width = x.shape[0]
-    kernel_width = weights.shape[0]
-    output_width = input_width - kernel_width + 1
-    new_size = (output_width, kernel_width)
-    new_stride = (x.stride(0), x.stride(0))
-    input = x.as_strided(size=new_size, stride=new_stride)
-    return einops.einsum(input, weights, 'output_width kernel_width, kernel_width -> output_width')
-```
-
-###### minimal `conv1d` and `conv2d`
-
-Here we'll implement `conv1d` and `conv2d` with `padding=0` and `stride=1`, but implements the "full version" for the other dimensions.
-
-
-```python
-def conv1d_minimal(x: Float[Tensor, "b ic w"], weights: Float[Tensor, "oc ic kw"]) -> Float[Tensor, "b oc ow"]:
-    '''
-    Like torch's conv1d using bias=False and all other keyword arguments left at their default values.
-
-    x: shape (batch, in_channels, width)
-    weights: shape (out_channels, in_channels, kernel_width)
-
-    Returns: shape (batch, out_channels, output_width)
-    '''
-    b, ic, w = x.shape
-    oc, ic2, kw = weights.shape
-    assert(ic == ic2)
-    ow = w - kw + 1
-    new_size = (b, ic, ow, kw)
-    new_stride = (x.stride(0), x.stride(1), x.stride(2), x.stride(2))
-    input = x.as_strided(size=new_size, stride=new_stride)
-    return einops.einsum(input, weights, 'b ic ow kw, oc ic kw -> b oc ow')
-```
-
-
-```python
-def conv2d_minimal(x: Float[Tensor, "b ic h w"], weights: Float[Tensor, "oc ic kh kw"]) -> Float[Tensor, "b oc oh ow"]:
-    '''
-    Like torch's conv2d using bias=False and all other keyword arguments left at their default values.
-
-    x: shape (batch, in_channels, height, width)
-    weights: shape (out_channels, in_channels, kernel_height, kernel_width)
-
-    Returns: shape (batch, out_channels, output_height, output_width)
-    '''
-    b, ic, h, w = x.shape
-    oc, ic2, kh, kw = weights.shape
-    assert(ic == ic2)
-    oh = h - kh + 1
-    ow = w - kw + 1
-    new_size = (b, ic, oh, ow, kh, kw)
-    new_stride = (x.stride(0), x.stride(1), x.stride(2), x.stride(3), x.stride(2), x.stride(3))
-    input = x.as_strided(size=new_size, stride=new_stride)
-    return einops.einsum(input, weights, 'b ic oh ow kh kw, oc ic kh kw -> b oc oh ow')
-```
-
-###### full `conv1d` and `conv2d`
-
-
-```python
-def conv1d(
-    x: Float[Tensor, "b ic w"],
-    weights: Float[Tensor, "oc ic kw"],
-    stride: int = 1,
-    padding: int = 0
-) -> Float[Tensor, "b oc ow"]:
-    '''
-    Like torch's conv1d using bias=False.
-
-    x: shape (batch, in_channels, width)
-    weights: shape (out_channels, in_channels, kernel_width)
-
-    Returns: shape (batch, out_channels, output_width)
-    '''
-    b, ic, w = x.shape
-    oc, ic2, kw = weights.shape
-    assert(ic == ic2)
-
-    padded_width = w+padding*2
-    padded_x = x.new_full(size=(b, ic, padded_width), fill_value=0)
-    padded_x[..., padding:w+padding] = x
-
-    ow = int((padded_width - kw)/stride) + 1
-    new_size = (b, ic, ow, kw)
-
-    b_s, ic_s, w_s = padded_x.stride()
-    new_stride = (b_s, ic_s, w_s*stride, w_s)
-
-    strided_padded_x = padded_x.as_strided(size=new_size, stride=new_stride)
-    return einops.einsum(strided_padded_x, weights, 'b ic ow kw, oc ic kw -> b oc ow')
-```
-
-We'll implement a `conv2d` that allows for non-square kernels. We defined a new type `IntOrPair` that can handle that flexibility, in addition to non-symmetrical padding.
-
+Check out the Colab notebook for building up slowly to the full implementation of `conv2d`. We simply present it here.
 
 ```python
 def conv2d(
@@ -1046,82 +935,9 @@ def conv2d(
     return einops.einsum(strided_padded_x, weights, 'b ic oh ow kh kw, oc ic kh kw -> b oc oh ow')
 ```
 
-###### full maxpool2d
-
 `maxpool2d` is very similar to `conv2d`, except the operations at the end. Max pooling is very similar to convolution in that we slide a window across a matrix, except instead of multiplying by the kernel and summing, we simply take the maximum in the window. Also, instead of having each output channel be a function of all the input channels, we have the same number of output channels as input channels since the max pooling operation is taken independently for each channel.
 
-
-```python
-def maxpool2d(
-    x: Float[Tensor, "b ic h w"],
-    kernel_size: IntOrPair,
-    stride: Optional[IntOrPair] = None,
-    padding: IntOrPair = 0
-) -> Float[Tensor, "b ic oh ow"]:
-    '''
-    Like PyTorch's maxpool2d.
-
-    x: shape (batch, channels, height, width)
-    stride: if None, should be equal to the kernel size
-
-    Return: (batch, channels, output_height, output_width)
-    '''
-    b, ic, h, w = x.shape
-    kernel_h, kernel_w = force_pair(kernel_size)
-    pad_h, pad_w = force_pair(padding)
-    if(stride):
-      stride_h, stride_w = force_pair(stride)
-    else:
-      stride_h=kernel_h
-      stride_w=kernel_w
-
-    padded_h = h+pad_h*2
-    padded_w = w+pad_w*2
-    padded_size = (b, ic, padded_h, padded_w)
-    padded_x = x.new_full(size=padded_size, fill_value=-t.inf)
-    padded_x[..., pad_h:pad_h+h, pad_w:pad_w+w] = x
-
-    oh = int((padded_h - kernel_h)/stride_h) + 1
-    ow = int((padded_w - kernel_w)/stride_w) + 1
-    new_size = (b, ic, oh, ow, kernel_h, kernel_w)
-
-    b_s, ic_s, h_s, w_s = padded_x.stride()
-    new_stride = (b_s, ic_s, h_s*stride_h, w_s*stride_w, h_s, w_s)
-
-    strided_x = padded_x.as_strided(size=new_size, stride=new_stride)
-    out = t.amax(strided_x, dim=(-1, -2))
-    return out
-```
-
-#### Using our custom `conv2d` and `maxpool2d` in our custom modules
-
-
-```python
-CustomConv2d = CustomConv2dFactory(conv2d)
-CustomMaxPool2d = CustomMaxPool2dFactory(maxpool2d)
-```
-
-
-```python
-Conv2dLayer = Conv2dFactory(CustomConv2d, CustomBatchNorm2d, CustomReLU)
-BottleneckConvBlock = ConvBlockFactory(Conv2dLayer, CustomSequential, bottleneck=True)
-ResidualBlock = ResidualBlockFactory(BottleneckConvBlock, Conv2dLayer, CustomReLU)
-BlockGroup = BlockGroupFactory(ResidualBlock, CustomSequential)
-ResNet = ResNetFactory(Conv2dLayer, CustomMaxPool2d, BlockGroup, AveragePool, \
-                       CustomFlatten, CustomLinear, CustomSequential)
-
-my_resnet50 = ResNet(n_blocks_per_group=[3, 4, 6, 3],
-                     middle_features_per_group=[64, 128, 256, 512],
-                     out_features_per_group=[256, 512, 1024, 2048])
-```
-
-
-```python
-my_resnet50 = copy_weights(my_resnet50, pretrained_resnet50)
-compare_predictions(my_resnet50, pretrained_resnet50, IMAGE_FILENAMES, atol=1e-5)
-```
-
-    Models are equivalent!
+We can check that replacing the `nn.functional` versions of `conv2d` and `maxpool2d` with these in our custom modules yields the same working ResNet architectures. We do so in the Colab notebook.
 
 
 Whew! This was a lot of code. But we've reached the end of implementing our own ResNet from scratch!
