@@ -611,7 +611,6 @@ class CustomLinear(t.nn.Module):
 
     The fields should be named `weight` and `bias` for compatibility with
     PyTorch.
-    If `bias` is False, set `self.bias` to None.
     '''
     super().__init__()
     self.in_features = in_features
@@ -953,13 +952,6 @@ We want to change the last layer of our model to output 10 classes instead of 10
 For the input, since we want to deal with a single input channel rather than three, we could modify the first layer to take in only a single channel, but it'd be difficult to know which kernels for the three channels to discard. We could try to learn the first layer's weights from scratch, but let's try duplicating our single channel input into three channels instead.
 
 
-```python
-from torchvision.datasets import FashionMNIST
-from torch.utils.data import Subset, DataLoader, random_split
-import matplotlib.pyplot as plt
-from tqdm.notebook import tqdm
-```
-
 As part of adapting our model and data to play nice with each other, we need to resize each image from (1, 28, 28) to (3, 224, 224), the image shape that ResNet34 expects.
 
 
@@ -1011,63 +1003,6 @@ Let's reuse the `Learner` and `DataLoaders` classes we implemented in [Getting H
 
 
 ```python
-device = t.device("cuda" if t.cuda.is_available() else "cpu")
-```
-
-
-```python
-class Learner:
-  def __init__(self, dataloaders, model, optimizer, loss_func, metric,
-               scheduler=None, gradient_accumulation_batch_size=64):
-    self.dataloaders = dataloaders
-    self.model = model.to(device)
-    self.optimizer = optimizer
-    self.loss_func = loss_func
-    self.metric = metric
-    self.scheduler = scheduler
-    self.val_losses = []
-    self.gradient_accumulation_bs = gradient_accumulation_batch_size
-    self.gradient_accumulation_count = 0
-
-  def fit(self, epochs):
-    for epoch in tqdm(range(epochs)):
-      self.model.train()
-      train_loss = 0.
-      for (train_features, train_labels) in tqdm(self.dataloaders.train_dl()):
-        train_features = train_features.to(device)
-        train_labels = train_labels.to(device)
-        preds = self.model(train_features)
-        loss = self.loss_func(preds, train_labels)
-        train_loss += loss
-        loss.backward()
-        self.optimizer.step()
-        self.gradient_accumulation_count += len(train_labels)
-        if self.gradient_accumulation_count - self.gradient_accumulation_bs > 0:
-          self.gradient_accumulation_count = 0
-          self.optimizer.zero_grad()
-        if self.scheduler:
-          self.scheduler.step()
-      print("avg training loss: ", train_loss / len(self.dataloaders.train_dl()))
-
-      self.model.eval()
-      with t.no_grad():
-        val_losses = 0.
-        val_metric = 0.
-        metric_results = []
-        for (val_features, val_labels) in self.dataloaders.valid_dl():
-          val_features = val_features.to(device)
-          val_labels = val_labels.to(device)
-          preds = self.model(val_features)
-          val_losses += self.loss_func(preds, val_labels)
-          val_metric += self.metric(preds, val_labels)
-        num_batches = len(self.dataloaders.valid_dl())
-        print("avg validation loss: ", val_losses / num_batches)
-        print("metric: ", val_metric / num_batches)
-```
-
-
-
-```python
 bs = 64
 train_dataloader = DataLoader(train_data, batch_size=bs, shuffle=True, drop_last=True)
 valid_dataloader = DataLoader(valid_data, batch_size=bs, drop_last=True)
@@ -1095,7 +1030,7 @@ learner.fit(epochs)
 
     avg training loss:  tensor(0.9040, device='cuda:0', grad_fn=<DivBackward0>)
     avg validation loss:  tensor(1.2077, device='cuda:0')
-    metric:  tensor(0.7381, device='cuda:0')
+    ***metric:  tensor(0.7381, device='cuda:0')***
 
 
 
@@ -1104,7 +1039,7 @@ learner.fit(epochs)
 
     avg training loss:  tensor(0.7149, device='cuda:0', grad_fn=<DivBackward0>)
     avg validation loss:  tensor(0.4802, device='cuda:0')
-    metric:  tensor(0.8446, device='cuda:0')
+    ***metric:  tensor(0.8446, device='cuda:0')***
 
 
 
@@ -1113,8 +1048,9 @@ learner.fit(epochs)
 
     avg training loss:  tensor(0.4177, device='cuda:0', grad_fn=<DivBackward0>)
     avg validation loss:  tensor(0.3967, device='cuda:0')
-    metric:  tensor(0.8632, device='cuda:0')
+    ***metric:  tensor(0.8632, device='cuda:0')***
 
+We can see that we can achieve 86% accuracy on the validation data after 3 epochs.
 
 Cool! We've successfully finetuned a ResNet34 model, via feature extraction, to classify FashionMNIST images. We could probably achieve much better results if we didn't freeze the weights or if we trained a model from scratch (perhaps with a single input channel).
 
