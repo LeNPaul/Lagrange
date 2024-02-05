@@ -5,7 +5,7 @@ author: "Henry Chang"
 categories: journal
 tags: [deeplearning]
 image: resnet/resnet_paper_2.png
-___
+---
 
 ResNets were considered state-of-the-art CNNs for many tasks in computer vision until the last couple years. In this post, we'll first walk through the paper that introduced the idea of residual networks, then dive deep into implementing our own ResNets from scratch. We'll implement our own `torch.nn.Module`s for each layer and look deep under the hood into manipulating tensors in memory to implement a 2d convolution layer and max pool layer from scratch. Along the way, we'll learn how to load state from a pretrained ResNet into our custom ResNet and classify some images, as well as fine-tune a ResNet using the Fashion MNIST dataset.
 
