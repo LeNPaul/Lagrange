@@ -1308,8 +1308,8 @@ Hopefully you've gotten a much better understanding of what a ResNet is and how 
 
 Other resources that I've found helpful in aiding my understanding of CNNs and ResNets are linked below:
 
-[https://github.com/fastai/fastbook/blob/master/13_convolutions.ipynb](https://github.com/fastai/fastbook/blob/master/13_convolutions.ipynb)
-[https://github.com/fastai/course22p2/blob/master/nbs/13_resnet.ipynb](https://github.com/fastai/course22p2/blob/master/nbs/13_resnet.ipynb)
-[https://arena3-chapter0-fundamentals.streamlit.app/[0.2]_CNNs_&_ResNets](https://arena3-chapter0-fundamentals.streamlit.app/[0.2]_CNNs_&_ResNets)
-[https://cs231n.github.io/convolutional-networks/](https://cs231n.github.io/convolutional-networks/)
-[http://colah.github.io/posts/2014-07-Conv-Nets-Modular/](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
+* [FastAI: Convolutions](https://github.com/fastai/fastbook/blob/master/13_convolutions.ipynb)
+* [FastAI: ResNet](https://github.com/fastai/course22p2/blob/master/nbs/13_resnet.ipynb)
+* [ARENA 3.0: CNNs & ResNets](https://arena3-chapter0-fundamentals.streamlit.app/[0.2]_CNNs_&_ResNets)
+* [CS231n: Convolutional Networks](https://cs231n.github.io/convolutional-networks/)
+* [Chris Olah: Conv Nets Modular](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
