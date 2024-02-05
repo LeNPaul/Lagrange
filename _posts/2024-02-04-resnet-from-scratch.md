@@ -9,7 +9,7 @@ image: resnet/resnet_paper_2.png
 
 ResNets were considered state-of-the-art CNNs for many tasks in computer vision until the last couple years. In this post, we'll first walk through the paper that introduced the idea of residual networks, then dive deep into implementing our own ResNets from scratch. We'll implement our own `torch.nn.Module`s for each layer and look deep under the hood into manipulating tensors in memory to implement a 2d convolution layer and max pool layer from scratch. Along the way, we'll learn how to load state from a pretrained ResNet into our custom ResNet and classify some images, as well as fine-tune a ResNet using the Fashion MNIST dataset.
 
-You can choose to follow along directly in Colab: 
+You can choose to follow along directly in Colab for working code: 
 <a target="_blank" href="https://colab.research.google.com/github/henryjchang/henryjchang.github.io/blob/gh-pages/_notebooks/resnet/resnet_from_scratch.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
@@ -98,33 +98,6 @@ We'll then test our architecture implementation by making concrete ResNet34 and 
 
 Note: Much of the code below, and in the following sections, comes from working through [ARENA 3.0](https://github.com/callummcdougall/ARENA_3.0/tree/main) exercises and checking the solutions, although the extensions for generality of building blocks and bottleneck architectures are solely my design. The functionality for being able to specify the lower-level building blocks was inspired by C++ templates. If someone knows a better way to do this, please let me know!
 
-### Install dependencies
-
-
-```python
-import torchvision.transforms as transforms
-import torchvision.models as models
-import torch as t
-
-from IPython.display import Image, display
-import PIL.Image
-
-# Download ImageNet labels
-!wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
-
-!pip install einops
-import einops
-
-# Import test images from a google drive folder into `/content/test_images/`
-!pip install gdown
-!gdown --no-check-certificate --folder https://drive.google.com/drive/folders/1K2ks6JVseLQtNZmmk1iqjUahw7DTG6pq?usp=drive_link
-
-# for typehints
-!pip install jaxtyping
-from jaxtyping import Float, Int
-from torch import Tensor
-from typing import Union, Tuple, Optional
-```
 
 ### Templated ResNet architecture implementation
 
@@ -383,59 +356,6 @@ def copy_weights(my_resnet, pretrained_resnet):
     my_resnet.load_state_dict(state_dict_to_load)
 
     return my_resnet
-```
-
-
-```python
-# Copied verbatim from https://github.com/callummcdougall/ARENA_3.0/blob/main/chapter0_fundamentals/exercises/part2_cnns/utils.py
-
-import pandas as pd
-from IPython.display import display
-import numpy as np
-
-def print_param_count(*models, display_df=True, use_state_dict=False):
-    """
-    display_df: bool
-        If true, displays styled dataframe
-        if false, returns dataframe
-
-    use_state_dict: bool
-        If true, uses model.state_dict() to construct dataframe
-            This will include buffers, not just params
-        If false, uses model.named_parameters() to construct dataframe
-            This misses out buffers (more useful for GPT)
-    """
-    df_list = []
-    gmap_list = []
-    for i, model in enumerate(models, start=1):
-        print(f"Model {i}, total params = {sum([param.numel() for name, param in model.named_parameters()])}")
-        iterator = model.state_dict().items() if use_state_dict else model.named_parameters()
-        df = pd.DataFrame([
-            {f"name_{i}": name, f"shape_{i}": tuple(param.shape), f"num_params_{i}": param.numel()}
-            for name, param in iterator
-        ]) if (i == 1) else pd.DataFrame([
-            {f"num_params_{i}": param.numel(), f"shape_{i}": tuple(param.shape), f"name_{i}": name}
-            for name, param in iterator
-        ])
-        df_list.append(df)
-        gmap_list.append(np.log(df[f"num_params_{i}"]))
-    df = df_list[0] if len(df_list) == 1 else pd.concat(df_list, axis=1).fillna(0)
-    for i in range(1, len(models) + 1):
-        df[f"num_params_{i}"] = df[f"num_params_{i}"].astype(int)
-    if len(models) > 1:
-        param_counts = [df[f"num_params_{i}"].values.tolist() for i in range(1, len(models) + 1)]
-        if all([param_counts[0] == param_counts[i] for i in range(1, len(param_counts))]):
-            print("All parameter counts match!")
-        else:
-            print("Parameter counts don't match up exactly.")
-    if display_df:
-        s = df.style
-        for i in range(1, len(models) + 1):
-            s = s.background_gradient(cmap="viridis", subset=[f"num_params_{i}"], gmap=gmap_list[i-1])
-        with pd.option_context("display.max_rows", 1000):
-            display(s)
-    else:
-        return df
 ```
 
 ##### Load weights from pretrained models
@@ -1086,38 +1006,7 @@ def conv1d(
     return einops.einsum(strided_padded_x, weights, 'b ic ow kw, oc ic kw -> b oc ow')
 ```
 
-We'll implement a `conv2d` that allows for non-square kernels. We'll need to define a new type that can handle that flexibility, in addition to non-symmetrical padding.
-
-
-```python
-IntOrPair = Union[int, Tuple[int, int]]
-Pair = Tuple[int, int]
-
-def force_pair(v: IntOrPair) -> Pair:
-    '''Convert v to a pair of int, if it isn't already.'''
-    if isinstance(v, tuple):
-        if len(v) != 2:
-            raise ValueError(v)
-        return (int(v[0]), int(v[1]))
-    elif isinstance(v, int):
-        return (v, v)
-    raise ValueError(v)
-
-# Examples of how this function can be used:
-
-for v in [(1, 2), 2, (1, 2, 3)]:
-    try:
-        print(f"{v!r:9} -> {force_pair(v)!r}")
-    except ValueError:
-        print(f"{v!r:9} -> ValueError")
-```
-
-    (1, 2)    -> (1, 2)
-    2         -> (2, 2)
-    (1, 2, 3) -> ValueError
-
-
-Now we can implement the full `conv2d`.
+We'll implement a `conv2d` that allows for non-square kernels. We defined a new type `IntOrPair` that can handle that flexibility, in addition to non-symmetrical padding.
 
 
 ```python
@@ -1361,25 +1250,6 @@ class Learner:
 ```
 
 
-```python
-class DataLoaders:
-  def __init__(self, train_dataloader, valid_dataloader):
-    self.train_dataloader = train_dataloader
-    self.valid_dataloader = valid_dataloader
-
-  def train_dl(self):
-    return self.train_dataloader
-
-  def valid_dl(self):
-    return self.valid_dataloader
-```
-
-
-```python
-def accuracy(preds, labels):
-  return (t.argmax(preds, axis=1) == labels).float().mean()
-```
-
 
 ```python
 bs = 64
@@ -1387,10 +1257,7 @@ train_dataloader = DataLoader(train_data, batch_size=bs, shuffle=True, drop_last
 valid_dataloader = DataLoader(valid_data, batch_size=bs, drop_last=True)
 test_dataloader = DataLoader(test_dataset, batch_size=bs, drop_last=True)
 dls = DataLoaders(train_dataloader, valid_dataloader)
-```
 
-
-```python
 epochs = 3
 optimizer = t.optim.Adam(my_resnet34.parameters(), lr=1e-3)
 loss_func = t.nn.CrossEntropyLoss()
