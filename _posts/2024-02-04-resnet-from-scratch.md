@@ -3,7 +3,7 @@ layout: post
 title: "ResNet From Scratch"
 author: "Henry Chang"
 categories: journal
-tags: [deeplearning]
+tags: [deeplearning, paper_implementation]
 image: resnet/resnet_paper_2.png
 ---
 
