@@ -14,7 +14,13 @@ You can choose to follow along directly in Colab for working code:
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
-## ResNet Paper Walk-Through
+## Table of Contents
+1. [ResNet Paper Walk-Through](#paper_walkthrough)
+2. [Architecture Implementation From Scratch](#from_scratch)
+3. [Replacing PyTorch building blocks with our own by subclassing `nn.Module`](#subclassing)
+4. [Finetune for FashionMNIST](#finetune)
+
+## ResNet Paper Walk-Through <a name="paper_walkthrough"></a>
 
 ResNets were introduced in [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385.pdf) by Kaiming He, et al. in 2015. The techniques described in the paper were used to achieve 3.57% error
 on the ImageNet test set, good for 1st place in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) 2015 classification task.
@@ -27,7 +33,7 @@ Around that time, there had been breakthroughs in making networks deeper, but on
 <img src="/assets/img/resnet/resnet_paper_1.png">
 
 
-### Key Idea
+#### Key Idea
 
 The key idea of the paper was that in order to make networks deeper (and therefore produce better results), the layers can be reformulated into layer blocks and using skip connections, learn a residual function relative to the input to the block. The intuition here was that it would be easier to learn a residual driven to zero rather than learn an identity layer that included nonlinear activations. So instead of trying to learn a function $H(x)$, learn $F(x) = H(x) - x$.
 
@@ -47,7 +53,7 @@ In the image above, on the left is VGG-19, introduced in [Very Deep Convolutiona
 
 In the middle is a 34-layer plain network and on the right is the same network with skip connections.
 
-#### Identity vs Projection Shortcuts
+##### Identity vs Projection Shortcuts
 
 In order to add the output of a block ($x$) with the residual from the next block ($F(x,W_i)$), the two dimensions must match (across channel, width, height).
 
@@ -59,12 +65,12 @@ Note the notation used for $W_sx$ is for a linear layer but can be applied for a
 
 Note $F(x,W_i)$ can refer to a block with any number of layers (with activation function in between each layer), but the architectures discussed are with 2 and 3 layers. A single layer would have no extra activation so adding the skip connection would make little difference.
 
-#### Deeper Bottleneck Architectures
+##### Deeper Bottleneck Architectures
 <img src="/assets/img/resnet/resnet_paper_4.png">
 
 In order to reduce training time for larger and deeper networks, a bottleneck block with 3 layers is used to replace a block with 2 layers. This bottleneck architecture reduces dimensionality when applying the 3x3 convolution kernels, by downsampling the input and upsampling the output.
 
-### Experiments
+#### Experiments
 
 The following table lists the various ResNet architectures that were tried, ranging from an 18-layer network up to one with 152 layers. They each share the same initial and final layers. Varying depths of convolutional blocks are used in the middle.
 
@@ -84,7 +90,7 @@ The final layer is a 1000-d fully-connected layer for classification on the Imag
 
 Additional experiments were run on CIFAR-10 with architectures that follow the same general design up to >1000 layers. The deepest network still had good results, but performed worse than a network 10x shallower, which they attributed to overfitting.
 
-# Architecture Implementation From Scratch
+## Architecture Implementation From Scratch <a name="from_scratch"></a>
 
 Next, we'll build our own ResNet architecture from scratch. We'll design our code to be flexible to the implementations of the building blocks, whether they come from `torch.nn` or are custom. We'll design the following in this section:
 
@@ -331,10 +337,7 @@ my_resnet50 = ResNet(n_blocks_per_group=[3, 4, 6, 3],
 
 ### Test the implementation
 
-#### Load weights from pre-trained ResNet34 and ResNet50 models
-
-##### Helper functions
-
+We can check whether our architecture has the right size by attempting to copy weights from a pretrained model into our model. We use PyTorch's pretrained models.
 
 ```python
 # Copied verbatim from https://github.com/callummcdougall/ARENA_3.0/blob/main/chapter0_fundamentals/exercises/part2_cnns/solutions.py#L548-L565
@@ -357,11 +360,6 @@ def copy_weights(my_resnet, pretrained_resnet):
 
     return my_resnet
 ```
-
-##### Load weights from pretrained models
-
-We can check whether our architecture has the right size by attempting to copy weights from a pretrained model into our model.
-
 
 ```python
 pretrained_resnet34 = t.hub.load('pytorch/vision:v0.10.0', 'resnet34', pretrained=True)
@@ -536,7 +534,7 @@ predict_top5(my_resnet50, IMAGE_FILENAMES)
     
 
 
-# Replacing PyTorch building blocks with our own by subclassing nn.Module
+## Replacing PyTorch building blocks with our own by subclassing nn.Module <a name="subclassing"></a>
 
 `torch.nn` Modules are stateful building blocks that implement the forward pass of a computation (by implementing `forward()`) and partner with PyTorch's autograd system for the backward pass. Parameters to be learned in a module are specified by wrapping their tensors in a `torch.nn.Parameter`, which automatically registers them with the module to be updated by forward/backward passes.
 
@@ -903,7 +901,7 @@ Whew! This was a lot of code. But we've reached the end of implementing our own 
 
 We followed the original paper for the high-level ResNet architectures (and upgraded to the "1.5 version" for the bottleneck design to match with PyTorch's architecture). We first made concrete models by using building blocks from PyTorch's `torch.nn` modules, then replaced them with our own modules by sub-classing `torch.nn.Module`. Then we went even deeper, using `.as_strided()` and `.sum()` to replace `torch.nn.functional` calls. Along the way, we tested the models by copying weights from PyTorch's pre-trained ResNet models and running them on some test images to see if we got the same results (modulo some tolerance due to how floating point operations were chained).
 
-# Finetune for FashionMNIST
+## Finetune for FashionMNIST <a name="finetune"></a>
 
 Now let's do some transfer learning. We should be able to take our pre-trained model (trained on ImageNet with RGB images and 1000 classes) and adapt it to be able to classify images from the FashionMNIST dataset (grayscale images and 10 classes).
 
