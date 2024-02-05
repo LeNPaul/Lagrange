@@ -435,45 +435,9 @@ def predict_top5(model, image_filenames):
 Even though two models can have the same parameters, that doesn't mean the architectures are identical. Things like where a stride is taken in a `BlockGroup` can have an impact on model output. We can check the equality of two models by checking the equality of their outputs.
 
 
-```python
-def compare_predictions(my_model, pretrained_model, image_filenames, atol=0., rtol=0.):
-  my_model.eval()
-  pretrained_model.eval()
-
-  images = [PIL.Image.open(filename) for filename in image_filenames]
-  input_batch = t.stack([preprocess(img) for img in images], dim=0)
-
-  # move the input and model to GPU for speed if available
-  if t.cuda.is_available():
-    input_batch = input_batch.to('cuda')
-    my_model.to('cuda')
-    pretrained_model.to('cuda')
-
-  # run the models
-  with t.no_grad():
-    output_my_model = my_model(input_batch)
-    output_pretrained_model = pretrained_model(input_batch)
-    prob_my_model = t.nn.functional.softmax(output_my_model, dim=1)
-    prob_pretrained_model = t.nn.functional.softmax(output_pretrained_model, dim=1)
-
-  if t.allclose(prob_my_model, prob_pretrained_model, atol, rtol):
-    print("Models are equivalent!")
-  else:
-    print("Models produce different outputs. Check architecture implementation.")
-```
-
 ##### Classify some images and compare outputs
 
-We imported some images during the "Install dependencies" step and can use them here.
-
-
-```python
-folder_path = "test_images/"
-IMAGE_NAMES = ['golden_retriever_puppy.jpg', 'grizzly_bear.jpg', 'golden_gate_bridge.jpg', 'general_sherman_tree.jpg', 'muni_train.jpg']
-IMAGE_FILENAMES = [folder_path + image_name for image_name in IMAGE_NAMES]
-```
-
-Now we can classify some images to check our architecture implementation.
+We imported some images during the "Install dependencies" step (in the Colab notebook) and can use them here. Now we can classify some images to check our architecture implementation. Within a tolerance of `1e-5` due to different ways of chaining floating point operations, we are able to verify that the custom models produces the same predictions as the pretrained models.
 
 ###### Test ResNet34
 
@@ -818,10 +782,6 @@ ResNet = ResNetFactory(Conv2dLayer, CustomMaxPool2d, BlockGroup, AveragePool, \
 my_resnet50 = ResNet(n_blocks_per_group=[3, 4, 6, 3],
                      middle_features_per_group=[64, 128, 256, 512],
                      out_features_per_group=[256, 512, 1024, 2048])
-```
-
-
-```python
 my_resnet50 = copy_weights(my_resnet50, pretrained_resnet50)
 print_param_count(my_resnet50, pretrained_resnet50)
 ```
