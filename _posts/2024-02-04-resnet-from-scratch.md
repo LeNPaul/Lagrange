@@ -988,7 +988,7 @@ learner.fit(epochs)
 
     avg training loss:  tensor(0.9040, device='cuda:0', grad_fn=<DivBackward0>)
     avg validation loss:  tensor(1.2077, device='cuda:0')
-    ***metric:  tensor(0.7381, device='cuda:0')***
+    metric:  tensor(0.7381, device='cuda:0')
 
 
 
@@ -997,7 +997,7 @@ learner.fit(epochs)
 
     avg training loss:  tensor(0.7149, device='cuda:0', grad_fn=<DivBackward0>)
     avg validation loss:  tensor(0.4802, device='cuda:0')
-    ***metric:  tensor(0.8446, device='cuda:0')***
+    metric:  tensor(0.8446, device='cuda:0')
 
 
 
@@ -1006,7 +1006,7 @@ learner.fit(epochs)
 
     avg training loss:  tensor(0.4177, device='cuda:0', grad_fn=<DivBackward0>)
     avg validation loss:  tensor(0.3967, device='cuda:0')
-    ***metric:  tensor(0.8632, device='cuda:0')***
+    metric:  tensor(0.8632, device='cuda:0')
 
 We can see that we can achieve 86% accuracy on the validation data after 3 epochs.
 
