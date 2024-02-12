@@ -149,7 +149,7 @@ class GradientDescentOptimizer:
     # Update weights
     self.weights -= einops.rearrange(self.lr * grad, 'i j -> (i j)')
     # Keep track of weights for visualization
-    self.iterated_weights.append(weights.copy())
+    self.iterated_weights.append(self.weights.copy())
 
   def get_weights(self):
     return self.iterated_weights
