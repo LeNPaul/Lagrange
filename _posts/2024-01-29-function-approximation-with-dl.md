@@ -115,6 +115,7 @@ Lets create some reusable components for calculating loss and taking a gradient 
 The linear function $f(w)$ and its gradient function $\frac{df}{dw}$ should be familiar.
 
 The MSE loss should also be famliar. We also define a gradient for the MSE Loss with respect to the predictions.
+
 $MSE(P) = \frac{1}{N}(P - Y)^T(P - Y)$
 
 $\frac{d(MSE)}{dP} = \frac{2}{N}(P - Y)$
