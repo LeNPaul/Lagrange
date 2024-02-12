@@ -176,7 +176,8 @@ class LinearModelTrainer:
 
       # Backpropagate
       mse_grad = einops.repeat(mse_loss_grad(preds, y), 'i -> i 1')
-      grad = np.mean(mse_grad * linear_grad(X, weights), axis=0)
+      lin_grad = linear_grad(X, weights)
+      grad = mse_grad.transpose() @ lin_grad
 
       # Update weights
       self.optimizer.step(grad)
