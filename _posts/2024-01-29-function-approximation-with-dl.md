@@ -31,14 +31,6 @@ import matplotlib.pyplot as plt
 import einops
 ```
 
-    Collecting einops
-      Downloading einops-0.7.0-py3-none-any.whl (44 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m44.6/44.6 kB[0m [31m1.8 MB/s[0m eta [36m0:00:00[0m
-    [?25hInstalling collected packages: einops
-    Successfully installed einops-0.7.0
-
-
-
 ```python
 import torch
 import torch.nn as nn
@@ -122,7 +114,10 @@ Lets create some reusable components for calculating loss and taking a gradient 
 
 The linear function $f(w)$ and its gradient function $\frac{df}{dw}$ should be familiar.
 
-The MSE loss should also be famliar. We also define a gradient for the MSE Loss. Note that taking the mean is left out. Recall that the mean operation is commutative. This is intended to be applied for backpropagating a batch of values, so we must remember to apply the mean at the end of the backpropagation.
+The MSE loss should also be famliar. We also define a gradient for the MSE Loss with respect to the predictions.
+$MSE(P) = \frac{1}{N}(P - Y)^T(P - Y)$
+
+$\frac{d(MSE)}{dP} = \frac{2}{N}(P - Y)$
 
 
 ```python
@@ -139,7 +134,7 @@ def mse_loss(predictions, labels):
   return np.mean((predictions - labels)**2)
 
 def mse_loss_grad(predictions, labels):
-  return 2 * (predictions - labels) # apply the mean at the end of backpropagation
+  return 2 * (predictions - labels) / len(predictions)
 ```
 
 
@@ -152,7 +147,7 @@ class GradientDescentOptimizer:
 
   def step(self, grad):
     # Update weights
-    self.weights -= self.lr * grad
+    self.weights -= einops.rearrange(self.lr * grad, 'i j -> (i j)')
     # Keep track of weights for visualization
     self.iterated_weights.append(weights.copy())
 
