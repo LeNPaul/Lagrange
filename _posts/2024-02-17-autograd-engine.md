@@ -31,7 +31,7 @@ Lets use the following convex function as a lens through which to view the upcom
 
 $f(x,y) = 3x^2 + xy + 5y^2$
 
-## Computational Graph
+### Computational Graph
 
 We can represent a function (and its derivatives) with a computational graph of the primitive operations between function variables, like add and multiply.
 
@@ -55,7 +55,7 @@ However, in deep learning, we solve using iterative numerical methods, like grad
 
 With iterative numerical methods, there are two ways to think about traversing the computational graph for evaluating partial derivatives: forward-mode and reverse-mode differentiation.
 
-## Forward-mode differentiation
+### Forward-mode differentiation
 
 
 In an introduction to calculus class, we learn how to take the partial derivatives of a multivariable function with respect to each of its variables, applying the chain rule where necessary.
@@ -101,7 +101,7 @@ The computational graph is traversed twice from left to right: once for derivati
 
 With just two inputs, this isn't so bad. However it becomes much more computationally expensive when the number of inputs increases. The magnitude of increase in computational complexity scales with the number of paths from inputs to outputs. Reverse-mode differentiation to the rescue.
 
-## Reverse-mode differentiation
+### Reverse-mode differentiation
 
 When performing reverse-mode differentiation, we propagate (evaluated) derivatives backwards from the outputs to the inputs.
 
@@ -125,7 +125,7 @@ The decrease in number of operations compared with forward-mode differentiation 
 
 Notice only a single pass backwards is necessary to compute the gradient with respect to each node.
 
-## Batch Backpropagation
+### Batch Backpropagation
 
 Typically when training a model, we don't calculate gradients one example at a time; we use minibatches of examples. So how does updating the computational graph work when we have multiple data points per node and we need to propagate the evaluated gradients?
 
@@ -147,29 +147,29 @@ Here's $\frac{dL}{dW}$ expanded out:
  \frac{dL}{dW} = X^T \frac{dL}{dP}
  =\frac{2}{N}
  \begin{pmatrix}
-  x_1 & x_2 & \cdots & x_N  \\
-  1 & 1 & \cdots & 1\\
+  x_1 & x_2 & \cdots & x_N  \\\
+  1 & 1 & \cdots & 1\\\
  \end{pmatrix}
  \begin{pmatrix}
-  p_1 - y_1 \\
-  p_2 - y_2 \\
-  ...  \\
-  p_N - y_N \\
+  p_1 - y_1 \\\
+  p_2 - y_2 \\\
+  ...  \\\
+  p_N - y_N \\\
  \end{pmatrix}
 \end{align*}
 
 \begin{align*}
 \frac{dL}{dW} = \frac{2}{N}
  \begin{pmatrix}
-  x_1 \cdot (p_1 - y_1) + \cdots + x_N \cdot (p_N - y_N)  \\
-  (p_1 - y_1) + \cdots + (p_N - y_N) \\
+  x_1 \cdot (p_1 - y_1) + \cdots + x_N \cdot (p_N - y_N)  \\\
+  (p_1 - y_1) + \cdots + (p_N - y_N) \\\
  \end{pmatrix}
 \end{align*}
 
 
 Notice each of the two gradient values comes from the mean of earlier gradients.
 
-## Computational Graph View of an MLP
+### Computational Graph View of an MLP
 
 When we see a typical textbook version of an MLP, it is drawn pretty similarly to what we see below. We have `M` input features, two hidden layers with `J` and `K` features respectively, and an output layer with `N` features.
 
@@ -186,11 +186,11 @@ We typically think of neural nets in terms of layers - this would be a high-leve
 <img src="/assets/img/autograd-engine/computational_graph_8.png">
 
 
-## Summary
+### Summary
 
 In summary, backpropagation can be thought of as applying the chain rule backwards on a computational graph and evaluating the gradients at the current weight values. The chain rule is applied backward (reverse-mode differentiation) because for a typical neural network with more inputs than outputs, it's much more efficient to calculate the derivative of the loss with respect to every node than to calculate the derivative of every node with respect to every input (forward-mode differentiation).
 
-## Other Resources
+### Other Resources
 
 
 * For a similar popular explanation of backpropagation with computational graphs, check out [Calculus on Computational Graphs: Backpropagation](https://colah.github.io/posts/2015-08-Backprop/) by Chris Olah.
@@ -205,7 +205,7 @@ With a computational graph concept, we can manually write a forward and backward
 
 We need to add on some more ideas necessary to automate the gradient calculations with a single call to the `loss` `Tensor`.
 
-## `Tensor` objects and building a computational graph
+### Tensor objects and building a computational graph
 
 Each node of our computational graph doesn't just output an `out` array. A node can also contain
 * the `forward` function used to compute `out` based on its `inputs` arrays
@@ -219,7 +219,7 @@ We choose to construct the computational graph during the forward pass and hold 
 
 When considering a neural network layer, we can think of it as being composed of a leaf node that holds the weights and another node that applies the weights to the inputs to the layer.
 
-## Topological Ordering
+### Topological Ordering
 
 In our section on backpropagation, we heavily used the idea of a computational graph. Recall that in order to evaluate the gradient of the loss with respect to each node, we needed all preceding gradients to be calculated.
 
@@ -229,7 +229,7 @@ We need a [topological sort](https://en.wikipedia.org/wiki/Topological_sorting) 
 
 Topological sorting operates on directed acyclic graphs (DAGs) to visit each node once. A topological sort returns an ordered list of nodes to evaluate.
 
-## `backward` functions
+### "backward" functions
 
 
 
@@ -237,11 +237,11 @@ For a `forward` function, we need a corresponding `backward` function (or multip
 
 There are many ways to associate functions. PyTorch, for example, maintains a [derivatives.yaml](https://github.com/pytorch/pytorch/blob/release/1.9/tools/autograd/derivatives.yaml) file of derivatives for each `forward` function.
 
-## "No-Grad" Context Manager
+### "No-Grad" Context Manager
 
 Sometimes we don't want to build or add on to a computational graph. Examples include when weight updates are being performed after the backward pass and when evaluating validation/test data. A context manager is needed to switch between the two modalities of needing vs not needing gradients to be computed.
 
-## Other resources
+### Other resources
 
 * https://pytorch.org/blog/overview-of-pytorch-autograd-engine/
 * https://arena3-chapter0-fundamentals.streamlit.app/[0.4]_Backprop
