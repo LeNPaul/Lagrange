@@ -233,9 +233,9 @@ Sometimes we don't want to build or add on to a computational graph. Examples in
 
 ### Other resources
 
-* https://pytorch.org/blog/overview-of-pytorch-autograd-engine/
-* https://arena3-chapter0-fundamentals.streamlit.app/[0.4]_Backprop
-* https://github.com/jcjohnson/pytorch-examples
+* [Overview of PyTorch Autograd Engine](https://pytorch.org/blog/overview-of-pytorch-autograd-engine/)
+* [ARENA 3.0: Backprop(]https://arena3-chapter0-fundamentals.streamlit.app/[0.4]_Backprop)
+* [PyTorch Examples - Justin Johnson](https://github.com/jcjohnson/pytorch-examples)
 
 # A mini autograd engine and neural network library
 
