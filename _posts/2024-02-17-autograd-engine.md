@@ -62,16 +62,7 @@ In an introduction to calculus class, we learn how to take the partial derivativ
 
 For our example function, we reproduce the substitutions here for easy reference:
 
-$a=x^2$
-
-$b=xy$
-
-$c=y^2$
-
-$d=3a$
-
-$e=5c$
-
+$a=x^2$, $b=xy$, $c=y^2$, $d=3a$, $e=5c$, 
 $f = d + b + e$
 
 With forward-mode differentiation, we must calculate $\frac{df}{dx}$ and $\frac{df}{dy}$ separately.
@@ -142,8 +133,7 @@ Note: Since we care only about updating the weights, we could have specified tha
 
 Here's $\frac{dL}{dW}$ expanded out:
 
-
-\begin{align*}
+$$
  \frac{dL}{dW} = X^T \frac{dL}{dP}
  =\frac{2}{N}
  \begin{pmatrix}
@@ -156,15 +146,15 @@ Here's $\frac{dL}{dW}$ expanded out:
   ...  \\\
   p_N - y_N \\\
  \end{pmatrix}
-\end{align*}
+$$
 
-\begin{align*}
-\frac{dL}{dW} = \frac{2}{N}
+$$
+ = \frac{2}{N}
  \begin{pmatrix}
   x_1 \cdot (p_1 - y_1) + \cdots + x_N \cdot (p_N - y_N)  \\\
   (p_1 - y_1) + \cdots + (p_N - y_N) \\\
  \end{pmatrix}
-\end{align*}
+$$
 
 
 Notice each of the two gradient values comes from the mean of earlier gradients.
