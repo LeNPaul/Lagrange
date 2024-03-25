@@ -16,8 +16,7 @@ Transformer models have been massively popular in the last few years and have be
 
 The original transformer model described by Vaswani, et al employed an encoder-decoder structure, but replaced RNNs with stacked self-attention and feedforward layers in the encoder and decoder. RNNs process data sequentially, whereas transformers are able to be parallelized through their unique self-attention design.
 
-<img src="/assets/img/transformer/seq2seq.png">
-*seq2seq language translation diagram from The Illustrated Transformer*
+<img src="/assets/img/transformer/seq2seq.png"><em>seq2seq language translation diagram from The Illustrated Transformer</em>
 
 In the encoder, each position attends to all other positions in the input sequence to compute representations capturing their relationships. The decoder then attends to these encoded representations and previous output tokens to generate the output sequence one element at a time.
 
@@ -30,24 +29,24 @@ In contrast, GPT is a decoder-only model, and leverages causal/unidirectional se
 Transformer architectures have been remarkably successful and their capabilities seem to follow scaling laws as more training data, model size, and compute is applied. While initially focused on text, they are also being extended to other domains like computer vision and multimodal data.
 
 # Transformer Fundamentals
+<img src="/assets/img/transformer/attention.png"><em>Attention diagram from ARENA 3.0</em>
 
 - What is different architecturally from the Transformer, vs a normal RNN, like an LSTM? (Specifically, how are recurrence and time managed?)
 
-> RNNs recurrently use the same blocks once per token, updating a hidden state to bring in context from previous tokens. Transformers avoid the recurrence and enjoy shared context by letting each token attend to all other tokens. However, while "time" is implicit in the sequence ordering of tokens to an RNN, attention is independent of ordering. So in order to bring in the notion of "time", transformers explicitly add a position embedding to the embedding of its input. This allows transformers to process input data in parallel whereas RNNs are constrained to process serially.
+RNNs recurrently use the same blocks once per token, updating a hidden state to bring in context from previous tokens. Transformers avoid the recurrence and enjoy shared context by letting each token attend to all other tokens. However, while "time" is implicit in the sequence ordering of tokens to an RNN, attention is independent of ordering. So in order to bring in the notion of "time", transformers explicitly add a position embedding to the embedding of its input. This allows transformers to process input data in parallel whereas RNNs are constrained to process serially.
 
 - Attention is defined as, $Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt(d_k)})V$. What are the dimensions for Q, K, and V? Why do we use this setup? What other combinations could we do with (Q,K) that also output weights?
 
-<img src="/assets/img/transformer/attention.png">
 
-> The dimensions for Q and K are {batch_size, seq_len, n_heads, d_k}. The dimensions for V are {batch_size, seq_len, n_heads, d_v}. Notably, the last dimensions are $d_k$ and $d_v$ instead of $d_{model}$ so that the model can leverage multi-head attention instead of a single attention function. With multi-head attention, the model can jointly attend to different information in each head. Then the weighted sums (based on attention scores) of values are concatenated and reprojected into $d_{model}$. Other ways to combine (Q,K) mentioned in the original paper include additive attention and dot product attention (whereas the described self-attention is "scaled dot product attention." The scaling factor acts as a normalization factor for longer sequences.)
+The dimensions for Q and K are {batch_size, seq_len, n_heads, d_k}. The dimensions for V are {batch_size, seq_len, n_heads, d_v}. Notably, the last dimensions are $d_k$ and $d_v$ instead of $d_{model}$ so that the model can leverage multi-head attention instead of a single attention function. With multi-head attention, the model can jointly attend to different information in each head. Then the weighted sums (based on attention scores) of values are concatenated and reprojected into $d_{model}$. Other ways to combine (Q,K) mentioned in the original paper include additive attention and dot product attention (whereas the described self-attention is "scaled dot product attention." The scaling factor acts as a normalization factor for longer sequences.)
 
 - Are the dense layers different at each multi-head attention block? Why or why not?
 
-> Yes each block has different dense layers so that they can learn different representations and identify unique important information.
+Yes each block has different dense layers so that they can learn different representations and identify unique important information.
 
 - Why do we have so many skip connections, especially connecting the input of an attention function to the output? Intuitively, what if we didn't?
 
-> The skip connections allow for the model to have a "residual stream", going straight from the input to the output. The residual stream allows the model to only learn modifications to the input, which is easier than having to make each layer of the model learn a larger update to get from input to output.
+The skip connections allow for the model to have a "residual stream", going straight from the input to the output. The residual stream allows the model to only learn modifications to the input, which is easier than having to make each layer of the model learn a larger update to get from input to output.
 
 # Causal Self-Attention Implementation
 
@@ -55,7 +54,7 @@ In a decoder-only transformer model, causal self-attention is employed. While du
 
 Here's the implementation of the attention mechanism that can be found in the accompanying notebook.
 
-```
+```python
 class Attention(nn.Module):
   def __init__(self, cfg):
     super().__init__()
@@ -104,7 +103,8 @@ class Attention(nn.Module):
                          batch pos_Q d_model') + self.b_O
 
   def apply_causal_mask(self, attention_scores):
-    ones = torch.ones(attention_scores.shape[-2], attention_scores.shape[-1], device=attention_scores.device)
+    ones = torch.ones(attention_scores.shape[-2], attention_scores.shape[-1],
+		      device=attention_scores.device)
     mask = torch.triu(ones, diagonal=1).bool()
 
     return attention_scores.masked_fill_(mask, self.IGNORE)
@@ -199,9 +199,9 @@ I'm curious about transformer internals and being able to identify interpretable
 
 Andrej Karpathy also gives some intuition about the purpose of various architectural details in his youtube walkthrough ["Let's build GPT: from scratch, in code, spelled out"](https://youtu.be/kCc8FmEb1nY?si=R69O7ePGfoMg3pmc).
 
+On attention as a generalized convolution from ARENA 3.0:
+> "We can think of attention as a kind of generalized convolution. Standard convolution layers work by imposing a "prior of locality", i.e. the assumption that pixels which are close together are more likely to share information. Although language has some locality (two words next to each other are more likely to share information than two words 100 tokens apart), the picture is a lot more nuanced, because which tokens are relevant to which others depends on the context of the sentence. For instance, in the sentence "When Mary and John went to the store, John gave a drink to Mary", the names in this sentence are the most important tokens for predicting that the final token will be "Mary", and this is because of the particular context of this sentence rather than the tokens' position. Attention layers are effectively our way of saying to the transformer, "don't impose a prior of locality, but instead develop your own algorithm to figure out which tokens are important to which other tokens in any given sequence." 
 
->>> "We can think of attention as a kind of generalized convolution. Standard convolution layers work by imposing a "prior of locality", i.e. the assumption that pixels which are close together are more likely to share information. Although language has some locality (two words next to each other are more likely to share information than two words 100 tokens apart), the picture is a lot more nuanced, because which tokens are relevant to which others depends on the context of the sentence. For instance, in the sentence "When Mary and John went to the store, John gave a drink to Mary", the names in this sentence are the most important tokens for predicting that the final token will be "Mary", and this is because of the particular context of this sentence rather than the tokens' position. Attention layers are effectively our way of saying to the transformer, "don't impose a prior of locality, but instead develop your own algorithm to figure out which tokens are important to which other tokens in any given sequence." 
-- ARENA 3.0
 
 # Counting parameters in a transformer
 For a guide on calculating the number of parameters in a model, check out
@@ -230,8 +230,6 @@ Here's some resources on how to reduce memory usage during inference by caching 
 - [Let's build GPT: from scratch, in code, spelled out](https://youtu.be/kCc8FmEb1nY?si=R69O7ePGfoMg3pmc)
 - [nanoGPT](https://github.com/karpathy/nanogpt)
 - [picoGPT](https://github.com/jaymody/picoGPT)
-
-  The quadratic complexity issue of attention: multiplying the Q matrix with the K matrix.
 
 
 # Further exercises
