@@ -1,19 +1,11 @@
 ---
 layout: page
-title: Hello
+title: Personal Background
 permalink: /about
 ---
 
-I am a Senior at Columbia studying Mathematics and Computer Science. 
+I am a Senior at Columbia studying Mathematics and Computer Science. I was born in South Korea and moved to the US when I was 6. I grew up in Maine and moved to New York for undergrad. My hobbies including running, hiking, skiing, cooking, and watching sports. If you are interested in discussing sports with me, please email me at hy2774@columbia.edu. 
 
-### Getting Started
+### Academic Interests
 
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
-
-### Example Content
-
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
-
-### Questions?
-
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+My initial academic background is in pure mathematics. In particular, I am interested in analysis, differential equations, and probability theory. I am interested in Markov Chains and Random Walks. Outside of mathematics, I am also interested in theoretical computer science and machine learning. In particular, I am interested in algorithms, manifold learning, and dimension reduction. 
