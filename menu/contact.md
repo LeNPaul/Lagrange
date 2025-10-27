@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Writing
-permalink: /writing
+title: Contact Me
+permalink: /contact
 ---
 Email: hy2774@columbia.edu
 
