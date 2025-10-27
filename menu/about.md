@@ -76,7 +76,7 @@ Intro to East Asian Civilization: Korea - Columbia College Core Requirement
 
 Machine Learning
 
-Advanced Algorithms
+[Advanced Algorithms](https://www.cs.columbia.edu/~andoni/advancedS21/index.html)
 
 Intro Modern Analysis II
 
