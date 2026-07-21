@@ -1,7 +1,10 @@
 ---
 layout: page
-title: Contact
+title: Contact Me
 permalink: /contact
 ---
+Email: hy2774@columbia.edu
 
-If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=%40paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new)
+Personal Email: yooandrew2004@gmail.com
+
+Mail: 70 Morningside Dr hy2774 New York, NY 10027
